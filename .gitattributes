@@ -1,0 +1,4 @@
+*.mxmodule filter=lfs diff=lfs merge=lfs -text
+
+* -text
+*.mxmodule filter=lfs diff=lfs merge=lfs -text

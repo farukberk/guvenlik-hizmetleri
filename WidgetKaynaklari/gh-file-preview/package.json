@@ -1,0 +1,23 @@
+{
+  "name": "ghfilepreview",
+  "widgetName": "GhFilePreview",
+  "version": "1.0.0",
+  "description": "Güvenlik Hizmetleri: PDF ve görselleri sayfa içinde ve uygulama içi tam ekranda gösterir",
+  "license": "MIT",
+  "packagePath": "halkbank",
+  "config": {
+    "projectPath": "../../../",
+    "mendixHost": "http://localhost:8080",
+    "developmentPort": 3000
+  },
+  "scripts": {
+    "build": "pluggable-widgets-tools build:web",
+    "release": "pluggable-widgets-tools release:web"
+  },
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "11.15.0"
+  },
+  "dependencies": {
+    "big.js": "^6.2.2"
+  }
+}

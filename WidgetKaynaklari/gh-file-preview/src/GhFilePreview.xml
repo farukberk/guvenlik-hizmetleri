@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="halkbank.ghfilepreview.GhFilePreview" pluginWidget="true" needsEntityContext="true" offlineCapable="false"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>GH Dosya Önizleme</name>
+    <description>PDF ve görselleri sayfa içinde ve uygulama içi tam ekranda gösterir; birden çok dosyada sıralı gezinme.</description>
+    <properties>
+        <propertyGroup caption="Genel">
+            <propertyGroup caption="Veri">
+                <property key="files" type="datasource" isList="true" required="true">
+                    <caption>Dosyalar</caption>
+                    <description>System.FileDocument (veya alt türü) listesi; sıra gezinme sırasıdır.</description>
+                </property>
+                <property key="nameAttr" type="attribute" dataSource="files" required="true">
+                    <caption>Dosya adı</caption>
+                    <description>Tür tespiti ve indirme adı için (System.FileDocument.Name).</description>
+                    <attributeTypes>
+                        <attributeType name="String"/>
+                    </attributeTypes>
+                </property>
+                <property key="caption" type="expression" dataSource="files" required="false">
+                    <caption>Başlık</caption>
+                    <description>Boşsa dosya adı gösterilir.</description>
+                    <returnType type="String"/>
+                </property>
+                <property key="subCaption" type="expression" dataSource="files" required="false">
+                    <caption>Alt başlık</caption>
+                    <description/>
+                    <returnType type="String"/>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Görünüm">
+                <property key="display" type="enumeration" defaultValue="inline">
+                    <caption>Gösterim</caption>
+                    <description/>
+                    <enumerationValues>
+                        <enumerationValue key="inline">Sayfa içinde</enumerationValue>
+                        <enumerationValue key="overlay">Yalnız tam ekran</enumerationValue>
+                        <enumerationValue key="button">Yalnız toplu indirme düğmesi</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="height" type="string" defaultValue="420px" required="false">
+                    <caption>Yükseklik</caption>
+                    <description>Sayfa içi önizleme alanının yüksekliği.</description>
+                </property>
+                <property key="openIndex" type="attribute" required="false">
+                    <caption>Açık sıra</caption>
+                    <description>1'den başlayan sıra: değer verilince tam ekran o dosyada açılır; kapanınca 0 yazılır.</description>
+                    <attributeTypes>
+                        <attributeType name="Integer"/>
+                    </attributeTypes>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Toplu indirme">
+                <property key="zipName" type="expression" required="false">
+                    <caption>ZIP adı</caption>
+                    <description>Uzantısız; boşsa "dosyalar".</description>
+                    <returnType type="String"/>
+                </property>
+                <property key="bulkLabel" type="string" defaultValue="Tümünü indir" required="false">
+                    <caption>Düğme metni</caption>
+                    <description/>
+                </property>
+                <property key="onBulkDownload" type="action" required="false">
+                    <caption>Toplu indirilince</caption>
+                    <description>ZIP oluşturulduktan sonra bir kez (loglama).</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Eylemler">
+                <property key="onView" type="action" dataSource="files" required="false">
+                    <caption>Görüntülenince</caption>
+                    <description>Her dosya ilk kez gösterildiğinde (loglama).</description>
+                </property>
+                <property key="onDownload" type="action" dataSource="files" required="false">
+                    <caption>İndir</caption>
+                    <description>Boşsa dosya tarayıcıda doğrudan indirilir.</description>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+    </properties>
+</widget>
