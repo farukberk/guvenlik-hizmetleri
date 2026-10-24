@@ -95,7 +95,7 @@ export function GhFilePreview(props: GhFilePreviewContainerProps): ReactElement 
     const baslik = item ? (caption && caption.get(item).value) || ad || "Dosya" : "";
     const altBaslik = item && subCaption ? subCaption.get(item).value || "" : "";
     const kayit = item ? kayitlar[item.id] : undefined;
-    const gorunur = display === "inline" || tamEkran;
+    const gorunur = display === "inline" || display === "thumb" || tamEkran;
 
     // İçerik her dosya için bir kez çekilir; önizleme ve toplu indirme aynı isteği paylaşır
     const getir = useCallback((it: ObjectItem): Promise<Yuklenen> => {
@@ -149,6 +149,25 @@ export function GhFilePreview(props: GhFilePreviewContainerProps): ReactElement 
     }, [item && item.id, kayit && kayit.durum]); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => () => adresler.current.forEach(u => URL.revokeObjectURL(u)), []);
+
+    // Küçük görsel modu: aynı veri görünümündeki dosya seçimini dinle (yerel önizleme)
+    const kok = useRef<HTMLDivElement>(null);
+    const [yerel, setYerel] = useState("");
+    useEffect(() => {
+        if (display !== "thumb") return;
+        const dinle = (e: Event): void => {
+            const inp = e.target as HTMLInputElement | null;
+            const alan = kok.current && kok.current.closest(".mx-dataview");
+            if (!inp || inp.type !== "file" || !alan || !alan.contains(inp)) return;
+            const dosya = inp.files && inp.files[0];
+            if (!dosya || !/^image\//.test(dosya.type)) return;
+            const url = URL.createObjectURL(dosya);
+            adresler.current.push(url);
+            setYerel(url);
+        };
+        document.addEventListener("change", dinle, true);
+        return () => document.removeEventListener("change", dinle, true);
+    }, [display]);
 
     const git = useCallback((d: number) => {
         if (n < 2) return;
@@ -297,6 +316,16 @@ export function GhFilePreview(props: GhFilePreviewContainerProps): ReactElement 
     const tost = bildirim ? createPortal(<div className="gh-fp-toast" role="status">{bildirim}</div>, document.body) : null;
 
     if (display === "overlay") return <div className={"gh-fp gh-fp-hidden " + (props.class || "")}>{katman}{tost}</div>;
+    // Yükleme alanı içinde yalnız görsel: başlık / düğme / mesaj yok; içerik yoksa ya da görsel değilse hiçbir şey çizilmez.
+    // Aynı veri görünümündeki dosya alanında yeni görsel seçilince (kaydetmeden önce) o görsel gösterilir.
+    if (display === "thumb") {
+        const gorsel = yerel || (kayit && kayit.durum === "hazir" && kayit.tur === "gorsel" ? kayit.url : "");
+        return (
+            <div ref={kok} className={"gh-fp-thumb " + (gorsel ? "is-dolu " : "") + (props.class || "")} style={props.style} aria-hidden={gorsel ? undefined : true}>
+                {gorsel ? <img className="gh-fp-thumb-img" src={gorsel} alt={baslik} /> : null}
+            </div>
+        );
+    }
     if (display === "button")
         return (
             <div className={"gh-fp-bulkwrap " + (props.class || "")} style={props.style}>

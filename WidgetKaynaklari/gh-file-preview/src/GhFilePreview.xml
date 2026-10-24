@@ -38,6 +38,7 @@
                         <enumerationValue key="inline">Sayfa içinde</enumerationValue>
                         <enumerationValue key="overlay">Yalnız tam ekran</enumerationValue>
                         <enumerationValue key="button">Yalnız toplu indirme düğmesi</enumerationValue>
+                        <enumerationValue key="thumb">Yalnız görsel (yükleme alanı içinde)</enumerationValue>
                     </enumerationValues>
                 </property>
                 <property key="height" type="string" defaultValue="420px" required="false">

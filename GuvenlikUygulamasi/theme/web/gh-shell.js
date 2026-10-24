@@ -134,14 +134,17 @@
         if (!w.querySelector(".gh-nav-collapse")) {
             var b = el("button", "gh-nav-collapse");
             b.type = "button";
-            b.addEventListener("click", function () {
-                var mini = !document.documentElement.classList.contains("gh-nav-mini");
-                document.documentElement.classList.toggle("gh-nav-mini", mini);
-                depo("gh-nav-mini", mini ? "1" : "0");
-                etiket(b);
-            });
+            b.addEventListener("click", menuDaraltDegistir);
             w.appendChild(b);
-            etiket(b);
+            etiketler();
+        }
+        // Kenar çubuğu başlığının sağ kenarında yalnız simgeli daralt / genişlet tutamağı (alttaki düğmeyle aynı ayar)
+        if (!document.querySelector(".gh-nav-handle")) {
+            var t = el("button", "gh-nav-handle");
+            t.type = "button";
+            t.addEventListener("click", menuDaraltDegistir);
+            document.body.appendChild(t);
+            etiketler();
         }
         // Daraltılmış menüde adlar ipucu olarak görünsün
         w.querySelectorAll(".mx-navigationtree a").forEach(function (a) {
@@ -167,10 +170,25 @@
             rozet("mx-name-navigationTree3-4", bilgi.talep);
         }
     }
-    function etiket(b) {
-        var mini = document.documentElement.classList.contains("gh-nav-mini");
-        b.textContent = mini ? "Menüyü genişlet" : "Menüyü daralt";
-        b.title = b.textContent;
+    function menuDaraltDegistir() {
+        var mini = !document.documentElement.classList.contains("gh-nav-mini");
+        document.documentElement.classList.toggle("gh-nav-mini", mini);
+        depo("gh-nav-mini", mini ? "1" : "0");
+        etiketler();
+    }
+    function etiketler() {
+        var metin = document.documentElement.classList.contains("gh-nav-mini") ? "Menüyü genişlet" : "Menüyü daralt";
+        var alt = document.querySelector(".gh-nav-collapse");
+        if (alt) {
+            alt.textContent = metin;
+            alt.title = metin;
+        }
+        var ust = document.querySelector(".gh-nav-handle");
+        if (ust) {
+            ust.title = metin;
+            ust.setAttribute("aria-label", metin);
+            ust.setAttribute("aria-pressed", document.documentElement.classList.contains("gh-nav-mini") ? "true" : "false");
+        }
     }
 
     function yenile(zorla) {

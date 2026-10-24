@@ -8034,19 +8034,19 @@ body {
     }
 }
 .mx-name-dgPersonelKayit .widget-datagrid-grid {
-    grid-template-columns: 84px minmax(130px, 1.3fr) minmax(120px, 1.1fr) minmax(120px, 1.1fr) 120px 100px minmax(140px, 1.2fr) !important;
+    grid-template-columns: 84px minmax(130px, 1.3fr) minmax(120px, 1.1fr) minmax(120px, 1.1fr) 150px 110px minmax(140px, 1.2fr) !important;
 }
 @container (max-width: 960px) {
     .mx-name-dgPersonelKayit .widget-datagrid-grid {
-        grid-template-columns: 84px minmax(120px, 1.3fr) minmax(110px, 1fr) 120px minmax(130px, 1.2fr) !important;
+        grid-template-columns: 84px minmax(120px, 1.3fr) minmax(110px, 1fr) 150px minmax(130px, 1.2fr) !important;
     }
     @include gh-hide-cols(".mx-name-dgPersonelKayit", 3, 6);
 }
 @container (max-width: 600px) {
     .mx-name-dgPersonelKayit .widget-datagrid-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 110px !important;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 140px !important;
     }
-    @include gh-hide-cols(".mx-name-dgPersonelKayit", 1, 7);
+    @include gh-hide-cols(".mx-name-dgPersonelKayit", 1, 3, 6, 7);
 }
 .btn.gh-btn-excel::before {
     @include ph("\eb6c");
@@ -10209,4 +10209,355 @@ html[data-theme="dark"] .gh-evrak-box .gh-evrak-grid ul {
             font-size: 16px;
         }
     }
+}
+
+// P26 · Menü daraltma tutamağı: kenar çubuğu başlığının sağ kenarında, kenara oturan yuvarlak düğme (gh-shell.js .gh-nav-handle)
+// Simge yön değiştirir: genişken sola (daralt), daraltılmışken sağa (genişlet); dikey ortası marka bloğuyla aynı (34px)
+.gh-nav-handle {
+    position: fixed;
+    top: 23px;
+    left: calc(var(--gh-sidebar-w) - 11px);
+    z-index: 1100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: 1px solid var(--color-divider);
+    border-radius: 50%;
+    background: var(--color-surface);
+    color: var(--color-accent);
+    box-shadow: 0 2px 6px rgba(8, 14, 26, 0.18);
+    cursor: pointer;
+    transition: left 0.18s ease, background-color 0.12s ease, color 0.12s ease;
+    &::before {
+        @include ph("\e138");
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1;
+    }
+    &[aria-pressed="true"]::before {
+        content: "\e13a";
+    }
+    &:hover,
+    &:focus-visible {
+        background: var(--color-accent);
+        border-color: var(--color-accent);
+        color: #fff;
+    }
+    @media (max-width: 991px) {
+        display: none;
+    }
+}
+// Daraltılmış menü: simge bağlantının tam ortasında (gizli metnin boşluğu ve iç dolgu sıfır)
+@media (min-width: 992px) {
+    html.gh-nav-mini .layout-atlas .region-sidebar .mx-navigationtree li a,
+    html.gh-nav-mini .layout-atlas .region-sidebar .mx-navigationtree .navbar-inner > ul > li > ul > li > a {
+        justify-content: center !important;
+        gap: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-indent: 0 !important;
+        &::before {
+            margin: 0 !important;
+        }
+    }
+    html.gh-nav-mini .layout-atlas .region-sidebar .mx-navigationtree .navbar-inner > ul > li > ul {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+    html.gh-nav-mini .layout-atlas .region-sidebar .gh-nav-collapse {
+        gap: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+// P26 · Kıyafet / teçhizat simgeleri (theme/web/gh-mz.js data-mz yazar). Phosphor'da olanlar yazı tipinden,
+// olmayanlar aynı çizgi kalınlığında SVG maske olarak; renk currentColor (karanlık modda kendiliğinden döner).
+$gh-mz-ph: (
+    gomlek: "\ea92", tisort: "\e670", pantolon: "\ec88", kazak: "\ecd0", ayakkabi: "\ecca", kep: "\ea28",
+    kask: "\ed46", kemer: "\ea2c", fener: "\e246", biber: "\e7e4", kamera: "\e4da", durbun: "\ea64", ilkyardim: "\e570",
+    kimlik: "\e6f6", dedektor: "\ebb6", yangin: "\e9e8", megafon: "\e324", eldiven: "\e57e", gozluk: "\ecb4", kulaklik: "\e584",
+    canta: "\e922", corap: "\ecce", semsiye: "\e684", anahtar: "\e2d6", pil: "\e0c0", saat: "\e4e6", koni: "\e9a8", alet: "\eca0",
+    // tanınmayan ad: kıyafet bağlamında askı, diğer her yerde ortak teçhizat simgesi (alet çantası)
+    kiyafet: "\e7fe", diger: "\eca0",
+);
+$gh-mz-svg-bas: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'>";
+$gh-mz-svg: (
+    // dolgulu mont: fermuar + dikiş bantları
+    mont: "<path d='M9 3 4.2 5.8 3 13h3v8h12v-8h3l-1.2-7.2L15 3l-3 2.8L9 3Z'/><path d='M12 5.8V21M6 9.6h12M6 14.2h12M6 18h12'/>",
+    // uzun kaban: yaka + düğmeler
+    kaban: "<path d='M9 2.5 4.6 5.4 3.6 14h3v8h10.8v-8h3l-1-8.6L15 2.5'/><path d='M9 2.5 12 9l3-6.5M12 9v13'/><circle cx='13.7' cy='12.5' r='.5'/><circle cx='13.7' cy='16' r='.5'/><path d='M6.6 14.5h3.6'/>",
+    // takım elbise: ceket yakası + kravat
+    takim: "<path d='M8.5 3 4 5.6V20a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5.6L15.5 3'/><path d='M8.5 3 12 12l3.5-9'/><path d='m12 4.6 1.1 1.5-1.1 5-1.1-5Z'/><path d='M7.2 14.5h2.6'/>",
+    // üniforma: apoletli gömlek + yıldız rozet
+    uniforma: "<path d='M8 3 3.5 5.8 5 10.4l2-.7V21h10V9.7l2 .7 1.5-4.6L16 3a4 4 0 0 1-8 0Z'/><path d='M4.4 7.2 7.6 5.6M19.6 7.2l-3.2-1.6'/><path d='m15 12 .6 1.2 1.3.2-.95.9.22 1.3-1.17-.62-1.17.62.22-1.3-.95-.9 1.3-.2Z'/>",
+    // çelik yelek: kolsuz gövde + zırh plakaları
+    yelek: "<path d='M8 3 5 5.4V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5.4L16 3l-1.4 3.2a2.8 2.8 0 0 1-5.2 0Z'/><path d='M8 11.5h8M8 15h8M8 18.5h8'/>",
+    // jop (tonfa): gövde + yan sap
+    jop: "<g transform='rotate(38 12 12)'><rect x='10.6' y='1.8' width='2.8' height='20.4' rx='1.4'/><path d='M13.4 7.6h3.1a1 1 0 0 1 1 1v.9a1 1 0 0 1-1 1h-3.1M10.6 17.2h2.8M10.6 19.4h2.8'/></g>",
+    // kelepçe: iki halka + zincir
+    kelepce: "<circle cx='6.8' cy='15.2' r='4'/><circle cx='17.2' cy='15.2' r='4'/><path d='M6.8 11.2V9.4M17.2 11.2V9.4'/><rect x='5.2' y='6.6' width='3.2' height='2.8' rx='.8'/><rect x='15.6' y='6.6' width='3.2' height='2.8' rx='.8'/><path d='M8.4 8h1.6M14 8h1.6'/><circle cx='12' cy='8' r='1.1'/>",
+    // el telsizi: gövde + anten + hoparlör
+    telsiz: "<rect x='7' y='7' width='10' height='14.5' rx='2'/><path d='M14.2 7V2.5M9.6 10.4h4.8M9.6 12.8h4.8'/><circle cx='12' cy='17.3' r='1.3'/>",
+    // palaska: kemer + tokalık + cepler
+    palaska: "<rect x='2.5' y='8.8' width='19' height='4' rx='1'/><rect x='10' y='7.8' width='4' height='6' rx='.8'/><path d='M4.6 12.8v4.4a1 1 0 0 0 1 1h2.2a1 1 0 0 0 1-1v-4.4M15.4 12.8v3.6a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3.6'/>",
+    // düdük: gövde + ağız + halka
+    duduk: "<path d='M3 10.5h10a4.6 4.6 0 1 1-4.4 6H6a3 3 0 0 1-3-3Z'/><path d='M13 10.5V7.6h3.4M18.4 8.4 20 6.8'/><circle cx='13.4' cy='15.2' r='1.5'/>",
+    // atkı: boyun sargısı + sarkan uç
+    atki: "<rect x='4.5' y='4' width='15' height='5.5' rx='2.5'/><path d='M13.5 9.5V20l2.75-1.6L19 20V9.5M13.5 13.2H19M13.5 16.4H19'/>",
+    // kravat: düğüm + gövde
+    kravat: "<path d='M10 3h4l-.8 3h-2.4Z'/><path d='m10.8 6-2.1 10.6L12 21l3.3-4.4L13.2 6'/>",
+    // silah / kılıf: tabanca silueti
+    silah: "<path d='M3 7.5h17a1 1 0 0 1 1 1V10a1 1 0 0 1-1 1h-8.2l-.8 2.2a1.5 1.5 0 0 1-1.4 1H9.5l-1 5.2a1 1 0 0 1-1 .8H5a1 1 0 0 1-1-1.2l1.3-6L3 11Z'/><path d='M18.5 7.5V6M9.5 14.2 10 11'/>",
+);
+// Ortak kutu: yazı tipi simgesi de SVG maske de aynı 1em kare kutuda (simgenin kendi boyutu 1.2 × metin)
+[data-mz]::before {
+    flex: none;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.4em;
+    vertical-align: -0.16em;
+    font-family: "Phosphor";
+    font-size: 1.2em;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    text-align: center;
+    color: var(--color-accent);
+}
+@each $ad, $kod in $gh-mz-ph {
+    [data-mz="#{$ad}"]::before {
+        content: $kod;
+    }
+}
+@each $ad, $govde in $gh-mz-svg {
+    [data-mz="#{$ad}"]::before {
+        content: "";
+        background-color: currentColor;
+        -webkit-mask: url("data:image/svg+xml;utf8,#{$gh-mz-svg-bas}#{$govde}</svg>") center / contain no-repeat;
+        mask: url("data:image/svg+xml;utf8,#{$gh-mz-svg-bas}#{$govde}</svg>") center / contain no-repeat;
+    }
+}
+// Katalog kartında: ad solunda 32px renkli kutu içinde büyük simge
+.gh-cat-card .gh-cat-name[data-mz] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+    padding-left: 42px;
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 32px;
+        height: 32px;
+        margin: 0;
+        transform: translateY(-50%);
+        border-radius: 8px;
+        font-size: 20px;
+        line-height: 32px;
+        color: var(--color-accent);
+        background-color: var(--color-accent-900);
+    }
+}
+// SVG simgeler kutuda: ::before yalnız zemin kutusu, simge ::after ile kutunun ortasına maske olarak çizilir
+@each $ad, $govde in $gh-mz-svg {
+    .gh-cat-card .gh-cat-name[data-mz="#{$ad}"] {
+        &::before {
+            -webkit-mask: none;
+            mask: none;
+            background-color: var(--color-accent-900);
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            transform: translateY(-50%);
+            background-color: var(--color-accent);
+            -webkit-mask: url("data:image/svg+xml;utf8,#{$gh-mz-svg-bas}#{$govde}</svg>") center / contain no-repeat;
+            mask: url("data:image/svg+xml;utf8,#{$gh-mz-svg-bas}#{$govde}</svg>") center / contain no-repeat;
+        }
+    }
+}
+// Satırdaki sabit simge kutuları tür simgesini alır. gh-pl-icon / gh-item-icon yalın simge (kutu yazı boyutu 0 → piksel boyut);
+// gh-req-icon 36px renkli kutu: kutu ::before'da kalır, SVG simgeler ::after ile kutunun ortasına çizilir
+html :is(.gh-pl-icon, .gh-item-icon)[data-mz]::before {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    font-size: 18px;
+    vertical-align: middle;
+    color: var(--color-accent);
+}
+html .gh-req-icon[data-mz] {
+    position: relative;
+    display: inline-flex;
+    &::before {
+        margin: 0;
+        vertical-align: middle;
+    }
+}
+@each $ad, $kod in $gh-mz-ph {
+    html :is(.gh-pl-icon, .gh-item-icon, .gh-req-icon)[data-mz="#{$ad}"]::before {
+        content: $kod;
+    }
+}
+@each $ad, $govde in $gh-mz-svg {
+    html :is(.gh-pl-icon, .gh-item-icon)[data-mz="#{$ad}"]::before {
+        content: "";
+        background-color: currentColor;
+        -webkit-mask: url("data:image/svg+xml;utf8,#{$gh-mz-svg-bas}#{$govde}</svg>") center / contain no-repeat;
+        mask: url("data:image/svg+xml;utf8,#{$gh-mz-svg-bas}#{$govde}</svg>") center / contain no-repeat;
+    }
+    html .gh-req-icon[data-mz="#{$ad}"] {
+        &::before {
+            content: "";
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            left: 9px;
+            top: 9px;
+            width: 18px;
+            height: 18px;
+            background-color: var(--color-accent);
+            -webkit-mask: url("data:image/svg+xml;utf8,#{$gh-mz-svg-bas}#{$govde}</svg>") center / contain no-repeat;
+            mask: url("data:image/svg+xml;utf8,#{$gh-mz-svg-bas}#{$govde}</svg>") center / contain no-repeat;
+        }
+    }
+}
+// Güncel beden seçimi: kutu hücreyi doldurur, değer kesilmez
+.mx-name-dgPersonelKayit .gh-beden-sec {
+    width: 100%;
+    min-width: 0;
+    .widget-combobox-input-container {
+        min-width: 0;
+    }
+    .widget-combobox-input {
+        min-width: 4ch;
+        text-overflow: clip;
+    }
+}
+
+// P26 · Durum filtre düğmeleri: üzerine gelme / seçili durumu noktanın rengiyle (Tümü mavi, Kritik kırmızı, Yaklaşıyor turuncu, Güvenli yeşil)
+.gh-stbtn {
+    --gh-stbtn-renk: var(--color-accent);
+    --gh-stbtn-yazi: var(--color-accent);
+    transition: border-color 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+    &.gh-dot-crit {
+        --gh-stbtn-renk: var(--gh-crit-dot);
+        --gh-stbtn-yazi: var(--gh-crit-fg);
+    }
+    &.gh-dot-warn {
+        --gh-stbtn-renk: var(--gh-warn-dot);
+        --gh-stbtn-yazi: var(--gh-warn-fg);
+    }
+    &.gh-dot-ok {
+        --gh-stbtn-renk: var(--gh-ok-dot);
+        --gh-stbtn-yazi: var(--gh-ok-fg);
+    }
+    &:hover {
+        border-color: var(--gh-stbtn-renk);
+        background: color-mix(in srgb, var(--gh-stbtn-renk) 8%, transparent);
+        color: var(--gh-stbtn-yazi);
+    }
+    &.is-active {
+        border-color: var(--gh-stbtn-renk);
+        background: color-mix(in srgb, var(--gh-stbtn-renk) 12%, transparent);
+        color: var(--gh-stbtn-yazi);
+        font-weight: 500;
+    }
+}
+// Alarm durumu "Açık": önem renklerinden ayrı, mavi bilgi tonu + nokta ("Kapandı" yeşil kalır)
+.gh-st.gh-st-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+    color: var(--color-accent);
+    font-weight: 500;
+    &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentColor;
+    }
+}
+// Güncel beden: hücre içi dikey ve ortalı esnek düzen; görünürlük kapsayıcısı tam genişlik alır (kutu hücreyi doldurur)
+.mx-name-dgPersonelKayit .td-custom-content > div:has(> .gh-beden-sec) {
+    align-self: stretch;
+    width: 100%;
+    min-width: 0;
+}
+
+// P27 · Beden rehberi: yüklü (ya da yeni seçilen) görsel yükleme alanının içinde görünür; alana tıklamak görseli değiştirir
+.gh-rehber-dv > .mx-dataview-content {
+    position: relative;
+}
+.gh-fp-thumb.gh-rehber-thumb {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    pointer-events: none;
+    &:not(.is-dolu) {
+        display: none;
+    }
+    .gh-fp-thumb-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 6px;
+        box-shadow: var(--shadow-sm);
+    }
+}
+.gh-rehber-dv:has(.gh-fp-thumb.is-dolu) .gh-rehber-upload .mx-compound-control {
+    min-height: 240px;
+    border-style: solid;
+    border-color: var(--color-divider);
+    &::before {
+        visibility: hidden;
+    }
+    > input.form-control {
+        visibility: hidden;
+    }
+    // üzerine gelince değiştirme ipucu
+    &::after {
+        content: "Görseli değiştirmek için tıklayın";
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        z-index: 2;
+        transform: translateX(-50%);
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        white-space: nowrap;
+        color: var(--color-surface);
+        background: var(--color-text);
+        opacity: 0;
+        transition: opacity 0.12s ease;
+        pointer-events: none;
+    }
+    &:hover {
+        border-color: var(--color-accent);
+        &::after {
+            opacity: 0.92;
+        }
+    }
+}
+// Yeni görsel seçilince (kaydetmeden önce) "Henüz görsel yüklenmedi." yazısı gizlenir
+.gh-option-box:has(.gh-fp-thumb.gh-rehber-thumb.is-dolu) > .gh-cell-muted {
+    display: none;
 }

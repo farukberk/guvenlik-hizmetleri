@@ -24,10 +24,19 @@
         var c = e ? getComputedStyle(e).backgroundColor : "";
         return c && c !== "rgba(0, 0, 0, 0)" ? c : "";
     }
-    // Yuvarlı yüzdeden adet: n < 20 iken hata yarımdan küçük
-    function dilimMetni(n, yuzde) {
-        if (n > 0 && n < 20) return String(Math.round((n * yuzde) / 100));
-        return "%" + yuzde;
+    // Dilim yükseklik sınıfları (gh-sg-*, gh-ah-*) sütun içi pay ya da grafiğin en büyük sütununa göre ölçekli olabilir:
+    // her dilim sütundaki dilimlerin toplamına oranlanır. Toplam 20'nin altındayken adet "en büyük kalan" ile yuvarlanır
+    // (adetlerin toplamı sütun sayısına eşit kalır), değilse sütun içi yüzde gösterilir.
+    function dilimDegerleri(n, paylar) {
+        var top = paylar.reduce(function (t, p) { return t + p; }, 0);
+        if (!top) return paylar.map(function () { return "0"; });
+        if (!(n > 0 && n < 20)) return paylar.map(function (p) { return "%" + Math.round((p * 100) / top); });
+        var ham = paylar.map(function (p) { return (n * p) / top; });
+        var adet = ham.map(Math.floor);
+        var kalan = n - adet.reduce(function (t, a) { return t + a; }, 0);
+        ham.map(function (h, i) { return { i: i, k: h - adet[i] }; }).sort(function (a, b) { return b.k - a.k; })
+            .slice(0, kalan).forEach(function (x) { adet[x.i]++; });
+        return adet.map(String);
     }
     // Liste içindeki sıra → ay / yıl (son sütun = bitiş ayı)
     function ayBul(sutun, liste, bitis) {
@@ -70,12 +79,12 @@
         var liste = col.closest(".gh-tb-list");
         var ay = liste ? ayBul(col, liste, bitisAyi(document.querySelector(".region-content .gh-dbar-range"))) : null;
         var adlar = { "gh-seg-ok": "Olumlu", "gh-seg-miss": "Eksiklik tespit edildi", "gh-seg-rep": "Rapor bekleniyor" };
-        var satirlar = [];
-        ["gh-seg-ok", "gh-seg-miss", "gh-seg-rep"].forEach(function (k) {
+        var dilim = ["gh-seg-ok", "gh-seg-miss", "gh-seg-rep"].map(function (k) {
             var s = col.querySelector("." + k);
-            var yz = sinifSayi(s, "gh-sg-");
-            if (s && yz > 0) satirlar.push({ ad: adlar[k], deger: dilimMetni(n, yz), renk: renk(s), vurgu: hedef && hedef.closest("." + k) === s });
-        });
+            return { ad: adlar[k], s: s, pay: sinifSayi(s, "gh-sg-"), vurgu: !!(s && hedef && hedef.closest("." + k) === s) };
+        }).filter(function (d) { return d.s && d.pay > 0; });
+        var degerler = dilimDegerleri(n, dilim.map(function (d) { return d.pay; }));
+        var satirlar = dilim.map(function (d, i) { return { ad: d.ad, deger: degerler[i], renk: renk(d.s), vurgu: d.vurgu }; });
         return { baslik: ay || yazi(col.querySelector(".gh-tb-label")), alt: n ? n + " denetim" : "Denetim yok", satirlar: satirlar, not: kartBasligi(col) };
     }
     function alarmSutun(col, hedef) {
@@ -85,12 +94,12 @@
             var d = kart && kart.querySelector(".gh-as-lg-" + k);
             return d ? yazi(d.parentElement) || yedek : yedek;
         };
-        var satirlar = [];
-        [["k", "Kritik / geçmiş"], ["y", "Yaklaşıyor"]].forEach(function (p) {
+        var dilim = [["k", "Kritik / geçmiş"], ["y", "Yaklaşıyor"]].map(function (p) {
             var s = col.querySelector(".gh-as-seg-" + p[0]);
-            var yz = sinifSayi(s, "gh-ah-");
-            if (s && yz > 0) satirlar.push({ ad: ad(p[0], p[1]), deger: dilimMetni(n, yz), renk: renk(s), vurgu: hedef === s });
-        });
+            return { ad: ad(p[0], p[1]), s: s, pay: sinifSayi(s, "gh-ah-"), vurgu: !!s && hedef === s };
+        }).filter(function (d) { return d.s && d.pay > 0; });
+        var degerler = dilimDegerleri(n, dilim.map(function (d) { return d.pay; }));
+        var satirlar = dilim.map(function (d, i) { return { ad: d.ad, deger: degerler[i], renk: renk(d.s), vurgu: d.vurgu }; });
         return { baslik: yazi(col.querySelector(".gh-as-col-l")), alt: n + " açık alarm", satirlar: satirlar, not: kartBasligi(col) };
     }
     function aySutun(col) {

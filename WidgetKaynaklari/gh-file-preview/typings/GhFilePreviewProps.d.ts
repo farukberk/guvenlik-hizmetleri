@@ -15,7 +15,7 @@ import {
 import { Big } from "big.js";
 import { CSSProperties } from "react";
 
-export type DisplayEnum = "inline" | "overlay" | "button";
+export type DisplayEnum = "inline" | "overlay" | "button" | "thumb";
 
 export interface GhFilePreviewContainerProps {
     name: string;
