@@ -10561,3 +10561,934 @@ html .gh-req-icon[data-mz] {
 .gh-option-box:has(.gh-fp-thumb.gh-rehber-thumb.is-dolu) > .gh-cell-muted {
     display: none;
 }
+
+// ============================================================================
+// P29 · Tasarım uyumsuzlukları belgesi (prototip ikon rengi --ho-icon, açılır liste konumu, ekran düzeltmeleri)
+// ============================================================================
+
+// Veri tablosu içindeki açılır filtre listesi uzakta açılıyordu: tablodaki container-type, sabit konumlu (fixed) açılır
+// pencereyi tabloya göre konumlandırıyordu. Duyarlı sütun kuralları yalnız tablo gövdesini hedeflediği için kapsayıcı gövdeye taşındı.
+html body .widget-datagrid {
+    container-type: normal !important;
+}
+html body .widget-datagrid > .widget-datagrid-content {
+    container-type: inline-size !important;
+}
+
+// Prototip: açılır kutu okları ve filtre ikonları turuncu
+html body .widget-combobox .widget-combobox-down-arrow-icon,
+html body .widget-dropdown-filter .widget-dropdown-filter-state-icon {
+    color: var(--ho-icon);
+    path {
+        fill: currentColor;
+    }
+}
+// Filtre kutularında baştaki ikon (prototip: şube = buildings, belge türü = files, dönem = calendar, modül = squares-four, sırala = sort)
+@mixin gh-lead-icon($code) {
+    .widget-combobox-input-container::before {
+        @include ph($code);
+        flex: 0 0 auto;
+        align-self: center;
+        margin-right: 8px;
+        font-size: 15px;
+        color: var(--ho-icon);
+    }
+}
+html body {
+    .gh-sube-git,
+    .gh-al-sube,
+    .gh-ty-sube,
+    .gh-gc-sube,
+    .gh-rp-sube {
+        @include gh-lead-icon("\e102");
+    }
+    .gh-al-tur {
+        @include gh-lead-icon("\e710");
+    }
+    .gh-rp-donem {
+        @include gh-lead-icon("\e10a");
+    }
+    .gh-rp-modul {
+        @include gh-lead-icon("\e464");
+    }
+    .gh-sirala {
+        @include gh-lead-icon("\e444");
+    }
+}
+// Tarih seçici düğmesi: dolu mavi kare yerine alanın içinde turuncu takvim ikonu (prototip)
+html body .mx-compound-control:has(> .btn .mx-icon-calendar) {
+    position: relative;
+    > .btn.mx-button {
+        position: absolute;
+        top: 50%;
+        right: 6px;
+        z-index: 1;
+        width: 26px;
+        height: 26px;
+        min-width: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        box-shadow: none;
+        transform: translateY(-50%);
+        .mx-icon-calendar {
+            font-size: 0;
+            &::before {
+                @include ph("\e10a");
+                font-size: 15px;
+                color: var(--ho-icon);
+            }
+        }
+        &:hover {
+            background: color-mix(in srgb, var(--ho-icon) 12%, transparent);
+        }
+    }
+    > input.form-control {
+        padding-right: 36px;
+    }
+}
+
+// Denetim: tarih çubuğu ve ilk üç gösterge (toplam · denetlenen şube · olumlu sonuç) turuncu; diğerleri anlam rengi (prototip)
+html body .gh-denetimler {
+    .gh-dbar-icon::before,
+    .gh-dk-total::before,
+    .gh-dk-branch::before,
+    .gh-dk-ok::before {
+        color: var(--ho-icon);
+    }
+}
+// Talep Yönetimi (kıyafet / teçhizat ve geçici görevli) gösterge ikonları turuncu; simgeler prototiple aynı
+html body .gh-ty .gh-dk-icon::before,
+html body .gh-gc .gh-dk-icon::before {
+    color: var(--ho-icon);
+}
+html body .gh-ty {
+    .gh-dk-rep::before {
+        content: "\e606";
+    }
+    .gh-dk-miss::before {
+        content: "\e10c";
+    }
+    .gh-dk-total::before {
+        content: "\e4b4";
+    }
+}
+// Malzeme Yönetimi ve Yetkilendirme sekmeleri, dönem kartları, malzeme satırı simgeleri; Raporlar kart başlıkları;
+// form kutusu başlık ikonları (Belge türü "Alarm ayarları" zili vb.) turuncu
+html body {
+    .gh-utab::before,
+    .gh-pk-icon::before,
+    .gh-rk-icon::before,
+    .gh-box-icon::before,
+    .gh-box-head::before,
+    .gh-yk-kartlar .gh-dk-icon::before {
+        color: var(--ho-icon) !important;
+    }
+    :is(.gh-pl-icon, .gh-item-icon)[data-mz]::before,
+    .gh-pl-icon::before {
+        color: var(--ho-icon);
+    }
+}
+// Yetkilendirme kartları: açıklama satırı alt metnin üstüne biniyordu (kart 3 satırlık alt ızgarada 4 öğe) → 4 satır
+html body .gh-dks.gh-yk-kartlar > .gh-dk {
+    grid-row: span 4;
+    > .gh-yk-desc {
+        align-self: start;
+    }
+}
+
+// Şube Belgeleri: sütun oranları ve yazı boyutları prototiple aynı (Kod 12,5 px eş aralıklı gri · Şube 13,5 px · Bölge / Son güncelleme 12,5 px gri)
+// (geniş tabloda; 1000 px altındaki duyarlı sütun kuralları aynen geçerli)
+@container (min-width: 1001px) {
+    html body .mx-name-dgSubeOzet .widget-datagrid-grid {
+        grid-template-columns:
+            minmax(76px, 0.62fr) minmax(130px, 2.64fr) minmax(96px, 1.25fr) minmax(130px, 1.71fr)
+            minmax(56px, 0.55fr) minmax(84px, 1.24fr) minmax(76px, 0.91fr) minmax(104px, 1.44fr) 38px !important;
+    }
+}
+html body .mx-name-dgSubeOzet {
+    .widget-datagrid-grid-body .tr > .td {
+        &:nth-child(1) .td-text {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 12.5px;
+            white-space: nowrap;
+            color: var(--color-neutral-400);
+        }
+        &:nth-child(2) .td-text {
+            font-size: 13.5px;
+        }
+        &:nth-child(3) .td-text,
+        &:nth-child(8) .mx-text {
+            font-size: 12.5px;
+            color: var(--color-neutral-400);
+        }
+        .gh-count {
+            min-width: 22px;
+            min-height: 22px;
+            font-size: 12px;
+        }
+    }
+}
+// "Sırala" kutusu filtre satırının sağında (prototip)
+html body .gh-filter-bar > .gh-sirala {
+    margin-left: auto;
+    min-width: 200px;
+}
+// Şube detayı: başlıkta şube seçimi (kod · ad)
+html body .gh-sube-degis {
+    min-width: 260px;
+    margin: 0 0 0 auto;
+    align-self: center;
+}
+
+// Kıyafet / Teçhizat Talepleri (şube kullanıcısı) ve Taleplerim (personel): prototip düzeni
+html body .gh-taleplerim {
+    > .mx-dataview-content {
+        max-width: none;
+    }
+    .gh-page-subtitle {
+        display: none;
+    }
+    .gh-new-card {
+        position: relative;
+        gap: 16px;
+        padding: 22px 56px 22px 24px;
+        border-radius: 14px;
+        background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+        box-shadow: inset 0 0 0 1px var(--color-accent);
+        .gh-new-icon::before {
+            @include ph("\e3d4");
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: var(--color-accent-900);
+            color: var(--color-accent-300);
+            font-size: 28px;
+        }
+        .gh-new-title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .gh-new-sub {
+            font-size: 13px;
+            color: var(--color-neutral-400);
+        }
+        &::after {
+            @include ph("\e06c");
+            position: absolute;
+            top: 50%;
+            right: 24px;
+            transform: translateY(-50%);
+            font-size: 22px;
+            color: var(--color-accent);
+        }
+        &:hover {
+            box-shadow: inset 0 0 0 1px var(--color-accent), var(--shadow-sm);
+        }
+    }
+    // Liste başlığı: "Şube Personelinin Talepleri (5)" — sayı başlığın hemen yanında, görevli seçimi sağda
+    > .mx-dataview-content > .gh-card {
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        > .gh-card-head {
+            padding: 0 0 10px;
+            gap: 6px;
+            .gh-card-title {
+                flex: 0 0 auto;
+                font-size: 15px;
+                font-weight: 500;
+            }
+            .gh-count-label {
+                flex: 1 1 auto;
+                font-size: 15px;
+                color: var(--color-neutral-500);
+            }
+        }
+    }
+    .gh-req-list .mx-listview > ul {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .gh-req-row {
+        position: relative;
+        grid-template-columns: 40px minmax(0, 1fr) auto 16px;
+        gap: 14px;
+        padding: 14px 16px;
+        border-radius: 8px;
+        background: var(--color-surface);
+        box-shadow: var(--shadow-sm);
+        &:hover {
+            background: var(--color-surface);
+            box-shadow: inset 0 0 0 1px var(--color-accent-700), var(--shadow-sm);
+        }
+        &::after {
+            @include ph("\e13a");
+            font-size: 15px;
+            color: var(--color-neutral-500);
+        }
+        .gh-req-icon::before {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--color-bg);
+            color: var(--ho-icon);
+            font-size: 20px;
+        }
+        .gh-req-icon[data-mz]::after {
+            left: 11px;
+            top: 11px;
+            background-color: var(--ho-icon);
+        }
+        .gh-cell-strong {
+            font-size: 14.5px;
+            font-weight: 400;
+        }
+        .gh-cell-sub {
+            font-size: 12px;
+            color: var(--color-neutral-500);
+        }
+        // durum etiketi noktasız (prototip)
+        .gh-req-pill .gh-sev::before {
+            display: none;
+        }
+    }
+}
+// Geçici görevli listesi: silahlı görevli kalkanı turuncu (prototip)
+html body .gh-armed::before {
+    color: var(--ho-icon);
+}
+// Taleplerim dar ekran: durum etiketi metnin altına iner, alt metin kelime ortasından bölünmez
+html body .gh-taleplerim .gh-req-row .gh-cell-sub {
+    overflow-wrap: normal;
+    word-break: normal;
+}
+@media (max-width: 560px) {
+    html body .gh-taleplerim {
+        .gh-new-card {
+            gap: 12px;
+            padding: 16px 44px 16px 16px;
+            .gh-new-icon::before {
+                width: 44px;
+                height: 44px;
+                font-size: 24px;
+            }
+            .gh-new-title {
+                font-size: 18px;
+            }
+            &::after {
+                right: 16px;
+            }
+        }
+        .gh-req-row {
+            grid-template-columns: 36px minmax(0, 1fr) 12px;
+            gap: 4px 12px;
+            padding: 12px;
+            .gh-req-icon {
+                grid-row: 1 / span 2;
+                &::before {
+                    width: 36px;
+                    height: 36px;
+                }
+                &[data-mz]::after {
+                    left: 9px;
+                    top: 9px;
+                }
+            }
+            .gh-req-pill {
+                grid-column: 2;
+                grid-row: 2;
+                justify-self: start;
+            }
+            &::after {
+                grid-column: 3;
+                grid-row: 1 / span 2;
+            }
+        }
+    }
+}
+
+// ============================================================================
+// P30 · Tipografi / genişlik uyumu (prototip ölçümü), eşit kutu boyları, şube seçici
+// ============================================================================
+// Yeni talep: katalog ve talep içeriği kutuları yan yana eşit boyda
+@media (min-width: 1101px) {
+    html body .gh-talep-grid {
+        align-items: stretch;
+        > .gh-sepet {
+            position: static;
+            align-self: stretch;
+        }
+        // kaydet düğmeleri kutunun altına yaslı
+        > .gh-sepet > .gh-btn-row {
+            margin-top: auto;
+        }
+    }
+}
+
+// Tablolar (prototip .table ölçüsü): başlık 11 px 700 büyük harf, başlık satırı ~29 px; tek satırlık hücre 42 px;
+// ilk (ana) kolon 14 px, diğer kolonlar 13 px; ikincil metinler 12,5 px gri
+html body .region-content .widget-datagrid {
+    .th .column-header {
+        font-weight: 700;
+        min-height: 0;
+    }
+    .widget-datagrid-grid-head .th {
+        min-height: 0;
+    }
+    .widget-datagrid-grid-body .td {
+        min-height: 42px;
+        &:not(:first-child) {
+            font-size: 13px;
+        }
+    }
+}
+@mixin gh-kolon-ikincil($grid, $cols...) {
+    @each $c in $cols {
+        html body .region-content #{$grid} .widget-datagrid-grid-body .tr > .td:nth-child(#{$c}) {
+            font-size: 12.5px;
+            color: var(--color-neutral-400);
+            .td-text,
+            .mx-text {
+                color: inherit;
+            }
+        }
+    }
+}
+@mixin gh-kolon-koyu-gri($grid, $boyut, $cols...) {
+    @each $c in $cols {
+        html body .region-content #{$grid} .widget-datagrid-grid-body .tr > .td:nth-child(#{$c}) {
+            font-size: $boyut;
+            color: var(--color-neutral-300);
+            .td-text,
+            .mx-text {
+                color: inherit;
+            }
+        }
+    }
+}
+// Şube Belgeleri ve İşlem Geçmişi: sık satırlı tablolar (prototip 34–36 px)
+html body .region-content .mx-name-dgSubeOzet .widget-datagrid-grid-body .td {
+    min-height: 36px;
+}
+html body .region-content .mx-name-dgIslemGecmisi .widget-datagrid-grid-body .td {
+    min-height: 34px;
+}
+// İşlem Geçmişi: tarih 12,5 koyu gri (eş aralıklı değil) · kullanıcı ve işlem 13 px düz metin · rol ve kayıt 12,5 gri
+html body .region-content .mx-name-dgIslemGecmisi .widget-datagrid-grid-body .tr {
+    > .td:nth-child(1) * {
+        font-family: inherit !important;
+    }
+    > .td:nth-child(2),
+    > .td:nth-child(5) {
+        color: var(--color-text);
+        * {
+            color: inherit !important;
+            font-size: 13px !important;
+        }
+    }
+}
+@include gh-kolon-koyu-gri(".mx-name-dgIslemGecmisi", 12.5px, 1);
+@include gh-kolon-ikincil(".mx-name-dgIslemGecmisi", 3, 6);
+// Alarm: kural ikincil
+@include gh-kolon-ikincil(".mx-name-dgAlarm", 6);
+// Belge türü: kategori ve atanan şube koyu gri 13 px
+@include gh-kolon-koyu-gri(".mx-name-dgBelgeTuru", 13px, 3, 10);
+// Kıyafet türü: kategori 13 px, geçerli bedenler 12,5 px koyu gri
+@include gh-kolon-koyu-gri(".mx-name-dgKiyafet", 13px, 2);
+@include gh-kolon-koyu-gri(".mx-name-dgKiyafet", 12.5px, 4);
+@include gh-kolon-koyu-gri(".mx-name-dgKiyafet", 12.5px, 6);
+// Teçhizat türü: stok ürün kodu 12,5 px koyu gri eş aralıklı
+@include gh-kolon-koyu-gri(".mx-name-dgTechizat", 12.5px, 5);
+
+// Liste tabanlı tablolar (Talep Yönetimi, Geçici görevli, Denetim bölge tablosu, Yetkilendirme kuralları):
+// hücre 13 px; satırda ek dikey dolgu yok (prototip: yalnız hücre dolgusu → 49–56 px), başlık satırı ~29 px
+html body {
+    .gh-tr .gh-td:not(.gh-td-name) {
+        font-size: 13px;
+    }
+    .gh-ty-cells,
+    .gh-tr.gh-gc-row,
+    .gh-tr.gh-yk-row {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .gh-tr.gh-gc-row,
+    .gh-ty-cells {
+        min-height: 49px;
+    }
+    .gh-tr.gh-bolge-row:not(.gh-thead) {
+        min-height: 49px;
+    }
+    .gh-thead.gh-tr,
+    .gh-thead .gh-ty-cells {
+        min-height: 29px !important;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+// Yetkilendirme kural tablosu: kolon oranları prototiple aynı (sıra dar, kapsam geniş)
+@container (min-width: 861px) {
+    .gh-tr.gh-yk-row {
+        grid-template-columns: 52px minmax(220px, 2.6fr) 144px minmax(160px, 1.65fr) 76px 64px 100px;
+    }
+}
+
+// Metin boyutu / kalınlık farkları (prototip ölçümü)
+html body {
+    .gh-ty .gh-dk .gh-dk-label,
+    .gh-gc .gh-dk .gh-dk-label,
+    .gh-yk-kartlar .gh-dk .gh-dk-label {
+        font-size: 12px;
+    }
+    .gh-head-row .gh-tabs .btn.gh-tab {
+        font-size: 14px !important;
+    }
+    .gh-ty-row .gh-cell-sub {
+        font-size: 11px;
+    }
+    .gh-pl-name > .mx-text {
+        font-size: 13.5px;
+    }
+    .gh-presets .gh-preset {
+        font-weight: 400;
+    }
+    .gh-rp-diger {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text);
+    }
+    .gh-rk .gh-rk-kicker {
+        font-size: 10px;
+        letter-spacing: 1px;
+        color: var(--color-accent);
+    }
+    .gh-atama-bar .gh-atama-kaldir {
+        font-size: 14px;
+    }
+}
+
+// Şube seçici (prototip): 400 px açılır pencere · arama · bölge çipleri · "Tüm şubeler" · kod / ad / bölge satırları · kısayol bilgisi
+// (öğeler theme/web/gh-subesec.js ile listeye eklenir)
+html body .widget-combobox-menu.gh-ss-menu:not(.widget-combobox-menu-hidden) {
+    width: 400px !important;
+    max-width: calc(100vw - 32px);
+    transform: translateX(var(--gh-ss-kay, 0px));
+    padding: 10px !important;
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px var(--color-divider), 0 18px 44px rgba(16, 40, 80, 0.16);
+    .widget-combobox-menu-list {
+        max-height: 424px;
+        padding: 0;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    .gh-ss-bas {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-bottom: 8px;
+        background: var(--color-surface);
+        list-style: none;
+    }
+    .gh-ss-ara {
+        position: relative;
+        &::before {
+            @include ph("\e30c");
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 15px;
+            color: var(--color-neutral-500);
+            pointer-events: none;
+        }
+    }
+    .gh-ss-giris {
+        width: 100%;
+        height: 36px;
+        padding: 6px 10px 6px 32px;
+        border: 1px solid var(--color-divider);
+        border-radius: 8px;
+        background: var(--color-bg);
+        color: var(--color-text);
+        font-size: 14px;
+        outline: none;
+        &::placeholder {
+            color: var(--color-neutral-500);
+        }
+        &:focus {
+            border-color: var(--color-accent);
+        }
+    }
+    .gh-ss-cipler {
+        display: flex;
+        gap: 4px;
+        padding-bottom: 2px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    .gh-ss-cip {
+        flex: 0 0 auto;
+        padding: 4px 9px;
+        border: 1px solid var(--color-divider);
+        border-radius: 6px;
+        background: transparent;
+        color: var(--color-neutral-300);
+        font-size: 12px;
+        line-height: 19px;
+        white-space: nowrap;
+        cursor: pointer;
+        &:hover {
+            border-color: var(--color-accent-700);
+        }
+        &.is-active {
+            border-color: var(--color-accent);
+            background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+            color: var(--color-accent-300);
+        }
+    }
+    .gh-ss-tum {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 10px;
+        border-radius: 6px;
+        background: color-mix(in srgb, var(--color-accent) 6%, transparent);
+        font-size: 13px;
+        list-style: none;
+        cursor: pointer;
+        &[hidden] {
+            display: none;
+        }
+        &::before {
+            @include ph("\e466");
+            font-size: 13px;
+            color: var(--ho-icon);
+        }
+        .gh-ss-tum-ad {
+            flex: 1 1 auto;
+        }
+        .gh-ss-tum-sayi {
+            font-size: 11.5px;
+            color: var(--color-neutral-500);
+        }
+        &:hover {
+            background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+        }
+    }
+    .widget-combobox-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 34px;
+        &[data-gh-gizli] {
+            display: none;
+        }
+        &::before {
+            content: attr(data-kod);
+            flex: 0 0 42px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 11.5px;
+            color: var(--color-neutral-400);
+        }
+        &[data-kod=""]::before {
+            display: none;
+        }
+        .widget-combobox-caption-text {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+        &::after {
+            content: attr(data-bolge);
+            flex: 0 0 auto;
+            font-size: 11px;
+            color: var(--color-neutral-500);
+        }
+    }
+    .gh-ss-alt {
+        position: sticky;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        margin-top: 6px;
+        padding: 8px 4px 0;
+        border-top: 1px solid var(--color-divider);
+        background: var(--color-surface);
+        font-size: 11px;
+        color: var(--color-neutral-500);
+        list-style: none;
+        white-space: nowrap;
+    }
+}
+@media (max-width: 480px) {
+    html body .widget-combobox-menu.gh-ss-menu .gh-ss-alt-tus {
+        display: none;
+    }
+}
+// Şube seçici açıkken yazılan metin yalnız penceredeki arama kutusunda görünür (tetikleyicide seçim metni kalır)
+html body .widget-combobox:has(> .gh-ss-menu:not(.widget-combobox-menu-hidden)) .widget-combobox-input {
+    color: transparent !important;
+    caret-color: transparent;
+}
+html body .widget-combobox-menu.gh-ss-menu.gh-ss-suzgec {
+    .widget-combobox-item-highlighted:not([aria-selected="true"]) {
+        background: transparent;
+    }
+    .widget-combobox-item[data-gh-vurgu] {
+        background: var(--color-bg);
+    }
+}
+// Tablo başlığı sağ dolgusu prototipteki gibi dar (başlık tek satırda kalır; son kolon kenar dolgusu korunur)
+html body .region-content .widget-datagrid .tr > .th:not(:last-child):not([class*="column-selector"]),
+html body .region-content .widget-datagrid .tr > .td:not(:last-child):not([class*="column-selector"]) {
+    padding-right: 6px !important;
+}
+// Sıralama okları prototipte görünmez: yalnız sıralı kolonda ve başlığın üzerine gelince görünür
+html body .region-content .widget-datagrid .th:not([aria-sort="ascending"]):not([aria-sort="descending"]):not(:hover) .column-header svg {
+    visibility: hidden;
+}
+// Alarm: ana kolon belge türü (2.) 14 px
+html body .region-content .mx-name-dgAlarm .widget-datagrid-grid-body .tr > .td:nth-child(2) {
+    font-size: 14px;
+}
+// Geniş ekranda prototipteki tüm kolonlar görünür (Alarm: Bölge ve Son bildirim · Kıyafet: Mevsim ve Stok ürün kodu)
+@container (min-width: 1001px) {
+    html body .mx-name-dgAlarm .widget-datagrid-grid {
+        grid-template-columns:
+            92px minmax(160px, 1.6fr) minmax(118px, 1.15fr) 116px 100px 138px minmax(150px, 1.95fr) max-content !important;
+    }
+    html body .mx-name-dgAlarm .tr > :nth-child(4),
+    html body .mx-name-dgAlarm .tr > :nth-child(7) {
+        display: flex !important;
+    }
+    html body .mx-name-dgKiyafet .widget-datagrid-grid {
+        grid-template-columns:
+            minmax(160px, 1.9fr) 112px 72px minmax(150px, 1.6fr) minmax(130px, 1.3fr) 126px 118px 66px auto !important;
+    }
+    html body .mx-name-dgKiyafet .tr > :nth-child(3),
+    html body .mx-name-dgKiyafet .tr > :nth-child(6) {
+        display: flex !important;
+    }
+}
+// Alarm: kural tek satır (prototip); son bildirim ikincil metin
+html body .region-content .mx-name-dgAlarm .widget-datagrid-grid-body .tr > .td:nth-child(6) {
+    white-space: nowrap !important;
+    * {
+        white-space: nowrap !important;
+    }
+}
+@include gh-kolon-ikincil(".mx-name-dgAlarm", 7);
+// Kısa değerler tek satır (prototip): kategori, mevsim, stok ürün kodu; kodlar tire yerinden bölünmez
+html body .region-content .mx-name-dgKiyafet .widget-datagrid-grid-body .tr > .td:is(:nth-child(2), :nth-child(3), :nth-child(6)),
+html body .region-content .mx-name-dgTechizat .widget-datagrid-grid-body .tr > .td:nth-child(5) {
+    white-space: nowrap !important;
+    * {
+        white-space: nowrap !important;
+    }
+}
+// Yetkilendirme kural satırı "Düzenle": prototip bağlantı düğmesi (14 px, vurgu rengi, kalem simgesi)
+html body .gh-tr.gh-yk-row .gh-td-act .btn.gh-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5.6px 2.8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-accent);
+    &::before {
+        @include ph("\e3b4");
+        font-size: 14px;
+    }
+}
+// Şube belge detayı: kategori koyu gri 13 px, son güncelleme ikincil (prototip)
+@include gh-kolon-koyu-gri(".mx-name-dgSubeBelgesi", 13px, 3);
+@include gh-kolon-ikincil(".mx-name-dgSubeBelgesi", 6);
+// Denetim kayıtları: tarih 13 px, şube (ana kolon) 14 px, denetleyen birim koyu gri, evraklar 13 px
+html body .region-content .mx-name-dgDenetim .widget-datagrid-grid-body .tr {
+    > .td:nth-child(1) {
+        font-size: 13px;
+    }
+    > .td:nth-child(2) {
+        font-size: 14px;
+    }
+    > .td:nth-child(6) {
+        font-size: 13px;
+    }
+}
+@include gh-kolon-koyu-gri(".mx-name-dgDenetim", 13px, 4);
+// Katalog kartı: rozet yoksa ad için sağda yer ayrılmaz (ad gereksiz yere alt satıra inmesin)
+html body .gh-cat-card:not(:has(.gh-cat-badge:not(:empty))) .gh-cat-name {
+    padding-right: 0;
+}
+// Bedenlerim: sayfa genişliğinde (sağda boş alan kalmaz)
+html body .gh-bedenlerim > .mx-dataview-content {
+    max-width: none;
+}
+
+// Sade açılır listeler (prototip): tüm Combo box listeleri ve tablo açılır filtreleri aynı görünümde —
+// 10 px köşe, 6 px iç boşluk, ince çerçeve + gölge; 34 px satır; seçili satır mavi zemin + sağda tik;
+// filtrelerde en üstte "Tümü" satırı, 8'den çok seçenekte arama (öğeler theme/web/gh-subesec.js ile eklenir)
+@mixin gh-sl-pencere {
+    padding: 6px !important;
+    border: 0;
+    border-radius: 10px;
+    background: var(--color-surface);
+    box-shadow: 0 0 0 1px var(--color-divider), 0 18px 44px rgba(16, 40, 80, 0.16);
+}
+@mixin gh-sl-satir {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 34px;
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--color-text);
+    white-space: nowrap;
+    cursor: pointer;
+}
+@mixin gh-sl-tik {
+    &::after {
+        @include ph("\e182");
+        margin-left: auto;
+        padding-left: 8px;
+        font-size: 14px;
+        color: var(--color-accent);
+    }
+}
+html body .widget-combobox-menu.gh-sl-menu:not(.widget-combobox-menu-hidden) {
+    @include gh-sl-pencere;
+    min-width: max(200px, var(--gh-tetik, 0px));
+    .widget-combobox-menu-list {
+        padding: 0;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    .widget-combobox-item {
+        @include gh-sl-satir;
+        &.widget-combobox-item-highlighted {
+            background: var(--color-bg);
+        }
+        &[aria-selected="true"],
+        &.widget-combobox-item-selected {
+            background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+            @include gh-sl-tik;
+        }
+    }
+    .gh-sl-tum {
+        @include gh-sl-satir;
+        list-style: none;
+        &[hidden] {
+            display: none;
+        }
+        &:hover {
+            background: var(--color-bg);
+        }
+        &.is-secili {
+            background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+            @include gh-sl-tik;
+        }
+    }
+    .gh-sl-ara {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        padding-bottom: 6px;
+        background: var(--color-surface);
+        list-style: none;
+        &::before {
+            left: 9px;
+            font-size: 14px;
+        }
+        .gh-ss-giris {
+            height: 32px;
+            padding: 4px 8px 4px 28px;
+            font-size: 13px;
+        }
+    }
+}
+// .gh-ss-ara / .gh-ss-giris kuralları şube seçicinin içinde tanımlı; sade listede de aynısı
+html body .widget-combobox-menu.gh-sl-menu .gh-sl-ara {
+    position: relative;
+    &::before {
+        @include ph("\e30c");
+        position: absolute;
+        top: 16px;
+        left: 9px;
+        transform: translateY(-50%);
+        color: var(--color-neutral-500);
+        pointer-events: none;
+    }
+    .gh-ss-giris {
+        width: 100%;
+        border: 1px solid var(--color-divider);
+        border-radius: 8px;
+        background: var(--color-bg);
+        color: var(--color-text);
+        outline: none;
+        &::placeholder {
+            color: var(--color-neutral-500);
+        }
+        &:focus {
+            border-color: var(--color-accent);
+        }
+    }
+}
+// Tablo açılır filtresi (Data Grid 2 drop-down filter)
+html body .widget-dropdown-filter-popover {
+    min-width: 200px;
+    .widget-dropdown-filter-menu-slot {
+        @include gh-sl-pencere;
+    }
+    .widget-dropdown-filter-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+    .widget-dropdown-filter-menu-item {
+        @include gh-sl-satir;
+        &[data-highlighted],
+        &:hover {
+            background: var(--color-bg);
+        }
+        &[aria-selected="true"] {
+            background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+            @include gh-sl-tik;
+        }
+    }
+}
+// Seçim yokken ilk satır ("Tüm kategoriler") seçili görünür
+html body .widget-dropdown-filter[data-empty="true"] .widget-dropdown-filter-menu-item:first-child {
+    background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+    @include gh-sl-tik;
+}
+html body .widget-combobox.gh-sl-kisa {
+    .widget-combobox-input {
+        color: transparent !important;
+        caret-color: transparent;
+    }
+    .widget-combobox-placeholder-text {
+        visibility: visible !important;
+        opacity: 1 !important;
+        display: flex !important;
+    }
+}

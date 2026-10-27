@@ -51,7 +51,7 @@
     var HEDEFLER = [
         [".gh-cat-card .gh-cat-name", "lg"],
         [".mx-name-dgKiyafet .tr > .td:first-child .td-text", "sm"],
-        [".mx-name-dgTechizat .tr > .td:first-child .td-text", "sm"],
+        // P29: Teçhizat Türü Tanımları tablosunda simge yok (tasarım)
         [".gh-ty-urun", "sm"],
         [".gh-pl-name > .mx-text:last-child", "kutu", satirSimgesi(".gh-pl-name", ".gh-pl-icon")],
         [".gh-item-row .gh-cell-stack > .gh-cell-strong:first-child", "kutu", satirSimgesi(".gh-item-row", ".gh-item-icon")],

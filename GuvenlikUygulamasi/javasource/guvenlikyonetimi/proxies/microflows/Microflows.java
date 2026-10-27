@@ -7670,6 +7670,25 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCH_AlarmFiltre_SubeBuilder(
+		guvenlikyonetimi.proxies.AlarmFiltre _filtre
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.OCH_AlarmFiltre_Sube");
+		builder = builder.withParam("Filtre", _filtre);
+		return builder;
+	}
+
+	public static void oCH_AlarmFiltre_Sube(
+		IContext context,
+		guvenlikyonetimi.proxies.AlarmFiltre _filtre
+	)
+	{
+		oCH_AlarmFiltre_SubeBuilder(
+				_filtre
+			)
+			.execute(context);
+	}
 	/**
 	 * Alan değişince: Ata Form Sube
 	 * Girdi: Form (TechizatAtaForm)
@@ -8297,6 +8316,25 @@ public final class Microflows
 	{
 		oCH_Rec_FiltreBuilder(
 				_oturum
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCH_SubeDetay_GitBuilder(
+		guvenlikyonetimi.proxies.SubeDetayFiltre _filtre
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.OCH_SubeDetay_Git");
+		builder = builder.withParam("Filtre", _filtre);
+		return builder;
+	}
+
+	public static void oCH_SubeDetay_Git(
+		IContext context,
+		guvenlikyonetimi.proxies.SubeDetayFiltre _filtre
+	)
+	{
+		oCH_SubeDetay_GitBuilder(
+				_filtre
 			)
 			.execute(context);
 	}

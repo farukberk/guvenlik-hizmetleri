@@ -38,6 +38,7 @@ public class SubeFiltre implements com.mendix.systemwideinterfaces.core.IEntityP
 		OrtalamaUyum("OrtalamaUyum"),
 		TurSayisi("TurSayisi"),
 		TamUyumluYuzde("TamUyumluYuzde"),
+		Siralama("Siralama"),
 		SubeFiltre_GitSube("GuvenlikYonetimi.SubeFiltre_GitSube"),
 		SubeFiltre_Bolge("GuvenlikYonetimi.SubeFiltre_Bolge");
 
@@ -746,6 +747,51 @@ public class SubeFiltre implements com.mendix.systemwideinterfaces.core.IEntityP
 	public final void setTamUyumluYuzde(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer tamuyumluyuzde)
 	{
 		getMendixObject().setValue(context, MemberNames.TamUyumluYuzde.toString(), tamuyumluyuzde);
+	}
+
+	/**
+	 * Get value of Siralama
+	 * @param siralama
+	 */
+	public final guvenlikyonetimi.proxies.ENUM_SubeSiralama getSiralama()
+	{
+		return getSiralama(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Siralama
+	 */
+	public final guvenlikyonetimi.proxies.ENUM_SubeSiralama getSiralama(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		Object obj = getMendixObject().getValue(context, MemberNames.Siralama.toString());
+		if (obj == null) {
+			return null;
+		}
+		return guvenlikyonetimi.proxies.ENUM_SubeSiralama.valueOf((java.lang.String) obj);
+	}
+
+	/**
+	 * Set value of Siralama
+	 * @param siralama
+	 */
+	public final void setSiralama(guvenlikyonetimi.proxies.ENUM_SubeSiralama siralama)
+	{
+		setSiralama(getContext(), siralama);
+	}
+
+	/**
+	 * Set value of Siralama
+	 * @param context
+	 * @param siralama
+	 */
+	public final void setSiralama(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.ENUM_SubeSiralama siralama)
+	{
+		if (siralama != null) {
+			getMendixObject().setValue(context, MemberNames.Siralama.toString(), siralama.toString());
+		} else {
+			getMendixObject().setValue(context, MemberNames.Siralama.toString(), null);
+		}
 	}
 
 	/**

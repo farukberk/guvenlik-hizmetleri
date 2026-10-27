@@ -29,8 +29,10 @@ public class AlarmFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 		KritikSayi("KritikSayi"),
 		YaklasanSayi("YaklasanSayi"),
 		GuvenliSayi("GuvenliSayi"),
+		SubeKodu("SubeKodu"),
 		AlarmFiltre_BelgeTuru("GuvenlikYonetimi.AlarmFiltre_BelgeTuru"),
-		AlarmFiltre_Bolge("GuvenlikYonetimi.AlarmFiltre_Bolge");
+		AlarmFiltre_Bolge("GuvenlikYonetimi.AlarmFiltre_Bolge"),
+		AlarmFiltre_Sube("GuvenlikYonetimi.AlarmFiltre_Sube");
 
 		private final java.lang.String metaName;
 
@@ -416,6 +418,42 @@ public class AlarmFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	}
 
 	/**
+	 * @return value of SubeKodu
+	 */
+	public final java.lang.String getSubeKodu()
+	{
+		return getSubeKodu(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubeKodu
+	 */
+	public final java.lang.String getSubeKodu(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.SubeKodu.toString());
+	}
+
+	/**
+	 * Set value of SubeKodu
+	 * @param subekodu
+	 */
+	public final void setSubeKodu(java.lang.String subekodu)
+	{
+		setSubeKodu(getContext(), subekodu);
+	}
+
+	/**
+	 * Set value of SubeKodu
+	 * @param context
+	 * @param subekodu
+	 */
+	public final void setSubeKodu(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String subekodu)
+	{
+		getMendixObject().setValue(context, MemberNames.SubeKodu.toString(), subekodu);
+	}
+
+	/**
 	 * @throws com.mendix.core.CoreException
 	 * @return value of AlarmFiltre_BelgeTuru
 	 */
@@ -506,6 +544,53 @@ public class AlarmFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 			getMendixObject().setValue(context, MemberNames.AlarmFiltre_Bolge.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.AlarmFiltre_Bolge.toString(), alarmfiltre_bolge.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of AlarmFiltre_Sube
+	 */
+	public final lowcodecommon.proxies.Common_Unit getAlarmFiltre_Sube() throws com.mendix.core.CoreException
+	{
+		return getAlarmFiltre_Sube(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of AlarmFiltre_Sube
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final lowcodecommon.proxies.Common_Unit getAlarmFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		lowcodecommon.proxies.Common_Unit result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.AlarmFiltre_Sube.toString());
+		if (identifier != null) {
+			result = lowcodecommon.proxies.Common_Unit.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of AlarmFiltre_Sube
+	 * @param alarmfiltre_sube
+	 */
+	public final void setAlarmFiltre_Sube(lowcodecommon.proxies.Common_Unit alarmfiltre_sube)
+	{
+		setAlarmFiltre_Sube(getContext(), alarmfiltre_sube);
+	}
+
+	/**
+	 * Set value of AlarmFiltre_Sube
+	 * @param context
+	 * @param alarmfiltre_sube
+	 */
+	public final void setAlarmFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Unit alarmfiltre_sube)
+	{
+		if (alarmfiltre_sube == null) {
+			getMendixObject().setValue(context, MemberNames.AlarmFiltre_Sube.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.AlarmFiltre_Sube.toString(), alarmfiltre_sube.getMendixObject().getId());
 		}
 	}
 

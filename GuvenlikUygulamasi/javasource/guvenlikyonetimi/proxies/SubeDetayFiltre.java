@@ -39,6 +39,7 @@ public class SubeDetayFiltre implements com.mendix.systemwideinterfaces.core.IEn
 		SubeKodu("SubeKodu"),
 		OnizlemeSira("OnizlemeSira"),
 		SubeDetayFiltre_SubeOzet("GuvenlikYonetimi.SubeDetayFiltre_SubeOzet"),
+		SubeDetayFiltre_GitSube("GuvenlikYonetimi.SubeDetayFiltre_GitSube"),
 		SubeDetayFiltre_Sube("GuvenlikYonetimi.SubeDetayFiltre_Sube");
 
 		private final java.lang.String metaName;
@@ -684,6 +685,53 @@ public class SubeDetayFiltre implements com.mendix.systemwideinterfaces.core.IEn
 			getMendixObject().setValue(context, MemberNames.SubeDetayFiltre_SubeOzet.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.SubeDetayFiltre_SubeOzet.toString(), subedetayfiltre_subeozet.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of SubeDetayFiltre_GitSube
+	 */
+	public final guvenlikyonetimi.proxies.SubeOzet getSubeDetayFiltre_GitSube() throws com.mendix.core.CoreException
+	{
+		return getSubeDetayFiltre_GitSube(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubeDetayFiltre_GitSube
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.SubeOzet getSubeDetayFiltre_GitSube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.SubeOzet result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeDetayFiltre_GitSube.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.SubeOzet.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of SubeDetayFiltre_GitSube
+	 * @param subedetayfiltre_gitsube
+	 */
+	public final void setSubeDetayFiltre_GitSube(guvenlikyonetimi.proxies.SubeOzet subedetayfiltre_gitsube)
+	{
+		setSubeDetayFiltre_GitSube(getContext(), subedetayfiltre_gitsube);
+	}
+
+	/**
+	 * Set value of SubeDetayFiltre_GitSube
+	 * @param context
+	 * @param subedetayfiltre_gitsube
+	 */
+	public final void setSubeDetayFiltre_GitSube(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.SubeOzet subedetayfiltre_gitsube)
+	{
+		if (subedetayfiltre_gitsube == null) {
+			getMendixObject().setValue(context, MemberNames.SubeDetayFiltre_GitSube.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.SubeDetayFiltre_GitSube.toString(), subedetayfiltre_gitsube.getMendixObject().getId());
 		}
 	}
 
