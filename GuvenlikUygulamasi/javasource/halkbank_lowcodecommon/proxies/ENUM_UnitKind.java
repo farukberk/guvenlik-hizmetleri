@@ -2,13 +2,22 @@
 //
 // WARNING: Code you write here will be lost the next time you deploy the project.
 
-package lowcodecommon.proxies;
+package halkbank_lowcodecommon.proxies;
 
 public enum ENUM_UnitKind
 {
-	Sube("99685ccc-2a6b-47a7-8621-c5265e3fbae2"),
-	BolgeMudurlugu("69e4c2f5-e548-4407-9f76-8972a15526e7"),
-	GenelMudurluk("ef5ac837-170b-4a21-858d-05c00ab1978d");
+	KOM("5ab6533d-2d94-4aa9-b763-d808b02b829c"),
+	BAGLIORTAKLIK("a23556df-7d40-4d3e-af01-4f421b7f09cb"),
+	FINANS("3cf38170-1af9-42f4-a492-30147252a639"),
+	KARMA("0be68305-c544-44f1-b494-d720b984dba8"),
+	YURTDISI("90caada7-2276-4b77-b136-0d1bed982870"),
+	SERBOLGE("9ff1d20d-769b-44f8-be1c-cbeb998fe8ec"),
+	GENMUD("ce82c80e-1d84-40ae-8737-8b549a126f77"),
+	NAKITOM("444f5802-f1cf-45f5-a946-547bb2a5aba6"),
+	KURUMSAL("9fab8cb9-9dcb-4ba0-b684-fbf4b4515237"),
+	TICARI("afc677ef-2ad2-4ddd-86ed-2d16c82b55df"),
+	UYDUSB("80a874ef-43bc-4c9c-9098-45ca34b7c9cb"),
+	SUBE("01ffd803-67a9-435e-bc97-a06065067dcb");
 
 	private final java.lang.String i18nCaptionKey;
 	

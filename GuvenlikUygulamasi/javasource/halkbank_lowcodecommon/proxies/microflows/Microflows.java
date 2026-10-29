@@ -2,7 +2,7 @@
 //
 // WARNING: Code you write here will be lost the next time you deploy the project.
 
-package lowcodecommon.proxies.microflows;
+package halkbank_lowcodecommon.proxies.microflows;
 
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
@@ -14,19 +14,19 @@ public final class Microflows
 	 */
 	private Microflows() {}
 
-	// These are the microflows for the LowCodeCommon module
+	// These are the microflows for the Halkbank_LowCodeCommon module
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Common_Department_SilBuilder(
-		lowcodecommon.proxies.Common_Department _kayit
+		halkbank_lowcodecommon.proxies.Common_Department _kayit
 	)
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LowCodeCommon.ACT_Common_Department_Sil");
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Common_Department_Sil");
 		builder = builder.withParam("Kayit", _kayit);
 		return builder;
 	}
 
 	public static void aCT_Common_Department_Sil(
 		IContext context,
-		lowcodecommon.proxies.Common_Department _kayit
+		halkbank_lowcodecommon.proxies.Common_Department _kayit
 	)
 	{
 		aCT_Common_Department_SilBuilder(
@@ -35,17 +35,17 @@ public final class Microflows
 			.execute(context);
 	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Common_Person_SilBuilder(
-		lowcodecommon.proxies.Common_Person _kayit
+		halkbank_lowcodecommon.proxies.Common_Person _kayit
 	)
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LowCodeCommon.ACT_Common_Person_Sil");
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Common_Person_Sil");
 		builder = builder.withParam("Kayit", _kayit);
 		return builder;
 	}
 
 	public static void aCT_Common_Person_Sil(
 		IContext context,
-		lowcodecommon.proxies.Common_Person _kayit
+		halkbank_lowcodecommon.proxies.Common_Person _kayit
 	)
 	{
 		aCT_Common_Person_SilBuilder(
@@ -54,17 +54,17 @@ public final class Microflows
 			.execute(context);
 	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Common_StaffTitle_SilBuilder(
-		lowcodecommon.proxies.Common_StaffTitle _kayit
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _kayit
 	)
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LowCodeCommon.ACT_Common_StaffTitle_Sil");
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Common_StaffTitle_Sil");
 		builder = builder.withParam("Kayit", _kayit);
 		return builder;
 	}
 
 	public static void aCT_Common_StaffTitle_Sil(
 		IContext context,
-		lowcodecommon.proxies.Common_StaffTitle _kayit
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _kayit
 	)
 	{
 		aCT_Common_StaffTitle_SilBuilder(
@@ -73,32 +73,22 @@ public final class Microflows
 			.execute(context);
 	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Common_Unit_SilBuilder(
-		lowcodecommon.proxies.Common_Unit _kayit
+		halkbank_lowcodecommon.proxies.Common_Unit _kayit
 	)
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LowCodeCommon.ACT_Common_Unit_Sil");
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Common_Unit_Sil");
 		builder = builder.withParam("Kayit", _kayit);
 		return builder;
 	}
 
 	public static void aCT_Common_Unit_Sil(
 		IContext context,
-		lowcodecommon.proxies.Common_Unit _kayit
+		halkbank_lowcodecommon.proxies.Common_Unit _kayit
 	)
 	{
 		aCT_Common_Unit_SilBuilder(
 				_kayit
 			)
 			.execute(context);
-	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_SampleData_CreateBuilder()
-	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("LowCodeCommon.ACT_SampleData_Create");
-		return builder;
-	}
-
-	public static void aCT_SampleData_Create(IContext context)
-	{
-		aCT_SampleData_CreateBuilder().execute(context);
 	}
 }

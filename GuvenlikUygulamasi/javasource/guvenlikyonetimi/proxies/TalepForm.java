@@ -575,7 +575,7 @@ public class TalepForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @throws com.mendix.core.CoreException
 	 * @return value of TalepForm_Personel
 	 */
-	public final lowcodecommon.proxies.Common_Person getTalepForm_Personel() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getTalepForm_Personel() throws com.mendix.core.CoreException
 	{
 		return getTalepForm_Personel(getContext());
 	}
@@ -585,12 +585,12 @@ public class TalepForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @return value of TalepForm_Personel
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Person getTalepForm_Personel(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getTalepForm_Personel(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Person result = null;
+		halkbank_lowcodecommon.proxies.Common_Person result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.TalepForm_Personel.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Person.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
 		}
 		return result;
 	}
@@ -599,7 +599,7 @@ public class TalepForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * Set value of TalepForm_Personel
 	 * @param talepform_personel
 	 */
-	public final void setTalepForm_Personel(lowcodecommon.proxies.Common_Person talepform_personel)
+	public final void setTalepForm_Personel(halkbank_lowcodecommon.proxies.Common_Person talepform_personel)
 	{
 		setTalepForm_Personel(getContext(), talepform_personel);
 	}
@@ -609,7 +609,7 @@ public class TalepForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @param context
 	 * @param talepform_personel
 	 */
-	public final void setTalepForm_Personel(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Person talepform_personel)
+	public final void setTalepForm_Personel(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person talepform_personel)
 	{
 		if (talepform_personel == null) {
 			getMendixObject().setValue(context, MemberNames.TalepForm_Personel.toString(), null);

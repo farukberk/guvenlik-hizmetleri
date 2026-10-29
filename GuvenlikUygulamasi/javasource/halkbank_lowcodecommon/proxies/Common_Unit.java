@@ -2,7 +2,7 @@
 //
 // WARNING: Code you write here will be lost the next time you deploy the project.
 
-package lowcodecommon.proxies;
+package halkbank_lowcodecommon.proxies;
 
 public class Common_Unit implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
@@ -13,7 +13,7 @@ public class Common_Unit implements com.mendix.systemwideinterfaces.core.IEntity
 	/**
 	 * Internal name of this entity
 	 */
-	public static final java.lang.String entityName = "LowCodeCommon.Common_Unit";
+	public static final java.lang.String entityName = "Halkbank_LowCodeCommon.Common_Unit";
 
 	/**
 	 * Enum describing members of this entity
@@ -33,7 +33,7 @@ public class Common_Unit implements com.mendix.systemwideinterfaces.core.IEntity
 		Status("Status"),
 		FoundingDate("FoundingDate"),
 		UpsertTime("UpsertTime"),
-		Common_Department_Common_Unit("LowCodeCommon.Common_Department_Common_Unit");
+		Common_Unit_Common_Department("Halkbank_LowCodeCommon.Common_Unit_Common_Department");
 
 		private final java.lang.String metaName;
 
@@ -74,23 +74,23 @@ public class Common_Unit implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param mendixObject The Mendix object for the new instance
 	 * @return a new instance of this proxy class
 	 */
-	public static lowcodecommon.proxies.Common_Unit initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
+	public static halkbank_lowcodecommon.proxies.Common_Unit initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		return new lowcodecommon.proxies.Common_Unit(context, mendixObject);
+		return new halkbank_lowcodecommon.proxies.Common_Unit(context, mendixObject);
 	}
 
-	public static lowcodecommon.proxies.Common_Unit load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
+	public static halkbank_lowcodecommon.proxies.Common_Unit load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
 	{
 		com.mendix.systemwideinterfaces.core.IMendixObject mendixObject = com.mendix.core.Core.retrieveId(context, mendixIdentifier);
-		return lowcodecommon.proxies.Common_Unit.initialize(context, mendixObject);
+		return halkbank_lowcodecommon.proxies.Common_Unit.initialize(context, mendixObject);
 	}
 
-	public static java.util.List<lowcodecommon.proxies.Common_Unit> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
+	public static java.util.List<halkbank_lowcodecommon.proxies.Common_Unit> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
 		return com.mendix.core.Core.createXPathQuery(String.format("//%1$s%2$s", entityName, xpathConstraint))
 			.execute(context)
 			.stream()
-			.map(obj -> lowcodecommon.proxies.Common_Unit.initialize(context, obj))
+			.map(obj -> halkbank_lowcodecommon.proxies.Common_Unit.initialize(context, obj))
 			.collect(java.util.stream.Collectors.toList());
 	}
 
@@ -350,7 +350,7 @@ public class Common_Unit implements com.mendix.systemwideinterfaces.core.IEntity
 	 * Get value of Kind
 	 * @param kind
 	 */
-	public final lowcodecommon.proxies.ENUM_UnitKind getKind()
+	public final halkbank_lowcodecommon.proxies.ENUM_UnitKind getKind()
 	{
 		return getKind(getContext());
 	}
@@ -359,20 +359,20 @@ public class Common_Unit implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @return value of Kind
 	 */
-	public final lowcodecommon.proxies.ENUM_UnitKind getKind(com.mendix.systemwideinterfaces.core.IContext context)
+	public final halkbank_lowcodecommon.proxies.ENUM_UnitKind getKind(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		Object obj = getMendixObject().getValue(context, MemberNames.Kind.toString());
 		if (obj == null) {
 			return null;
 		}
-		return lowcodecommon.proxies.ENUM_UnitKind.valueOf((java.lang.String) obj);
+		return halkbank_lowcodecommon.proxies.ENUM_UnitKind.valueOf((java.lang.String) obj);
 	}
 
 	/**
 	 * Set value of Kind
 	 * @param kind
 	 */
-	public final void setKind(lowcodecommon.proxies.ENUM_UnitKind kind)
+	public final void setKind(halkbank_lowcodecommon.proxies.ENUM_UnitKind kind)
 	{
 		setKind(getContext(), kind);
 	}
@@ -382,7 +382,7 @@ public class Common_Unit implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @param kind
 	 */
-	public final void setKind(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.ENUM_UnitKind kind)
+	public final void setKind(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.ENUM_UnitKind kind)
 	{
 		if (kind != null) {
 			getMendixObject().setValue(context, MemberNames.Kind.toString(), kind.toString());
@@ -573,48 +573,48 @@ public class Common_Unit implements com.mendix.systemwideinterfaces.core.IEntity
 
 	/**
 	 * @throws com.mendix.core.CoreException
-	 * @return value of Common_Department_Common_Unit
+	 * @return value of Common_Unit_Common_Department
 	 */
-	public final lowcodecommon.proxies.Common_Department getCommon_Department_Common_Unit() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getCommon_Unit_Common_Department() throws com.mendix.core.CoreException
 	{
-		return getCommon_Department_Common_Unit(getContext());
+		return getCommon_Unit_Common_Department(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of Common_Department_Common_Unit
+	 * @return value of Common_Unit_Common_Department
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getCommon_Department_Common_Unit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getCommon_Unit_Common_Department(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Common_Department_Common_Unit.toString());
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Common_Unit_Common_Department.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
 
 	/**
-	 * Set value of Common_Department_Common_Unit
-	 * @param common_department_common_unit
+	 * Set value of Common_Unit_Common_Department
+	 * @param common_unit_common_department
 	 */
-	public final void setCommon_Department_Common_Unit(lowcodecommon.proxies.Common_Department common_department_common_unit)
+	public final void setCommon_Unit_Common_Department(halkbank_lowcodecommon.proxies.Common_Department common_unit_common_department)
 	{
-		setCommon_Department_Common_Unit(getContext(), common_department_common_unit);
+		setCommon_Unit_Common_Department(getContext(), common_unit_common_department);
 	}
 
 	/**
-	 * Set value of Common_Department_Common_Unit
+	 * Set value of Common_Unit_Common_Department
 	 * @param context
-	 * @param common_department_common_unit
+	 * @param common_unit_common_department
 	 */
-	public final void setCommon_Department_Common_Unit(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department common_department_common_unit)
+	public final void setCommon_Unit_Common_Department(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department common_unit_common_department)
 	{
-		if (common_department_common_unit == null) {
-			getMendixObject().setValue(context, MemberNames.Common_Department_Common_Unit.toString(), null);
+		if (common_unit_common_department == null) {
+			getMendixObject().setValue(context, MemberNames.Common_Unit_Common_Department.toString(), null);
 		} else {
-			getMendixObject().setValue(context, MemberNames.Common_Department_Common_Unit.toString(), common_department_common_unit.getMendixObject().getId());
+			getMendixObject().setValue(context, MemberNames.Common_Unit_Common_Department.toString(), common_unit_common_department.getMendixObject().getId());
 		}
 	}
 
@@ -638,7 +638,7 @@ public class Common_Unit implements com.mendix.systemwideinterfaces.core.IEntity
 		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
-			final lowcodecommon.proxies.Common_Unit that = (lowcodecommon.proxies.Common_Unit) obj;
+			final halkbank_lowcodecommon.proxies.Common_Unit that = (halkbank_lowcodecommon.proxies.Common_Unit) obj;
 			return getMendixObject().equals(that.getMendixObject());
 		}
 		return false;

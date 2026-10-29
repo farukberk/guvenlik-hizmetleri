@@ -62,6 +62,8 @@
             return kutu && !kutu.classList.contains("is-multi") ? kutu : null;
         }],
         [".gh-bd-name", "sm"],
+        // P36 ürün seçimi penceresi: başlıktaki simge kutusu
+        [".gh-urun-sec .gh-drawer-title", "kutu", satirSimgesi(".gh-drawer-head", ".gh-urun-ikon")],
         [".gh-cart-row .gh-cell-strong", "sm"],
         [".gh-ty-row .gh-cell-stack > .gh-cell-strong:first-child", "sm"],
     ];
@@ -73,6 +75,8 @@
     // Öğenin kıyafet bağlamında olup olmadığı: kıyafet türü tablosu, Bedenlerim, ya da katalogda "Kıyafet" sekmesi açık
     function kiyafetMi(e) {
         if (e.closest(".mx-name-dgKiyafet") || e.matches(".gh-bd-name")) return true;
+        var urun = e.closest(".gh-urun-sec");
+        if (urun) { var k = urun.querySelector(".gh-kicker"); return !!k && /kıyafet/i.test(k.textContent || ""); }
         if (e.closest(".gh-cat-card")) {
             var sekme = document.querySelector(".region-content .gh-tab.is-active, .modal-dialog .gh-tab.is-active");
             return !!sekme && /kıyafet/i.test(sekme.textContent || "");

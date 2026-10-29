@@ -33,6 +33,7 @@ public class TYSatir implements com.mendix.systemwideinterfaces.core.IEntityProx
 		Tarih("Tarih"),
 		DurumKodu("DurumKodu"),
 		Sira("Sira"),
+		Secilebilir("Secilebilir"),
 		TYSatir_TYFiltre("GuvenlikYonetimi.TYSatir_TYFiltre"),
 		TYSatir_MalzemeTalebi("GuvenlikYonetimi.TYSatir_MalzemeTalebi");
 
@@ -561,6 +562,42 @@ public class TYSatir implements com.mendix.systemwideinterfaces.core.IEntityProx
 	public final void setSira(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer sira)
 	{
 		getMendixObject().setValue(context, MemberNames.Sira.toString(), sira);
+	}
+
+	/**
+	 * @return value of Secilebilir
+	 */
+	public final java.lang.Boolean getSecilebilir()
+	{
+		return getSecilebilir(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Secilebilir
+	 */
+	public final java.lang.Boolean getSecilebilir(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.Secilebilir.toString());
+	}
+
+	/**
+	 * Set value of Secilebilir
+	 * @param secilebilir
+	 */
+	public final void setSecilebilir(java.lang.Boolean secilebilir)
+	{
+		setSecilebilir(getContext(), secilebilir);
+	}
+
+	/**
+	 * Set value of Secilebilir
+	 * @param context
+	 * @param secilebilir
+	 */
+	public final void setSecilebilir(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean secilebilir)
+	{
+		getMendixObject().setValue(context, MemberNames.Secilebilir.toString(), secilebilir);
 	}
 
 	/**

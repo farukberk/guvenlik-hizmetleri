@@ -458,7 +458,7 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @throws com.mendix.core.CoreException
 	 * @return value of IslemKaydi_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getIslemKaydi_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getIslemKaydi_Bolge() throws com.mendix.core.CoreException
 	{
 		return getIslemKaydi_Bolge(getContext());
 	}
@@ -468,12 +468,12 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @return value of IslemKaydi_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getIslemKaydi_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getIslemKaydi_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.IslemKaydi_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -482,7 +482,7 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * Set value of IslemKaydi_Bolge
 	 * @param islemkaydi_bolge
 	 */
-	public final void setIslemKaydi_Bolge(lowcodecommon.proxies.Common_Department islemkaydi_bolge)
+	public final void setIslemKaydi_Bolge(halkbank_lowcodecommon.proxies.Common_Department islemkaydi_bolge)
 	{
 		setIslemKaydi_Bolge(getContext(), islemkaydi_bolge);
 	}
@@ -492,7 +492,7 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @param context
 	 * @param islemkaydi_bolge
 	 */
-	public final void setIslemKaydi_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department islemkaydi_bolge)
+	public final void setIslemKaydi_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department islemkaydi_bolge)
 	{
 		if (islemkaydi_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.IslemKaydi_Bolge.toString(), null);
@@ -505,7 +505,7 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @throws com.mendix.core.CoreException
 	 * @return value of IslemKaydi_Sube
 	 */
-	public final lowcodecommon.proxies.Common_Unit getIslemKaydi_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getIslemKaydi_Sube() throws com.mendix.core.CoreException
 	{
 		return getIslemKaydi_Sube(getContext());
 	}
@@ -515,12 +515,12 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @return value of IslemKaydi_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Unit getIslemKaydi_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getIslemKaydi_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Unit result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.IslemKaydi_Sube.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
 		}
 		return result;
 	}
@@ -529,7 +529,7 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * Set value of IslemKaydi_Sube
 	 * @param islemkaydi_sube
 	 */
-	public final void setIslemKaydi_Sube(lowcodecommon.proxies.Common_Unit islemkaydi_sube)
+	public final void setIslemKaydi_Sube(halkbank_lowcodecommon.proxies.Common_Unit islemkaydi_sube)
 	{
 		setIslemKaydi_Sube(getContext(), islemkaydi_sube);
 	}
@@ -539,7 +539,7 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @param context
 	 * @param islemkaydi_sube
 	 */
-	public final void setIslemKaydi_Sube(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Unit islemkaydi_sube)
+	public final void setIslemKaydi_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit islemkaydi_sube)
 	{
 		if (islemkaydi_sube == null) {
 			getMendixObject().setValue(context, MemberNames.IslemKaydi_Sube.toString(), null);
@@ -552,7 +552,7 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @throws com.mendix.core.CoreException
 	 * @return value of IslemKaydi_Kullanici
 	 */
-	public final lowcodecommon.proxies.Common_Person getIslemKaydi_Kullanici() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getIslemKaydi_Kullanici() throws com.mendix.core.CoreException
 	{
 		return getIslemKaydi_Kullanici(getContext());
 	}
@@ -562,12 +562,12 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @return value of IslemKaydi_Kullanici
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Person getIslemKaydi_Kullanici(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getIslemKaydi_Kullanici(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Person result = null;
+		halkbank_lowcodecommon.proxies.Common_Person result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.IslemKaydi_Kullanici.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Person.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
 		}
 		return result;
 	}
@@ -576,7 +576,7 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * Set value of IslemKaydi_Kullanici
 	 * @param islemkaydi_kullanici
 	 */
-	public final void setIslemKaydi_Kullanici(lowcodecommon.proxies.Common_Person islemkaydi_kullanici)
+	public final void setIslemKaydi_Kullanici(halkbank_lowcodecommon.proxies.Common_Person islemkaydi_kullanici)
 	{
 		setIslemKaydi_Kullanici(getContext(), islemkaydi_kullanici);
 	}
@@ -586,7 +586,7 @@ public class IslemKaydi implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @param context
 	 * @param islemkaydi_kullanici
 	 */
-	public final void setIslemKaydi_Kullanici(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Person islemkaydi_kullanici)
+	public final void setIslemKaydi_Kullanici(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person islemkaydi_kullanici)
 	{
 		if (islemkaydi_kullanici == null) {
 			getMendixObject().setValue(context, MemberNames.IslemKaydi_Kullanici.toString(), null);

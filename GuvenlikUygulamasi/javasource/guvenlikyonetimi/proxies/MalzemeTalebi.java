@@ -50,6 +50,9 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 		FotoVar("FotoVar"),
 		OnayGerekcesi("OnayGerekcesi"),
 		UrunlerMetni("UrunlerMetni"),
+		IptalEden("IptalEden"),
+		IptalTarihi("IptalTarihi"),
+		IptalNedeni("IptalNedeni"),
 		MalzemeTalebi_Bolge("GuvenlikYonetimi.MalzemeTalebi_Bolge"),
 		MalzemeTalebi_Sube("GuvenlikYonetimi.MalzemeTalebi_Sube"),
 		MalzemeTalebi_Person("GuvenlikYonetimi.MalzemeTalebi_Person");
@@ -1122,10 +1125,118 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	}
 
 	/**
+	 * @return value of IptalEden
+	 */
+	public final java.lang.String getIptalEden()
+	{
+		return getIptalEden(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of IptalEden
+	 */
+	public final java.lang.String getIptalEden(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.IptalEden.toString());
+	}
+
+	/**
+	 * Set value of IptalEden
+	 * @param iptaleden
+	 */
+	public final void setIptalEden(java.lang.String iptaleden)
+	{
+		setIptalEden(getContext(), iptaleden);
+	}
+
+	/**
+	 * Set value of IptalEden
+	 * @param context
+	 * @param iptaleden
+	 */
+	public final void setIptalEden(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String iptaleden)
+	{
+		getMendixObject().setValue(context, MemberNames.IptalEden.toString(), iptaleden);
+	}
+
+	/**
+	 * @return value of IptalTarihi
+	 */
+	public final java.util.Date getIptalTarihi()
+	{
+		return getIptalTarihi(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of IptalTarihi
+	 */
+	public final java.util.Date getIptalTarihi(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.util.Date) getMendixObject().getValue(context, MemberNames.IptalTarihi.toString());
+	}
+
+	/**
+	 * Set value of IptalTarihi
+	 * @param iptaltarihi
+	 */
+	public final void setIptalTarihi(java.util.Date iptaltarihi)
+	{
+		setIptalTarihi(getContext(), iptaltarihi);
+	}
+
+	/**
+	 * Set value of IptalTarihi
+	 * @param context
+	 * @param iptaltarihi
+	 */
+	public final void setIptalTarihi(com.mendix.systemwideinterfaces.core.IContext context, java.util.Date iptaltarihi)
+	{
+		getMendixObject().setValue(context, MemberNames.IptalTarihi.toString(), iptaltarihi);
+	}
+
+	/**
+	 * @return value of IptalNedeni
+	 */
+	public final java.lang.String getIptalNedeni()
+	{
+		return getIptalNedeni(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of IptalNedeni
+	 */
+	public final java.lang.String getIptalNedeni(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.IptalNedeni.toString());
+	}
+
+	/**
+	 * Set value of IptalNedeni
+	 * @param iptalnedeni
+	 */
+	public final void setIptalNedeni(java.lang.String iptalnedeni)
+	{
+		setIptalNedeni(getContext(), iptalnedeni);
+	}
+
+	/**
+	 * Set value of IptalNedeni
+	 * @param context
+	 * @param iptalnedeni
+	 */
+	public final void setIptalNedeni(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String iptalnedeni)
+	{
+		getMendixObject().setValue(context, MemberNames.IptalNedeni.toString(), iptalnedeni);
+	}
+
+	/**
 	 * @throws com.mendix.core.CoreException
 	 * @return value of MalzemeTalebi_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getMalzemeTalebi_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getMalzemeTalebi_Bolge() throws com.mendix.core.CoreException
 	{
 		return getMalzemeTalebi_Bolge(getContext());
 	}
@@ -1135,12 +1246,12 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @return value of MalzemeTalebi_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getMalzemeTalebi_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getMalzemeTalebi_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.MalzemeTalebi_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -1149,7 +1260,7 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	 * Set value of MalzemeTalebi_Bolge
 	 * @param malzemetalebi_bolge
 	 */
-	public final void setMalzemeTalebi_Bolge(lowcodecommon.proxies.Common_Department malzemetalebi_bolge)
+	public final void setMalzemeTalebi_Bolge(halkbank_lowcodecommon.proxies.Common_Department malzemetalebi_bolge)
 	{
 		setMalzemeTalebi_Bolge(getContext(), malzemetalebi_bolge);
 	}
@@ -1159,7 +1270,7 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @param context
 	 * @param malzemetalebi_bolge
 	 */
-	public final void setMalzemeTalebi_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department malzemetalebi_bolge)
+	public final void setMalzemeTalebi_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department malzemetalebi_bolge)
 	{
 		if (malzemetalebi_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.MalzemeTalebi_Bolge.toString(), null);
@@ -1172,7 +1283,7 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @throws com.mendix.core.CoreException
 	 * @return value of MalzemeTalebi_Sube
 	 */
-	public final lowcodecommon.proxies.Common_Unit getMalzemeTalebi_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getMalzemeTalebi_Sube() throws com.mendix.core.CoreException
 	{
 		return getMalzemeTalebi_Sube(getContext());
 	}
@@ -1182,12 +1293,12 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @return value of MalzemeTalebi_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Unit getMalzemeTalebi_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getMalzemeTalebi_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Unit result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.MalzemeTalebi_Sube.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
 		}
 		return result;
 	}
@@ -1196,7 +1307,7 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	 * Set value of MalzemeTalebi_Sube
 	 * @param malzemetalebi_sube
 	 */
-	public final void setMalzemeTalebi_Sube(lowcodecommon.proxies.Common_Unit malzemetalebi_sube)
+	public final void setMalzemeTalebi_Sube(halkbank_lowcodecommon.proxies.Common_Unit malzemetalebi_sube)
 	{
 		setMalzemeTalebi_Sube(getContext(), malzemetalebi_sube);
 	}
@@ -1206,7 +1317,7 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @param context
 	 * @param malzemetalebi_sube
 	 */
-	public final void setMalzemeTalebi_Sube(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Unit malzemetalebi_sube)
+	public final void setMalzemeTalebi_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit malzemetalebi_sube)
 	{
 		if (malzemetalebi_sube == null) {
 			getMendixObject().setValue(context, MemberNames.MalzemeTalebi_Sube.toString(), null);
@@ -1219,7 +1330,7 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @throws com.mendix.core.CoreException
 	 * @return value of MalzemeTalebi_Person
 	 */
-	public final lowcodecommon.proxies.Common_Person getMalzemeTalebi_Person() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getMalzemeTalebi_Person() throws com.mendix.core.CoreException
 	{
 		return getMalzemeTalebi_Person(getContext());
 	}
@@ -1229,12 +1340,12 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @return value of MalzemeTalebi_Person
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Person getMalzemeTalebi_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getMalzemeTalebi_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Person result = null;
+		halkbank_lowcodecommon.proxies.Common_Person result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.MalzemeTalebi_Person.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Person.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
 		}
 		return result;
 	}
@@ -1243,7 +1354,7 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	 * Set value of MalzemeTalebi_Person
 	 * @param malzemetalebi_person
 	 */
-	public final void setMalzemeTalebi_Person(lowcodecommon.proxies.Common_Person malzemetalebi_person)
+	public final void setMalzemeTalebi_Person(halkbank_lowcodecommon.proxies.Common_Person malzemetalebi_person)
 	{
 		setMalzemeTalebi_Person(getContext(), malzemetalebi_person);
 	}
@@ -1253,7 +1364,7 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @param context
 	 * @param malzemetalebi_person
 	 */
-	public final void setMalzemeTalebi_Person(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Person malzemetalebi_person)
+	public final void setMalzemeTalebi_Person(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person malzemetalebi_person)
 	{
 		if (malzemetalebi_person == null) {
 			getMendixObject().setValue(context, MemberNames.MalzemeTalebi_Person.toString(), null);

@@ -235,7 +235,7 @@ public class YetkiFormBolge implements com.mendix.systemwideinterfaces.core.IEnt
 	 * @throws com.mendix.core.CoreException
 	 * @return value of YetkiFormBolge_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getYetkiFormBolge_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getYetkiFormBolge_Bolge() throws com.mendix.core.CoreException
 	{
 		return getYetkiFormBolge_Bolge(getContext());
 	}
@@ -245,12 +245,12 @@ public class YetkiFormBolge implements com.mendix.systemwideinterfaces.core.IEnt
 	 * @return value of YetkiFormBolge_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getYetkiFormBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getYetkiFormBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiFormBolge_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -259,7 +259,7 @@ public class YetkiFormBolge implements com.mendix.systemwideinterfaces.core.IEnt
 	 * Set value of YetkiFormBolge_Bolge
 	 * @param yetkiformbolge_bolge
 	 */
-	public final void setYetkiFormBolge_Bolge(lowcodecommon.proxies.Common_Department yetkiformbolge_bolge)
+	public final void setYetkiFormBolge_Bolge(halkbank_lowcodecommon.proxies.Common_Department yetkiformbolge_bolge)
 	{
 		setYetkiFormBolge_Bolge(getContext(), yetkiformbolge_bolge);
 	}
@@ -269,7 +269,7 @@ public class YetkiFormBolge implements com.mendix.systemwideinterfaces.core.IEnt
 	 * @param context
 	 * @param yetkiformbolge_bolge
 	 */
-	public final void setYetkiFormBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department yetkiformbolge_bolge)
+	public final void setYetkiFormBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department yetkiformbolge_bolge)
 	{
 		if (yetkiformbolge_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.YetkiFormBolge_Bolge.toString(), null);

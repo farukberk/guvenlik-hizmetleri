@@ -418,7 +418,7 @@ public class HavuzPersoneli implements com.mendix.systemwideinterfaces.core.IEnt
 	 * @throws com.mendix.core.CoreException
 	 * @return value of HavuzPersoneli_Person
 	 */
-	public final lowcodecommon.proxies.Common_Person getHavuzPersoneli_Person() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getHavuzPersoneli_Person() throws com.mendix.core.CoreException
 	{
 		return getHavuzPersoneli_Person(getContext());
 	}
@@ -428,12 +428,12 @@ public class HavuzPersoneli implements com.mendix.systemwideinterfaces.core.IEnt
 	 * @return value of HavuzPersoneli_Person
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Person getHavuzPersoneli_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getHavuzPersoneli_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Person result = null;
+		halkbank_lowcodecommon.proxies.Common_Person result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.HavuzPersoneli_Person.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Person.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
 		}
 		return result;
 	}
@@ -442,7 +442,7 @@ public class HavuzPersoneli implements com.mendix.systemwideinterfaces.core.IEnt
 	 * Set value of HavuzPersoneli_Person
 	 * @param havuzpersoneli_person
 	 */
-	public final void setHavuzPersoneli_Person(lowcodecommon.proxies.Common_Person havuzpersoneli_person)
+	public final void setHavuzPersoneli_Person(halkbank_lowcodecommon.proxies.Common_Person havuzpersoneli_person)
 	{
 		setHavuzPersoneli_Person(getContext(), havuzpersoneli_person);
 	}
@@ -452,7 +452,7 @@ public class HavuzPersoneli implements com.mendix.systemwideinterfaces.core.IEnt
 	 * @param context
 	 * @param havuzpersoneli_person
 	 */
-	public final void setHavuzPersoneli_Person(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Person havuzpersoneli_person)
+	public final void setHavuzPersoneli_Person(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person havuzpersoneli_person)
 	{
 		if (havuzpersoneli_person == null) {
 			getMendixObject().setValue(context, MemberNames.HavuzPersoneli_Person.toString(), null);

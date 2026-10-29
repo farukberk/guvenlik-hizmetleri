@@ -13,23 +13,56 @@
     function al(xpath) {
         return new Promise(function (ok) {
             if (!window.mx || !mx.data || !mx.data.get) return ok([]);
-            mx.data.get({ xpath: xpath, callback: ok, error: function () { ok([]); } });
+            try {
+                mx.data.get({ xpath: xpath, callback: function (o) { ok(o || []); }, error: function () { ok([]); } });
+            } catch (e) { ok([]); }
         });
     }
     function kisaBolge(ad) {
         return (ad || "").replace(/\s*Bölge Müdürlüğü\s*$/i, "").trim();
     }
+    // Kurum modülü (Halkbank_LowCodeCommon) ya da geliştirme kopyası (LowCodeCommon): adlar çalışırken seçilir.
+    // Şube sayılan birim türleri ve bölge türü kurum tanımına göre (ENUM_UnitKind).
+    var SUBE_TURLERI = ["UYDUSB", "TICARI", "KURUMSAL", "YURTDISI", "KARMA", "SUBE"];
+    // İlişki adları kayıtların kendisinden okunur (istemcide şema API'si yok)
+    function adlar(mod, birimler, deptler) {
+        var bul = function (nesneler, adaylar) {
+            var ad = null;
+            adaylar.forEach(function (a) { if (!ad && nesneler.some(function (o) { return o.has(mod + "." + a); })) ad = mod + "." + a; });
+            return ad;
+        };
+        return {
+            // birim ↔ departman (bire bir; iki taraftan da okunur)
+            birimDept: bul(birimler.concat(deptler), ["Common_Unit_Common_Department", "Common_Department_Common_Unit"]),
+            ust: bul(deptler, ["Child_Common_Department_Parent_Common_Department", "Common_Department_Parent"]),
+        };
+    }
     function yukle() {
         if (bilgi || yukleniyor) return;
         yukleniyor = true;
-        Promise.all([al("//LowCodeCommon.Common_Unit[Kind='Sube']"), al("//LowCodeCommon.Common_Department")]).then(function (s) {
-            var dep = {};
+        // Var olmayan varlık sorgusu da boş liste döndüğü için kayıt dönen modül seçilir
+        var mod = "Halkbank_LowCodeCommon";
+        al("//" + mod + ".Common_Unit").then(function (k) {
+            if (!k.length) mod = "LowCodeCommon";
+        }).then(function () {
+            return Promise.all([al("//" + mod + ".Common_Unit"), al("//" + mod + ".Common_Department")]);
+        }).then(function (s) {
+            var A = adlar(mod, s[0], s[1]);
+            var dep = {}, birimler = {}, birimDepti = {};
             s[1].forEach(function (d) { dep[d.getGuid()] = d; });
+            s[0].forEach(function (u) { birimler[u.getGuid()] = u; });
+            // ilişki hangi tarafta tutuluyorsa oradan eşle
+            s[0].forEach(function (u) { var g = A.birimDept && u.has(A.birimDept) ? u.get(A.birimDept) : ""; if (g) birimDepti[u.getGuid()] = g; });
+            var deptBirimi = {};
+            s[1].forEach(function (d) { var g = A.birimDept && d.has(A.birimDept) ? d.get(A.birimDept) : ""; if (g) { deptBirimi[d.getGuid()] = g; birimDepti[g] = birimDepti[g] || d.getGuid(); } });
+            Object.keys(birimDepti).forEach(function (b) { deptBirimi[birimDepti[b]] = deptBirimi[birimDepti[b]] || b; });
             var harita = {}, bolgeKod = {};
             s[0].forEach(function (u) {
-                var d = dep[u.get("LowCodeCommon.Common_Department_Common_Unit")];
-                var ust = d && dep[d.get("LowCodeCommon.Common_Department_Parent")];
-                var bolge = ust && ust.get("Kind") === "BolgeMudurlugu" ? kisaBolge(ust.get("Name")) : "";
+                if (SUBE_TURLERI.indexOf(String(u.get("Kind") || "").toUpperCase()) < 0) return;
+                var d = dep[birimDepti[u.getGuid()]];
+                var ust = d && A.ust && dep[d.get(A.ust)];
+                var ustBirim = ust && birimler[deptBirimi[ust.getGuid()]];
+                var bolge = ustBirim && ustBirim.get("Kind") === "SERBOLGE" ? kisaBolge(ust.get("Name")) : "";
                 if (bolge) bolgeKod[bolge] = ust.get("MisCode") || "";
                 harita[u.get("Name")] = { kod: u.get("MisCode") || "", bolge: bolge };
             });

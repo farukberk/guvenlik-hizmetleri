@@ -258,7 +258,7 @@ public class PersonelBeden implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @throws com.mendix.core.CoreException
 	 * @return value of PersonelBeden_Person
 	 */
-	public final lowcodecommon.proxies.Common_Person getPersonelBeden_Person() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getPersonelBeden_Person() throws com.mendix.core.CoreException
 	{
 		return getPersonelBeden_Person(getContext());
 	}
@@ -268,12 +268,12 @@ public class PersonelBeden implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @return value of PersonelBeden_Person
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Person getPersonelBeden_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getPersonelBeden_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Person result = null;
+		halkbank_lowcodecommon.proxies.Common_Person result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.PersonelBeden_Person.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Person.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
 		}
 		return result;
 	}
@@ -282,7 +282,7 @@ public class PersonelBeden implements com.mendix.systemwideinterfaces.core.IEnti
 	 * Set value of PersonelBeden_Person
 	 * @param personelbeden_person
 	 */
-	public final void setPersonelBeden_Person(lowcodecommon.proxies.Common_Person personelbeden_person)
+	public final void setPersonelBeden_Person(halkbank_lowcodecommon.proxies.Common_Person personelbeden_person)
 	{
 		setPersonelBeden_Person(getContext(), personelbeden_person);
 	}
@@ -292,7 +292,7 @@ public class PersonelBeden implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @param context
 	 * @param personelbeden_person
 	 */
-	public final void setPersonelBeden_Person(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Person personelbeden_person)
+	public final void setPersonelBeden_Person(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person personelbeden_person)
 	{
 		if (personelbeden_person == null) {
 			getMendixObject().setValue(context, MemberNames.PersonelBeden_Person.toString(), null);

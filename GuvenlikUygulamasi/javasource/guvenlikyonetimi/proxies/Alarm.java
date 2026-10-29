@@ -783,7 +783,7 @@ public class Alarm implements com.mendix.systemwideinterfaces.core.IEntityProxy
 	 * @throws com.mendix.core.CoreException
 	 * @return value of Alarm_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getAlarm_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getAlarm_Bolge() throws com.mendix.core.CoreException
 	{
 		return getAlarm_Bolge(getContext());
 	}
@@ -793,12 +793,12 @@ public class Alarm implements com.mendix.systemwideinterfaces.core.IEntityProxy
 	 * @return value of Alarm_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getAlarm_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getAlarm_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Alarm_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -807,7 +807,7 @@ public class Alarm implements com.mendix.systemwideinterfaces.core.IEntityProxy
 	 * Set value of Alarm_Bolge
 	 * @param alarm_bolge
 	 */
-	public final void setAlarm_Bolge(lowcodecommon.proxies.Common_Department alarm_bolge)
+	public final void setAlarm_Bolge(halkbank_lowcodecommon.proxies.Common_Department alarm_bolge)
 	{
 		setAlarm_Bolge(getContext(), alarm_bolge);
 	}
@@ -817,7 +817,7 @@ public class Alarm implements com.mendix.systemwideinterfaces.core.IEntityProxy
 	 * @param context
 	 * @param alarm_bolge
 	 */
-	public final void setAlarm_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department alarm_bolge)
+	public final void setAlarm_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department alarm_bolge)
 	{
 		if (alarm_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.Alarm_Bolge.toString(), null);
@@ -830,7 +830,7 @@ public class Alarm implements com.mendix.systemwideinterfaces.core.IEntityProxy
 	 * @throws com.mendix.core.CoreException
 	 * @return value of Alarm_Sube
 	 */
-	public final lowcodecommon.proxies.Common_Unit getAlarm_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getAlarm_Sube() throws com.mendix.core.CoreException
 	{
 		return getAlarm_Sube(getContext());
 	}
@@ -840,12 +840,12 @@ public class Alarm implements com.mendix.systemwideinterfaces.core.IEntityProxy
 	 * @return value of Alarm_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Unit getAlarm_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getAlarm_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Unit result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Alarm_Sube.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
 		}
 		return result;
 	}
@@ -854,7 +854,7 @@ public class Alarm implements com.mendix.systemwideinterfaces.core.IEntityProxy
 	 * Set value of Alarm_Sube
 	 * @param alarm_sube
 	 */
-	public final void setAlarm_Sube(lowcodecommon.proxies.Common_Unit alarm_sube)
+	public final void setAlarm_Sube(halkbank_lowcodecommon.proxies.Common_Unit alarm_sube)
 	{
 		setAlarm_Sube(getContext(), alarm_sube);
 	}
@@ -864,7 +864,7 @@ public class Alarm implements com.mendix.systemwideinterfaces.core.IEntityProxy
 	 * @param context
 	 * @param alarm_sube
 	 */
-	public final void setAlarm_Sube(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Unit alarm_sube)
+	public final void setAlarm_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit alarm_sube)
 	{
 		if (alarm_sube == null) {
 			getMendixObject().setValue(context, MemberNames.Alarm_Sube.toString(), null);

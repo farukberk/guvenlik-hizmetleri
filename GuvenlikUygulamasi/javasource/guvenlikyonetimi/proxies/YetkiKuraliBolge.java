@@ -170,7 +170,7 @@ public class YetkiKuraliBolge implements com.mendix.systemwideinterfaces.core.IE
 	 * @throws com.mendix.core.CoreException
 	 * @return value of YetkiKuraliBolge_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getYetkiKuraliBolge_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getYetkiKuraliBolge_Bolge() throws com.mendix.core.CoreException
 	{
 		return getYetkiKuraliBolge_Bolge(getContext());
 	}
@@ -180,12 +180,12 @@ public class YetkiKuraliBolge implements com.mendix.systemwideinterfaces.core.IE
 	 * @return value of YetkiKuraliBolge_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getYetkiKuraliBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getYetkiKuraliBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiKuraliBolge_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -194,7 +194,7 @@ public class YetkiKuraliBolge implements com.mendix.systemwideinterfaces.core.IE
 	 * Set value of YetkiKuraliBolge_Bolge
 	 * @param yetkikuralibolge_bolge
 	 */
-	public final void setYetkiKuraliBolge_Bolge(lowcodecommon.proxies.Common_Department yetkikuralibolge_bolge)
+	public final void setYetkiKuraliBolge_Bolge(halkbank_lowcodecommon.proxies.Common_Department yetkikuralibolge_bolge)
 	{
 		setYetkiKuraliBolge_Bolge(getContext(), yetkikuralibolge_bolge);
 	}
@@ -204,7 +204,7 @@ public class YetkiKuraliBolge implements com.mendix.systemwideinterfaces.core.IE
 	 * @param context
 	 * @param yetkikuralibolge_bolge
 	 */
-	public final void setYetkiKuraliBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department yetkikuralibolge_bolge)
+	public final void setYetkiKuraliBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department yetkikuralibolge_bolge)
 	{
 		if (yetkikuralibolge_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.YetkiKuraliBolge_Bolge.toString(), null);

@@ -845,7 +845,7 @@ public class SubeFiltre implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @throws com.mendix.core.CoreException
 	 * @return value of SubeFiltre_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getSubeFiltre_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getSubeFiltre_Bolge() throws com.mendix.core.CoreException
 	{
 		return getSubeFiltre_Bolge(getContext());
 	}
@@ -855,12 +855,12 @@ public class SubeFiltre implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @return value of SubeFiltre_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getSubeFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getSubeFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeFiltre_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -869,7 +869,7 @@ public class SubeFiltre implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * Set value of SubeFiltre_Bolge
 	 * @param subefiltre_bolge
 	 */
-	public final void setSubeFiltre_Bolge(lowcodecommon.proxies.Common_Department subefiltre_bolge)
+	public final void setSubeFiltre_Bolge(halkbank_lowcodecommon.proxies.Common_Department subefiltre_bolge)
 	{
 		setSubeFiltre_Bolge(getContext(), subefiltre_bolge);
 	}
@@ -879,7 +879,7 @@ public class SubeFiltre implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @param context
 	 * @param subefiltre_bolge
 	 */
-	public final void setSubeFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department subefiltre_bolge)
+	public final void setSubeFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department subefiltre_bolge)
 	{
 		if (subefiltre_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.SubeFiltre_Bolge.toString(), null);

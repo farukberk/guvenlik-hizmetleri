@@ -3451,6 +3451,25 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Plan_GeriAlBuilder(
+		guvenlikyonetimi.proxies.MYOturum _oturum
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Plan_GeriAl");
+		builder = builder.withParam("Oturum", _oturum);
+		return builder;
+	}
+
+	public static void aCT_Plan_GeriAl(
+		IContext context,
+		guvenlikyonetimi.proxies.MYOturum _oturum
+	)
+	{
+		aCT_Plan_GeriAlBuilder(
+				_oturum
+			)
+			.execute(context);
+	}
 	/**
 	 * Kullanıcı eylemi: Plan Olustur
 	 * Girdi: Oturum (MYOturum)
@@ -3640,6 +3659,16 @@ public final class Microflows
 	public static void aCT_Raporlar_Ac(IContext context)
 	{
 		aCT_Raporlar_AcBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_SampleData_CreateBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_SampleData_Create");
+		return builder;
+	}
+
+	public static void aCT_SampleData_Create(IContext context)
+	{
+		aCT_SampleData_CreateBuilder().execute(context);
 	}
 	/**
 	 * Kullanıcı eylemi: Secim Beden Sec
@@ -4223,6 +4252,52 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Talep_IptalBuilder(
+		guvenlikyonetimi.proxies.MalzemeTalebi _talep,
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Talep_Iptal");
+		builder = builder.withParam("Talep", _talep);
+		builder = builder.withParam("Filtre", _filtre);
+		return builder;
+	}
+
+	public static void aCT_Talep_Iptal(
+		IContext context,
+		guvenlikyonetimi.proxies.MalzemeTalebi _talep,
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		aCT_Talep_IptalBuilder(
+				_talep,
+				_filtre
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Talep_IptalAcBuilder(
+		guvenlikyonetimi.proxies.MalzemeTalebi _talep,
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Talep_IptalAc");
+		builder = builder.withParam("Talep", _talep);
+		builder = builder.withParam("Filtre", _filtre);
+		return builder;
+	}
+
+	public static void aCT_Talep_IptalAc(
+		IContext context,
+		guvenlikyonetimi.proxies.MalzemeTalebi _talep,
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		aCT_Talep_IptalAcBuilder(
+				_talep,
+				_filtre
+			)
+			.execute(context);
+	}
 	/**
 	 * Kullanıcı eylemi: Talep Ornek Veri
 	 * Adımlar:
@@ -4387,6 +4462,29 @@ public final class Microflows
 		aCT_TalepForm_GonderBuilder(
 				_form,
 				_foto
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_TalepForm_NedenBuilder(
+		guvenlikyonetimi.proxies.TalepForm _form,
+		java.lang.String _kod
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_TalepForm_Neden");
+		builder = builder.withParam("Form", _form);
+		builder = builder.withParam("Kod", _kod);
+		return builder;
+	}
+
+	public static void aCT_TalepForm_Neden(
+		IContext context,
+		guvenlikyonetimi.proxies.TalepForm _form,
+		java.lang.String _kod
+	)
+	{
+		aCT_TalepForm_NedenBuilder(
+				_form,
+				_kod
 			)
 			.execute(context);
 	}
@@ -5035,6 +5133,82 @@ public final class Microflows
 	)
 	{
 		aCT_TY_SecimTemizleBuilder(
+				_filtre
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_TY_TopluGonderBuilder(
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_TY_TopluGonder");
+		builder = builder.withParam("Filtre", _filtre);
+		return builder;
+	}
+
+	public static void aCT_TY_TopluGonder(
+		IContext context,
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		aCT_TY_TopluGonderBuilder(
+				_filtre
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_TY_TopluHazirlaBuilder(
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_TY_TopluHazirla");
+		builder = builder.withParam("Filtre", _filtre);
+		return builder;
+	}
+
+	public static void aCT_TY_TopluHazirla(
+		IContext context,
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		aCT_TY_TopluHazirlaBuilder(
+				_filtre
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_TY_TopluIptalBuilder(
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_TY_TopluIptal");
+		builder = builder.withParam("Filtre", _filtre);
+		return builder;
+	}
+
+	public static void aCT_TY_TopluIptal(
+		IContext context,
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		aCT_TY_TopluIptalBuilder(
+				_filtre
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_TY_TopluIptalAcBuilder(
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_TY_TopluIptalAc");
+		builder = builder.withParam("Filtre", _filtre);
+		return builder;
+	}
+
+	public static void aCT_TY_TopluIptalAc(
+		IContext context,
+		guvenlikyonetimi.proxies.TYFiltre _filtre
+	)
+	{
+		aCT_TY_TopluIptalAcBuilder(
 				_filtre
 			)
 			.execute(context);
@@ -8848,7 +9022,7 @@ public final class Microflows
 		guvenlikyonetimi.proxies.Alarm _alarm,
 		guvenlikyonetimi.proxies.BelgeTuru _tur,
 		java.util.List<system.proxies.User> _kullanicilar,
-		java.util.List<lowcodecommon.proxies.Common_Person> _kisiler,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Person> _kisiler,
 		java.util.List<guvenlikyonetimi.proxies.Bildirim> _bildirimler,
 		java.util.List<guvenlikyonetimi.proxies.EPostaKuyrugu> _ePostalar,
 		java.util.List<guvenlikyonetimi.proxies.AlarmBildirimi> _gecmisler,
@@ -8883,7 +9057,7 @@ public final class Microflows
 		guvenlikyonetimi.proxies.Alarm _alarm,
 		guvenlikyonetimi.proxies.BelgeTuru _tur,
 		java.util.List<system.proxies.User> _kullanicilar,
-		java.util.List<lowcodecommon.proxies.Common_Person> _kisiler,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Person> _kisiler,
 		java.util.List<guvenlikyonetimi.proxies.Bildirim> _bildirimler,
 		java.util.List<guvenlikyonetimi.proxies.EPostaKuyrugu> _ePostalar,
 		java.util.List<guvenlikyonetimi.proxies.AlarmBildirimi> _gecmisler,
@@ -9094,7 +9268,7 @@ public final class Microflows
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Bedenlerim_HazirlaBuilder(
 		guvenlikyonetimi.proxies.BedenlerimOturum _oturum,
-		lowcodecommon.proxies.Common_Person _kisi
+		halkbank_lowcodecommon.proxies.Common_Person _kisi
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Bedenlerim_Hazirla");
@@ -9117,7 +9291,7 @@ public final class Microflows
 	public static void sUB_Bedenlerim_Hazirla(
 		IContext context,
 		guvenlikyonetimi.proxies.BedenlerimOturum _oturum,
-		lowcodecommon.proxies.Common_Person _kisi
+		halkbank_lowcodecommon.proxies.Common_Person _kisi
 	)
 	{
 		sUB_Bedenlerim_HazirlaBuilder(
@@ -9212,7 +9386,7 @@ public final class Microflows
 	 * • Liste işlemleri
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Belge_SubeGuncelleBuilder(
-		lowcodecommon.proxies.Common_Unit _birim
+		halkbank_lowcodecommon.proxies.Common_Unit _birim
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Belge_SubeGuncelle");
@@ -9230,7 +9404,7 @@ public final class Microflows
 	 */
 	public static void sUB_Belge_SubeGuncelle(
 		IContext context,
-		lowcodecommon.proxies.Common_Unit _birim
+		halkbank_lowcodecommon.proxies.Common_Unit _birim
 	)
 	{
 		sUB_Belge_SubeGuncelleBuilder(
@@ -9957,7 +10131,7 @@ public final class Microflows
 		java.lang.String _islem,
 		java.lang.String _kayitTuru,
 		java.lang.String _kayitReferansi,
-		lowcodecommon.proxies.Common_Unit _sube
+		halkbank_lowcodecommon.proxies.Common_Unit _sube
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_IslemKaydi_Create");
@@ -9990,7 +10164,7 @@ public final class Microflows
 		java.lang.String _islem,
 		java.lang.String _kayitTuru,
 		java.lang.String _kayitReferansi,
-		lowcodecommon.proxies.Common_Unit _sube
+		halkbank_lowcodecommon.proxies.Common_Unit _sube
 	)
 	{
 		sUB_IslemKaydi_CreateBuilder(
@@ -10487,7 +10661,7 @@ public final class Microflows
 	 * • Karar: Silahlı mı?
 	 * Sonuç: Common_Person listesi
 	 */
-	public static java.util.List<lowcodecommon.proxies.Common_Person> sUB_Plan_Kisiler(
+	public static java.util.List<halkbank_lowcodecommon.proxies.Common_Person> sUB_Plan_Kisiler(
 		IContext context,
 		guvenlikyonetimi.proxies.ENUM_HakKapsami _kapsam
 	)
@@ -10496,7 +10670,7 @@ public final class Microflows
 				_kapsam
 			)
 			.execute(context);
-		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> lowcodecommon.proxies.Common_Person.initialize(context, obj));
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> halkbank_lowcodecommon.proxies.Common_Person.initialize(context, obj));
 	}
 	/**
 	 * Alt akış: Rapor Hesapla
@@ -10672,7 +10846,7 @@ public final class Microflows
 	 * • Kaydeder: Degisenler
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_SubeOzet_HesaplaBuilder(
-		java.util.List<lowcodecommon.proxies.Common_Unit> _birimler,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Unit> _birimler,
 		java.util.List<guvenlikyonetimi.proxies.SubeBelgesi> _belgeler
 	)
 	{
@@ -10693,7 +10867,7 @@ public final class Microflows
 	 */
 	public static void sUB_SubeOzet_Hesapla(
 		IContext context,
-		java.util.List<lowcodecommon.proxies.Common_Unit> _birimler,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Unit> _birimler,
 		java.util.List<guvenlikyonetimi.proxies.SubeBelgesi> _belgeler
 	)
 	{
@@ -10750,6 +10924,79 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Talep_GonderYapBuilder(
+		guvenlikyonetimi.proxies.MalzemeTalebi _talep,
+		halkbank_lowcodecommon.proxies.Common_Person _ben
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Talep_GonderYap");
+		builder = builder.withParam("Talep", _talep);
+		builder = builder.withParam("Ben", _ben);
+		return builder;
+	}
+
+	public static void sUB_Talep_GonderYap(
+		IContext context,
+		guvenlikyonetimi.proxies.MalzemeTalebi _talep,
+		halkbank_lowcodecommon.proxies.Common_Person _ben
+	)
+	{
+		sUB_Talep_GonderYapBuilder(
+				_talep,
+				_ben
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Talep_HazirlaYapBuilder(
+		guvenlikyonetimi.proxies.MalzemeTalebi _talep,
+		halkbank_lowcodecommon.proxies.Common_Person _ben
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Talep_HazirlaYap");
+		builder = builder.withParam("Talep", _talep);
+		builder = builder.withParam("Ben", _ben);
+		return builder;
+	}
+
+	public static void sUB_Talep_HazirlaYap(
+		IContext context,
+		guvenlikyonetimi.proxies.MalzemeTalebi _talep,
+		halkbank_lowcodecommon.proxies.Common_Person _ben
+	)
+	{
+		sUB_Talep_HazirlaYapBuilder(
+				_talep,
+				_ben
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Talep_IptalEtBuilder(
+		guvenlikyonetimi.proxies.MalzemeTalebi _talep,
+		halkbank_lowcodecommon.proxies.Common_Person _ben,
+		java.lang.String _neden
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Talep_IptalEt");
+		builder = builder.withParam("Talep", _talep);
+		builder = builder.withParam("Ben", _ben);
+		builder = builder.withParam("Neden", _neden);
+		return builder;
+	}
+
+	public static void sUB_Talep_IptalEt(
+		IContext context,
+		guvenlikyonetimi.proxies.MalzemeTalebi _talep,
+		halkbank_lowcodecommon.proxies.Common_Person _ben,
+		java.lang.String _neden
+	)
+	{
+		sUB_Talep_IptalEtBuilder(
+				_talep,
+				_ben,
+				_neden
+			)
+			.execute(context);
+	}
 	/**
 	 * Alt akış: Talep Kalan Hak
 	 * Girdi: Tur (MalzemeTuru), Kisi (Common_Person)
@@ -10761,7 +11008,7 @@ public final class Microflows
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Talep_KalanHakBuilder(
 		guvenlikyonetimi.proxies.MalzemeTuru _tur,
-		lowcodecommon.proxies.Common_Person _kisi
+		halkbank_lowcodecommon.proxies.Common_Person _kisi
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Talep_KalanHak");
@@ -10782,7 +11029,7 @@ public final class Microflows
 	public static java.lang.Long sUB_Talep_KalanHak(
 		IContext context,
 		guvenlikyonetimi.proxies.MalzemeTuru _tur,
-		lowcodecommon.proxies.Common_Person _kisi
+		halkbank_lowcodecommon.proxies.Common_Person _kisi
 	)
 	{
 		Object result = sUB_Talep_KalanHakBuilder(
@@ -11021,7 +11268,7 @@ public final class Microflows
 	 * Sonuç: YetkiKurali
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Yetki_EslestirBuilder(
-		lowcodecommon.proxies.Common_Person _kisi,
+		halkbank_lowcodecommon.proxies.Common_Person _kisi,
 		java.util.List<guvenlikyonetimi.proxies.YetkiKurali> _kurallar,
 		java.util.List<guvenlikyonetimi.proxies.YetkiKuraliDeger> _degerler
 	)
@@ -11045,7 +11292,7 @@ public final class Microflows
 	 */
 	public static guvenlikyonetimi.proxies.YetkiKurali sUB_Yetki_Eslestir(
 		IContext context,
-		lowcodecommon.proxies.Common_Person _kisi,
+		halkbank_lowcodecommon.proxies.Common_Person _kisi,
 		java.util.List<guvenlikyonetimi.proxies.YetkiKurali> _kurallar,
 		java.util.List<guvenlikyonetimi.proxies.YetkiKuraliDeger> _degerler
 	)

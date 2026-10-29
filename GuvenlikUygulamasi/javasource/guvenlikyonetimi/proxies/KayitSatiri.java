@@ -593,7 +593,7 @@ public class KayitSatiri implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @throws com.mendix.core.CoreException
 	 * @return value of KayitSatiri_Person
 	 */
-	public final lowcodecommon.proxies.Common_Person getKayitSatiri_Person() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getKayitSatiri_Person() throws com.mendix.core.CoreException
 	{
 		return getKayitSatiri_Person(getContext());
 	}
@@ -603,12 +603,12 @@ public class KayitSatiri implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @return value of KayitSatiri_Person
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Person getKayitSatiri_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getKayitSatiri_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Person result = null;
+		halkbank_lowcodecommon.proxies.Common_Person result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.KayitSatiri_Person.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Person.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
 		}
 		return result;
 	}
@@ -617,7 +617,7 @@ public class KayitSatiri implements com.mendix.systemwideinterfaces.core.IEntity
 	 * Set value of KayitSatiri_Person
 	 * @param kayitsatiri_person
 	 */
-	public final void setKayitSatiri_Person(lowcodecommon.proxies.Common_Person kayitsatiri_person)
+	public final void setKayitSatiri_Person(halkbank_lowcodecommon.proxies.Common_Person kayitsatiri_person)
 	{
 		setKayitSatiri_Person(getContext(), kayitsatiri_person);
 	}
@@ -627,7 +627,7 @@ public class KayitSatiri implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @param kayitsatiri_person
 	 */
-	public final void setKayitSatiri_Person(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Person kayitsatiri_person)
+	public final void setKayitSatiri_Person(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person kayitsatiri_person)
 	{
 		if (kayitsatiri_person == null) {
 			getMendixObject().setValue(context, MemberNames.KayitSatiri_Person.toString(), null);

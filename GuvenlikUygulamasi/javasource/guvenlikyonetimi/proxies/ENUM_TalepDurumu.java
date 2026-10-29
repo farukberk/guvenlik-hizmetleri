@@ -12,7 +12,8 @@ public enum ENUM_TalepDurumu
 	KismiKarsilandi("c1f982c3-2feb-411e-bdea-4a7c54731024"),
 	Gonderildi("e64b7482-f2bf-4de9-a03a-e5a2e1c4d253"),
 	TeslimAlindi("0509e655-8090-40a2-bb70-7face5c42b17"),
-	Reddedildi("b19e703c-1d76-4e70-bf6d-2b0e72e6282e");
+	Reddedildi("b19e703c-1d76-4e70-bf6d-2b0e72e6282e"),
+	Iptal("d47c1541-3235-4193-8c5d-d7f8abcd4318");
 
 	private final java.lang.String i18nCaptionKey;
 	

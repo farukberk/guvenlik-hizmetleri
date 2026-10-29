@@ -2,7 +2,7 @@
 //
 // WARNING: Code you write here will be lost the next time you deploy the project.
 
-package lowcodecommon.proxies;
+package halkbank_lowcodecommon.proxies;
 
 public class Common_StaffTitle implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
@@ -13,7 +13,7 @@ public class Common_StaffTitle implements com.mendix.systemwideinterfaces.core.I
 	/**
 	 * Internal name of this entity
 	 */
-	public static final java.lang.String entityName = "LowCodeCommon.Common_StaffTitle";
+	public static final java.lang.String entityName = "Halkbank_LowCodeCommon.Common_StaffTitle";
 
 	/**
 	 * Enum describing members of this entity
@@ -65,23 +65,23 @@ public class Common_StaffTitle implements com.mendix.systemwideinterfaces.core.I
 	 * @param mendixObject The Mendix object for the new instance
 	 * @return a new instance of this proxy class
 	 */
-	public static lowcodecommon.proxies.Common_StaffTitle initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
+	public static halkbank_lowcodecommon.proxies.Common_StaffTitle initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		return new lowcodecommon.proxies.Common_StaffTitle(context, mendixObject);
+		return new halkbank_lowcodecommon.proxies.Common_StaffTitle(context, mendixObject);
 	}
 
-	public static lowcodecommon.proxies.Common_StaffTitle load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
+	public static halkbank_lowcodecommon.proxies.Common_StaffTitle load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
 	{
 		com.mendix.systemwideinterfaces.core.IMendixObject mendixObject = com.mendix.core.Core.retrieveId(context, mendixIdentifier);
-		return lowcodecommon.proxies.Common_StaffTitle.initialize(context, mendixObject);
+		return halkbank_lowcodecommon.proxies.Common_StaffTitle.initialize(context, mendixObject);
 	}
 
-	public static java.util.List<lowcodecommon.proxies.Common_StaffTitle> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
+	public static java.util.List<halkbank_lowcodecommon.proxies.Common_StaffTitle> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
 		return com.mendix.core.Core.createXPathQuery(String.format("//%1$s%2$s", entityName, xpathConstraint))
 			.execute(context)
 			.stream()
-			.map(obj -> lowcodecommon.proxies.Common_StaffTitle.initialize(context, obj))
+			.map(obj -> halkbank_lowcodecommon.proxies.Common_StaffTitle.initialize(context, obj))
 			.collect(java.util.stream.Collectors.toList());
 	}
 
@@ -285,7 +285,7 @@ public class Common_StaffTitle implements com.mendix.systemwideinterfaces.core.I
 		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
-			final lowcodecommon.proxies.Common_StaffTitle that = (lowcodecommon.proxies.Common_StaffTitle) obj;
+			final halkbank_lowcodecommon.proxies.Common_StaffTitle that = (halkbank_lowcodecommon.proxies.Common_StaffTitle) obj;
 			return getMendixObject().equals(that.getMendixObject());
 		}
 		return false;

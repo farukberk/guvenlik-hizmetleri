@@ -496,7 +496,7 @@ public class SubeOzet implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @throws com.mendix.core.CoreException
 	 * @return value of SubeOzet_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getSubeOzet_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getSubeOzet_Bolge() throws com.mendix.core.CoreException
 	{
 		return getSubeOzet_Bolge(getContext());
 	}
@@ -506,12 +506,12 @@ public class SubeOzet implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @return value of SubeOzet_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getSubeOzet_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getSubeOzet_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeOzet_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -520,7 +520,7 @@ public class SubeOzet implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * Set value of SubeOzet_Bolge
 	 * @param subeozet_bolge
 	 */
-	public final void setSubeOzet_Bolge(lowcodecommon.proxies.Common_Department subeozet_bolge)
+	public final void setSubeOzet_Bolge(halkbank_lowcodecommon.proxies.Common_Department subeozet_bolge)
 	{
 		setSubeOzet_Bolge(getContext(), subeozet_bolge);
 	}
@@ -530,7 +530,7 @@ public class SubeOzet implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @param context
 	 * @param subeozet_bolge
 	 */
-	public final void setSubeOzet_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department subeozet_bolge)
+	public final void setSubeOzet_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department subeozet_bolge)
 	{
 		if (subeozet_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.SubeOzet_Bolge.toString(), null);
@@ -543,7 +543,7 @@ public class SubeOzet implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @throws com.mendix.core.CoreException
 	 * @return value of SubeOzet_Sube
 	 */
-	public final lowcodecommon.proxies.Common_Unit getSubeOzet_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getSubeOzet_Sube() throws com.mendix.core.CoreException
 	{
 		return getSubeOzet_Sube(getContext());
 	}
@@ -553,12 +553,12 @@ public class SubeOzet implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @return value of SubeOzet_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Unit getSubeOzet_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getSubeOzet_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Unit result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeOzet_Sube.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
 		}
 		return result;
 	}
@@ -567,7 +567,7 @@ public class SubeOzet implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * Set value of SubeOzet_Sube
 	 * @param subeozet_sube
 	 */
-	public final void setSubeOzet_Sube(lowcodecommon.proxies.Common_Unit subeozet_sube)
+	public final void setSubeOzet_Sube(halkbank_lowcodecommon.proxies.Common_Unit subeozet_sube)
 	{
 		setSubeOzet_Sube(getContext(), subeozet_sube);
 	}
@@ -577,7 +577,7 @@ public class SubeOzet implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @param context
 	 * @param subeozet_sube
 	 */
-	public final void setSubeOzet_Sube(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Unit subeozet_sube)
+	public final void setSubeOzet_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit subeozet_sube)
 	{
 		if (subeozet_sube == null) {
 			getMendixObject().setValue(context, MemberNames.SubeOzet_Sube.toString(), null);

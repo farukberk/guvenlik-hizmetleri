@@ -133,7 +133,7 @@ public class YetkiBolge implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @throws com.mendix.core.CoreException
 	 * @return value of YetkiBolge_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getYetkiBolge_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getYetkiBolge_Bolge() throws com.mendix.core.CoreException
 	{
 		return getYetkiBolge_Bolge(getContext());
 	}
@@ -143,12 +143,12 @@ public class YetkiBolge implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @return value of YetkiBolge_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getYetkiBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getYetkiBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiBolge_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -157,7 +157,7 @@ public class YetkiBolge implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * Set value of YetkiBolge_Bolge
 	 * @param yetkibolge_bolge
 	 */
-	public final void setYetkiBolge_Bolge(lowcodecommon.proxies.Common_Department yetkibolge_bolge)
+	public final void setYetkiBolge_Bolge(halkbank_lowcodecommon.proxies.Common_Department yetkibolge_bolge)
 	{
 		setYetkiBolge_Bolge(getContext(), yetkibolge_bolge);
 	}
@@ -167,7 +167,7 @@ public class YetkiBolge implements com.mendix.systemwideinterfaces.core.IEntityP
 	 * @param context
 	 * @param yetkibolge_bolge
 	 */
-	public final void setYetkiBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department yetkibolge_bolge)
+	public final void setYetkiBolge_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department yetkibolge_bolge)
 	{
 		if (yetkibolge_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.YetkiBolge_Bolge.toString(), null);

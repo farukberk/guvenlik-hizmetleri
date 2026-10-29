@@ -948,7 +948,7 @@ public class GeciciTalep implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @throws com.mendix.core.CoreException
 	 * @return value of GeciciTalep_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getGeciciTalep_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getGeciciTalep_Bolge() throws com.mendix.core.CoreException
 	{
 		return getGeciciTalep_Bolge(getContext());
 	}
@@ -958,12 +958,12 @@ public class GeciciTalep implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @return value of GeciciTalep_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getGeciciTalep_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getGeciciTalep_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.GeciciTalep_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -972,7 +972,7 @@ public class GeciciTalep implements com.mendix.systemwideinterfaces.core.IEntity
 	 * Set value of GeciciTalep_Bolge
 	 * @param gecicitalep_bolge
 	 */
-	public final void setGeciciTalep_Bolge(lowcodecommon.proxies.Common_Department gecicitalep_bolge)
+	public final void setGeciciTalep_Bolge(halkbank_lowcodecommon.proxies.Common_Department gecicitalep_bolge)
 	{
 		setGeciciTalep_Bolge(getContext(), gecicitalep_bolge);
 	}
@@ -982,7 +982,7 @@ public class GeciciTalep implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @param gecicitalep_bolge
 	 */
-	public final void setGeciciTalep_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department gecicitalep_bolge)
+	public final void setGeciciTalep_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department gecicitalep_bolge)
 	{
 		if (gecicitalep_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.GeciciTalep_Bolge.toString(), null);
@@ -995,7 +995,7 @@ public class GeciciTalep implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @throws com.mendix.core.CoreException
 	 * @return value of GeciciTalep_Sube
 	 */
-	public final lowcodecommon.proxies.Common_Unit getGeciciTalep_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getGeciciTalep_Sube() throws com.mendix.core.CoreException
 	{
 		return getGeciciTalep_Sube(getContext());
 	}
@@ -1005,12 +1005,12 @@ public class GeciciTalep implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @return value of GeciciTalep_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Unit getGeciciTalep_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getGeciciTalep_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Unit result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.GeciciTalep_Sube.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
 		}
 		return result;
 	}
@@ -1019,7 +1019,7 @@ public class GeciciTalep implements com.mendix.systemwideinterfaces.core.IEntity
 	 * Set value of GeciciTalep_Sube
 	 * @param gecicitalep_sube
 	 */
-	public final void setGeciciTalep_Sube(lowcodecommon.proxies.Common_Unit gecicitalep_sube)
+	public final void setGeciciTalep_Sube(halkbank_lowcodecommon.proxies.Common_Unit gecicitalep_sube)
 	{
 		setGeciciTalep_Sube(getContext(), gecicitalep_sube);
 	}
@@ -1029,7 +1029,7 @@ public class GeciciTalep implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @param gecicitalep_sube
 	 */
-	public final void setGeciciTalep_Sube(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Unit gecicitalep_sube)
+	public final void setGeciciTalep_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit gecicitalep_sube)
 	{
 		if (gecicitalep_sube == null) {
 			getMendixObject().setValue(context, MemberNames.GeciciTalep_Sube.toString(), null);

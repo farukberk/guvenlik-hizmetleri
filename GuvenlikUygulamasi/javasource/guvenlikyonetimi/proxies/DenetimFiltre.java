@@ -1472,7 +1472,7 @@ public class DenetimFiltre implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @throws com.mendix.core.CoreException
 	 * @return value of DenetimFiltre_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getDenetimFiltre_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getDenetimFiltre_Bolge() throws com.mendix.core.CoreException
 	{
 		return getDenetimFiltre_Bolge(getContext());
 	}
@@ -1482,12 +1482,12 @@ public class DenetimFiltre implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @return value of DenetimFiltre_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getDenetimFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getDenetimFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.DenetimFiltre_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -1496,7 +1496,7 @@ public class DenetimFiltre implements com.mendix.systemwideinterfaces.core.IEnti
 	 * Set value of DenetimFiltre_Bolge
 	 * @param denetimfiltre_bolge
 	 */
-	public final void setDenetimFiltre_Bolge(lowcodecommon.proxies.Common_Department denetimfiltre_bolge)
+	public final void setDenetimFiltre_Bolge(halkbank_lowcodecommon.proxies.Common_Department denetimfiltre_bolge)
 	{
 		setDenetimFiltre_Bolge(getContext(), denetimfiltre_bolge);
 	}
@@ -1506,7 +1506,7 @@ public class DenetimFiltre implements com.mendix.systemwideinterfaces.core.IEnti
 	 * @param context
 	 * @param denetimfiltre_bolge
 	 */
-	public final void setDenetimFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department denetimfiltre_bolge)
+	public final void setDenetimFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department denetimfiltre_bolge)
 	{
 		if (denetimfiltre_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.DenetimFiltre_Bolge.toString(), null);

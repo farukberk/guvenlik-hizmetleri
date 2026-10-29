@@ -11492,3 +11492,457 @@ html body .widget-combobox.gh-sl-kisa {
         display: flex !important;
     }
 }
+
+// ============================================================================
+// P36 · Toplantı maddeleri: talep iptali, toplu işlem çubuğu, dönemsel planı geri alma
+// ============================================================================
+html body .btn.gh-btn-undo::before {
+    @include ph("\e038");
+    margin-right: 6px;
+}
+html body .gh-bulk-bar .btn.gh-btn-danger::before,
+html body .btn.gh-btn-danger.mx-name-btnIptalEt::before {
+    @include ph("\e3de");
+    margin-right: 6px;
+}
+html body .gh-iptal-form .gh-iptal-neden textarea {
+    min-height: 88px;
+}
+
+// Geçici görevli "Yeni talep" sayfası (tasarım: sayfa başlığı + kart; çekmece değil)
+html body .gh-gc-yeni-sayfa {
+    > .mx-dataview-content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .gh-gc-yeni-kart {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding: 18px 20px 20px;
+        overflow: visible;
+    }
+    .gh-drawer-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0;
+        box-shadow: none;
+        .gh-drawer-titles {
+            flex: 1;
+            min-width: 0;
+        }
+        .gh-kicker {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+        }
+        .gh-drawer-title {
+            margin-top: 2px;
+            font-size: 17px;
+            font-weight: 500;
+        }
+    }
+    .gh-gc-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        @media (max-width: 860px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        @media (max-width: 520px) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+    .gh-gc-row2 .gh-stepper {
+        gap: 0;
+        padding: 2px;
+        border: 1px solid var(--color-divider);
+        border-radius: 8px;
+        .btn.gh-step-btn {
+            border: 0;
+        }
+        .gh-step-val {
+            min-width: 34px;
+        }
+    }
+    .gh-gc-yeni-dugmeler {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        .btn.gh-btn-save {
+            background: transparent;
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            &:hover {
+                background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+            }
+        }
+    }
+    textarea {
+        min-height: 64px;
+    }
+}
+
+// Yeni talep formu (tasarım): başlıkta geri düğmesi, görevli / şube satırı, simgeli sekmeler, görselli katalog kartları,
+// boş "Talep içeriği" alanı, talep nedeni düğmeleri, kesik çizgili fotoğraf alanı
+html body .gh-talep-yeni {
+    .gh-head-row {
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+    }
+    .gh-page-subtitle,
+    .gh-gorevli-bar > .gh-hint {
+        display: none;
+    }
+    .gh-gorevli-bar {
+        display: flex;
+        align-items: flex-end;
+        gap: 16px;
+        .gh-gorevli {
+            flex: 1 1 auto;
+            min-width: 0;
+            .widget-combobox-input-container::before {
+                @include ph("\e4c2");
+                flex: 0 0 auto;
+                align-self: center;
+                margin-right: 8px;
+                font-size: 15px;
+                color: var(--ho-icon);
+            }
+        }
+        > .gh-info {
+            flex: 0 0 auto;
+            min-width: 200px;
+            .gh-info-v::before {
+                @include ph("\e308");
+                margin-right: 6px;
+                font-size: 14px;
+                color: var(--color-neutral-500);
+            }
+        }
+    }
+    // Katalog sekmeleri ve arama
+    .gh-cat-bar {
+        .gh-tabs .btn.gh-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            &::before {
+                font-family: "Phosphor";
+                font-size: 15px;
+                color: var(--ho-icon);
+            }
+            &:nth-child(1)::before {
+                content: "\e670";
+            }
+            &:nth-child(2)::before {
+                content: "\e40c";
+            }
+        }
+        .gh-cat-search {
+            position: relative;
+            flex: 0 1 280px;
+            &::before {
+                @include ph("\e30c");
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                z-index: 1;
+                transform: translateY(-50%);
+                font-size: 15px;
+                color: var(--color-neutral-500);
+                pointer-events: none;
+            }
+            input {
+                padding-left: 32px;
+            }
+        }
+        .gh-count-label {
+            margin-left: auto;
+        }
+    }
+    // Katalog kartı: üstte görsel alanı (büyük simge), altta ad, satırlar ve "Talebe ekle"
+    .gh-cat-grid ul {
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr));
+    }
+    .gh-cat-card {
+        min-height: 0;
+        gap: 3px;
+        padding: 116px 12px 12px;
+        overflow: hidden;
+        &::after {
+            content: "Talebe ekle";
+            margin-top: 8px;
+            padding-left: 19px;
+            background: no-repeat left center / 14px 14px;
+            font-size: 12.5px;
+            color: var(--color-accent);
+        }
+        &::before {
+            @include ph("\e3d6");
+            position: absolute;
+            left: 12px;
+            bottom: 14px;
+            font-size: 14px;
+            color: var(--color-accent);
+        }
+        .gh-cat-name {
+            padding-right: 0;
+            font-size: 14px;
+            &[data-mz] {
+                position: static;
+                display: block;
+                min-height: 0;
+                padding-left: 0;
+                &::before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 104px;
+                    transform: none;
+                    border-radius: 0;
+                    font-size: 44px;
+                    line-height: 104px;
+                    color: var(--color-accent);
+                    background-color: var(--color-bg);
+                }
+                &::after {
+                    top: 30px;
+                    left: calc(50% - 22px);
+                    width: 44px;
+                    height: 44px;
+                    transform: none;
+                }
+            }
+        }
+        .gh-cat-badge {
+            top: 8px;
+            right: 8px;
+        }
+    }
+    // Talep içeriği paneli
+    .gh-sepet {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        .gh-card-head .gh-card-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            &::before {
+                @include ph("\e390");
+                font-size: 17px;
+                color: var(--ho-icon);
+            }
+        }
+        .gh-cart-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 22px 16px;
+            border: 1px dashed var(--color-divider);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 12.5px;
+            color: var(--color-neutral-500);
+            &::before {
+                @include ph("\e29a");
+                font-size: 22px;
+                color: var(--ho-icon);
+            }
+        }
+        .gh-talep-neden {
+            .btn.gh-neden-hasar::before {
+                content: "\e4e0";
+            }
+            .btn.gh-neden-beden::before {
+                content: "\e094";
+            }
+            .btn.gh-neden-yeni::before {
+                content: "\e6a2";
+            }
+        }
+        // Fotoğraf: kesik çizgili alan, tıklanınca dosya seçimi
+        .gh-foto-upload .mx-compound-control {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 44px;
+            padding: 8px 12px;
+            border: 1px dashed var(--color-divider);
+            border-radius: 8px;
+            background: var(--color-bg);
+            cursor: pointer;
+            &::before {
+                @include ph("\e10e");
+                font-size: 17px;
+                color: var(--ho-icon);
+            }
+            input.form-control {
+                flex: 1 1 auto;
+                min-width: 0;
+                height: auto;
+                min-height: 0;
+                padding: 0;
+                border: 0;
+                background: transparent;
+                box-shadow: none;
+                font-size: 12.5px;
+                color: var(--color-text);
+                pointer-events: none;
+                &.gh-file-bos {
+                    color: transparent;
+                }
+            }
+            &:has(input.gh-file-bos)::after {
+                content: "Fotoğraf ekleyin (hasar için önerilir)";
+                position: absolute;
+                left: 41px;
+                font-size: 12.5px;
+                color: var(--color-neutral-400);
+                pointer-events: none;
+            }
+            .btn.mx-fileinput-upload-button {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                opacity: 0;
+            }
+            &:hover {
+                border-color: var(--color-accent-700);
+            }
+        }
+        .gh-sec > .gh-hint {
+            display: none;
+        }
+        > .gh-btn-row {
+            display: flex;
+            gap: 8px;
+            .btn {
+                margin: 0;
+            }
+            .btn.gh-btn-save {
+                flex: 1 1 auto;
+                background: transparent;
+                border-color: var(--color-accent);
+                color: var(--color-accent);
+                &:hover {
+                    background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+                }
+            }
+        }
+    }
+}
+
+// Ürün seçimi penceresi (tasarım): başlıkta simge kutusu + tür (KIYAFET / TEÇHİZAT), sade beden düğmeleri, bilgi satırı, "+ Talebe ekle"
+html body .gh-urun-sec {
+    .gh-drawer-head {
+        align-items: center;
+    }
+    .gh-urun-ikon {
+        position: relative;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: var(--color-bg);
+        font-size: 0;
+        &[data-mz]::before {
+            position: absolute;
+            inset: 0;
+            width: 44px;
+            height: 44px;
+            margin: 0;
+            font-size: 24px;
+            line-height: 44px;
+            color: var(--color-accent);
+        }
+    }
+    .gh-size-chip .gh-chip-tag {
+        display: none;
+    }
+    .gh-preview-note {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0;
+        background: transparent;
+        font-size: 12.5px;
+        color: var(--color-neutral-400);
+        &::before {
+            @include ph("\e2ce");
+            font-size: 14px;
+        }
+    }
+    .gh-stepper {
+        gap: 0;
+        padding: 2px;
+        border: 1px solid var(--color-divider);
+        border-radius: 8px;
+        .btn.gh-step-btn {
+            border: 0;
+        }
+        .gh-step-val {
+            min-width: 34px;
+        }
+    }
+    .gh-stepper + .gh-hint {
+        display: none;
+    }
+}
+html body .modal-dialog:has(.gh-urun-sec) .btn.gh-btn-add {
+    background: transparent;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    &::before {
+        @include ph("\e3d4");
+        margin-right: 6px;
+    }
+}
+html body .gh-urun-sec {
+    .gh-size-chip.is-selected {
+        border-color: var(--color-accent);
+        background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+        color: var(--color-accent-300);
+    }
+    .gh-sec > .gh-stepper {
+        display: inline-flex;
+        align-self: flex-start;
+    }
+}
+@media (max-width: 640px) {
+    html body .gh-talep-yeni {
+        .gh-gorevli-bar {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+            > .gh-info {
+                min-width: 0;
+            }
+        }
+        .gh-cat-grid ul {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .gh-cat-card {
+            padding-top: 92px;
+            .gh-cat-name[data-mz] {
+                &::before {
+                    height: 80px;
+                    font-size: 36px;
+                    line-height: 80px;
+                }
+                &::after {
+                    top: 22px;
+                    left: calc(50% - 18px);
+                    width: 36px;
+                    height: 36px;
+                }
+            }
+        }
+    }
+}

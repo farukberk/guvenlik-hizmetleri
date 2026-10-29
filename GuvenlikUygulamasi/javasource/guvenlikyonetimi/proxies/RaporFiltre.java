@@ -1172,7 +1172,7 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @throws com.mendix.core.CoreException
 	 * @return value of RaporFiltre_Sube
 	 */
-	public final lowcodecommon.proxies.Common_Unit getRaporFiltre_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getRaporFiltre_Sube() throws com.mendix.core.CoreException
 	{
 		return getRaporFiltre_Sube(getContext());
 	}
@@ -1182,12 +1182,12 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @return value of RaporFiltre_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Unit getRaporFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getRaporFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Unit result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.RaporFiltre_Sube.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
 		}
 		return result;
 	}
@@ -1196,7 +1196,7 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * Set value of RaporFiltre_Sube
 	 * @param raporfiltre_sube
 	 */
-	public final void setRaporFiltre_Sube(lowcodecommon.proxies.Common_Unit raporfiltre_sube)
+	public final void setRaporFiltre_Sube(halkbank_lowcodecommon.proxies.Common_Unit raporfiltre_sube)
 	{
 		setRaporFiltre_Sube(getContext(), raporfiltre_sube);
 	}
@@ -1206,7 +1206,7 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @param raporfiltre_sube
 	 */
-	public final void setRaporFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Unit raporfiltre_sube)
+	public final void setRaporFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit raporfiltre_sube)
 	{
 		if (raporfiltre_sube == null) {
 			getMendixObject().setValue(context, MemberNames.RaporFiltre_Sube.toString(), null);
@@ -1219,7 +1219,7 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @throws com.mendix.core.CoreException
 	 * @return value of RaporFiltre_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getRaporFiltre_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getRaporFiltre_Bolge() throws com.mendix.core.CoreException
 	{
 		return getRaporFiltre_Bolge(getContext());
 	}
@@ -1229,12 +1229,12 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @return value of RaporFiltre_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getRaporFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getRaporFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.RaporFiltre_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -1243,7 +1243,7 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * Set value of RaporFiltre_Bolge
 	 * @param raporfiltre_bolge
 	 */
-	public final void setRaporFiltre_Bolge(lowcodecommon.proxies.Common_Department raporfiltre_bolge)
+	public final void setRaporFiltre_Bolge(halkbank_lowcodecommon.proxies.Common_Department raporfiltre_bolge)
 	{
 		setRaporFiltre_Bolge(getContext(), raporfiltre_bolge);
 	}
@@ -1253,7 +1253,7 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @param raporfiltre_bolge
 	 */
-	public final void setRaporFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department raporfiltre_bolge)
+	public final void setRaporFiltre_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department raporfiltre_bolge)
 	{
 		if (raporfiltre_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.RaporFiltre_Bolge.toString(), null);

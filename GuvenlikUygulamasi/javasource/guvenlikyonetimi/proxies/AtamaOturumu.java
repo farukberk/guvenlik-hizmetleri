@@ -446,7 +446,7 @@ public class AtamaOturumu implements com.mendix.systemwideinterfaces.core.IEntit
 	 * @throws com.mendix.core.CoreException
 	 * @return value of AtamaOturumu_Bolge
 	 */
-	public final lowcodecommon.proxies.Common_Department getAtamaOturumu_Bolge() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getAtamaOturumu_Bolge() throws com.mendix.core.CoreException
 	{
 		return getAtamaOturumu_Bolge(getContext());
 	}
@@ -456,12 +456,12 @@ public class AtamaOturumu implements com.mendix.systemwideinterfaces.core.IEntit
 	 * @return value of AtamaOturumu_Bolge
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getAtamaOturumu_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getAtamaOturumu_Bolge(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.AtamaOturumu_Bolge.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -470,7 +470,7 @@ public class AtamaOturumu implements com.mendix.systemwideinterfaces.core.IEntit
 	 * Set value of AtamaOturumu_Bolge
 	 * @param atamaoturumu_bolge
 	 */
-	public final void setAtamaOturumu_Bolge(lowcodecommon.proxies.Common_Department atamaoturumu_bolge)
+	public final void setAtamaOturumu_Bolge(halkbank_lowcodecommon.proxies.Common_Department atamaoturumu_bolge)
 	{
 		setAtamaOturumu_Bolge(getContext(), atamaoturumu_bolge);
 	}
@@ -480,7 +480,7 @@ public class AtamaOturumu implements com.mendix.systemwideinterfaces.core.IEntit
 	 * @param context
 	 * @param atamaoturumu_bolge
 	 */
-	public final void setAtamaOturumu_Bolge(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department atamaoturumu_bolge)
+	public final void setAtamaOturumu_Bolge(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department atamaoturumu_bolge)
 	{
 		if (atamaoturumu_bolge == null) {
 			getMendixObject().setValue(context, MemberNames.AtamaOturumu_Bolge.toString(), null);

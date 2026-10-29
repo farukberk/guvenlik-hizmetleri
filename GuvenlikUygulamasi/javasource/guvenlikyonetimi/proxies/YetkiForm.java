@@ -617,7 +617,7 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @throws com.mendix.core.CoreException
 	 * @return value of YetkiForm_EkleBirim
 	 */
-	public final lowcodecommon.proxies.Common_Department getYetkiForm_EkleBirim() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getYetkiForm_EkleBirim() throws com.mendix.core.CoreException
 	{
 		return getYetkiForm_EkleBirim(getContext());
 	}
@@ -627,12 +627,12 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @return value of YetkiForm_EkleBirim
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Department getYetkiForm_EkleBirim(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getYetkiForm_EkleBirim(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Department result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiForm_EkleBirim.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Department.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -641,7 +641,7 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * Set value of YetkiForm_EkleBirim
 	 * @param yetkiform_eklebirim
 	 */
-	public final void setYetkiForm_EkleBirim(lowcodecommon.proxies.Common_Department yetkiform_eklebirim)
+	public final void setYetkiForm_EkleBirim(halkbank_lowcodecommon.proxies.Common_Department yetkiform_eklebirim)
 	{
 		setYetkiForm_EkleBirim(getContext(), yetkiform_eklebirim);
 	}
@@ -651,7 +651,7 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @param context
 	 * @param yetkiform_eklebirim
 	 */
-	public final void setYetkiForm_EkleBirim(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Department yetkiform_eklebirim)
+	public final void setYetkiForm_EkleBirim(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department yetkiform_eklebirim)
 	{
 		if (yetkiform_eklebirim == null) {
 			getMendixObject().setValue(context, MemberNames.YetkiForm_EkleBirim.toString(), null);
@@ -664,7 +664,7 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @throws com.mendix.core.CoreException
 	 * @return value of YetkiForm_EkleUnvan
 	 */
-	public final lowcodecommon.proxies.Common_StaffTitle getYetkiForm_EkleUnvan() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_StaffTitle getYetkiForm_EkleUnvan() throws com.mendix.core.CoreException
 	{
 		return getYetkiForm_EkleUnvan(getContext());
 	}
@@ -674,12 +674,12 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @return value of YetkiForm_EkleUnvan
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_StaffTitle getYetkiForm_EkleUnvan(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_StaffTitle getYetkiForm_EkleUnvan(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_StaffTitle result = null;
+		halkbank_lowcodecommon.proxies.Common_StaffTitle result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiForm_EkleUnvan.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_StaffTitle.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_StaffTitle.load(context, identifier);
 		}
 		return result;
 	}
@@ -688,7 +688,7 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * Set value of YetkiForm_EkleUnvan
 	 * @param yetkiform_ekleunvan
 	 */
-	public final void setYetkiForm_EkleUnvan(lowcodecommon.proxies.Common_StaffTitle yetkiform_ekleunvan)
+	public final void setYetkiForm_EkleUnvan(halkbank_lowcodecommon.proxies.Common_StaffTitle yetkiform_ekleunvan)
 	{
 		setYetkiForm_EkleUnvan(getContext(), yetkiform_ekleunvan);
 	}
@@ -698,7 +698,7 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @param context
 	 * @param yetkiform_ekleunvan
 	 */
-	public final void setYetkiForm_EkleUnvan(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_StaffTitle yetkiform_ekleunvan)
+	public final void setYetkiForm_EkleUnvan(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_StaffTitle yetkiform_ekleunvan)
 	{
 		if (yetkiform_ekleunvan == null) {
 			getMendixObject().setValue(context, MemberNames.YetkiForm_EkleUnvan.toString(), null);
@@ -711,7 +711,7 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @throws com.mendix.core.CoreException
 	 * @return value of YetkiForm_Person
 	 */
-	public final lowcodecommon.proxies.Common_Person getYetkiForm_Person() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getYetkiForm_Person() throws com.mendix.core.CoreException
 	{
 		return getYetkiForm_Person(getContext());
 	}
@@ -721,12 +721,12 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @return value of YetkiForm_Person
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Person getYetkiForm_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getYetkiForm_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Person result = null;
+		halkbank_lowcodecommon.proxies.Common_Person result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiForm_Person.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Person.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
 		}
 		return result;
 	}
@@ -735,7 +735,7 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * Set value of YetkiForm_Person
 	 * @param yetkiform_person
 	 */
-	public final void setYetkiForm_Person(lowcodecommon.proxies.Common_Person yetkiform_person)
+	public final void setYetkiForm_Person(halkbank_lowcodecommon.proxies.Common_Person yetkiform_person)
 	{
 		setYetkiForm_Person(getContext(), yetkiform_person);
 	}
@@ -745,7 +745,7 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @param context
 	 * @param yetkiform_person
 	 */
-	public final void setYetkiForm_Person(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Person yetkiform_person)
+	public final void setYetkiForm_Person(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person yetkiform_person)
 	{
 		if (yetkiform_person == null) {
 			getMendixObject().setValue(context, MemberNames.YetkiForm_Person.toString(), null);

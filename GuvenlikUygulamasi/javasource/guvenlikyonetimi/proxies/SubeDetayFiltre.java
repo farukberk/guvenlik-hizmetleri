@@ -739,7 +739,7 @@ public class SubeDetayFiltre implements com.mendix.systemwideinterfaces.core.IEn
 	 * @throws com.mendix.core.CoreException
 	 * @return value of SubeDetayFiltre_Sube
 	 */
-	public final lowcodecommon.proxies.Common_Unit getSubeDetayFiltre_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getSubeDetayFiltre_Sube() throws com.mendix.core.CoreException
 	{
 		return getSubeDetayFiltre_Sube(getContext());
 	}
@@ -749,12 +749,12 @@ public class SubeDetayFiltre implements com.mendix.systemwideinterfaces.core.IEn
 	 * @return value of SubeDetayFiltre_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Unit getSubeDetayFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getSubeDetayFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Unit result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeDetayFiltre_Sube.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
 		}
 		return result;
 	}
@@ -763,7 +763,7 @@ public class SubeDetayFiltre implements com.mendix.systemwideinterfaces.core.IEn
 	 * Set value of SubeDetayFiltre_Sube
 	 * @param subedetayfiltre_sube
 	 */
-	public final void setSubeDetayFiltre_Sube(lowcodecommon.proxies.Common_Unit subedetayfiltre_sube)
+	public final void setSubeDetayFiltre_Sube(halkbank_lowcodecommon.proxies.Common_Unit subedetayfiltre_sube)
 	{
 		setSubeDetayFiltre_Sube(getContext(), subedetayfiltre_sube);
 	}
@@ -773,7 +773,7 @@ public class SubeDetayFiltre implements com.mendix.systemwideinterfaces.core.IEn
 	 * @param context
 	 * @param subedetayfiltre_sube
 	 */
-	public final void setSubeDetayFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Unit subedetayfiltre_sube)
+	public final void setSubeDetayFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit subedetayfiltre_sube)
 	{
 		if (subedetayfiltre_sube == null) {
 			getMendixObject().setValue(context, MemberNames.SubeDetayFiltre_Sube.toString(), null);

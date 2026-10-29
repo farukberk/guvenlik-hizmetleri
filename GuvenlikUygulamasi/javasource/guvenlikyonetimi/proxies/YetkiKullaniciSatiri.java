@@ -608,7 +608,7 @@ public class YetkiKullaniciSatiri implements com.mendix.systemwideinterfaces.cor
 	 * @throws com.mendix.core.CoreException
 	 * @return value of YetkiKullaniciSatiri_Person
 	 */
-	public final lowcodecommon.proxies.Common_Person getYetkiKullaniciSatiri_Person() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getYetkiKullaniciSatiri_Person() throws com.mendix.core.CoreException
 	{
 		return getYetkiKullaniciSatiri_Person(getContext());
 	}
@@ -618,12 +618,12 @@ public class YetkiKullaniciSatiri implements com.mendix.systemwideinterfaces.cor
 	 * @return value of YetkiKullaniciSatiri_Person
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Person getYetkiKullaniciSatiri_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getYetkiKullaniciSatiri_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Person result = null;
+		halkbank_lowcodecommon.proxies.Common_Person result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiKullaniciSatiri_Person.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Person.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
 		}
 		return result;
 	}
@@ -632,7 +632,7 @@ public class YetkiKullaniciSatiri implements com.mendix.systemwideinterfaces.cor
 	 * Set value of YetkiKullaniciSatiri_Person
 	 * @param yetkikullanicisatiri_person
 	 */
-	public final void setYetkiKullaniciSatiri_Person(lowcodecommon.proxies.Common_Person yetkikullanicisatiri_person)
+	public final void setYetkiKullaniciSatiri_Person(halkbank_lowcodecommon.proxies.Common_Person yetkikullanicisatiri_person)
 	{
 		setYetkiKullaniciSatiri_Person(getContext(), yetkikullanicisatiri_person);
 	}
@@ -642,7 +642,7 @@ public class YetkiKullaniciSatiri implements com.mendix.systemwideinterfaces.cor
 	 * @param context
 	 * @param yetkikullanicisatiri_person
 	 */
-	public final void setYetkiKullaniciSatiri_Person(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Person yetkikullanicisatiri_person)
+	public final void setYetkiKullaniciSatiri_Person(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person yetkikullanicisatiri_person)
 	{
 		if (yetkikullanicisatiri_person == null) {
 			getMendixObject().setValue(context, MemberNames.YetkiKullaniciSatiri_Person.toString(), null);

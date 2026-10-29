@@ -356,7 +356,7 @@ public class KullaniciYetkisi implements com.mendix.systemwideinterfaces.core.IE
 	 * @throws com.mendix.core.CoreException
 	 * @return value of KullaniciYetkisi_Person
 	 */
-	public final lowcodecommon.proxies.Common_Person getKullaniciYetkisi_Person() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getKullaniciYetkisi_Person() throws com.mendix.core.CoreException
 	{
 		return getKullaniciYetkisi_Person(getContext());
 	}
@@ -366,12 +366,12 @@ public class KullaniciYetkisi implements com.mendix.systemwideinterfaces.core.IE
 	 * @return value of KullaniciYetkisi_Person
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Person getKullaniciYetkisi_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Person getKullaniciYetkisi_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Person result = null;
+		halkbank_lowcodecommon.proxies.Common_Person result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.KullaniciYetkisi_Person.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Person.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
 		}
 		return result;
 	}
@@ -380,7 +380,7 @@ public class KullaniciYetkisi implements com.mendix.systemwideinterfaces.core.IE
 	 * Set value of KullaniciYetkisi_Person
 	 * @param kullaniciyetkisi_person
 	 */
-	public final void setKullaniciYetkisi_Person(lowcodecommon.proxies.Common_Person kullaniciyetkisi_person)
+	public final void setKullaniciYetkisi_Person(halkbank_lowcodecommon.proxies.Common_Person kullaniciyetkisi_person)
 	{
 		setKullaniciYetkisi_Person(getContext(), kullaniciyetkisi_person);
 	}
@@ -390,7 +390,7 @@ public class KullaniciYetkisi implements com.mendix.systemwideinterfaces.core.IE
 	 * @param context
 	 * @param kullaniciyetkisi_person
 	 */
-	public final void setKullaniciYetkisi_Person(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Person kullaniciyetkisi_person)
+	public final void setKullaniciYetkisi_Person(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person kullaniciyetkisi_person)
 	{
 		if (kullaniciyetkisi_person == null) {
 			getMendixObject().setValue(context, MemberNames.KullaniciYetkisi_Person.toString(), null);

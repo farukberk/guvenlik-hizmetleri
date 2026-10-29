@@ -133,7 +133,7 @@ public class YetkiSube implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @throws com.mendix.core.CoreException
 	 * @return value of YetkiSube_Sube
 	 */
-	public final lowcodecommon.proxies.Common_Unit getYetkiSube_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getYetkiSube_Sube() throws com.mendix.core.CoreException
 	{
 		return getYetkiSube_Sube(getContext());
 	}
@@ -143,12 +143,12 @@ public class YetkiSube implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @return value of YetkiSube_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final lowcodecommon.proxies.Common_Unit getYetkiSube_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Unit getYetkiSube_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Unit result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiSube_Sube.toString());
 		if (identifier != null) {
-			result = lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
 		}
 		return result;
 	}
@@ -157,7 +157,7 @@ public class YetkiSube implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * Set value of YetkiSube_Sube
 	 * @param yetkisube_sube
 	 */
-	public final void setYetkiSube_Sube(lowcodecommon.proxies.Common_Unit yetkisube_sube)
+	public final void setYetkiSube_Sube(halkbank_lowcodecommon.proxies.Common_Unit yetkisube_sube)
 	{
 		setYetkiSube_Sube(getContext(), yetkisube_sube);
 	}
@@ -167,7 +167,7 @@ public class YetkiSube implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @param context
 	 * @param yetkisube_sube
 	 */
-	public final void setYetkiSube_Sube(com.mendix.systemwideinterfaces.core.IContext context, lowcodecommon.proxies.Common_Unit yetkisube_sube)
+	public final void setYetkiSube_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit yetkisube_sube)
 	{
 		if (yetkisube_sube == null) {
 			getMendixObject().setValue(context, MemberNames.YetkiSube_Sube.toString(), null);
