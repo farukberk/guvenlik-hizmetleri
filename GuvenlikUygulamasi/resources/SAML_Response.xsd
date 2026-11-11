@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="urn:oasis:names:tc:SAML:2.0:assertion"
+  xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+  <!-- Root: AttributeStatement -->
+  <xs:element name="AttributeStatement" type="saml:AttributeStatementType"/>
+
+  <!-- AttributeStatement contains 0..∞ Attribute -->
+  <xs:complexType name="AttributeStatementType">
+    <xs:sequence>
+      <xs:element name="Attribute" type="saml:AttributeType" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Attribute with Name (+ optional FriendlyName/NameFormat) and 0..∞ AttributeValue -->
+  <xs:complexType name="AttributeType">
+    <xs:sequence>
+      <!-- Using xs:string keeps Mendix mapping simple; switch to xs:anySimpleType if you expect typed values -->
+      <xs:element name="AttributeValue" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+    <xs:attribute name="NameFormat" type="xs:anyURI" use="optional"/>
+    <xs:attribute name="FriendlyName" type="xs:string" use="optional"/>
+  </xs:complexType>
+
+</xs:schema>

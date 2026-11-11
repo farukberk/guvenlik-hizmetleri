@@ -47,10 +47,13 @@ public class Common_Department implements com.mendix.systemwideinterfaces.core.I
 		PresidencyID("PresidencyID"),
 		FoundingDate("FoundingDate"),
 		Kind("Kind"),
-		Common_Department_ProxyManager("Halkbank_LowCodeCommon.Common_Department_ProxyManager"),
-		Common_Department_Manager("Halkbank_LowCodeCommon.Common_Department_Manager"),
 		Child_Common_Department_Parent_Common_Department("Halkbank_LowCodeCommon.Child_Common_Department_Parent_Common_Department"),
-		Common_Unit_Common_Department("Halkbank_LowCodeCommon.Common_Unit_Common_Department");
+		Common_Department_Common_County("Halkbank_LowCodeCommon.Common_Department_Common_County"),
+		Common_Department_Common_City("Halkbank_LowCodeCommon.Common_Department_Common_City"),
+		Common_Department_Common_Firm("Halkbank_LowCodeCommon.Common_Department_Common_Firm"),
+		Common_Unit_Common_Department("Halkbank_LowCodeCommon.Common_Unit_Common_Department"),
+		Common_Department_Common_Region("Halkbank_LowCodeCommon.Common_Department_Common_Region"),
+		Common_Department_Common_Person("Halkbank_LowCodeCommon.Common_Department_Common_Person");
 
 		private final java.lang.String metaName;
 
@@ -1085,100 +1088,6 @@ public class Common_Department implements com.mendix.systemwideinterfaces.core.I
 
 	/**
 	 * @throws com.mendix.core.CoreException
-	 * @return value of Common_Department_ProxyManager
-	 */
-	public final halkbank_lowcodecommon.proxies.Common_Person getCommon_Department_ProxyManager() throws com.mendix.core.CoreException
-	{
-		return getCommon_Department_ProxyManager(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of Common_Department_ProxyManager
-	 * @throws com.mendix.core.CoreException
-	 */
-	public final halkbank_lowcodecommon.proxies.Common_Person getCommon_Department_ProxyManager(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		halkbank_lowcodecommon.proxies.Common_Person result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Common_Department_ProxyManager.toString());
-		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
-		}
-		return result;
-	}
-
-	/**
-	 * Set value of Common_Department_ProxyManager
-	 * @param common_department_proxymanager
-	 */
-	public final void setCommon_Department_ProxyManager(halkbank_lowcodecommon.proxies.Common_Person common_department_proxymanager)
-	{
-		setCommon_Department_ProxyManager(getContext(), common_department_proxymanager);
-	}
-
-	/**
-	 * Set value of Common_Department_ProxyManager
-	 * @param context
-	 * @param common_department_proxymanager
-	 */
-	public final void setCommon_Department_ProxyManager(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person common_department_proxymanager)
-	{
-		if (common_department_proxymanager == null) {
-			getMendixObject().setValue(context, MemberNames.Common_Department_ProxyManager.toString(), null);
-		} else {
-			getMendixObject().setValue(context, MemberNames.Common_Department_ProxyManager.toString(), common_department_proxymanager.getMendixObject().getId());
-		}
-	}
-
-	/**
-	 * @throws com.mendix.core.CoreException
-	 * @return value of Common_Department_Manager
-	 */
-	public final halkbank_lowcodecommon.proxies.Common_Person getCommon_Department_Manager() throws com.mendix.core.CoreException
-	{
-		return getCommon_Department_Manager(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of Common_Department_Manager
-	 * @throws com.mendix.core.CoreException
-	 */
-	public final halkbank_lowcodecommon.proxies.Common_Person getCommon_Department_Manager(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		halkbank_lowcodecommon.proxies.Common_Person result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Common_Department_Manager.toString());
-		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
-		}
-		return result;
-	}
-
-	/**
-	 * Set value of Common_Department_Manager
-	 * @param common_department_manager
-	 */
-	public final void setCommon_Department_Manager(halkbank_lowcodecommon.proxies.Common_Person common_department_manager)
-	{
-		setCommon_Department_Manager(getContext(), common_department_manager);
-	}
-
-	/**
-	 * Set value of Common_Department_Manager
-	 * @param context
-	 * @param common_department_manager
-	 */
-	public final void setCommon_Department_Manager(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person common_department_manager)
-	{
-		if (common_department_manager == null) {
-			getMendixObject().setValue(context, MemberNames.Common_Department_Manager.toString(), null);
-		} else {
-			getMendixObject().setValue(context, MemberNames.Common_Department_Manager.toString(), common_department_manager.getMendixObject().getId());
-		}
-	}
-
-	/**
-	 * @throws com.mendix.core.CoreException
 	 * @return value of Child_Common_Department_Parent_Common_Department
 	 */
 	public final halkbank_lowcodecommon.proxies.Common_Department getChild_Common_Department_Parent_Common_Department() throws com.mendix.core.CoreException
@@ -1226,6 +1135,147 @@ public class Common_Department implements com.mendix.systemwideinterfaces.core.I
 
 	/**
 	 * @throws com.mendix.core.CoreException
+	 * @return value of Common_Department_Common_County
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_County getCommon_Department_Common_County() throws com.mendix.core.CoreException
+	{
+		return getCommon_Department_Common_County(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Common_Department_Common_County
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_County getCommon_Department_Common_County(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		halkbank_lowcodecommon.proxies.Common_County result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Common_Department_Common_County.toString());
+		if (identifier != null) {
+			result = halkbank_lowcodecommon.proxies.Common_County.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of Common_Department_Common_County
+	 * @param common_department_common_county
+	 */
+	public final void setCommon_Department_Common_County(halkbank_lowcodecommon.proxies.Common_County common_department_common_county)
+	{
+		setCommon_Department_Common_County(getContext(), common_department_common_county);
+	}
+
+	/**
+	 * Set value of Common_Department_Common_County
+	 * @param context
+	 * @param common_department_common_county
+	 */
+	public final void setCommon_Department_Common_County(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_County common_department_common_county)
+	{
+		if (common_department_common_county == null) {
+			getMendixObject().setValue(context, MemberNames.Common_Department_Common_County.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.Common_Department_Common_County.toString(), common_department_common_county.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of Common_Department_Common_City
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_City getCommon_Department_Common_City() throws com.mendix.core.CoreException
+	{
+		return getCommon_Department_Common_City(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Common_Department_Common_City
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_City getCommon_Department_Common_City(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		halkbank_lowcodecommon.proxies.Common_City result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Common_Department_Common_City.toString());
+		if (identifier != null) {
+			result = halkbank_lowcodecommon.proxies.Common_City.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of Common_Department_Common_City
+	 * @param common_department_common_city
+	 */
+	public final void setCommon_Department_Common_City(halkbank_lowcodecommon.proxies.Common_City common_department_common_city)
+	{
+		setCommon_Department_Common_City(getContext(), common_department_common_city);
+	}
+
+	/**
+	 * Set value of Common_Department_Common_City
+	 * @param context
+	 * @param common_department_common_city
+	 */
+	public final void setCommon_Department_Common_City(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_City common_department_common_city)
+	{
+		if (common_department_common_city == null) {
+			getMendixObject().setValue(context, MemberNames.Common_Department_Common_City.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.Common_Department_Common_City.toString(), common_department_common_city.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of Common_Department_Common_Firm
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_Firm getCommon_Department_Common_Firm() throws com.mendix.core.CoreException
+	{
+		return getCommon_Department_Common_Firm(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Common_Department_Common_Firm
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_Firm getCommon_Department_Common_Firm(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		halkbank_lowcodecommon.proxies.Common_Firm result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Common_Department_Common_Firm.toString());
+		if (identifier != null) {
+			result = halkbank_lowcodecommon.proxies.Common_Firm.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of Common_Department_Common_Firm
+	 * @param common_department_common_firm
+	 */
+	public final void setCommon_Department_Common_Firm(halkbank_lowcodecommon.proxies.Common_Firm common_department_common_firm)
+	{
+		setCommon_Department_Common_Firm(getContext(), common_department_common_firm);
+	}
+
+	/**
+	 * Set value of Common_Department_Common_Firm
+	 * @param context
+	 * @param common_department_common_firm
+	 */
+	public final void setCommon_Department_Common_Firm(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Firm common_department_common_firm)
+	{
+		if (common_department_common_firm == null) {
+			getMendixObject().setValue(context, MemberNames.Common_Department_Common_Firm.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.Common_Department_Common_Firm.toString(), common_department_common_firm.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
 	 * @return value of Common_Unit_Common_Department
 	 */
 	public final halkbank_lowcodecommon.proxies.Common_Unit getCommon_Unit_Common_Department() throws com.mendix.core.CoreException
@@ -1268,6 +1318,100 @@ public class Common_Department implements com.mendix.systemwideinterfaces.core.I
 			getMendixObject().setValue(context, MemberNames.Common_Unit_Common_Department.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.Common_Unit_Common_Department.toString(), common_unit_common_department.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of Common_Department_Common_Region
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_Region getCommon_Department_Common_Region() throws com.mendix.core.CoreException
+	{
+		return getCommon_Department_Common_Region(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Common_Department_Common_Region
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_Region getCommon_Department_Common_Region(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		halkbank_lowcodecommon.proxies.Common_Region result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Common_Department_Common_Region.toString());
+		if (identifier != null) {
+			result = halkbank_lowcodecommon.proxies.Common_Region.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of Common_Department_Common_Region
+	 * @param common_department_common_region
+	 */
+	public final void setCommon_Department_Common_Region(halkbank_lowcodecommon.proxies.Common_Region common_department_common_region)
+	{
+		setCommon_Department_Common_Region(getContext(), common_department_common_region);
+	}
+
+	/**
+	 * Set value of Common_Department_Common_Region
+	 * @param context
+	 * @param common_department_common_region
+	 */
+	public final void setCommon_Department_Common_Region(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Region common_department_common_region)
+	{
+		if (common_department_common_region == null) {
+			getMendixObject().setValue(context, MemberNames.Common_Department_Common_Region.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.Common_Department_Common_Region.toString(), common_department_common_region.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of Common_Department_Common_Person
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_Person getCommon_Department_Common_Person() throws com.mendix.core.CoreException
+	{
+		return getCommon_Department_Common_Person(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Common_Department_Common_Person
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_Person getCommon_Department_Common_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		halkbank_lowcodecommon.proxies.Common_Person result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Common_Department_Common_Person.toString());
+		if (identifier != null) {
+			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of Common_Department_Common_Person
+	 * @param common_department_common_person
+	 */
+	public final void setCommon_Department_Common_Person(halkbank_lowcodecommon.proxies.Common_Person common_department_common_person)
+	{
+		setCommon_Department_Common_Person(getContext(), common_department_common_person);
+	}
+
+	/**
+	 * Set value of Common_Department_Common_Person
+	 * @param context
+	 * @param common_department_common_person
+	 */
+	public final void setCommon_Department_Common_Person(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person common_department_common_person)
+	{
+		if (common_department_common_person == null) {
+			getMendixObject().setValue(context, MemberNames.Common_Department_Common_Person.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.Common_Department_Common_Person.toString(), common_department_common_person.getMendixObject().getId());
 		}
 	}
 

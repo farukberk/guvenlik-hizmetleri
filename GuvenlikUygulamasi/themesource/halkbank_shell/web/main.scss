@@ -1,0 +1,6 @@
+@import '../../../theme/web/custom-variables';
+// Halkbank_Shell: kurumsal üst bar (header) ve sol menü (navigation) görünümü.
+// Atlas_Default layout'unu kullanan her projede çalışır. Davranış: public/resources/halkbank_shell/halkbank-shell.js
+// (index.html'den yüklenir). Kurulum: themesource/halkbank_shell/KURULUM.md
+@import 'phosphor';
+@import 'shell';

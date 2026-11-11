@@ -1172,7 +1172,7 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @throws com.mendix.core.CoreException
 	 * @return value of RaporFiltre_Sube
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getRaporFiltre_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getRaporFiltre_Sube() throws com.mendix.core.CoreException
 	{
 		return getRaporFiltre_Sube(getContext());
 	}
@@ -1182,12 +1182,12 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @return value of RaporFiltre_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getRaporFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getRaporFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		halkbank_lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.RaporFiltre_Sube.toString());
 		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -1196,7 +1196,7 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * Set value of RaporFiltre_Sube
 	 * @param raporfiltre_sube
 	 */
-	public final void setRaporFiltre_Sube(halkbank_lowcodecommon.proxies.Common_Unit raporfiltre_sube)
+	public final void setRaporFiltre_Sube(halkbank_lowcodecommon.proxies.Common_Department raporfiltre_sube)
 	{
 		setRaporFiltre_Sube(getContext(), raporfiltre_sube);
 	}
@@ -1206,7 +1206,7 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @param raporfiltre_sube
 	 */
-	public final void setRaporFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit raporfiltre_sube)
+	public final void setRaporFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department raporfiltre_sube)
 	{
 		if (raporfiltre_sube == null) {
 			getMendixObject().setValue(context, MemberNames.RaporFiltre_Sube.toString(), null);

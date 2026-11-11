@@ -1342,6 +1342,16 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Bildirim_SimdiGonderBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Bildirim_SimdiGonder");
+		return builder;
+	}
+
+	public static void aCT_Bildirim_SimdiGonder(IContext context)
+	{
+		aCT_Bildirim_SimdiGonderBuilder().execute(context);
+	}
 	/**
 	 * Kullanıcı eylemi: Bildirim Tumunu Oku
 	 * Girdi: Oturum (BildirimOturum)
@@ -1821,6 +1831,25 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DenetimKaydi_BirimIleBuilder(
+		guvenlikyonetimi.proxies.SubeOzet _ozet
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_DenetimKaydi_BirimIle");
+		builder = builder.withParam("Ozet", _ozet);
+		return builder;
+	}
+
+	public static void aCT_DenetimKaydi_BirimIle(
+		IContext context,
+		guvenlikyonetimi.proxies.SubeOzet _ozet
+	)
+	{
+		aCT_DenetimKaydi_BirimIleBuilder(
+				_ozet
+			)
+			.execute(context);
+	}
 	/**
 	 * Kullanıcı eylemi: Denetim Kaydi Duzenle
 	 * Girdi: DenetimKaydi (DenetimKaydi)
@@ -1863,6 +1892,16 @@ public final class Microflows
 				_denetimKaydi
 			)
 			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DenetimKaydi_EkleBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_DenetimKaydi_Ekle");
+		return builder;
+	}
+
+	public static void aCT_DenetimKaydi_Ekle(IContext context)
+	{
+		aCT_DenetimKaydi_EkleBuilder().execute(context);
 	}
 	/**
 	 * Kullanıcı eylemi: Denetim Kaydi Kaydet
@@ -6094,6 +6133,16 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Yonetim_Yetkilendirme_AcBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Yonetim_Yetkilendirme_Ac");
+		return builder;
+	}
+
+	public static void aCT_Yonetim_Yetkilendirme_Ac(IContext context)
+	{
+		aCT_Yonetim_Yetkilendirme_AcBuilder().execute(context);
+	}
 	/**
 	 * Kullanıcı eylemi: Teçhizat birimleri: seri no takipli türlerden ~20 birim (zimmetli / bakımda / kayıp), zimmet geçmişi ile
 	 * Adımlar:
@@ -6129,6 +6178,17 @@ public final class Microflows
 	public static void aCT_Zimmet_OrnekVeri(IContext context)
 	{
 		aCT_Zimmet_OrnekVeriBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aSU_BaslangicBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ASU_Baslangic");
+		return builder;
+	}
+
+	public static boolean aSU_Baslangic(IContext context)
+	{
+		Object result = aSU_BaslangicBuilder().execute(context);
+		return (boolean) result;
 	}
 	/**
 	 * Veri kaynağı: Anasayfa Kullanici Yetkisi
@@ -9377,6 +9437,30 @@ public final class Microflows
 			.execute(context);
 		return result == null ? null : guvenlikyonetimi.proxies.BedenRehberi.initialize(context, (IMendixObject) result);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Belge_MailBildirimiBuilder(
+		java.lang.String _alici,
+		java.lang.String _bilgi
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Belge_MailBildirimi");
+		builder = builder.withParam("Alici", _alici);
+		builder = builder.withParam("Bilgi", _bilgi);
+		return builder;
+	}
+
+	public static java.lang.Long sUB_Belge_MailBildirimi(
+		IContext context,
+		java.lang.String _alici,
+		java.lang.String _bilgi
+	)
+	{
+		Object result = sUB_Belge_MailBildirimiBuilder(
+				_alici,
+				_bilgi
+			)
+			.execute(context);
+		return (java.lang.Long) result;
+	}
 	/**
 	 * Alt akış: Belge Sube Guncelle
 	 * Girdi: Birim (Common_Unit)
@@ -9386,7 +9470,7 @@ public final class Microflows
 	 * • Liste işlemleri
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Belge_SubeGuncelleBuilder(
-		halkbank_lowcodecommon.proxies.Common_Unit _birim
+		halkbank_lowcodecommon.proxies.Common_Department _birim
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Belge_SubeGuncelle");
@@ -9404,7 +9488,7 @@ public final class Microflows
 	 */
 	public static void sUB_Belge_SubeGuncelle(
 		IContext context,
-		halkbank_lowcodecommon.proxies.Common_Unit _birim
+		halkbank_lowcodecommon.proxies.Common_Department _birim
 	)
 	{
 		sUB_Belge_SubeGuncelleBuilder(
@@ -10034,6 +10118,16 @@ public final class Microflows
 		Object result = sUB_Gecici_YeniNoBuilder().execute(context);
 		return (java.lang.String) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Gunluk_BildirimBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Gunluk_Bildirim");
+		return builder;
+	}
+
+	public static void sUB_Gunluk_Bildirim(IContext context)
+	{
+		sUB_Gunluk_BildirimBuilder().execute(context);
+	}
 	/**
 	 * Alt akış: Inv Say
 	 * Girdi: Oturum (MYOturum)
@@ -10131,7 +10225,7 @@ public final class Microflows
 		java.lang.String _islem,
 		java.lang.String _kayitTuru,
 		java.lang.String _kayitReferansi,
-		halkbank_lowcodecommon.proxies.Common_Unit _sube
+		halkbank_lowcodecommon.proxies.Common_Department _sube
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_IslemKaydi_Create");
@@ -10164,7 +10258,7 @@ public final class Microflows
 		java.lang.String _islem,
 		java.lang.String _kayitTuru,
 		java.lang.String _kayitReferansi,
-		halkbank_lowcodecommon.proxies.Common_Unit _sube
+		halkbank_lowcodecommon.proxies.Common_Department _sube
 	)
 	{
 		sUB_IslemKaydi_CreateBuilder(
@@ -10294,6 +10388,37 @@ public final class Microflows
 	{
 		Object result = sUB_KullaniciYetkisi_HesaplaBuilder().execute(context);
 		return result == null ? null : guvenlikyonetimi.proxies.KullaniciYetkisi.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Mail_OlusturBuilder(
+		java.lang.String _alici,
+		java.lang.String _bilgi,
+		java.lang.String _konu,
+		java.lang.String _govdeHtml
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Mail_Olustur");
+		builder = builder.withParam("Alici", _alici);
+		builder = builder.withParam("Bilgi", _bilgi);
+		builder = builder.withParam("Konu", _konu);
+		builder = builder.withParam("GovdeHtml", _govdeHtml);
+		return builder;
+	}
+
+	public static void sUB_Mail_Olustur(
+		IContext context,
+		java.lang.String _alici,
+		java.lang.String _bilgi,
+		java.lang.String _konu,
+		java.lang.String _govdeHtml
+	)
+	{
+		sUB_Mail_OlusturBuilder(
+				_alici,
+				_bilgi,
+				_konu,
+				_govdeHtml
+			)
+			.execute(context);
 	}
 	/**
 	 * Alt akış: Malzeme Ornek Ekle
@@ -10846,7 +10971,7 @@ public final class Microflows
 	 * • Kaydeder: Degisenler
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_SubeOzet_HesaplaBuilder(
-		java.util.List<halkbank_lowcodecommon.proxies.Common_Unit> _birimler,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Department> _birimler,
 		java.util.List<guvenlikyonetimi.proxies.SubeBelgesi> _belgeler
 	)
 	{
@@ -10867,7 +10992,7 @@ public final class Microflows
 	 */
 	public static void sUB_SubeOzet_Hesapla(
 		IContext context,
-		java.util.List<halkbank_lowcodecommon.proxies.Common_Unit> _birimler,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Department> _birimler,
 		java.util.List<guvenlikyonetimi.proxies.SubeBelgesi> _belgeler
 	)
 	{
@@ -11037,6 +11162,17 @@ public final class Microflows
 				_kisi
 			)
 			.execute(context);
+		return (java.lang.Long) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Talep_OtomatikTeslimBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Talep_OtomatikTeslim");
+		return builder;
+	}
+
+	public static java.lang.Long sUB_Talep_OtomatikTeslim(IContext context)
+	{
+		Object result = sUB_Talep_OtomatikTeslimBuilder().execute(context);
 		return (java.lang.Long) result;
 	}
 	/**
@@ -11412,14 +11548,12 @@ public final class Microflows
 		sUB_Yetki_SiraDuzenleBuilder().execute(context);
 	}
 	/**
-	 * Alt akış: Yetki Varsayilan Kurallar
-	 * Adımlar:
-	 * • Getirir: YetkiKurali, Common_StaffTitle, Common_Department
-	 * • Karar: Kural var mı?
-	 * • Oluşturur: YetkiKurali, YetkiKuraliDeger, YetkiKuraliBolge
-	 * • Çağırır: SUB_YetkiKurali_Guncelle
-	 * • Karar: Ünvan var mı?
-	 * • Karar: Bölge var mı?
+	 * Alt akış: Yetki Varsayılan Kurallar (yalnız hiç kural yokken çalışır)
+	 * • Sıra 1: Unvan = Güvenlik Görevlisi → Güvenlik Personeli (kendi birimi)
+	 * • Sıra 2: Birim tipi = Üst Birim → Üst Birim Kullanıcısı
+	 * • Sıra 3: Birim = Güvenlik Hizmetleri birimleri (adında GÜVENLİK HİZMETLERİ; kişi bu birimde ya da doğrudan alt biriminde) → Güvenlik Ofisi (tüm birimler). Genel Müdürlük'ün tamamına verilmez; görevliler sıra 1 ile ayrılır.
+	 * • Sıra 4: Birim tipi = Birim → Birim Kullanıcısı
+	 * • Sıra 5: Unvan = Güvenlik Uzmanı → Üst Birim (seçili üst birimler, pasif örnek)
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Yetki_VarsayilanKurallarBuilder()
 	{
@@ -11428,14 +11562,12 @@ public final class Microflows
 	}
 
 	/**
-	 * Alt akış: Yetki Varsayilan Kurallar
-	 * Adımlar:
-	 * • Getirir: YetkiKurali, Common_StaffTitle, Common_Department
-	 * • Karar: Kural var mı?
-	 * • Oluşturur: YetkiKurali, YetkiKuraliDeger, YetkiKuraliBolge
-	 * • Çağırır: SUB_YetkiKurali_Guncelle
-	 * • Karar: Ünvan var mı?
-	 * • Karar: Bölge var mı?
+	 * Alt akış: Yetki Varsayılan Kurallar (yalnız hiç kural yokken çalışır)
+	 * • Sıra 1: Unvan = Güvenlik Görevlisi → Güvenlik Personeli (kendi birimi)
+	 * • Sıra 2: Birim tipi = Üst Birim → Üst Birim Kullanıcısı
+	 * • Sıra 3: Birim = Güvenlik Hizmetleri birimleri (adında GÜVENLİK HİZMETLERİ; kişi bu birimde ya da doğrudan alt biriminde) → Güvenlik Ofisi (tüm birimler). Genel Müdürlük'ün tamamına verilmez; görevliler sıra 1 ile ayrılır.
+	 * • Sıra 4: Birim tipi = Birim → Birim Kullanıcısı
+	 * • Sıra 5: Unvan = Güvenlik Uzmanı → Üst Birim (seçili üst birimler, pasif örnek)
 	 */
 	public static void sUB_Yetki_VarsayilanKurallar(IContext context)
 	{

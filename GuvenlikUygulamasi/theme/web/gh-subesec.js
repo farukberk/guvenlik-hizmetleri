@@ -19,10 +19,10 @@
         });
     }
     function kisaBolge(ad) {
-        return (ad || "").replace(/\s*Bölge Müdürlüğü\s*$/i, "").trim();
+        return (ad || "").replace(/\s*(Bölge Müdürlüğü|BÖLGE MÜDÜRLÜĞÜ|Bölge Koordinatörlüğü|BÖLGE KOORDİNATÖRLÜĞÜ)\s*$/, "").trim();
     }
     // Kurum modülü (Halkbank_LowCodeCommon) ya da geliştirme kopyası (LowCodeCommon): adlar çalışırken seçilir.
-    // Şube sayılan birim türleri ve bölge türü kurum tanımına göre (ENUM_UnitKind).
+    // Şube sayılan birim türleri ve bölge türü kurum tanımına göre (ENUM_UnitKind / Common_Department.Kind).
     var SUBE_TURLERI = ["UYDUSB", "TICARI", "KURUMSAL", "YURTDISI", "KARMA", "SUBE"];
     // İlişki adları kayıtların kendisinden okunur (istemcide şema API'si yok)
     function adlar(mod, birimler, deptler) {
@@ -42,11 +42,43 @@
         yukleniyor = true;
         // Var olmayan varlık sorgusu da boş liste döndüğü için kayıt dönen modül seçilir
         var mod = "Halkbank_LowCodeCommon";
-        al("//" + mod + ".Common_Unit").then(function (k) {
+        al("//" + mod + ".Common_Department").then(function (k) {
             if (!k.length) mod = "LowCodeCommon";
         }).then(function () {
-            return Promise.all([al("//" + mod + ".Common_Unit"), al("//" + mod + ".Common_Department")]);
-        }).then(function (s) {
+            return al("//" + mod + ".Common_Department");
+        }).then(function (deptler) {
+            // P40: şube = departman (CategoryLVI 7/8/9), bölge = üst departmanlardan ilki CategoryLVI 6 ve TypeLVI 1 (Disiplin Etik ile aynı)
+            var ustAd = adlar(mod, [], deptler).ust;
+            var dep = {};
+            deptler.forEach(function (d) { dep[d.getGuid()] = d; });
+            var sayi = function (o, a) { return o && o.has(a) ? Number(o.get(a)) : NaN; };
+            // Gerçek Halkbank verisi (Disiplin Etik): şube 9, uydu şube 11; IsBranch, Halkbank (FirmID 1), temsilcilik (FİNANS) hariç
+            var subeMi = function (d) {
+                var c = sayi(d, "CategoryLVI");
+                if (c !== 9 && c !== 11) return false;
+                if (d.has("IsBranch") && d.get("IsBranch") === false) return false;
+                if (d.has("FirmID") && sayi(d, "FirmID") !== 1) return false;
+                return !/^F[İI]NANS$/.test(String((d.has("Kind") && d.get("Kind")) || ""));
+            };
+            var bolgeMi = function (d) { return sayi(d, "CategoryLVI") === 6 && sayi(d, "TypeLVI") === 1; };
+            var harita = {}, bolgeKod = {};
+            deptler.forEach(function (d) {
+                if (!subeMi(d) || (d.has("Status") && d.get("Status") === false)) return;
+                var ust = ustAd && dep[d.get(ustAd)], adim = 0;
+                while (ust && !bolgeMi(ust) && adim++ < 5) ust = dep[ust.get(ustAd)];
+                var bolge = ust && bolgeMi(ust) ? kisaBolge(ust.get("Name")) : "";
+                if (bolge) bolgeKod[bolge] = ust.get("MisCode") || "";
+                harita[d.get("Name")] = { kod: d.get("MisCode") || "", bolge: bolge };
+            });
+            bolgeler = Object.keys(bolgeKod).sort(function (a, b) { return bolgeKod[a] < bolgeKod[b] ? -1 : 1; });
+            bilgi = harita;
+            yukleniyor = false;
+            uygula();
+        });
+    }
+    // P39 öncesi birim (Common_Unit) tabanlı yükleme; P40'tan beri kullanılmıyor
+    function yukleBirim(mod) {
+        Promise.all([al("//" + mod + ".Common_Unit"), al("//" + mod + ".Common_Department")]).then(function (s) {
             var A = adlar(mod, s[0], s[1]);
             var dep = {}, birimler = {}, birimDepti = {};
             s[1].forEach(function (d) { dep[d.getGuid()] = d; });
@@ -57,12 +89,17 @@
             s[1].forEach(function (d) { var g = A.birimDept && d.has(A.birimDept) ? d.get(A.birimDept) : ""; if (g) { deptBirimi[d.getGuid()] = g; birimDepti[g] = birimDepti[g] || d.getGuid(); } });
             Object.keys(birimDepti).forEach(function (b) { deptBirimi[birimDepti[b]] = deptBirimi[birimDepti[b]] || b; });
             var harita = {}, bolgeKod = {};
+            // P39: tür birimde (ENUM_UnitKind) ya da departmanda (Kind metni) olabilir; Türkçe harfli yazım da kabul
+            var tur = function (o) {
+                return String((o && o.has("Kind") && o.get("Kind")) || "").toLocaleUpperCase("tr")
+                    .replace(/İ/g, "I").replace(/Ş/g, "S").replace(/Ç/g, "C").replace(/Ğ/g, "G").replace(/Ü/g, "U").replace(/Ö/g, "O");
+            };
             s[0].forEach(function (u) {
-                if (SUBE_TURLERI.indexOf(String(u.get("Kind") || "").toUpperCase()) < 0) return;
                 var d = dep[birimDepti[u.getGuid()]];
+                if (SUBE_TURLERI.indexOf(tur(u)) < 0 && SUBE_TURLERI.indexOf(tur(d)) < 0) return;
                 var ust = d && A.ust && dep[d.get(A.ust)];
                 var ustBirim = ust && birimler[deptBirimi[ust.getGuid()]];
-                var bolge = ustBirim && ustBirim.get("Kind") === "SERBOLGE" ? kisaBolge(ust.get("Name")) : "";
+                var bolge = ust && (tur(ust) === "SERBOLGE" || tur(ustBirim) === "SERBOLGE") ? kisaBolge(ust.get("Name")) : "";
                 if (bolge) bolgeKod[bolge] = ust.get("MisCode") || "";
                 harita[u.get("Name")] = { kod: u.get("MisCode") || "", bolge: bolge };
             });
@@ -93,8 +130,8 @@
         var ara = el("div", "gh-ss-ara");
         var aramaGirisi = el("input", "gh-ss-giris");
         aramaGirisi.type = "text";
-        aramaGirisi.placeholder = "Şube adı, kodu veya il";
-        aramaGirisi.setAttribute("aria-label", "Şube ara");
+        aramaGirisi.placeholder = "Birim adı, kodu veya il";
+        aramaGirisi.setAttribute("aria-label", "Birim ara");
         ara.appendChild(aramaGirisi);
         bas.appendChild(ara);
         var cipler = el("div", "gh-ss-cipler");
@@ -126,7 +163,7 @@
         // "Tüm şubeler": seçimi temizler (temizlenebilir kutularda)
         var tum = el("li", "gh-ss-tum");
         tum.setAttribute("role", "presentation");
-        tum.appendChild(el("span", "gh-ss-tum-ad", "Tüm şubeler"));
+        tum.appendChild(el("span", "gh-ss-tum-ad", "Tüm birimler"));
         tum.appendChild(el("span", "gh-ss-tum-sayi"));
         tum.addEventListener("mousedown", function (e) { e.preventDefault(); });
         tum.addEventListener("click", function (e) {
@@ -201,7 +238,7 @@
                 else { li.removeAttribute("data-gh-gizli"); gorunen++; }
                 if ((gizli || !suzgec) && li.hasAttribute("data-gh-vurgu")) li.removeAttribute("data-gh-vurgu");
             });
-            var sayi = gorunen.toLocaleString("tr-TR") + " şube";
+            var sayi = gorunen.toLocaleString("tr-TR") + " birim";
             var ts = liste.querySelector(".gh-ss-tum-sayi");
             if (ts && ts.textContent !== sayi) ts.textContent = sayi;
             var as = liste.querySelector(".gh-ss-alt-sayi");

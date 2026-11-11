@@ -797,7 +797,7 @@ public class TYFiltre implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @throws com.mendix.core.CoreException
 	 * @return value of TYFiltre_Sube
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getTYFiltre_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getTYFiltre_Sube() throws com.mendix.core.CoreException
 	{
 		return getTYFiltre_Sube(getContext());
 	}
@@ -807,12 +807,12 @@ public class TYFiltre implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @return value of TYFiltre_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getTYFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getTYFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		halkbank_lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.TYFiltre_Sube.toString());
 		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -821,7 +821,7 @@ public class TYFiltre implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * Set value of TYFiltre_Sube
 	 * @param tyfiltre_sube
 	 */
-	public final void setTYFiltre_Sube(halkbank_lowcodecommon.proxies.Common_Unit tyfiltre_sube)
+	public final void setTYFiltre_Sube(halkbank_lowcodecommon.proxies.Common_Department tyfiltre_sube)
 	{
 		setTYFiltre_Sube(getContext(), tyfiltre_sube);
 	}
@@ -831,7 +831,7 @@ public class TYFiltre implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @param context
 	 * @param tyfiltre_sube
 	 */
-	public final void setTYFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit tyfiltre_sube)
+	public final void setTYFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department tyfiltre_sube)
 	{
 		if (tyfiltre_sube == null) {
 			getMendixObject().setValue(context, MemberNames.TYFiltre_Sube.toString(), null);

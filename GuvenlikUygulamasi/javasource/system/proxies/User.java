@@ -80,6 +80,9 @@ public class User implements com.mendix.systemwideinterfaces.core.IEntityProxy
 		if (mendixObject.isInstanceOf("Administration.Account")) {
 			return administration.proxies.Account.initialize(context, mendixObject);
 		}
+		if (mendixObject.isInstanceOf("MendixSSO.MendixSSOUser")) {
+			return mendixsso.proxies.MendixSSOUser.initialize(context, mendixObject);
+		}
 		return new system.proxies.User(context, mendixObject);
 	}
 

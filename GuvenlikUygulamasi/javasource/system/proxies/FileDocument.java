@@ -75,14 +75,53 @@ public class FileDocument implements com.mendix.systemwideinterfaces.core.IEntit
 		if (mendixObject.isInstanceOf("GuvenlikYonetimi.BelgeSurumu")) {
 			return guvenlikyonetimi.proxies.BelgeSurumu.initialize(context, mendixObject);
 		}
+		if (mendixObject.isInstanceOf("Halkbank_LowCodeCommon.Common_LowCodeCommonFileDocument")) {
+			return halkbank_lowcodecommon.proxies.Common_LowCodeCommonFileDocument.initialize(context, mendixObject);
+		}
+		if (mendixObject.isInstanceOf("XLSReport.CustomExcel")) {
+			return xlsreport.proxies.CustomExcel.initialize(context, mendixObject);
+		}
 		if (mendixObject.isInstanceOf("GuvenlikYonetimi.DenetimRaporu")) {
 			return guvenlikyonetimi.proxies.DenetimRaporu.initialize(context, mendixObject);
+		}
+		if (mendixObject.isInstanceOf("SAML20.IdPMetadata")) {
+			return saml20.proxies.IdPMetadata.initialize(context, mendixObject);
 		}
 		if (mendixObject.isInstanceOf("System.Image")) {
 			return system.proxies.Image.initialize(context, mendixObject);
 		}
+		if (mendixObject.isInstanceOf("DatabaseReplication.ImportExportFile")) {
+			return databasereplication.proxies.ImportExportFile.initialize(context, mendixObject);
+		}
+		if (mendixObject.isInstanceOf("SAML20.KeyStore")) {
+			return saml20.proxies.KeyStore.initialize(context, mendixObject);
+		}
+		if (mendixObject.isInstanceOf("Encryption.PGPCertificate")) {
+			return encryption.proxies.PGPCertificate.initialize(context, mendixObject);
+		}
+		if (mendixObject.isInstanceOf("SAML20.SAMLRequest")) {
+			return saml20.proxies.SAMLRequest.initialize(context, mendixObject);
+		}
+		if (mendixObject.isInstanceOf("SAML20.SAMLResponse")) {
+			return saml20.proxies.SAMLResponse.initialize(context, mendixObject);
+		}
+		if (mendixObject.isInstanceOf("SAML20.SPMetadata")) {
+			return saml20.proxies.SPMetadata.initialize(context, mendixObject);
+		}
 		if (mendixObject.isInstanceOf("System.SynchronizationErrorFile")) {
 			return system.proxies.SynchronizationErrorFile.initialize(context, mendixObject);
+		}
+		if (mendixObject.isInstanceOf("ExcelImporter.TemplateDocument")) {
+			return excelimporter.proxies.TemplateDocument.initialize(context, mendixObject);
+		}
+		if (mendixObject.isInstanceOf("SAML20.X509Certificate")) {
+			return saml20.proxies.X509Certificate.initialize(context, mendixObject);
+		}
+		if (mendixObject.isInstanceOf("DatabaseReplication.XMLDocumentTM")) {
+			return databasereplication.proxies.XMLDocumentTM.initialize(context, mendixObject);
+		}
+		if (mendixObject.isInstanceOf("ExcelImporter.XMLDocumentTemplate")) {
+			return excelimporter.proxies.XMLDocumentTemplate.initialize(context, mendixObject);
 		}
 		return new system.proxies.FileDocument(context, mendixObject);
 	}

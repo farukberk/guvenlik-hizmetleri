@@ -587,7 +587,7 @@ public class TechizatAtaForm implements com.mendix.systemwideinterfaces.core.IEn
 	 * @throws com.mendix.core.CoreException
 	 * @return value of TechizatAtaForm_Sube
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getTechizatAtaForm_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getTechizatAtaForm_Sube() throws com.mendix.core.CoreException
 	{
 		return getTechizatAtaForm_Sube(getContext());
 	}
@@ -597,12 +597,12 @@ public class TechizatAtaForm implements com.mendix.systemwideinterfaces.core.IEn
 	 * @return value of TechizatAtaForm_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getTechizatAtaForm_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getTechizatAtaForm_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		halkbank_lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.TechizatAtaForm_Sube.toString());
 		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -611,7 +611,7 @@ public class TechizatAtaForm implements com.mendix.systemwideinterfaces.core.IEn
 	 * Set value of TechizatAtaForm_Sube
 	 * @param techizatataform_sube
 	 */
-	public final void setTechizatAtaForm_Sube(halkbank_lowcodecommon.proxies.Common_Unit techizatataform_sube)
+	public final void setTechizatAtaForm_Sube(halkbank_lowcodecommon.proxies.Common_Department techizatataform_sube)
 	{
 		setTechizatAtaForm_Sube(getContext(), techizatataform_sube);
 	}
@@ -621,7 +621,7 @@ public class TechizatAtaForm implements com.mendix.systemwideinterfaces.core.IEn
 	 * @param context
 	 * @param techizatataform_sube
 	 */
-	public final void setTechizatAtaForm_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit techizatataform_sube)
+	public final void setTechizatAtaForm_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department techizatataform_sube)
 	{
 		if (techizatataform_sube == null) {
 			getMendixObject().setValue(context, MemberNames.TechizatAtaForm_Sube.toString(), null);

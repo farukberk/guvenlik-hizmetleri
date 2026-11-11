@@ -1,6 +1,7 @@
-// Kabuk (prototip analiz.html ile aynı): üst çubukta arama + karanlık mod düğmesi + kullanıcı kartı, menüde sayı rozetleri ve "Menüyü daralt".
-// Bilgiler GuvenlikYonetimi.SUB_Kabuk_Bilgi'den gelir: "AdSoyad|RolAdi|BirimMetni|AktifAlarm|OnayBekleyenTalep|RolKodu".
-// Mendix layout'u model API'sinden düzenlenemediği için öğeler oturum açıkken istemci tarafında eklenir (bkz. gh-bell.js).
+// Güvenlik uygulamasının Halkbank_Shell kabuğuna bağlantısı ve sayfa yardımcıları.
+// Üst bar ve sol menünün görünümü/davranışı Halkbank_Shell modülündedir (halkbank-shell.js + halkbank-shell.config.js).
+// Bu dosya: kullanıcı bilgisi ve menü rozetleri (GuvenlikYonetimi.SUB_Kabuk_Bilgi: "AdSoyad|RolAdi|BirimMetni|AktifAlarm|OnayBekleyenTalep|RolKodu"),
+// html'deki gh-rol-<Rol> sınıfı, üst bardaki şube araması, personel yönlendirmesi ve sayfa yardımcıları.
 (function () {
     var MF_BILGI = "GuvenlikYonetimi.SUB_Kabuk_Bilgi";
     var MF_BELGE = "GuvenlikYonetimi.ACT_SubeBelgeleri_Ac";
@@ -8,37 +9,16 @@
     function hazir() {
         return window.mx && mx.session && mx.data && typeof mx.data.action === "function" && !(mx.session.isGuest && mx.session.isGuest());
     }
-    function depo(k, v) {
-        try {
-            if (v === undefined) return window.localStorage.getItem(k);
-            window.localStorage.setItem(k, v);
-        } catch (e) {}
-        return null;
+    function kabuk() {
+        return window.HalkbankShell || null;
     }
-    function basHarf(ad) {
-        var p = String(ad || "").trim().split(/\s+/).filter(Boolean);
-        if (!p.length) return "";
-        var s = p[0].charAt(0) + (p.length > 1 ? p[p.length - 1].charAt(0) : "");
-        return s.toLocaleUpperCase("tr-TR");
-    }
-    function el(tag, cls, html) {
+    function el(tag, cls) {
         var e = document.createElement(tag);
         if (cls) e.className = cls;
-        if (html !== undefined) e.innerHTML = html;
         return e;
     }
 
-    // ----- Tema (prototip: html[data-theme]; tercih tarayıcıda saklanır) -----
-    function temaUygula(t) {
-        document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
-    }
-    function temaDugmesi(b) {
-        var koyu = document.documentElement.getAttribute("data-theme") === "dark";
-        b.title = koyu ? "Aydınlık moda geç" : "Karanlık moda geç";
-        b.setAttribute("aria-label", b.title);
-    }
-
-    // ----- Üst çubuk -----
+    // ----- Üst bar: şube araması (Enter → Şube Belgeleri açılır, filtre doldurulur) -----
     function aramaYap(metin) {
         metin = String(metin || "").trim();
         if (!metin) return;
@@ -46,7 +26,7 @@
         var deneme = 0;
         var t = setInterval(function () {
             deneme++;
-            var inp = document.querySelector(".gh-filter-bar input[placeholder='Şube adı veya kodu']");
+            var inp = document.querySelector(".gh-filter-bar input[placeholder='Birim adı veya kodu']");
             if (inp) {
                 clearInterval(t);
                 var set = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set;
@@ -58,21 +38,18 @@
             }
         }, 150);
     }
-    function ustCubuk() {
+    function arama() {
+        var k = kabuk();
         var bar = document.querySelector(".region-topbar .topbar-content");
-        if (!bar) return;
-        var marka = bar.querySelector(":scope > .mx-layoutgrid");
-        var logo = bar.querySelector(".navbar-brand .mx-image-viewer");
-        if (logo && !logo.querySelector(".gh-brand")) {
-            logo.appendChild(el("span", "gh-brand", '<span class="gh-brand-t">Güvenlik Hizmetleri</span><span class="gh-brand-s">Halkbank · Kurumsal Uygulama</span>'));
-        }
+        if (!k || !bar) return;
         var ara = bar.querySelector(".gh-tb-search");
         if (!ara) {
-            ara = el("div", "gh-tb-search");
+            ara = el("label", "hs-search gh-tb-search");
+            var ikon = el("i", "ph ph-magnifying-glass");
             var inp = el("input");
             inp.type = "search";
-            inp.placeholder = "Şube adı veya kodu ara…";
-            inp.setAttribute("aria-label", "Şube ara");
+            inp.placeholder = "Birim adı veya kodu ara…";
+            inp.setAttribute("aria-label", "Birim ara");
             inp.addEventListener("keydown", function (e) {
                 if (e.key === "Enter") {
                     aramaYap(inp.value);
@@ -80,117 +57,24 @@
                     inp.blur();
                 }
             });
+            ara.appendChild(ikon);
             ara.appendChild(inp);
+            k.addTopbarItem(ara, 1);
         }
-        var bosluk = bar.querySelector(".gh-tb-spacer") || el("div", "gh-tb-spacer");
-        var tema = bar.querySelector(".gh-tb-theme");
-        if (!tema) {
-            tema = el("button", "gh-tb-theme");
-            tema.type = "button";
-            tema.addEventListener("click", function () {
-                var t = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-                temaUygula(t);
-                depo("gh-tema", t);
-                temaDugmesi(tema);
-            });
-            temaDugmesi(tema);
-        }
-        var kart = bar.querySelector(".gh-tb-user");
-        if (!kart) {
-            kart = el("div", "gh-tb-user", '<span class="gh-tb-av"></span><span class="gh-tb-who"><span class="gh-tb-ad"></span><span class="gh-tb-rol"></span></span>');
-        }
-        // Sıra: marka · arama · boşluk · tema · zil · kullanıcı
-        var sonra = marka ? marka.nextSibling : bar.firstChild;
-        if (ara.previousSibling !== marka) bar.insertBefore(ara, sonra);
-        if (bosluk.previousSibling !== ara) bar.insertBefore(bosluk, ara.nextSibling);
-        if (tema.previousSibling !== bosluk) bar.insertBefore(tema, bosluk.nextSibling);
-        if (bar.lastElementChild !== kart) bar.appendChild(kart);
         var rol = bilgi ? bilgi.rol : "";
-        ara.hidden = rol === "SubeKullanicisi" || rol === "GuvenlikPersoneli";
-        if (bilgi) {
-            kart.querySelector(".gh-tb-av").textContent = basHarf(bilgi.ad);
-            kart.querySelector(".gh-tb-ad").textContent = bilgi.ad;
-            var alt = bilgi.rolAdi + (bilgi.birim ? " · " + bilgi.birim : "");
-            kart.querySelector(".gh-tb-rol").textContent = alt;
-            kart.title = bilgi.ad + " · " + alt;
-        }
+        var gizli = rol === "SubeKullanicisi" || rol === "GuvenlikPersoneli";
+        if (ara.hidden !== gizli) ara.hidden = gizli;
     }
 
-    // ----- Menü -----
-    function rozet(sinif, n) {
-        var a = document.querySelector(".region-sidebar a." + sinif);
-        if (!a) return;
-        var s = a.querySelector(".gh-nav-n");
-        if (!s) {
-            s = el("span", "gh-nav-n");
-            a.appendChild(s);
-        }
-        s.textContent = n > 99 ? "99+" : String(n);
-        s.hidden = !(n > 0);
+    // ----- Kullanıcı bilgisi, rol sınıfı ve menü rozetleri -----
+    function uygula() {
+        var k = kabuk();
+        if (!k || !bilgi) return;
+        k.setUser({ name: bilgi.ad, role: bilgi.rolAdi, unit: bilgi.birim });
+        k.setBadge("a.mx-name-navigationTree3-2", bilgi.alarm);
+        k.setBadge("a.mx-name-navigationTree3-4", bilgi.talep);
+        arama();
     }
-    function menu() {
-        var w = document.querySelector(".region-sidebar > .mx-scrollcontainer-wrapper");
-        if (!w) return;
-        if (!w.querySelector(".gh-nav-collapse")) {
-            var b = el("button", "gh-nav-collapse");
-            b.type = "button";
-            b.addEventListener("click", menuDaraltDegistir);
-            w.appendChild(b);
-            etiketler();
-        }
-        // Kenar çubuğu başlığının sağ kenarında yalnız simgeli daralt / genişlet tutamağı (alttaki düğmeyle aynı ayar)
-        if (!document.querySelector(".gh-nav-handle")) {
-            var t = el("button", "gh-nav-handle");
-            t.type = "button";
-            t.addEventListener("click", menuDaraltDegistir);
-            document.body.appendChild(t);
-            etiketler();
-        }
-        // Daraltılmış menüde adlar ipucu olarak görünsün
-        w.querySelectorAll(".mx-navigationtree a").forEach(function (a) {
-            if (!a.title) a.title = (a.textContent || "").trim();
-        });
-        // "Yönetim / Parametreler" prototipteki gibi açık gelir; kullanıcı kapatırsa kapalı kalır
-        var yonetim = w.querySelector("a.mx-name-navigationTree3-12");
-        if (yonetim && !yonetim.ghDinle) {
-            yonetim.ghDinle = true;
-            yonetim.addEventListener("click", function (e) {
-                if (!e.isTrusted) return;
-                setTimeout(function () {
-                    var kapali = yonetim.parentElement.classList.contains("mx-navigationtree-collapsed");
-                    depo("gh-nav-yonetim-kapali", kapali ? "1" : "0");
-                }, 50);
-            });
-        }
-        if (yonetim && yonetim.parentElement.classList.contains("mx-navigationtree-collapsed") && depo("gh-nav-yonetim-kapali") !== "1") {
-            yonetim.click();
-        }
-        if (bilgi) {
-            rozet("mx-name-navigationTree3-2", bilgi.alarm);
-            rozet("mx-name-navigationTree3-4", bilgi.talep);
-        }
-    }
-    function menuDaraltDegistir() {
-        var mini = !document.documentElement.classList.contains("gh-nav-mini");
-        document.documentElement.classList.toggle("gh-nav-mini", mini);
-        depo("gh-nav-mini", mini ? "1" : "0");
-        etiketler();
-    }
-    function etiketler() {
-        var metin = document.documentElement.classList.contains("gh-nav-mini") ? "Menüyü genişlet" : "Menüyü daralt";
-        var alt = document.querySelector(".gh-nav-collapse");
-        if (alt) {
-            alt.textContent = metin;
-            alt.title = metin;
-        }
-        var ust = document.querySelector(".gh-nav-handle");
-        if (ust) {
-            ust.title = metin;
-            ust.setAttribute("aria-label", metin);
-            ust.setAttribute("aria-pressed", document.documentElement.classList.contains("gh-nav-mini") ? "true" : "false");
-        }
-    }
-
     function yenile(zorla) {
         if (!hazir()) return;
         var simdi = Date.now();
@@ -204,19 +88,18 @@
                 var h = document.documentElement;
                 h.className = h.className.replace(/\bgh-rol-\S+/g, "").trim();
                 if (bilgi.rol) h.classList.add("gh-rol-" + bilgi.rol);
-                ustCubuk();
-                menu();
+                uygula();
                 personelYonlendir();
             },
             error: function () {
                 // Uygulama rolü olmayan kullanıcı (ör. yönetici): yalnız oturum adı
                 var ad = mx.session.getUserName ? mx.session.getUserName() : "";
                 bilgi = { ad: ad, rolAdi: "Yönetici", birim: "", alarm: 0, talep: 0, rol: "" };
-                ustCubuk();
-                menu();
+                uygula();
             }
         });
     }
+
     // ----- Yan panel (çekmece) dışına tıklanınca kapanır -----
     function enUstPencere() {
         var ust = null, z = -Infinity;
@@ -255,7 +138,7 @@
     // ----- Veri tabloları: boş değerli hücreler "—" gösterir (Mendix boş metni &nbsp; olarak çizer; CSS ayırt edemez) -----
     function bosHucreler() {
         document.querySelectorAll(".widget-datagrid .td").forEach(function (td) {
-            var bos = !(td.textContent || "").replace(/ /g, " ").trim() &&
+            var bos = !(td.textContent || "").replace(/ /g, " ").trim() &&
                 !td.querySelector("button, a, input, select, img, svg, .gh-toggle, [class*='icon'], [class*='chevron'], [class*='knob'], [class*='bar']");
             if (td.classList.contains("gh-bos") !== bos) td.classList.toggle("gh-bos", bos);
         });
@@ -279,14 +162,46 @@
         bosZamanlayici = setTimeout(function () { bosZamanlayici = null; bosHucreler(); }, 250);
     }).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
 
-    if (depo("gh-nav-mini") === "1") document.documentElement.classList.add("gh-nav-mini");
-    temaUygula(depo("gh-tema"));
     setInterval(function () {
         if (!hazir()) return;
-        ustCubuk();
-        menu();
         if (!bilgi) yenile(true);
+        else arama();
     }, 1500);
     setInterval(function () { yenile(true); }, 60000);
     document.addEventListener("click", function () { setTimeout(function () { yenile(false); }, 1500); }, true);
+})();
+
+// P43 Prototip: geniş menüde de menü öğesinin üstüne gelince ad balonu (kabuğun .hs-tip görünümü).
+// Daraltılmış menüde balonu Halkbank_Shell kendisi gösterir; burada yalnızca geniş menü ele alınır.
+(function () {
+    var tip = null, cur = null, timer = 0;
+    function mini() { return document.documentElement.classList.contains("hs-mini"); }
+    function hide() { clearTimeout(timer); cur = null; if (tip) tip.classList.remove("hs-tip-on"); }
+    document.addEventListener("mouseover", function (ev) {
+        var t = ev.target instanceof Element ? ev.target.closest("html.hs-on .region-sidebar .mx-navigationtree a[data-hs-nav]") : null;
+        if (t && (mini() || t.parentElement.classList.contains("mx-navigationtree-has-items"))) t = null;
+        if (t === cur) return;
+        hide();
+        if (!t) return;
+        var s = t.getAttribute("data-hs-cap") || (t.textContent || "").replace(/\s+/g, " ").trim();
+        if (!s) return;
+        cur = t;
+        timer = setTimeout(function () {
+            if (cur !== t || !document.body.contains(t) || mini()) return;
+            if (!tip) {
+                tip = document.createElement("div");
+                tip.className = "hs-tip gh-nav-tip";
+                tip.setAttribute("role", "tooltip");
+                document.body.appendChild(tip);
+            }
+            tip.textContent = s;
+            tip.classList.add("hs-tip-on");
+            var r = t.getBoundingClientRect(), w = tip.getBoundingClientRect();
+            tip.style.top = Math.max(6, r.top + r.height / 2 - w.height / 2) + "px";
+            tip.style.left = Math.max(6, Math.min(r.right + 10, window.innerWidth - w.width - 6)) + "px";
+        }, 350);
+    }, true);
+    document.addEventListener("mousedown", hide, true);
+    window.addEventListener("scroll", hide, true);
+    window.addEventListener("blur", hide);
 })();

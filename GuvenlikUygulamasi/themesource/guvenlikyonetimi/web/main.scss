@@ -76,7 +76,6 @@
 
     --ho-icon: #e07800;
     --ho-logo: #005092;
-    --ho-brand-bg: linear-gradient(100deg, #003a70 0%, #005092 55%, #0a62ab 100%);
     --ho-option-bg: #ffffff;
     --ho-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 6l4.5 4.5L12.5 6' fill='none' stroke='%23e07800' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     --ho-canvas: radial-gradient(circle at 1px 1px, #d3dae5 1px, transparent 0) 0 0 / 22px 22px,
@@ -84,15 +83,6 @@
     --ho-card-shadow: 0 1px 2px rgba(16, 40, 80, 0.06), 0 4px 14px rgba(16, 40, 80, 0.07);
     --ho-focus-shadow: 0 0 0 1.5px var(--color-accent), 0 14px 36px rgba(0, 60, 130, 0.18);
 
-    // Brand chrome (lacivert header + sidebar üzerindeki açık renkler)
-    --brand-chrome-text: #ffffff;
-    --brand-chrome-muted: rgba(255, 255, 255, 0.72);
-    --brand-chrome-soft: rgba(255, 255, 255, 0.86);
-    --brand-chrome-surface: rgba(255, 255, 255, 0.1);
-    --brand-chrome-divider: rgba(255, 255, 255, 0.24);
-    --brand-chrome-hover: rgba(255, 255, 255, 0.07);
-    --brand-chrome-icon: #fbb040;
-    --brand-chrome-active-text: #d6e7fa;
 
     // Durum renkleri
     --status-crit: #e55551;
@@ -101,9 +91,6 @@
     --status-ok: #47b777;
     --status-bell: #d33a3c;
 
-    // Kabuk ölçüleri
-    --gh-sidebar-w: 272px;
-    --gh-header-h: 60px;
 }
 
 // ---------- Temel tipografi ----------
@@ -202,9 +189,6 @@ a {
     }
 }
 
-// ============================================================================
-// Kabuk: sol tam yükseklikte lacivert sidebar + içerik üstünde lacivert header
-// ============================================================================
 .layout-atlas {
     .region-content {
         background: var(--ho-canvas);
@@ -213,299 +197,9 @@ a {
         }
     }
 
-    // ----- Header (region-topbar) -----
-    .region-topbar {
-        background: var(--ho-brand-bg);
-        box-shadow: 0 1px 0 var(--brand-chrome-divider);
-        border-bottom: 0;
-        color: var(--brand-chrome-text);
-        min-height: var(--gh-header-h);
 
-        > .mx-scrollcontainer-wrapper > .mx-layoutgrid {
-            padding: 10px 24px;
-        }
-        .topbar-content {
-            min-height: 40px;
-            align-items: center;
-            gap: 12px;
-        }
-        .toggle-btn {
-            background: transparent;
-            border-color: var(--brand-chrome-divider);
-            color: var(--brand-chrome-text);
-            border-radius: var(--radius-md);
-            &:hover {
-                background: var(--brand-chrome-hover);
-            }
-        }
-        .navbar-brand {
-            padding: 0;
-            margin: 0;
-            flex: 0 0 auto;
-            > .row > .col,
-            > .row > [class*="col-"] {
-                flex: 0 0 auto;
-                width: auto;
-            }
-            .mx-image-viewer {
-                position: relative;
-                display: inline-flex;
-                align-items: center;
-                gap: 11px;
-                padding-right: 16px;
-                box-shadow: 1px 0 0 var(--brand-chrome-divider);
-                img {
-                    content: url("/resources/gh/images/halkbank-logo.svg");
-                    height: 30px;
-                    width: auto;
-                    flex: none;
-                    filter: brightness(0) invert(1);
-                }
-                &::after {
-                    content: "Güvenlik Hizmetleri";
-                    // Alt satır ("Halkbank · Kurumsal Uygulama", ~207px) başlıktan uzun; ayraç ikisinin de sağında kalsın
-                    min-width: 212px;
-                    font-size: 15.5px;
-                    font-weight: 500;
-                    line-height: 1.15;
-                    white-space: nowrap;
-                    color: var(--brand-chrome-text);
-                    margin-bottom: 13px;
-                }
-                &::before {
-                    content: "Halkbank · Kurumsal Uygulama";
-                    position: absolute;
-                    left: 36px;
-                    bottom: 2px;
-                    font-size: 10px;
-                    letter-spacing: 0.1em;
-                    text-transform: uppercase;
-                    white-space: nowrap;
-                    color: var(--brand-chrome-muted);
-                }
-            }
-        }
-        // Dil seçici kabukta yer almıyor (uygulama dili Türkçe)
-        .widget-language-selector {
-            display: none;
-        }
-    }
-
-    // ----- Sidebar (region-sidebar) -----
-    .region-sidebar {
-        background: var(--ho-brand-bg);
-        box-shadow: 1px 0 0 var(--brand-chrome-divider);
-        color: var(--brand-chrome-text);
-
-        > .mx-scrollcontainer-wrapper {
-            position: relative;
-            padding: 14px 10px;
-            background: transparent;
-        }
-
-        // Marka bloğu: kalkan ikonu + "Güvenlik Hizmetleri / Güvenlik Hizmetleri Dpt."
-        // (kabuktaki 4px 6px 14px dolgulu satır; ikon 32×32, aralık 10px)
-        > .mx-scrollcontainer-wrapper::before {
-            content: "\e40c";
-            font-family: "Phosphor";
-            position: absolute;
-            top: 18px;
-            left: 16px;
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            background: var(--brand-chrome-surface);
-            color: var(--brand-chrome-icon);
-            font-size: 18px;
-            line-height: 32px;
-            text-align: center;
-        }
-        .mx-navigationtree {
-            position: relative;
-            padding-top: 50px;
-        }
-        .mx-navigationtree::before {
-            content: "Güvenlik Hizmetleri";
-            position: absolute;
-            top: 5px;
-            left: 48px;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 1.15;
-            white-space: nowrap;
-            color: var(--brand-chrome-text);
-        }
-        .mx-navigationtree > .navbar-inner::before {
-            content: "Güvenlik Hizmetleri Dpt.";
-            position: absolute;
-            top: 22px;
-            left: 48px;
-            font-size: 11px;
-            line-height: 1.15;
-            white-space: nowrap;
-            color: var(--brand-chrome-muted);
-        }
-
-        .mx-navigationtree {
-            background: transparent;
-            .navbar-inner > ul {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-                margin: 0;
-                padding: 0;
-            }
-            ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-            }
-            li {
-                background: transparent;
-                border: 0;
-            }
-            ul ul,
-            li ul {
-                background: transparent !important;
-                box-shadow: none !important;
-                border-radius: 0;
-            }
-            li a,
-            .navbar-inner > ul > li > a,
-            .navbar-inner > ul > li > ul > li > a {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                width: 100%;
-                min-height: 36px;
-                padding: 7px 10px !important;
-                border: 0;
-                border-radius: 8px;
-                background: transparent;
-                color: var(--brand-chrome-text);
-                font-size: 13.5px;
-                font-weight: 400;
-                line-height: 1.3;
-                text-decoration: none;
-                white-space: nowrap;
-                &:hover,
-                &:focus {
-                    background: var(--brand-chrome-hover);
-                    color: var(--brand-chrome-text);
-                }
-                &.active {
-                    background: var(--brand-chrome-surface);
-                    color: var(--brand-chrome-active-text);
-                }
-                .glyphicon,
-                [class^="mx-icon-"],
-                [class*=" mx-icon-"],
-                .ph {
-                    flex: none;
-                    width: 18px;
-                    margin: 0;
-                    font-size: 18px;
-                    color: var(--brand-chrome-icon);
-                    text-align: center;
-                }
-            }
-
-            // Menü grupları (ör. "Yönetim / Parametreler", "Test verileri") klasör gibi:
-            // klasör ikonu + sağda ok; tıklayınca açılır/kapanır (Mendix collapsed/expanded sınıfları).
-            // Aktif sayfayı içeren klasör her zaman açık kalır.
-            li.mx-navigationtree-has-items {
-                > a {
-                    cursor: pointer;
-                    &::before {
-                        content: "\e24a"; // ph-folder
-                        font-family: "Phosphor";
-                        flex: none;
-                        width: 18px;
-                        font-size: 18px;
-                        line-height: 1;
-                        text-align: center;
-                        color: var(--brand-chrome-icon);
-                    }
-                    .caret {
-                        display: inline-block;
-                        margin-left: auto;
-                        width: auto;
-                        height: auto;
-                        border: 0 !important;
-                        font-size: 12px;
-                        line-height: 1;
-                        color: var(--brand-chrome-muted);
-                        transition: transform 0.15s ease;
-                        &::before {
-                            content: "\e136"; // ph-caret-down
-                            font-family: "Phosphor";
-                        }
-                    }
-                }
-                > ul {
-                    display: flex !important;
-                    flex-direction: column;
-                    gap: 2px;
-                    height: auto !important;
-                    margin: 2px 0 4px 19px !important;
-                    padding-left: 8px !important;
-                    border-left: 1px solid var(--brand-chrome-divider) !important;
-                    background: transparent;
-                }
-                > ul li a {
-                    min-height: 32px;
-                    padding: 6px 10px !important;
-                    font-size: 13px;
-                    white-space: normal;
-                }
-                // Açık klasör (Mendix: collapsed sınıfı yok) → açık klasör ikonu, ok yukarı
-                &:not(.mx-navigationtree-collapsed),
-                &:has(a.active) {
-                    > a::before {
-                        content: "\e256"; // ph-folder-open
-                    }
-                    > a .caret {
-                        transform: rotate(180deg);
-                    }
-                }
-                &.mx-navigationtree-collapsed:not(:has(a.active)) {
-                    > a .caret {
-                        transform: none;
-                    }
-                    > ul {
-                        display: none !important;
-                    }
-                }
-            }
-        }
-    }
 }
 
-// Masaüstünde prototipteki gibi: sidebar sol kenarda tam yükseklik, header yalnızca içerik üstünde.
-@media (min-width: 992px) {
-    .layout-atlas {
-        .region-topbar {
-            margin-left: var(--gh-sidebar-w);
-            .toggle-btn {
-                display: none;
-            }
-        }
-        .region-sidebar {
-            position: fixed !important;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            z-index: 110;
-            width: var(--gh-sidebar-w) !important;
-            transform: none !important;
-            overflow-y: auto;
-            overflow-x: hidden;
-        }
-        .region-content {
-            margin-left: var(--gh-sidebar-w);
-        }
-    }
-}
 
 // ============================================================================
 // Bileşenler
@@ -1240,23 +934,6 @@ select.form-control {
     box-shadow: inset 0 0 0 16px var(--color-accent) !important;
 }
 
-// --- Sidebar düzeltmesi: Atlas'ın "kapalı sidebar" hover açılır menüsünü (flyout) iptal et.
-// Kabuğumuzda sidebar her zaman açık; alt menüler bölüm başlığının altında satır içi kalmalı.
-.layout-atlas .region-sidebar .mx-navigationtree ul li.mx-navigationtree-has-items > ul,
-.layout-atlas .region-sidebar .mx-navigationtree ul li.mx-navigationtree-has-items:hover > ul,
-.layout-atlas .region-sidebar .mx-navigationtree ul li.mx-navigationtree-has-items:focus-within > ul {
-    position: static !important;
-    top: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: auto !important;
-    min-width: 0 !important;
-    z-index: auto !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    border-radius: 0 !important;
-}
 
 // --- Belge Türü listesi: prototipteki kolon genişlikleri (table min-width 1240px, yatay kaydırma) ---
 .mx-name-dgBelgeTuru {
@@ -2242,13 +1919,16 @@ a.gh-row-action.mx-link {
         }
     }
 }
-// Denetim Modu: kenar menüyü gizle, tam ekran çalış
+// Denetim Modu: kenar menüyü gizle, tam ekran çalış (Halkbank_Shell: menü genişliği 0)
+html.hs-on.hs-on:has(.gh-denetim) {
+    --hs-cur-w: 0px;
+}
 body:has(.gh-denetim) {
-    .region-sidebar {
+    .region-sidebar,
+    .hs-edge {
         display: none !important;
     }
-    .region-content,
-    .region-topbar {
+    .region-content {
         margin-left: 0 !important;
     }
 }
@@ -2570,32 +2250,6 @@ body {
 // - Tablolar kapsayıcı genişliğine göre (container query) kolon gizler; kelimeler asla
 //   ortasından bölünmez (başlık ve hücrelerde yalnızca kelime aralarından satır kırılır).
 // ============================================================================
-@media (max-width: 991px) {
-    .layout-atlas .mx-scrollcontainer-shrink > .region-sidebar,
-    .layout-atlas .mx-scrollcontainer-push > .region-sidebar,
-    .layout-atlas .mx-scrollcontainer-slide > .region-sidebar {
-        position: fixed !important;
-        top: var(--gh-header-h);
-        left: 0;
-        bottom: 0;
-        z-index: 120;
-        width: var(--gh-sidebar-w) !important;
-        max-width: 85vw;
-        transform: translateX(-100%) !important;
-        transition: transform 0.2s ease;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-    .layout-atlas .mx-scrollcontainer-open > .region-sidebar {
-        transform: none !important;
-        box-shadow: 0 0 0 100vmax rgba(10, 26, 48, 0.35) !important;
-    }
-    .layout-atlas .mx-scrollcontainer-shrink > .region-content,
-    .layout-atlas .mx-scrollcontainer-open > .region-content {
-        margin-left: 0 !important;
-        width: 100% !important;
-    }
-}
 
 // Kelime ortasından bölme yok: tablo başlık/hücreleri yalnızca kelime aralarından sarar.
 .widget-datagrid .td,
@@ -7875,47 +7529,6 @@ body {
 // ============================================================================
 // P17 · Bildirim zili ve bildirim merkezi
 // ============================================================================
-.region-topbar .topbar-content .gh-bell {
-    position: relative;
-    margin-left: auto;
-    flex: none;
-    width: 40px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    padding: 0;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--brand-chrome-divider);
-    background: transparent;
-    color: var(--brand-chrome-text);
-    cursor: pointer;
-    &::before {
-        @include ph("\e0ce");
-        font-size: 20px;
-    }
-    &:hover {
-        background: var(--brand-chrome-hover);
-    }
-    .gh-bell-n {
-        position: absolute;
-        top: -6px;
-        right: -6px;
-        min-width: 20px;
-        height: 20px;
-        padding: 0 5px;
-        border-radius: 999px;
-        font-size: 11px;
-        font-weight: 600;
-        line-height: 20px;
-        text-align: center;
-        background: var(--gh-crit-dot);
-        color: #fff;
-        box-shadow: 0 0 0 2px var(--ho-brand-bg);
-        &[hidden] {
-            display: none;
-        }
-    }
-}
 .modal-dialog.mx-window:has(.gh-bl-drawer) {
     width: 440px !important;
 }
@@ -7997,31 +7610,6 @@ body {
         color: var(--color-neutral-500);
     }
 }
-@media (max-width: 560px) {
-    .region-topbar .topbar-content {
-        gap: 8px;
-    }
-    .region-topbar .navbar-brand {
-        flex: 1 1 auto !important;
-        min-width: 0;
-        overflow: hidden;
-        .mx-image-viewer {
-            padding-right: 0;
-            box-shadow: none;
-            &::after {
-                min-width: 0;
-                margin-bottom: 0;
-            }
-            &::before {
-                display: none;
-            }
-        }
-    }
-    .region-topbar .topbar-content .gh-bell {
-        width: 36px;
-        height: 36px;
-    }
-}
 
 // Personel kayıtları Data Grid 2 (Excel'e aktarılabilir) · Sicil · Ad soyad · Şube · Malzeme · Güncel beden · Son teslim · Sonraki hak
 .gh-rec-grid {
@@ -8053,311 +7641,30 @@ body {
     margin-right: 6px;
 }
 
-// ============================================================================
-// P18 · Kabuk (üst çubuk, menü) ve anasayfa — prototip (analiz.html) ile birebir
-// Üst çubuk öğeleri ve menü rozetleri theme/web/gh-shell.js ile eklenir.
-// ============================================================================
-.region-topbar .topbar-content {
-    > .mx-layoutgrid {
-        flex: 0 0 auto;
-        width: auto;
-        min-width: 0;
-    }
-    .gh-tb-search {
-        position: relative;
-        flex: 0 1 210px;
-        min-width: 140px;
-        &::before {
-            @include ph("\e30c");
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px;
-            color: var(--brand-chrome-muted);
-            pointer-events: none;
-        }
-        input {
-            width: 100%;
-            height: 36px;
-            padding: 0 10px 0 34px;
-            border: 1px solid transparent;
-            border-radius: 8px;
-            background: var(--brand-chrome-surface);
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-            &::placeholder {
-                color: var(--brand-chrome-muted);
-            }
-            &:focus {
-                border-color: var(--brand-chrome-divider);
-                background: rgba(255, 255, 255, 0.14);
-            }
-        }
-    }
-    .gh-tb-spacer {
-        flex: 1 1 auto;
-        min-width: 0;
-    }
-    .gh-bell {
-        margin-left: 0;
-        width: 36px;
-        height: 36px;
-        border-color: transparent;
-        &::before {
-            font-size: 18px;
-        }
-        .gh-bell-n {
-            top: -3px;
-            right: -3px;
-            min-width: 17px;
-            height: 17px;
-            padding: 0 4px;
-            font-size: 10px;
-            font-weight: 500;
-            line-height: 17px;
-            background: oklch(0.58 0.19 25);
-            box-shadow: none;
-        }
-    }
-    .gh-tb-user {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex: 0 1 auto;
-        min-width: 0;
-        padding: 0 6px;
-        .gh-tb-av {
-            flex: none;
-            width: 32px;
-            height: 32px;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            font-size: 12px;
-            font-weight: 500;
-            color: #fff;
-        }
-        .gh-tb-who {
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-            line-height: 1.25;
-        }
-        .gh-tb-ad {
-            font-size: 13px;
-            font-weight: 500;
-            color: #fff;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .gh-tb-rol {
-            font-size: 11px;
-            color: var(--brand-chrome-muted);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    }
-}
-@media (max-width: 991px) {
-    .region-topbar .topbar-content .gh-tb-search {
-        display: none;
-    }
-}
-@media (max-width: 560px) {
-    .region-topbar .topbar-content {
-        .gh-tb-who {
-            display: none !important;
-        }
-        .gh-tb-spacer {
-            display: none;
-        }
-        .gh-tb-user {
-            padding: 0;
-        }
-    }
-}
 
-// ----- Menü: prototip simgeleri, sırası, rozetler, bölüm başlıkları, daraltma -----
-$gh-nav-icons: (
-    "0": "\e2c2", "1": "\e710", "2": "\e5e8", "3": "\e198", "4": "\e606", "5": "\e390", "6": "\e670", "7": "\e670", "8": "\e4d0", "9": "\e6b8", "10": "\e150",
-    "11-0": "\e68e", "11-1": "\e67c", "11-2": "\e102", "11-3": "\e6f6", "11-4": "\e79e",
-    "12-0": "\e434", "12-1": "\e67c", "12-2": "\e7fe", "12-3": "\eca0", "12-4": "\e4cc",
-    "13-0": "\e79e", "13-1": "\e79e", "13-2": "\e79e", "13-3": "\e79e", "13-4": "\e79e", "13-5": "\e79e", "13-6": "\e79e", "13-7": "\e79e", "13-8": "\e79e", "13-9": "\e79e", "13-10": "\e79e"
-);
-.layout-atlas .region-sidebar .mx-navigationtree {
-    @each $k, $code in $gh-nav-icons {
-        a.mx-name-navigationTree3-#{$k}::before {
-            content: $code;
-            font-family: "Phosphor";
-            flex: none;
-            width: 18px;
-            font-size: 18px;
-            line-height: 1;
-            text-align: center;
-            color: var(--brand-chrome-icon);
-        }
+// Menü sırası (prototip): Anasayfa, Şube Belgeleri, Denetim, Alarmlar, Talep Yönetimi, ... (görünüm Halkbank_Shell modülünde)
+.layout-atlas .region-sidebar .mx-navigationtree .navbar-inner > ul > li {
+    order: 2;
+    &:has(> a.mx-name-navigationTree3-0),
+    &:has(> a.mx-name-navigationTree3-1) {
+        order: 0;
     }
-    a .gh-nav-n {
-        margin-left: auto;
-        padding: 1px 6px;
-        border-radius: 6px;
-        background: rgba(255, 255, 255, 0.2);
-        font-size: 10.5px;
-        line-height: 16px;
-        color: #fff;
+    &:has(> a.mx-name-navigationTree3-3) {
+        order: 1;
     }
-    // Prototip sırası: Anasayfa, Şube Belgeleri, Denetim, Alarmlar, Talep Yönetimi, ...
-    .navbar-inner > ul > li {
-        order: 2;
-        &:has(> a.mx-name-navigationTree3-0),
-        &:has(> a.mx-name-navigationTree3-1) {
-            order: 0;
-        }
-        &:has(> a.mx-name-navigationTree3-3) {
-            order: 1;
-        }
-        &:has(> a.mx-name-navigationTree3-12) {
-            order: 3;
-        }
-        &:has(> a.mx-name-navigationTree3-11) {
-            order: 4;
-        }
-        &:has(> a.mx-name-navigationTree3-13) {
-            order: 5;
-        }
+    &:has(> a.mx-name-navigationTree3-12) {
+        order: 3;
     }
-    // Menü grupları prototipteki "YÖNETİM / PARAMETRELER" bölüm başlığı gibi; tıklayınca açılır / kapanır
-    li.mx-navigationtree-has-items {
-        > a {
-            min-height: 0;
-            padding: 16px 10px 6px !important;
-            font-size: 10.5px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--brand-chrome-muted);
-            background: transparent !important;
-            &::before {
-                display: none;
-            }
-            .caret {
-                font-size: 10px;
-            }
-        }
-        > ul {
-            gap: 4px;
-            margin: 0 !important;
-            padding-left: 0 !important;
-            border-left: 0 !important;
-        }
-        > ul li a {
-            min-height: 36px;
-            padding: 7px 10px !important;
-            font-size: 13.5px;
-            white-space: nowrap;
-        }
+    &:has(> a.mx-name-navigationTree3-11) {
+        order: 4;
     }
-    li a:not(.active) {
-        color: var(--brand-chrome-soft);
-    }
-    li.mx-navigationtree-has-items > a:not(.active) {
-        color: var(--brand-chrome-muted);
+    &:has(> a.mx-name-navigationTree3-13) {
+        order: 5;
     }
 }
 // GO için "Geçici Görevli Talepleri" Talep Yönetimi içinde bir sekme (prototipte ayrı menü öğesi yok)
 html.gh-rol-GuvenlikOfisi .region-sidebar li:has(> a.mx-name-navigationTree3-8) {
     display: none;
-}
-.layout-atlas .region-sidebar > .mx-scrollcontainer-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-}
-.gh-nav-collapse {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    margin-top: auto;
-    padding: 7px 10px;
-    border: 0;
-    border-radius: 8px;
-    background: transparent;
-    color: var(--brand-chrome-muted);
-    font-size: 12.5px;
-    text-align: left;
-    white-space: nowrap;
-    cursor: pointer;
-    &::before {
-        @include ph("\e128");
-        flex: none;
-        width: 18px;
-        font-size: 16px;
-        text-align: center;
-    }
-    &:hover {
-        background: var(--brand-chrome-hover);
-        color: #fff;
-    }
-    @media (max-width: 991px) {
-        display: none;
-    }
-}
-// Daraltılmış menü (yalnız simgeler)
-@media (min-width: 992px) {
-    html.gh-nav-mini {
-        --gh-sidebar-w: 68px;
-        .region-sidebar {
-            > .mx-scrollcontainer-wrapper::before {
-                left: 18px;
-            }
-            .mx-navigationtree::before,
-            .mx-navigationtree > .navbar-inner::before {
-                display: none;
-            }
-            .mx-navigationtree li a {
-                justify-content: center;
-                gap: 0;
-                font-size: 0 !important;
-                position: relative;
-                .gh-nav-n {
-                    position: absolute;
-                    top: 3px;
-                    right: 6px;
-                    padding: 0 4px;
-                    font-size: 9px;
-                    line-height: 13px;
-                }
-            }
-            li.mx-navigationtree-has-items > a {
-                height: 1px;
-                min-height: 0;
-                margin: 10px 8px;
-                padding: 0 !important;
-                background: var(--brand-chrome-divider) !important;
-                .caret {
-                    display: none;
-                }
-            }
-            li.mx-navigationtree-has-items.mx-navigationtree-collapsed:not(:has(a.active)) > ul {
-                display: flex !important;
-            }
-            li.mx-navigationtree-has-items:has(> a.mx-name-navigationTree3-13) {
-                display: none;
-            }
-        }
-        .gh-nav-collapse {
-            justify-content: center;
-            font-size: 0;
-            &::before {
-                content: "\e12a";
-            }
-        }
-    }
 }
 
 // ----- Anasayfa -----
@@ -8812,105 +8119,8 @@ html.gh-rol-GuvenlikOfisi .region-sidebar li:has(> a.mx-name-navigationTree3-8) 
         font-size: 9px;
     }
 }
-// Atlas menü öğesi yüksekliği (48px) yerine prototipteki 36px; pasif metin %86 beyaz
-.layout-atlas .region-sidebar .mx-navigationtree .navbar-inner {
-    li {
-        height: auto;
-        margin: 0;
-    }
-    li > a {
-        height: auto !important;
-    }
-    li > a:not(.active):not(:hover) {
-        color: var(--brand-chrome-soft);
-    }
-    li.mx-navigationtree-has-items > a:not(.active) {
-        color: var(--brand-chrome-muted);
-    }
-}
 .gh-as-legend .gh-lg-item::before {
     display: none;
-}
-@media (max-width: 560px) {
-    .region-topbar > .mx-scrollcontainer-wrapper > .mx-layoutgrid {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-    .region-topbar .topbar-content {
-        .gh-tb-user {
-            flex: none;
-        }
-    }
-    .region-topbar .navbar-brand .mx-image-viewer {
-        gap: 8px;
-        &::after {
-            font-size: 14px;
-        }
-    }
-}
-.layout-atlas .region-sidebar .mx-navigationtree .navbar-inner > ul > li.mx-navigationtree-has-items > a {
-    min-height: 0;
-    padding: 16px 10px 6px !important;
-    font-size: 10.5px;
-    line-height: 16.3px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--brand-chrome-muted);
-    background: transparent !important;
-}
-@media (min-width: 992px) {
-    html.gh-nav-mini .layout-atlas .region-sidebar .mx-navigationtree .navbar-inner > ul > li.mx-navigationtree-has-items > a {
-        height: 1px !important;
-        margin: 10px 8px;
-        padding: 0 !important;
-        background: var(--brand-chrome-divider) !important;
-    }
-}
-@media (max-width: 420px) {
-    .region-topbar .topbar-content {
-        gap: 6px;
-    }
-    .region-topbar .navbar-brand .mx-image-viewer {
-        gap: 6px;
-        img {
-            height: 24px;
-        }
-        &::after {
-            font-size: 13px;
-            letter-spacing: -0.01em;
-        }
-    }
-}
-// Dar ekranda marka bloğu (temel kural .layout-atlas ile daha özgül olduğundan burada da .layout-atlas gerekir)
-@media (max-width: 560px) {
-    .layout-atlas .region-topbar .navbar-brand {
-        flex: 1 1 auto !important;
-        min-width: 0;
-        .mx-image-viewer {
-            gap: 8px;
-            padding-right: 0;
-            box-shadow: none;
-            &::after {
-                min-width: 0;
-                margin-bottom: 0;
-                font-size: 14px;
-            }
-            &::before {
-                display: none;
-            }
-        }
-    }
-}
-@media (max-width: 420px) {
-    .layout-atlas .region-topbar .navbar-brand .mx-image-viewer {
-        gap: 6px;
-        img {
-            height: 24px;
-        }
-        &::after {
-            font-size: 13px;
-        }
-    }
 }
 
 // ============================================================================
@@ -8952,7 +8162,6 @@ html[data-theme="dark"] {
 
     --ho-icon: #f7941d;
     --ho-logo: #ffffff;
-    --ho-brand-bg: #0e1626;
     --ho-option-bg: #1c2a45;
     --ho-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 6l4.5 4.5L12.5 6' fill='none' stroke='%23f7941d' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     --ho-canvas: radial-gradient(circle at 1px 1px, #1d2840 1px, transparent 0) 0 0 / 22px 22px,
@@ -8960,15 +8169,6 @@ html[data-theme="dark"] {
     --ho-card-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     --ho-focus-shadow: 0 0 0 1px #1f5797, 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 40px color-mix(in srgb, #3d8ae0 12%, transparent);
 
-    // Kabuk: prototipte karanlıkta header ve menü zemin rengiyle aynı (#0e1626)
-    --brand-chrome-text: #e8edf5;
-    --brand-chrome-muted: #7a879e;
-    --brand-chrome-soft: #b7c2d4;
-    --brand-chrome-surface: #102c4d;
-    --brand-chrome-divider: color-mix(in srgb, #e8edf5 12%, transparent);
-    --brand-chrome-hover: rgba(232, 237, 245, 0.05);
-    --brand-chrome-icon: #f7941d;
-    --brand-chrome-active-text: #8ab8ef;
 
     // Durum renkleri (Alarm Merkezi, rozetler)
     --gh-crit-bg: oklch(0.32 0.08 25);
@@ -8981,22 +8181,6 @@ html[data-theme="dark"] {
     body {
         background: var(--color-bg);
         color: var(--color-text);
-    }
-    .region-topbar .topbar-content .gh-tb-search input {
-        background: var(--color-surface);
-        border-color: var(--color-divider);
-        color: var(--color-text);
-        &::placeholder {
-            color: var(--color-neutral-500);
-        }
-    }
-    .region-topbar .topbar-content .gh-tb-user .gh-tb-av {
-        background: var(--color-accent-800);
-        color: var(--color-accent-100);
-    }
-    .layout-atlas .region-sidebar .mx-navigationtree a .gh-nav-n {
-        background: var(--color-accent-800);
-        color: var(--color-accent-100);
     }
     .alert-success {
         background: #153c25;
@@ -9013,31 +8197,6 @@ html[data-theme="dark"] {
         box-shadow: inset 0 0 0 1px #a8423d;
     }
 }
-// Tema düğmesi (prototip: btn-secondary btn-icon, ph-moon / ph-sun)
-.region-topbar .topbar-content .gh-tb-theme {
-    flex: none;
-    width: 36px;
-    height: 36px;
-    display: grid;
-    place-items: center;
-    padding: 0;
-    border: 1px solid transparent;
-    border-radius: var(--radius-md);
-    background: transparent;
-    color: var(--brand-chrome-text);
-    cursor: pointer;
-    font-size: 0;
-    &::before {
-        @include ph("\e330");
-        font-size: 18px;
-    }
-    &:hover {
-        background: var(--brand-chrome-hover);
-    }
-}
-html[data-theme="dark"] .region-topbar .topbar-content .gh-tb-theme::before {
-    content: "\e472";
-}
 // Atlas çekirdek değişkenleri (form alanları, açılır listeler, takvim, pencereler, tablolar)
 html[data-theme="dark"] {
     --color-base: #16223a;
@@ -9053,13 +8212,6 @@ html[data-theme="dark"] {
     --border-color-default: color-mix(in srgb, #e8edf5 12%, transparent);
     --link-color: #3d8ae0;
     --link-hover-color: #8ab8ef;
-    --topbar-bg: #0e1626;
-    --sidebar-bg: #0e1626;
-    --navigation-color: #b7c2d4;
-    --navigation-color-hover: #e8edf5;
-    --navigation-color-active: #8ab8ef;
-    --navigation-bg-hover: rgba(232, 237, 245, 0.05);
-    --navigation-bg-active: #102c4d;
     --form-input-border-color: color-mix(in srgb, #e8edf5 12%, transparent);
     --form-input-border-focus-color: #3d8ae0;
     --card-bg: #16223a;
@@ -9067,12 +8219,6 @@ html[data-theme="dark"] {
     --modal-footer-bg: #16223a;
     --grid-bg-hover: rgba(232, 237, 245, 0.04);
     --grid-bg-selected: #102c4d;
-}
-// Telefon: tema düğmesi eklenince marka adı sığsın diye kullanıcı yuvarlağı gizlenir
-@media (max-width: 420px) {
-    .region-topbar .topbar-content .gh-tb-user {
-        display: none;
-    }
 }
 
 // ============================================================================
@@ -9087,78 +8233,6 @@ html[data-theme="dark"] {
     .gh-as-gun-u {
         white-space: nowrap;
         letter-spacing: -0.01em;
-    }
-}
-// Menü uzadığında kaydırılabilsin (alt öğeler ekran dışında kalıyordu); kaydırma çubuğu görünmez
-@media (min-width: 992px) {
-    .layout-atlas .region-sidebar > .mx-scrollcontainer-wrapper {
-        height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        scrollbar-width: none;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-    .gh-nav-collapse {
-        flex: none;
-        margin-top: auto;
-    }
-}
-// Marka: başlık ve alt satır gerçek öğe (gh-shell.js ekler) — iki satır her zaman aynı hizada başlar
-.layout-atlas .region-topbar .navbar-brand .mx-image-viewer:has(.gh-brand) {
-    &::before,
-    &::after {
-        display: none !important;
-    }
-}
-.region-topbar .navbar-brand .gh-brand {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    line-height: 1.15;
-    white-space: nowrap;
-    .gh-brand-t {
-        font-size: 15.5px;
-        font-weight: 500;
-        color: var(--brand-chrome-text);
-    }
-    .gh-brand-s {
-        margin-top: 2px;
-        font-size: 10px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--brand-chrome-muted);
-    }
-}
-@media (max-width: 560px) {
-    .region-topbar .navbar-brand .gh-brand {
-        overflow: hidden;
-        .gh-brand-t {
-            font-size: 14px;
-        }
-        .gh-brand-s {
-            display: none;
-        }
-    }
-}
-@media (max-width: 420px) {
-    .region-topbar .navbar-brand .gh-brand .gh-brand-t {
-        font-size: 13px;
-    }
-}
-// Arama 700px'e kadar görünür; dar masaüstünde kullanıcı kartı yalnız baş harf
-.region-topbar .topbar-content .gh-tb-search:not([hidden]) {
-    @media (max-width: 991px) {
-        display: block;
-    }
-    @media (max-width: 700px) {
-        display: none;
-    }
-}
-@media (max-width: 1199px) {
-    .region-topbar .topbar-content .gh-tb-who {
-        display: none;
     }
 }
 
@@ -9287,14 +8361,6 @@ html .widget-switch {
     }
 }
 
-.region-topbar .topbar-content .gh-tb-search[hidden] {
-    display: none !important;
-}
-@media (max-width: 1199px) {
-    .region-topbar .topbar-content .gh-tb-user .gh-tb-who {
-        display: none;
-    }
-}
 // Eski .gh-switch kuralları (inset gölge ile dolu iz) daha özgül; prototip anahtarı burada kesinleşir
 html body .widget-switch .widget-switch-btn-wrapper {
     box-sizing: border-box;
@@ -9311,12 +8377,6 @@ html body .widget-switch .widget-switch-btn-wrapper {
     &:not(.checked) {
         background: transparent !important;
         box-shadow: none !important;
-    }
-}
-@media (max-width: 420px) {
-    .region-topbar .navbar-brand .gh-brand .gh-brand-t {
-        font-size: 12.5px;
-        letter-spacing: -0.01em;
     }
 }
 
@@ -9364,16 +8424,6 @@ html.gh-rol-GuvenlikPersoneli .region-sidebar li:has(> a.mx-name-navigationTree3
     .gh-yk-note {
         display: block;
         padding: 10px 6px 14px;
-    }
-}
-// Üst çubuk araması: simge ile yazı arasında nefes payı
-.region-topbar .topbar-content .gh-tb-search {
-    flex-basis: 240px;
-    &::before {
-        left: 12px;
-    }
-    input {
-        padding-left: 40px;
     }
 }
 // Grafiklerde taban çizgisi (prototip: çubuklar ince bir eksen üzerinde durur)
@@ -10211,68 +9261,6 @@ html[data-theme="dark"] .gh-evrak-box .gh-evrak-grid ul {
     }
 }
 
-// P26 · Menü daraltma tutamağı: kenar çubuğu başlığının sağ kenarında, kenara oturan yuvarlak düğme (gh-shell.js .gh-nav-handle)
-// Simge yön değiştirir: genişken sola (daralt), daraltılmışken sağa (genişlet); dikey ortası marka bloğuyla aynı (34px)
-.gh-nav-handle {
-    position: fixed;
-    top: 23px;
-    left: calc(var(--gh-sidebar-w) - 11px);
-    z-index: 1100;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-    padding: 0;
-    border: 1px solid var(--color-divider);
-    border-radius: 50%;
-    background: var(--color-surface);
-    color: var(--color-accent);
-    box-shadow: 0 2px 6px rgba(8, 14, 26, 0.18);
-    cursor: pointer;
-    transition: left 0.18s ease, background-color 0.12s ease, color 0.12s ease;
-    &::before {
-        @include ph("\e138");
-        font-size: 12px;
-        font-weight: bold;
-        line-height: 1;
-    }
-    &[aria-pressed="true"]::before {
-        content: "\e13a";
-    }
-    &:hover,
-    &:focus-visible {
-        background: var(--color-accent);
-        border-color: var(--color-accent);
-        color: #fff;
-    }
-    @media (max-width: 991px) {
-        display: none;
-    }
-}
-// Daraltılmış menü: simge bağlantının tam ortasında (gizli metnin boşluğu ve iç dolgu sıfır)
-@media (min-width: 992px) {
-    html.gh-nav-mini .layout-atlas .region-sidebar .mx-navigationtree li a,
-    html.gh-nav-mini .layout-atlas .region-sidebar .mx-navigationtree .navbar-inner > ul > li > ul > li > a {
-        justify-content: center !important;
-        gap: 0 !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        text-indent: 0 !important;
-        &::before {
-            margin: 0 !important;
-        }
-    }
-    html.gh-nav-mini .layout-atlas .region-sidebar .mx-navigationtree .navbar-inner > ul > li > ul {
-        padding-left: 0 !important;
-        margin-left: 0 !important;
-    }
-    html.gh-nav-mini .layout-atlas .region-sidebar .gh-nav-collapse {
-        gap: 0;
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
 
 // P26 · Kıyafet / teçhizat simgeleri (theme/web/gh-mz.js data-mz yazar). Phosphor'da olanlar yazı tipinden,
 // olmayanlar aynı çizgi kalınlığında SVG maske olarak; renk currentColor (karanlık modda kendiliğinden döner).
@@ -11944,5 +10932,854 @@ html body .gh-urun-sec {
                 }
             }
         }
+    }
+}
+
+
+// --- P41 Yönetim sayfaları (Kullanıcı Hesapları, Model Yansıtma, Veritabanı Eşleme, Yetkilendirme) ---
+// Hazır modül içerikleri Güvenlik başlığı + kart içinde (Disiplin Etik yapısı).
+.gh-yonetim {
+    .gh-head-row {
+        margin-bottom: 16px;
+    }
+}
+.gh-yonetim-kart {
+    padding: 16px 20px 20px;
+    // Sekme içindeki veri tablosu ilk çizimde gizli sekmenin genişliğini ölçüp tek kolona düşüyor: kolon şablonunu sabitle
+    .widget-datagrid-grid {
+        grid-template-columns: var(--widgets-grid-template-columns) !important;
+    }
+    .widget-datagrid-content {
+        overflow-x: auto !important;
+    }
+    .mx-tabcontainer-tabs {
+        margin-bottom: 16px;
+    }
+    .mx-groupbox-header {
+        font-size: 15px;
+        font-weight: 600;
+    }
+    h2,
+    h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 0 12px;
+    }
+}
+// Veritabanı Eşleme: çok kolonlu tablolar sıkışmasın (kart dar kalırsa yatay kaydırma)
+.gh-yonetim-db .widget-datagrid-grid {
+    min-width: 1000px !important;
+}
+// Model Yansıtma: modül listesinde onay kutusu ile ad aynı satırda, uzun modül adları sarılsın
+.gh-yonetim-model {
+    .mx-listview li .mx-dataview-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        word-break: break-word;
+    }
+    .mx-listview li .mx-checkbox {
+        margin: 2px 0 0;
+        flex: 0 0 auto;
+    }
+    .mx-listview li {
+        padding: 6px 0;
+    }
+    // modül listesi sütunu (col-lg-2) uzun adlar için dar: genişlet, sağdaki sütun kalan alanı alsın
+    @media (min-width: 992px) {
+        .mx-layoutgrid > .row > .col-lg-2:has(> .mx-listview) {
+            flex: 0 0 250px;
+            max-width: 250px;
+        }
+        .mx-layoutgrid > .row > .col-lg-2:has(> .mx-listview) + [class*="col-lg-"] {
+            flex: 1 1 0;
+            max-width: none;
+        }
+    }
+}
+@media (max-width: 860px) {
+    .gh-yonetim-kart {
+        padding: 12px;
+        .widget-datagrid-grid {
+            min-width: 720px !important;
+        }
+        .mx-tabcontainer-tabs {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+    }
+}
+
+
+// --- P41c Yönetim sayfaları okunurluk: modül içeriklerini (LowCode, DatabaseReplication, MxModelReflection, Administration)
+// Güvenlik görünümüne uydur (sekme kutusu, tablo başlıkları, düğmeler, gruplar, form etiketleri). Açık / koyu temada değişkenlerle.
+.gh-yonetim-kart {
+    color: var(--color-text);
+    font-size: 14px;
+    line-height: 1.45;
+
+    // Sekmeler: uygulamanın gh-tabs kutusu gibi
+    .mx-tabcontainer-tabs {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 0;
+        padding: 0;
+        margin: 0 0 18px;
+        border: 1px solid var(--color-divider);
+        border-radius: 8px;
+        overflow: hidden;
+        background: transparent;
+        > li {
+            margin: 0;
+            border: 0;
+            > a {
+                display: inline-flex;
+                align-items: center;
+                padding: 8px 16px;
+                margin: 0;
+                border: 0 !important;
+                border-radius: 0 !important;
+                background: transparent !important;
+                color: var(--color-neutral-300, #5b6b82);
+                font-size: 13.5px;
+                font-weight: 500;
+                line-height: 1.3;
+                box-shadow: none;
+            }
+            & + li > a {
+                border-left: 1px solid var(--color-divider) !important;
+            }
+            &.active > a {
+                background: var(--color-accent-900, #e6eef7) !important;
+                color: var(--color-accent-300, var(--color-accent)) !important;
+                box-shadow: inset 0 0 0 1px var(--color-accent);
+                font-weight: 600;
+            }
+        }
+    }
+    .mx-tabcontainer-content {
+        padding: 0;
+        border: 0;
+    }
+
+    // Düğmeler
+    .btn {
+        min-height: 34px;
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.3;
+        box-shadow: none;
+    }
+    .btn-default,
+    .btn-secondary {
+        background: var(--color-surface);
+        border: 1px solid var(--color-divider);
+        color: var(--color-text);
+        &:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+    }
+    .btn-primary {
+        background: var(--color-accent);
+        border-color: var(--color-accent);
+        color: #fff;
+    }
+    .btn-danger {
+        background: var(--gh-danger-bg);
+        border: 1px solid transparent;
+        color: var(--gh-danger);
+    }
+    .btn[disabled],
+    .btn.disabled {
+        opacity: 0.5;
+    }
+    .widget-datagrid-header,
+    .mx-dataview-controls,
+    .mx-grid-controlbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    // Veri tabloları
+    .widget-datagrid {
+        border: 1px solid var(--color-divider);
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--color-surface);
+    }
+    .widget-datagrid .th {
+        background: color-mix(in srgb, var(--color-text) 4%, var(--color-surface));
+        border-bottom: 1px solid var(--color-divider);
+        padding: 10px 12px;
+        .column-header,
+        .column-caption {
+            color: var(--color-neutral-300, #5b6b82);
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            white-space: normal;
+        }
+        .filter {
+            margin-top: 8px;
+        }
+    }
+    .widget-datagrid .td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--color-divider);
+        font-size: 14px;
+        color: var(--color-text);
+        align-items: center;
+    }
+    .widget-datagrid .tr:hover .td {
+        background: color-mix(in srgb, var(--color-accent) 4%, transparent);
+    }
+    .widget-datagrid .td.td-borders,
+    .widget-datagrid .empty-placeholder {
+        color: var(--color-neutral-300, #5b6b82);
+    }
+    .widget-datagrid-footer,
+    .widget-datagrid-paging {
+        padding: 8px 12px;
+        font-size: 13px;
+        color: var(--color-neutral-300, #5b6b82);
+    }
+    // Filtre kutuları
+    .form-control,
+    .widget-combobox-input-container,
+    .dropdown-container .form-control {
+        min-height: 34px;
+        font-size: 13px;
+        border-radius: 8px;
+        border-color: var(--color-divider);
+        background: var(--color-surface);
+        color: var(--color-text);
+    }
+    .btn-calendar,
+    .filter-selector .btn {
+        min-height: 34px;
+    }
+
+    // Gruplar ve form
+    .mx-groupbox {
+        border: 1px solid var(--color-divider);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 16px;
+        background: var(--color-surface);
+    }
+    .mx-groupbox-header {
+        margin: 0;
+        padding: 10px 14px;
+        border: 0;
+        border-bottom: 1px solid var(--color-divider);
+        background: color-mix(in srgb, var(--color-text) 4%, var(--color-surface));
+        color: var(--color-text);
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .mx-groupbox-body {
+        padding: 14px;
+        border: 0;
+    }
+    .control-label,
+    .form-group > label,
+    label.mx-text {
+        color: var(--color-text);
+        font-size: 13px;
+        font-weight: 600;
+    }
+    h1, h2, h3, h4 {
+        color: var(--color-text);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.35;
+        margin: 0 0 12px;
+    }
+    .radio label,
+    .mx-radiobuttons label,
+    .checkbox label {
+        font-size: 13.5px;
+        font-weight: 400;
+    }
+}
+// Model Yansıtma: modül listesi kartı, sağdaki boş ayrıntı alanı
+.gh-yonetim-model {
+    .mx-listview {
+        border: 1px solid var(--color-divider);
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--color-surface);
+        > ul > li {
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--color-divider);
+            font-size: 13.5px;
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+    }
+    .mx-groupbox-body {
+        min-height: 0;
+    }
+}
+
+
+// --- P41d Yetkilendirme (LowCode SNIP_AuthorityManagement_Overview): seyrek boşlukları sıkılaştır ---
+.gh-yonetim-yetki {
+    // parçanın üç ızgara bölümü (başlık · form · liste) 24 px iç + 24 px dış boşluklu: kart içinde düz akış
+    .mx-layoutgrid {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .mx-layoutgrid .row {
+        margin-left: -8px;
+        margin-right: -8px;
+        > [class*="col-"] {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    }
+    [class*="spacing-outer-bottom"] {
+        margin-bottom: 12px !important;
+    }
+    // "Yetki Tanım" başlığı
+    .mx-name-container1 {
+        margin-bottom: 12px !important;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    // form bölümü: hafif çerçeveli panel
+    .mx-name-layoutGrid4 {
+        padding: 16px !important;
+        margin-bottom: 20px !important;
+        border: 1px solid var(--color-divider);
+        border-radius: 10px;
+        background: color-mix(in srgb, var(--color-text) 2%, var(--color-surface));
+    }
+    .form-group {
+        margin-bottom: 12px;
+    }
+    .mx-radiobuttons.inline {
+        margin-bottom: 12px;
+        .radio,
+        label {
+            margin-right: 16px;
+        }
+    }
+    // liste başlığı ("Roller Listesi")
+    .layout-grid-header {
+        margin-bottom: 10px !important;
+        font-weight: 600;
+    }
+    // tablo alt bilgisi / sayfalama
+    .widget-datagrid-footer {
+        padding: 4px 12px !important;
+        min-height: 0;
+    }
+    .pagination-bar,
+    .widget-datagrid-pb-start {
+        margin: 0 !important;
+        padding: 4px 0 !important;
+    }
+}
+
+
+// --- P43 Menü ve üst bar: "Güvenlik Hizmetleri Uygulaması Prototipi" (fx-top / fx-aside) ---
+// Ortak Halkbank_Shell modülü değişmez; :not(.hs-yok) ile seçicinin önceliği artırılarak burada geçersiz kılınır.
+html.hs-on:not(.hs-yok) {
+    --hs-side-w: 264px;
+    --gh-hs-top-bg: #00264a;
+    --gh-hs-side-bg: linear-gradient(180deg, #00264a 0%, #003a70 40%, #0a5ea6 100%);
+    --hs-edge-bg: #00264a;
+}
+html.hs-on[data-theme="dark"]:not(.hs-yok) {
+    --gh-hs-top-bg: #0a111e;
+    --gh-hs-side-bg: linear-gradient(180deg, #0a111e 0%, #0f1a2d 55%, #132339 100%);
+    --hs-edge-bg: #132339;
+}
+// Üst bar: düz lacivert; sol kenar menü: dikey degrade
+html.hs-on:not(.hs-yok) .layout-atlas .region-topbar {
+    background: var(--gh-hs-top-bg) !important;
+}
+html.hs-on:not(.hs-yok) .layout-atlas .region-sidebar {
+    background: var(--gh-hs-side-bg) !important;
+}
+html.hs-on[data-theme="dark"]:not(.hs-yok) .layout-atlas .region-sidebar {
+    border-right-color: rgba(255, 255, 255, 0.06);
+}
+// Marka hücresi kenar menüyle aynı genişlikte; alt başlık beyaz
+html.hs-on:not(.hs-yok) .hs-brand {
+    width: var(--hs-cur-w);
+    min-width: var(--hs-cur-w);
+}
+html.hs-on:not(.hs-yok) .hs-brand-sub {
+    color: var(--hs-text);
+}
+// Arama kutusu: kalan alanı alır, en çok 440 px
+html.hs-on:not(.hs-yok) .hs-search {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 200px;
+    max-width: 440px;
+    padding: 0 10px 0 11px;
+}
+html.hs-on:not(.hs-yok) .hs-search input {
+    font-size: 14px;
+}
+html.hs-on:not(.hs-yok) .hs-search input::placeholder {
+    color: var(--hs-muted);
+}
+// Bölüm başlıkları: hep açık, sade etiket (açılıp kapanmaz)
+html.hs-on:not(.hs-yok) .layout-atlas .region-sidebar .mx-navigationtree li.mx-navigationtree-has-items {
+    margin-top: 14px;
+}
+html.hs-on:not(.hs-yok) .layout-atlas .region-sidebar .mx-navigationtree li.mx-navigationtree-has-items > a {
+    padding: 0 10px 4px !important;
+    cursor: default;
+    pointer-events: none;
+}
+html.hs-on:not(.hs-yok) .layout-atlas .region-sidebar .mx-navigationtree li.mx-navigationtree-has-items > a .hs-caret {
+    display: none;
+}
+html.hs-on:not(.hs-yok) .layout-atlas .region-sidebar .mx-navigationtree li.mx-navigationtree-has-items > ul,
+html.hs-on:not(.hs-yok) .layout-atlas .region-sidebar .mx-navigationtree li.mx-navigationtree-collapsed > ul,
+// ortak kabuktaki kapatma kuralı (:not(:has(...)) özgüllüğü yüksek) ile aynı seçici + :not(.hs-yok)
+html.hs-on:not(.hs-yok) .layout-atlas .region-sidebar .mx-navigationtree li.mx-navigationtree-collapsed:not(:has(a.active)):not(:has(li.active)) > ul {
+    display: flex !important;
+}
+// daraltılmış menüde bölüm başlığı gizli (prototip: fx-navgrp yok)
+html.hs-on.hs-mini:not(.hs-yok) .layout-atlas .region-sidebar .mx-navigationtree li.mx-navigationtree-has-items > a {
+    display: none !important;
+}
+// Mobil / tablet (< 992 px): menü kayar, marka kendi genişliğinde; arama kalan alana sığar
+@media (max-width: 991px) {
+    html.hs-on:not(.hs-yok) .hs-brand {
+        width: auto;
+        min-width: 0;
+        flex: none;
+    }
+    html.hs-on:not(.hs-yok) .hs-search {
+        min-width: 0;
+        margin-right: auto;
+    }
+    // boşluk öğesi alan almasın: arama 440 px'e kadar büyür, kalan boşluk düğmeleri sağa iter
+    html.hs-on:not(.hs-yok) .hs-spacer {
+        flex: 0 0 0;
+    }
+}
+
+// --- P45 Kart çerçevesi: 1 px gölge halkası yerine gerçek kenarlık ---
+// Izgarada kesirli piksele (ör. 214.5 px) düşen kartlarda "0 0 0 1px" gölge halkası sol kenarda bulanık / gri şerit
+// oluşturuyordu. Kenarlık piksele oturur; gölge değişkeni yalnız yumuşak alt gölgeyi taşır.
+:root {
+    --gh-hat: #dfe5ee;
+    --shadow-sm: 0 1px 2px rgba(16, 40, 80, 0.04);
+}
+html[data-theme="dark"] {
+    --gh-hat: #3f424d;
+    --shadow-sm: 0 0 0 0 transparent;
+}
+html body {
+    .card,
+    .elev-sm,
+    .gh-card,
+    .gh-kpi,
+    .gh-denetim-card,
+    .gh-dbar,
+    .gh-dk,
+    .gh-info-bar,
+    .gh-pk,
+    .gh-rk,
+    .gh-as-lk,
+    .gh-fp-img,
+    .gh-fp-thumb.gh-rehber-thumb .gh-fp-thumb-img,
+    .gh-taleplerim .gh-req-row {
+        border: 1px solid var(--gh-hat);
+        box-shadow: var(--shadow-sm);
+    }
+    .gh-dk:hover,
+    .gh-pk:hover,
+    .gh-as-lk:hover,
+    .gh-taleplerim .gh-req-row:hover {
+        border-color: var(--color-accent-700);
+        box-shadow: var(--shadow-sm);
+    }
+    .gh-kpi:hover {
+        border-color: var(--color-neutral-700);
+        box-shadow: var(--shadow-sm);
+    }
+    .gh-denetim-card:hover {
+        border-color: var(--color-accent);
+        box-shadow: var(--shadow-sm);
+    }
+    .gh-kpi.is-active,
+    .gh-pk.is-active,
+    .gh-dks.gh-gk .gh-dk.is-active {
+        border-color: var(--color-accent);
+        box-shadow: none;
+    }
+    .gh-dks.gh-gk .gh-dk-static:hover,
+    .gh-dks.gh-yk-kartlar .gh-dk-static:hover {
+        border-color: var(--gh-hat);
+        box-shadow: var(--shadow-sm);
+    }
+    .gh-new-card {
+        border: 1px solid var(--color-accent-700);
+        box-shadow: var(--shadow-sm);
+        &:hover {
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-sm);
+        }
+    }
+    .gh-taleplerim .gh-new-card,
+    .gh-taleplerim .gh-new-card:hover {
+        border-color: var(--color-accent);
+        box-shadow: var(--shadow-sm);
+    }
+}
+
+// --- P47 Denetim kaydı: birim seçim penceresi (DenetimKaydi_BirimSec) ---
+.gh-birimsec {
+    .gh-birimsec-ipucu {
+        display: block;
+        margin-bottom: 12px;
+        font-size: 13px;
+    }
+    .mx-listview-searchbar {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+        input {
+            flex: 1 1 auto;
+            min-height: 38px;
+            border-radius: 8px;
+        }
+    }
+    .gh-birimsec-liste > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: 1px solid var(--gh-hat, var(--color-divider));
+        border-radius: 10px;
+        overflow: hidden;
+        > li {
+            padding: 0 !important;
+            border: 0 !important;
+            border-bottom: 1px solid var(--gh-hat, var(--color-divider)) !important;
+            background: transparent !important;
+            &:last-child {
+                border-bottom: 0 !important;
+            }
+        }
+    }
+    .gh-birimsec-satir {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 14px;
+        cursor: pointer;
+        &:hover {
+            background: color-mix(in srgb, var(--color-accent) 6%, transparent);
+            .gh-birimsec-sec {
+                background: var(--color-accent);
+                color: #fff;
+            }
+        }
+    }
+    .gh-birimsec-ad {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+        .gh-cell-title {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text);
+            overflow-wrap: anywhere;
+        }
+        .gh-cell-sub {
+            display: block;
+            font-size: 12px;
+            color: var(--color-neutral-400, #6b7785);
+        }
+    }
+    .gh-birimsec-sec {
+        flex: none;
+        padding: 4px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--color-accent);
+        color: var(--color-accent);
+        font-size: 12.5px;
+        font-weight: 600;
+    }
+}
+
+// --- P47 Kabuk katmanları Mendix pencerelerinin (underlay 101+) altında: açılan pencere / yan panel üst barın altında kalmasın ---
+// (Halkbank_Shell: üst bar 130, kenar menü 120, kenar düğmesi 125; ortak modül değişmez)
+html.hs-on:not(.hs-yok) .layout-atlas .region-topbar {
+    z-index: 100;
+}
+html.hs-on:not(.hs-yok) .hs-edge {
+    z-index: 99;
+}
+html.hs-on:not(.hs-yok) .layout-atlas .region-sidebar {
+    z-index: 98;
+}
+
+// --- P49 Üst bar sayfa kaydırılınca da üstte kalsın (sayfa BODY'de kayıyor; kenar menü top:64px sabit) ---
+html.hs-on:not(.hs-yok) .layout-atlas .region-topbar {
+    position: sticky;
+    top: 0;
+}
+
+// --- P49 Tablolar prototip (HTML tablo) gibi: kısa sütunlar içerik kadar, metin sütunları kalan alanı paylaşır ---
+// Alarm: Önem · Belge türü · Birim · Üst birim · Bitiş · Kural · Son bildirim · Durum
+.mx-name-dgAlarm .widget-datagrid-grid {
+    grid-template-columns:
+        110px minmax(170px, 2fr) minmax(150px, 1.5fr) minmax(110px, 0.9fr) max-content
+        minmax(120px, 1fr) max-content max-content !important;
+}
+@container (max-width: 1100px) {
+    .mx-name-dgAlarm .widget-datagrid-grid {
+        grid-template-columns: 110px minmax(140px, 2fr) minmax(120px, 1.4fr) max-content minmax(110px, 1fr) max-content !important;
+    }
+}
+@container (max-width: 800px) {
+    .mx-name-dgAlarm .widget-datagrid-grid {
+        grid-template-columns: 110px minmax(130px, 1.8fr) minmax(110px, 1.4fr) max-content !important;
+    }
+}
+@container (max-width: 520px) {
+    .mx-name-dgAlarm .widget-datagrid-grid {
+        grid-template-columns: 100px minmax(0, 1fr) !important;
+    }
+}
+@container (min-width: 900px) {
+    // Raporlar · işlem geçmişi: Tarih · Kullanıcı · Rol · Modül · İşlem · Kayıt
+    .mx-name-dgIslemGecmisi .widget-datagrid-grid {
+        grid-template-columns: max-content minmax(140px, 1fr) max-content max-content minmax(220px, 2fr) minmax(120px, 1fr) !important;
+    }
+    // Kıyafet türleri: Tür · Kategori · Mevsim · Bedenler · Dönemsel hak · Stok kodu · Beden rehberi · Durum · işlem
+    .mx-name-dgKiyafet .widget-datagrid-grid {
+        grid-template-columns: minmax(170px, 1.6fr) max-content max-content minmax(150px, 1.4fr) max-content max-content max-content max-content max-content !important;
+    }
+    // Teçhizat türleri: Tür · Beden / ölçü · Seri no · Dönemsel hak · Stok kodu · Aktif · işlem
+    .mx-name-dgTechizat .widget-datagrid-grid {
+        grid-template-columns: minmax(170px, 1.6fr) minmax(150px, 1.3fr) max-content max-content max-content max-content max-content !important;
+    }
+}
+// Taleplerim / Birim personelinin talepleri: liste kapsayıcısı prototipteki gibi çerçevesiz (P45 kenarlığı burada istenmez)
+html body .gh-taleplerim > .mx-dataview-content > .gh-card {
+    border: 0;
+    > .gh-cell-muted.gh-pad {
+        display: block;
+        padding: 44px 16px;
+        border: 1px solid var(--gh-hat);
+        border-radius: 8px;
+        background: var(--color-surface);
+        text-align: center;
+        font-size: 13px;
+        color: var(--color-neutral-500);
+    }
+}
+
+// --- P50 Prototiple karşılaştırma: Ana Sayfa ---
+// Kart bağlantıları (Tümü, Kayıtlar, Talepler): prototip .btn-ghost → vurgu mavisi
+.btn.gh-btn-sm.gh-btn-ghost.gh-as-link {
+    color: var(--color-accent);
+}
+// Alarm dağılımı: uzun belge adları en çok 2 satır (prototip 11px; tam ad ipucu balonunda)
+.gh-as-col .gh-as-col-l {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 1.25;
+}
+// Yaklaşan süreler: alt satır (birim · bitiş) tek satır
+.gh-as-row-s {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+// Birim Belgeleri: üst birim adı tek satır (prototip); geniş ekranda sütun içeriği kadar, uyum çubuğu daha dar
+@container (min-width: 1001px) {
+    html body .mx-name-dgSubeOzet .widget-datagrid-grid {
+        grid-template-columns:
+            82px minmax(160px, 2fr) max-content minmax(130px, 1.2fr)
+            64px 128px 92px 140px 32px !important;
+    }
+    html body .mx-name-dgSubeOzet .tr > :nth-child(3) {
+        white-space: nowrap;
+    }
+    html body .mx-name-dgSubeOzet .th .column-header,
+    html body .mx-name-dgSubeOzet .th .column-header > span {
+        white-space: nowrap;
+    }
+}
+
+// --- P50 Alarm tablosu: uzun gerçek birim adları 3 satıra kırılmasın; "Son bildirim" sabit genişlikte iki satıra iner ---
+@container (min-width: 1001px) {
+    html body .mx-name-dgAlarm .widget-datagrid-grid {
+        grid-template-columns:
+            100px minmax(170px, 1.6fr) minmax(190px, 1.9fr) minmax(110px, 0.8fr) max-content
+            minmax(110px, 130px) minmax(130px, 160px) max-content !important;
+    }
+    html body .mx-name-dgAlarm .th .column-header,
+    html body .mx-name-dgAlarm .th .column-header > span {
+        white-space: nowrap;
+    }
+}
+
+// --- P50 Talep Yönetimi / Geçici görevli: prototipte sekmeler başlığın altında, alt çizgili (Malzeme Yönetimi .gh-utabs ile aynı görünüm) ---
+html body .gh-page:is(.gh-ty, .gh-gc) > .mx-dataview-content > .gh-head-row {
+    flex-wrap: wrap;
+    > .gh-tabs {
+        flex: 1 0 100%;
+        order: 9;
+        display: flex;
+        gap: 4px;
+        margin-top: 4px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: 0 1px 0 var(--color-divider);
+        > .btn.gh-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            font-size: 14px !important;
+            font-weight: 400;
+            white-space: nowrap;
+            color: var(--color-neutral-400);
+            &::before {
+                font-family: "Phosphor";
+                font-weight: normal;
+                color: var(--color-accent);
+                content: "\e4d0";
+            }
+            &:first-child::before {
+                content: "\e670";
+            }
+            &.is-active {
+                color: var(--color-text);
+                box-shadow: inset 0 -2px 0 var(--color-accent) !important;
+            }
+            flex: 0 0 auto;
+            &:hover:not(.is-active) {
+                color: var(--color-text);
+            }
+        }
+    }
+}
+
+// --- P50 Raporlar özet kartları: prototipteki gibi 28 px etiketsiz mini çubuklar ---
+html body .gh-rb-list {
+    margin-top: 4px;
+    ul {
+        gap: 2px;
+    }
+    .gh-rb {
+        gap: 0;
+        .gh-rb-track {
+            height: 28px;
+            border-radius: 0;
+            background: transparent;
+        }
+        .gh-rb-fill {
+            min-height: 3px;
+            border-radius: 2px 2px 0 0;
+            background: var(--color-accent-700);
+        }
+        .gh-rb-n,
+        .gh-rb-l {
+            display: none;
+        }
+    }
+}
+
+
+// --- P50 Şube ana sayfa "Denetime Hazır mısınız?": prototipteki gibi başlık + altında kenarlıklı küçük düğme (ikon kutusu yok) ---
+html body .gh-card.gh-as-hazir {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px 18px;
+    .gh-as-hazir-icon {
+        display: none;
+    }
+    > .gh-cell-stack {
+        flex: none;
+        > :first-child {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+    .btn.gh-btn-save {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 10px;
+        min-height: 0;
+        border: 1px solid var(--color-accent);
+        border-radius: 6px;
+        background: transparent;
+        color: var(--color-accent);
+        font-size: 12.5px;
+        font-weight: 500;
+        box-shadow: none;
+        &::before {
+            font-family: "Phosphor";
+            font-weight: normal;
+            content: "\ec34";
+        }
+        &:hover {
+            background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+        }
+    }
+}
+
+// --- P50 Taleplerim (şube ve personel): prototipte içerik 980 px ile sınırlı ---
+html body .gh-page.gh-taleplerim {
+    max-width: 980px;
+}
+
+// --- P50 Bedenlerim: prototipte içerik 980 px ile sınırlı, "Rehber" bağlantısı vurgu renginde ---
+html body .gh-page.gh-bedenlerim {
+    max-width: 980px;
+    .btn.gh-btn-ghost.gh-btn-ruler {
+        color: var(--color-accent);
+        font-size: 12.5px;
+        font-weight: 500;
+    }
+}
+
+// --- P50 Yeni talep: prototipte talep içeriği paneli 320 px, katalog satırda 4 kart (min 168 px) ---
+@media (min-width: 1101px) {
+    html body .gh-talep-grid {
+        grid-template-columns: minmax(0, 1fr) 320px;
+    }
+}
+@media (min-width: 641px) {
+    html body .gh-talep-yeni .gh-cat-grid ul {
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 168px), 1fr));
     }
 }

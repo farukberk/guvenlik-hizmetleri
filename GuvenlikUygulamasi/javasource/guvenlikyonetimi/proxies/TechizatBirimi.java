@@ -559,7 +559,7 @@ public class TechizatBirimi implements com.mendix.systemwideinterfaces.core.IEnt
 	 * @throws com.mendix.core.CoreException
 	 * @return value of TechizatBirimi_Sube
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getTechizatBirimi_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getTechizatBirimi_Sube() throws com.mendix.core.CoreException
 	{
 		return getTechizatBirimi_Sube(getContext());
 	}
@@ -569,12 +569,12 @@ public class TechizatBirimi implements com.mendix.systemwideinterfaces.core.IEnt
 	 * @return value of TechizatBirimi_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getTechizatBirimi_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getTechizatBirimi_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		halkbank_lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.TechizatBirimi_Sube.toString());
 		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -583,7 +583,7 @@ public class TechizatBirimi implements com.mendix.systemwideinterfaces.core.IEnt
 	 * Set value of TechizatBirimi_Sube
 	 * @param techizatbirimi_sube
 	 */
-	public final void setTechizatBirimi_Sube(halkbank_lowcodecommon.proxies.Common_Unit techizatbirimi_sube)
+	public final void setTechizatBirimi_Sube(halkbank_lowcodecommon.proxies.Common_Department techizatbirimi_sube)
 	{
 		setTechizatBirimi_Sube(getContext(), techizatbirimi_sube);
 	}
@@ -593,7 +593,7 @@ public class TechizatBirimi implements com.mendix.systemwideinterfaces.core.IEnt
 	 * @param context
 	 * @param techizatbirimi_sube
 	 */
-	public final void setTechizatBirimi_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit techizatbirimi_sube)
+	public final void setTechizatBirimi_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department techizatbirimi_sube)
 	{
 		if (techizatbirimi_sube == null) {
 			getMendixObject().setValue(context, MemberNames.TechizatBirimi_Sube.toString(), null);

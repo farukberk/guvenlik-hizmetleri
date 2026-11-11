@@ -746,7 +746,7 @@ public class SubeBelgesi implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @throws com.mendix.core.CoreException
 	 * @return value of SubeBelgesi_Sube
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getSubeBelgesi_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getSubeBelgesi_Sube() throws com.mendix.core.CoreException
 	{
 		return getSubeBelgesi_Sube(getContext());
 	}
@@ -756,12 +756,12 @@ public class SubeBelgesi implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @return value of SubeBelgesi_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getSubeBelgesi_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getSubeBelgesi_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		halkbank_lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeBelgesi_Sube.toString());
 		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -770,7 +770,7 @@ public class SubeBelgesi implements com.mendix.systemwideinterfaces.core.IEntity
 	 * Set value of SubeBelgesi_Sube
 	 * @param subebelgesi_sube
 	 */
-	public final void setSubeBelgesi_Sube(halkbank_lowcodecommon.proxies.Common_Unit subebelgesi_sube)
+	public final void setSubeBelgesi_Sube(halkbank_lowcodecommon.proxies.Common_Department subebelgesi_sube)
 	{
 		setSubeBelgesi_Sube(getContext(), subebelgesi_sube);
 	}
@@ -780,7 +780,7 @@ public class SubeBelgesi implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @param subebelgesi_sube
 	 */
-	public final void setSubeBelgesi_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit subebelgesi_sube)
+	public final void setSubeBelgesi_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department subebelgesi_sube)
 	{
 		if (subebelgesi_sube == null) {
 			getMendixObject().setValue(context, MemberNames.SubeBelgesi_Sube.toString(), null);

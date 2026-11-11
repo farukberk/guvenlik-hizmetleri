@@ -2,7 +2,7 @@
 // risk = tablonun varsayılan sırası (Risk ↓, Uyum ↑; başlık sıralaması yok) · uyum oranı / şube kodu / şube adı = ilgili sütun artan.
 // Yalnız seçim değiştiğinde uygular; sonra kullanıcı başlığa tıklayarak yine sıralayabilir.
 (function () {
-    var HEDEF = { "Sırala: uyum oranı": 3, "Sırala: şube kodu": 0, "Sırala: şube adı": 1, "Sırala: risk": -1 };
+    var HEDEF = { "Sırala: uyum oranı": 3, "Sırala: birim kodu": 0, "Sırala: birim adı": 1, "Sırala: risk": -1 };
     var son = null;
     var bekleyen = null;
 

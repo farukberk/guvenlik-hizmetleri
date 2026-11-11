@@ -28,6 +28,7 @@ public class Account extends system.proxies.User
 		FailedLogins("FailedLogins"),
 		WebServiceUser("WebServiceUser"),
 		IsAnonymous("IsAnonymous"),
+		Common_Person_Account("Halkbank_LowCodeCommon.Common_Person_Account"),
 		UserRoles("System.UserRoles"),
 		User_Language("System.User_Language"),
 		User_TimeZone("System.User_TimeZone");
@@ -192,6 +193,53 @@ public class Account extends system.proxies.User
 	public final void setIsLocalUser(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean islocaluser)
 	{
 		getMendixObject().setValue(context, MemberNames.IsLocalUser.toString(), islocaluser);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of Common_Person_Account
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_Person getCommon_Person_Account() throws com.mendix.core.CoreException
+	{
+		return getCommon_Person_Account(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Common_Person_Account
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final halkbank_lowcodecommon.proxies.Common_Person getCommon_Person_Account(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		halkbank_lowcodecommon.proxies.Common_Person result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Common_Person_Account.toString());
+		if (identifier != null) {
+			result = halkbank_lowcodecommon.proxies.Common_Person.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of Common_Person_Account
+	 * @param common_person_account
+	 */
+	public final void setCommon_Person_Account(halkbank_lowcodecommon.proxies.Common_Person common_person_account)
+	{
+		setCommon_Person_Account(getContext(), common_person_account);
+	}
+
+	/**
+	 * Set value of Common_Person_Account
+	 * @param context
+	 * @param common_person_account
+	 */
+	public final void setCommon_Person_Account(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Person common_person_account)
+	{
+		if (common_person_account == null) {
+			getMendixObject().setValue(context, MemberNames.Common_Person_Account.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.Common_Person_Account.toString(), common_person_account.getMendixObject().getId());
+		}
 	}
 
 	@java.lang.Override

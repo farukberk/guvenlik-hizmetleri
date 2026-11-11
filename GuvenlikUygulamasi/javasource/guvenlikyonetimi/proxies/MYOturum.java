@@ -887,7 +887,7 @@ public class MYOturum implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @throws com.mendix.core.CoreException
 	 * @return value of MYOturum_RecSube
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getMYOturum_RecSube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getMYOturum_RecSube() throws com.mendix.core.CoreException
 	{
 		return getMYOturum_RecSube(getContext());
 	}
@@ -897,12 +897,12 @@ public class MYOturum implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @return value of MYOturum_RecSube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getMYOturum_RecSube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getMYOturum_RecSube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		halkbank_lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.MYOturum_RecSube.toString());
 		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -911,7 +911,7 @@ public class MYOturum implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * Set value of MYOturum_RecSube
 	 * @param myoturum_recsube
 	 */
-	public final void setMYOturum_RecSube(halkbank_lowcodecommon.proxies.Common_Unit myoturum_recsube)
+	public final void setMYOturum_RecSube(halkbank_lowcodecommon.proxies.Common_Department myoturum_recsube)
 	{
 		setMYOturum_RecSube(getContext(), myoturum_recsube);
 	}
@@ -921,7 +921,7 @@ public class MYOturum implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @param context
 	 * @param myoturum_recsube
 	 */
-	public final void setMYOturum_RecSube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit myoturum_recsube)
+	public final void setMYOturum_RecSube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department myoturum_recsube)
 	{
 		if (myoturum_recsube == null) {
 			getMendixObject().setValue(context, MemberNames.MYOturum_RecSube.toString(), null);
@@ -934,7 +934,7 @@ public class MYOturum implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @throws com.mendix.core.CoreException
 	 * @return value of MYOturum_InvSube
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getMYOturum_InvSube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getMYOturum_InvSube() throws com.mendix.core.CoreException
 	{
 		return getMYOturum_InvSube(getContext());
 	}
@@ -944,12 +944,12 @@ public class MYOturum implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @return value of MYOturum_InvSube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getMYOturum_InvSube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getMYOturum_InvSube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		halkbank_lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.MYOturum_InvSube.toString());
 		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -958,7 +958,7 @@ public class MYOturum implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * Set value of MYOturum_InvSube
 	 * @param myoturum_invsube
 	 */
-	public final void setMYOturum_InvSube(halkbank_lowcodecommon.proxies.Common_Unit myoturum_invsube)
+	public final void setMYOturum_InvSube(halkbank_lowcodecommon.proxies.Common_Department myoturum_invsube)
 	{
 		setMYOturum_InvSube(getContext(), myoturum_invsube);
 	}
@@ -968,7 +968,7 @@ public class MYOturum implements com.mendix.systemwideinterfaces.core.IEntityPro
 	 * @param context
 	 * @param myoturum_invsube
 	 */
-	public final void setMYOturum_InvSube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit myoturum_invsube)
+	public final void setMYOturum_InvSube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department myoturum_invsube)
 	{
 		if (myoturum_invsube == null) {
 			getMendixObject().setValue(context, MemberNames.MYOturum_InvSube.toString(), null);

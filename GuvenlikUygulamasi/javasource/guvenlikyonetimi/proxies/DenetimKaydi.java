@@ -873,7 +873,7 @@ public class DenetimKaydi implements com.mendix.systemwideinterfaces.core.IEntit
 	 * @throws com.mendix.core.CoreException
 	 * @return value of DenetimKaydi_Sube
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getDenetimKaydi_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getDenetimKaydi_Sube() throws com.mendix.core.CoreException
 	{
 		return getDenetimKaydi_Sube(getContext());
 	}
@@ -883,12 +883,12 @@ public class DenetimKaydi implements com.mendix.systemwideinterfaces.core.IEntit
 	 * @return value of DenetimKaydi_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getDenetimKaydi_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getDenetimKaydi_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		halkbank_lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.DenetimKaydi_Sube.toString());
 		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -897,7 +897,7 @@ public class DenetimKaydi implements com.mendix.systemwideinterfaces.core.IEntit
 	 * Set value of DenetimKaydi_Sube
 	 * @param denetimkaydi_sube
 	 */
-	public final void setDenetimKaydi_Sube(halkbank_lowcodecommon.proxies.Common_Unit denetimkaydi_sube)
+	public final void setDenetimKaydi_Sube(halkbank_lowcodecommon.proxies.Common_Department denetimkaydi_sube)
 	{
 		setDenetimKaydi_Sube(getContext(), denetimkaydi_sube);
 	}
@@ -907,7 +907,7 @@ public class DenetimKaydi implements com.mendix.systemwideinterfaces.core.IEntit
 	 * @param context
 	 * @param denetimkaydi_sube
 	 */
-	public final void setDenetimKaydi_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit denetimkaydi_sube)
+	public final void setDenetimKaydi_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department denetimkaydi_sube)
 	{
 		if (denetimkaydi_sube == null) {
 			getMendixObject().setValue(context, MemberNames.DenetimKaydi_Sube.toString(), null);

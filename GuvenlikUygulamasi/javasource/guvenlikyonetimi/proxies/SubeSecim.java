@@ -505,7 +505,7 @@ public class SubeSecim implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @throws com.mendix.core.CoreException
 	 * @return value of SubeSecim_Sube
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getSubeSecim_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getSubeSecim_Sube() throws com.mendix.core.CoreException
 	{
 		return getSubeSecim_Sube(getContext());
 	}
@@ -515,12 +515,12 @@ public class SubeSecim implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @return value of SubeSecim_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getSubeSecim_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getSubeSecim_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		halkbank_lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeSecim_Sube.toString());
 		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -529,7 +529,7 @@ public class SubeSecim implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * Set value of SubeSecim_Sube
 	 * @param subesecim_sube
 	 */
-	public final void setSubeSecim_Sube(halkbank_lowcodecommon.proxies.Common_Unit subesecim_sube)
+	public final void setSubeSecim_Sube(halkbank_lowcodecommon.proxies.Common_Department subesecim_sube)
 	{
 		setSubeSecim_Sube(getContext(), subesecim_sube);
 	}
@@ -539,7 +539,7 @@ public class SubeSecim implements com.mendix.systemwideinterfaces.core.IEntityPr
 	 * @param context
 	 * @param subesecim_sube
 	 */
-	public final void setSubeSecim_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit subesecim_sube)
+	public final void setSubeSecim_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department subesecim_sube)
 	{
 		if (subesecim_sube == null) {
 			getMendixObject().setValue(context, MemberNames.SubeSecim_Sube.toString(), null);

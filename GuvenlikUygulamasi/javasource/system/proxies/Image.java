@@ -67,6 +67,9 @@ public class Image extends system.proxies.FileDocument
 		if (mendixObject.isInstanceOf("GuvenlikYonetimi.BedenRehberi")) {
 			return guvenlikyonetimi.proxies.BedenRehberi.initialize(context, mendixObject);
 		}
+		if (mendixObject.isInstanceOf("Halkbank_LowCodeCommon.Common_ProfilePicture")) {
+			return halkbank_lowcodecommon.proxies.Common_ProfilePicture.initialize(context, mendixObject);
+		}
 		if (mendixObject.isInstanceOf("GuvenlikYonetimi.TalepFoto")) {
 			return guvenlikyonetimi.proxies.TalepFoto.initialize(context, mendixObject);
 		}

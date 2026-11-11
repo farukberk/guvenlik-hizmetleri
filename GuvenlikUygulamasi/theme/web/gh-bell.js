@@ -14,10 +14,11 @@
         if (!b) {
             b = document.createElement("button");
             b.type = "button";
-            b.className = "gh-bell";
-            b.title = "Bildirimler";
+            b.className = "gh-bell hs-iconbtn";
+            b.setAttribute("data-hs-tip", "Bildirimler");
+            b.style.order = "8";
             b.setAttribute("aria-label", "Bildirimler");
-            b.innerHTML = '<span class="gh-bell-n" hidden></span>';
+            b.innerHTML = '<i class="ph ph-bell"></i><span class="gh-bell-n hs-badge" hidden></span>';
             b.addEventListener("click", function (e) {
                 e.stopPropagation();
                 mx.data.action({ params: { actionname: MF_AC }, callback: function () {}, error: function () {} });
@@ -41,7 +42,7 @@
                 s.textContent = v > 99 ? "99+" : String(v);
                 s.hidden = v === 0;
                 b.classList.toggle("has-new", v > 0);
-                b.title = v > 0 ? "Bildirimler · " + v + " yeni" : "Bildirimler";
+                b.setAttribute("data-hs-tip", v > 0 ? "Bildirimler · " + v + " yeni" : "Bildirimler");
             },
             error: function () {}
         });

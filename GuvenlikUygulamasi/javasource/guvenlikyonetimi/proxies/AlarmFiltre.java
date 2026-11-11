@@ -551,7 +551,7 @@ public class AlarmFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @throws com.mendix.core.CoreException
 	 * @return value of AlarmFiltre_Sube
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getAlarmFiltre_Sube() throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getAlarmFiltre_Sube() throws com.mendix.core.CoreException
 	{
 		return getAlarmFiltre_Sube(getContext());
 	}
@@ -561,12 +561,12 @@ public class AlarmFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @return value of AlarmFiltre_Sube
 	 * @throws com.mendix.core.CoreException
 	 */
-	public final halkbank_lowcodecommon.proxies.Common_Unit getAlarmFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final halkbank_lowcodecommon.proxies.Common_Department getAlarmFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
-		halkbank_lowcodecommon.proxies.Common_Unit result = null;
+		halkbank_lowcodecommon.proxies.Common_Department result = null;
 		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.AlarmFiltre_Sube.toString());
 		if (identifier != null) {
-			result = halkbank_lowcodecommon.proxies.Common_Unit.load(context, identifier);
+			result = halkbank_lowcodecommon.proxies.Common_Department.load(context, identifier);
 		}
 		return result;
 	}
@@ -575,7 +575,7 @@ public class AlarmFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * Set value of AlarmFiltre_Sube
 	 * @param alarmfiltre_sube
 	 */
-	public final void setAlarmFiltre_Sube(halkbank_lowcodecommon.proxies.Common_Unit alarmfiltre_sube)
+	public final void setAlarmFiltre_Sube(halkbank_lowcodecommon.proxies.Common_Department alarmfiltre_sube)
 	{
 		setAlarmFiltre_Sube(getContext(), alarmfiltre_sube);
 	}
@@ -585,7 +585,7 @@ public class AlarmFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 	 * @param context
 	 * @param alarmfiltre_sube
 	 */
-	public final void setAlarmFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Unit alarmfiltre_sube)
+	public final void setAlarmFiltre_Sube(com.mendix.systemwideinterfaces.core.IContext context, halkbank_lowcodecommon.proxies.Common_Department alarmfiltre_sube)
 	{
 		if (alarmfiltre_sube == null) {
 			getMendixObject().setValue(context, MemberNames.AlarmFiltre_Sube.toString(), null);

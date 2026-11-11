@@ -6,6 +6,7 @@ package halkbank_lowcodecommon.proxies.microflows;
 
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
+import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public final class Microflows
 {
@@ -15,80 +16,1672 @@ public final class Microflows
 	private Microflows() {}
 
 	// These are the microflows for the Halkbank_LowCodeCommon module
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Common_Department_SilBuilder(
-		halkbank_lowcodecommon.proxies.Common_Department _kayit
-	)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_AfterStartUp_AuthorityBuilder()
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Common_Department_Sil");
-		builder = builder.withParam("Kayit", _kayit);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_AfterStartUp_Authority");
 		return builder;
 	}
 
-	public static void aCT_Common_Department_Sil(
-		IContext context,
-		halkbank_lowcodecommon.proxies.Common_Department _kayit
-	)
+	public static void aCT_AfterStartUp_Authority(IContext context)
 	{
-		aCT_Common_Department_SilBuilder(
-				_kayit
-			)
-			.execute(context);
+		aCT_AfterStartUp_AuthorityBuilder().execute(context);
 	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Common_Person_SilBuilder(
-		halkbank_lowcodecommon.proxies.Common_Person _kayit
-	)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_AuthorityBuilder()
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Common_Person_Sil");
-		builder = builder.withParam("Kayit", _kayit);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_Authority");
 		return builder;
 	}
 
-	public static void aCT_Common_Person_Sil(
-		IContext context,
-		halkbank_lowcodecommon.proxies.Common_Person _kayit
-	)
+	public static void aCT_DeleteAll_Authority(IContext context)
 	{
-		aCT_Common_Person_SilBuilder(
-				_kayit
-			)
-			.execute(context);
+		aCT_DeleteAll_AuthorityBuilder().execute(context);
 	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Common_StaffTitle_SilBuilder(
-		halkbank_lowcodecommon.proxies.Common_StaffTitle _kayit
-	)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_AuthorityAdministrationBuilder()
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Common_StaffTitle_Sil");
-		builder = builder.withParam("Kayit", _kayit);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_AuthorityAdministration");
 		return builder;
 	}
 
-	public static void aCT_Common_StaffTitle_Sil(
-		IContext context,
-		halkbank_lowcodecommon.proxies.Common_StaffTitle _kayit
-	)
+	public static void aCT_DeleteAll_AuthorityAdministration(IContext context)
 	{
-		aCT_Common_StaffTitle_SilBuilder(
-				_kayit
-			)
-			.execute(context);
+		aCT_DeleteAll_AuthorityAdministrationBuilder().execute(context);
 	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Common_Unit_SilBuilder(
-		halkbank_lowcodecommon.proxies.Common_Unit _kayit
-	)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_AuthorityCommentHistoryBuilder()
 	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Common_Unit_Sil");
-		builder = builder.withParam("Kayit", _kayit);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_AuthorityCommentHistory");
 		return builder;
 	}
 
-	public static void aCT_Common_Unit_Sil(
-		IContext context,
-		halkbank_lowcodecommon.proxies.Common_Unit _kayit
+	public static void aCT_DeleteAll_AuthorityCommentHistory(IContext context)
+	{
+		aCT_DeleteAll_AuthorityCommentHistoryBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_BranchUnitBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_BranchUnit");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_BranchUnit(IContext context)
+	{
+		aCT_DeleteAll_BranchUnitBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_BuildingBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_Building");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_Building(IContext context)
+	{
+		aCT_DeleteAll_BuildingBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_CityBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_City");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_City(IContext context)
+	{
+		aCT_DeleteAll_CityBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_CountyBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_County");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_County(IContext context)
+	{
+		aCT_DeleteAll_CountyBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_CurrencyRateBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_CurrencyRate");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_CurrencyRate(IContext context)
+	{
+		aCT_DeleteAll_CurrencyRateBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_DepartmentBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_Department");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_Department(IContext context)
+	{
+		aCT_DeleteAll_DepartmentBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_ExcelExampleBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_ExcelExample");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_ExcelExample(IContext context)
+	{
+		aCT_DeleteAll_ExcelExampleBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_FirmBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_Firm");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_Firm(IContext context)
+	{
+		aCT_DeleteAll_FirmBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_HolidayBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_Holiday");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_Holiday(IContext context)
+	{
+		aCT_DeleteAll_HolidayBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_LeaveBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_Leave");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_Leave(IContext context)
+	{
+		aCT_DeleteAll_LeaveBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_LookupBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_Lookup");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_Lookup(IContext context)
+	{
+		aCT_DeleteAll_LookupBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_LookupValueBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_LookupValue");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_LookupValue(IContext context)
+	{
+		aCT_DeleteAll_LookupValueBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_LowCodeCommonFileDocumentBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_LowCodeCommonFileDocument");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_LowCodeCommonFileDocument(IContext context)
+	{
+		aCT_DeleteAll_LowCodeCommonFileDocumentBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_PersonBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_Person");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_Person(IContext context)
+	{
+		aCT_DeleteAll_PersonBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_PersonCareerBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_PersonCareer");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_PersonCareer(IContext context)
+	{
+		aCT_DeleteAll_PersonCareerBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_PersonDetailBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_PersonDetail");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_PersonDetail(IContext context)
+	{
+		aCT_DeleteAll_PersonDetailBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_PositionTitleBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_PositionTitle");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_PositionTitle(IContext context)
+	{
+		aCT_DeleteAll_PositionTitleBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_ProfilePictureBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_ProfilePicture");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_ProfilePicture(IContext context)
+	{
+		aCT_DeleteAll_ProfilePictureBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_RegionBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_Region");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_Region(IContext context)
+	{
+		aCT_DeleteAll_RegionBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_RegionDepartmentAdministrationBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_RegionDepartmentAdministration");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_RegionDepartmentAdministration(IContext context)
+	{
+		aCT_DeleteAll_RegionDepartmentAdministrationBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_RoleBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_Role");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_Role(IContext context)
+	{
+		aCT_DeleteAll_RoleBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_StaffTitleBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_StaffTitle");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_StaffTitle(IContext context)
+	{
+		aCT_DeleteAll_StaffTitleBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAll_UnitBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAll_Unit");
+		return builder;
+	}
+
+	public static void aCT_DeleteAll_Unit(IContext context)
+	{
+		aCT_DeleteAll_UnitBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAllHolidaysBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_DeleteAllHolidays");
+		return builder;
+	}
+
+	public static void aCT_DeleteAllHolidays(IContext context)
+	{
+		aCT_DeleteAllHolidaysBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Department_FindRegionAdminstrationBuilder(
+		halkbank_lowcodecommon.proxies.Common_DepartmentHirearchyForm _departmentSelector
 	)
 	{
-		aCT_Common_Unit_SilBuilder(
-				_kayit
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Department_FindRegionAdminstration");
+		builder = builder.withParam("DepartmentSelector", _departmentSelector);
+		return builder;
+	}
+
+	public static void aCT_Department_FindRegionAdminstration(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_DepartmentHirearchyForm _departmentSelector
+	)
+	{
+		aCT_Department_FindRegionAdminstrationBuilder(
+				_departmentSelector
 			)
 			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Department_RetrieveParentListBuilder(
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Department_RetrieveParentList");
+		builder = builder.withParam("Common_Department", _common_Department);
+		return builder;
+	}
+
+	public static java.util.List<halkbank_lowcodecommon.proxies.Common_Department> aCT_Department_RetrieveParentList(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department
+	)
+	{
+		Object result = aCT_Department_RetrieveParentListBuilder(
+				_common_Department
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> halkbank_lowcodecommon.proxies.Common_Department.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Excel_ImportBuilder(
+		excelimporter.proxies.TemplateDocument _templateDocument
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Excel_Import");
+		builder = builder.withParam("TemplateDocument", _templateDocument);
+		return builder;
+	}
+
+	public static void aCT_Excel_Import(
+		IContext context,
+		excelimporter.proxies.TemplateDocument _templateDocument
+	)
+	{
+		aCT_Excel_ImportBuilder(
+				_templateDocument
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_FormatDateTimeToUTCBuilder(
+		java.util.Date _date
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_FormatDateTimeToUTC");
+		builder = builder.withParam("Date", _date);
+		return builder;
+	}
+
+	public static java.util.Date aCT_FormatDateTimeToUTC(
+		IContext context,
+		java.util.Date _date
+	)
+	{
+		Object result = aCT_FormatDateTimeToUTCBuilder(
+				_date
+			)
+			.execute(context);
+		return (java.util.Date) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_GetCurrentAccountsPersonBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_GetCurrentAccountsPerson");
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_Person aCT_GetCurrentAccountsPerson(IContext context)
+	{
+		Object result = aCT_GetCurrentAccountsPersonBuilder().execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_Person.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Holiday_ExcelExportBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Holiday_ExcelExport");
+		return builder;
+	}
+
+	public static void aCT_Holiday_ExcelExport(IContext context)
+	{
+		aCT_Holiday_ExcelExportBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Holiday_ExcelImportBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_Holiday_ExcelImport");
+		return builder;
+	}
+
+	public static void aCT_Holiday_ExcelImport(IContext context)
+	{
+		aCT_Holiday_ExcelImportBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_SaveAuthorityBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_SaveAuthority");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		return builder;
+	}
+
+	public static void aCT_SaveAuthority(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		aCT_SaveAuthorityBuilder(
+				_common_Authority_Helper
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_SaveAuthorityAdministrationBuilder(
+		halkbank_lowcodecommon.proxies.AuthorityAdministration _authorityAdministration
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_SaveAuthorityAdministration");
+		builder = builder.withParam("AuthorityAdministration", _authorityAdministration);
+		return builder;
+	}
+
+	public static void aCT_SaveAuthorityAdministration(
+		IContext context,
+		halkbank_lowcodecommon.proxies.AuthorityAdministration _authorityAdministration
+	)
+	{
+		aCT_SaveAuthorityAdministrationBuilder(
+				_authorityAdministration
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_SaveExcel_ImportBuilder(
+		excelimporter.proxies.TemplateDocument _templateDocument
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.ACT_SaveExcel_Import");
+		builder = builder.withParam("TemplateDocument", _templateDocument);
+		return builder;
+	}
+
+	public static void aCT_SaveExcel_Import(
+		IContext context,
+		excelimporter.proxies.TemplateDocument _templateDocument
+	)
+	{
+		aCT_SaveExcel_ImportBuilder(
+				_templateDocument
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder customUserProvisioningBuilder(
+		system.proxies.User _user,
+		java.util.List<usercommons.proxies.UserClaim> _userClaimList
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.CustomUserProvisioning");
+		builder = builder.withParam("User", _user);
+		builder = builder.withParam("UserClaimList", _userClaimList);
+		return builder;
+	}
+
+	public static saml20.proxies.LoginFeedback customUserProvisioning(
+		IContext context,
+		system.proxies.User _user,
+		java.util.List<usercommons.proxies.UserClaim> _userClaimList
+	)
+	{
+		Object result = customUserProvisioningBuilder(
+				_user,
+				_userClaimList
+			)
+			.execute(context);
+		return result == null ? null : saml20.proxies.LoginFeedback.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dEL_Account_AllBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DEL_Account_All");
+		return builder;
+	}
+
+	public static void dEL_Account_All(IContext context)
+	{
+		dEL_Account_AllBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dEL_BranchUnit_AllBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DEL_BranchUnit_All");
+		return builder;
+	}
+
+	public static void dEL_BranchUnit_All(IContext context)
+	{
+		dEL_BranchUnit_AllBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dEL_City_AllBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DEL_City_All");
+		return builder;
+	}
+
+	public static void dEL_City_All(IContext context)
+	{
+		dEL_City_AllBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dEL_County_AllBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DEL_County_All");
+		return builder;
+	}
+
+	public static void dEL_County_All(IContext context)
+	{
+		dEL_County_AllBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dEL_Department_AllBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DEL_Department_All");
+		return builder;
+	}
+
+	public static void dEL_Department_All(IContext context)
+	{
+		dEL_Department_AllBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dEL_DepartmentAdministration_AllBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DEL_DepartmentAdministration_All");
+		return builder;
+	}
+
+	public static void dEL_DepartmentAdministration_All(IContext context)
+	{
+		dEL_DepartmentAdministration_AllBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dEL_Holiday_AllBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DEL_Holiday_All");
+		return builder;
+	}
+
+	public static void dEL_Holiday_All(IContext context)
+	{
+		dEL_Holiday_AllBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dEL_Person_AllBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DEL_Person_All");
+		return builder;
+	}
+
+	public static void dEL_Person_All(IContext context)
+	{
+		dEL_Person_AllBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dEL_Title_AllBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DEL_Title_All");
+		return builder;
+	}
+
+	public static void dEL_Title_All(IContext context)
+	{
+		dEL_Title_AllBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dEL_UserBuilder(
+		system.proxies.User _user
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DEL_User");
+		builder = builder.withParam("User", _user);
+		return builder;
+	}
+
+	public static void dEL_User(
+		IContext context,
+		system.proxies.User _user
+	)
+	{
+		dEL_UserBuilder(
+				_user
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_Authority_RetrieveByPersonBuilder(
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DS_Authority_RetrieveByPerson");
+		builder = builder.withParam("Common_Person", _common_Person);
+		return builder;
+	}
+
+	public static java.util.List<halkbank_lowcodecommon.proxies.Common_Authority> dS_Authority_RetrieveByPerson(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person
+	)
+	{
+		Object result = dS_Authority_RetrieveByPersonBuilder(
+				_common_Person
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> halkbank_lowcodecommon.proxies.Common_Authority.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_AuthorityAdministrationBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DS_AuthorityAdministration");
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.AuthorityAdministration dS_AuthorityAdministration(IContext context)
+	{
+		Object result = dS_AuthorityAdministrationBuilder().execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.AuthorityAdministration.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_AuthorityBasedPerson_NotAssignedRetrievePersonListBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority _common_Authority
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DS_AuthorityBasedPerson_NotAssignedRetrievePersonList");
+		builder = builder.withParam("Common_Authority", _common_Authority);
+		return builder;
+	}
+
+	public static java.util.List<halkbank_lowcodecommon.proxies.Common_Person> dS_AuthorityBasedPerson_NotAssignedRetrievePersonList(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority _common_Authority
+	)
+	{
+		Object result = dS_AuthorityBasedPerson_NotAssignedRetrievePersonListBuilder(
+				_common_Authority
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> halkbank_lowcodecommon.proxies.Common_Person.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_AuthorityBasedPerson_RetrievePersonListBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority _common_Authority
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DS_AuthorityBasedPerson_RetrievePersonList");
+		builder = builder.withParam("Common_Authority", _common_Authority);
+		return builder;
+	}
+
+	public static java.util.List<halkbank_lowcodecommon.proxies.Common_Person> dS_AuthorityBasedPerson_RetrievePersonList(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority _common_Authority
+	)
+	{
+		Object result = dS_AuthorityBasedPerson_RetrievePersonListBuilder(
+				_common_Authority
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> halkbank_lowcodecommon.proxies.Common_Person.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_Common_Autority_HelperBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DS_Common_Autority_Helper");
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_Authority_Helper dS_Common_Autority_Helper(IContext context)
+	{
+		Object result = dS_Common_Autority_HelperBuilder().execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_Authority_Helper.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_GetCommonAdminRoleBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DS_GetCommonAdminRole");
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_Role dS_GetCommonAdminRole(IContext context)
+	{
+		Object result = dS_GetCommonAdminRoleBuilder().execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_Role.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_GetMxAdminBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DS_GetMxAdmin");
+		return builder;
+	}
+
+	public static system.proxies.User dS_GetMxAdmin(IContext context)
+	{
+		Object result = dS_GetMxAdminBuilder().execute(context);
+		return result == null ? null : system.proxies.User.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_SelectableCommonRoleBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.DS_SelectableCommonRole");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		return builder;
+	}
+
+	public static java.util.List<halkbank_lowcodecommon.proxies.Common_Role> dS_SelectableCommonRole(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		Object result = dS_SelectableCommonRoleBuilder(
+				_common_Authority_Helper
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> halkbank_lowcodecommon.proxies.Common_Role.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fINAL_CommonPersonBuilder(
+		databasereplication.proxies.ReplicationStatus _replicationStatus,
+		databasereplication.proxies.TableMapping _tableMapping
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.FINAL_CommonPerson");
+		builder = builder.withParam("ReplicationStatus", _replicationStatus);
+		builder = builder.withParam("TableMapping", _tableMapping);
+		return builder;
+	}
+
+	public static void fINAL_CommonPerson(
+		IContext context,
+		databasereplication.proxies.ReplicationStatus _replicationStatus,
+		databasereplication.proxies.TableMapping _tableMapping
+	)
+	{
+		fINAL_CommonPersonBuilder(
+				_replicationStatus,
+				_tableMapping
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fINAL_CommonPerson_CreateFullNameBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.FINAL_CommonPerson_CreateFullName");
+		return builder;
+	}
+
+	public static void fINAL_CommonPerson_CreateFullName(IContext context)
+	{
+		fINAL_CommonPerson_CreateFullNameBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fINAL_CurrencyRateBuilder(
+		databasereplication.proxies.ReplicationStatus _replicationStatus,
+		databasereplication.proxies.TableMapping _tableMapping
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.FINAL_CurrencyRate");
+		builder = builder.withParam("ReplicationStatus", _replicationStatus);
+		builder = builder.withParam("TableMapping", _tableMapping);
+		return builder;
+	}
+
+	public static void fINAL_CurrencyRate(
+		IContext context,
+		databasereplication.proxies.ReplicationStatus _replicationStatus,
+		databasereplication.proxies.TableMapping _tableMapping
+	)
+	{
+		fINAL_CurrencyRateBuilder(
+				_replicationStatus,
+				_tableMapping
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fINAL_DepartmentBuilder(
+		databasereplication.proxies.ReplicationStatus _replicationStatus,
+		databasereplication.proxies.TableMapping _tableMapping
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.FINAL_Department");
+		builder = builder.withParam("ReplicationStatus", _replicationStatus);
+		builder = builder.withParam("TableMapping", _tableMapping);
+		return builder;
+	}
+
+	public static void fINAL_Department(
+		IContext context,
+		databasereplication.proxies.ReplicationStatus _replicationStatus,
+		databasereplication.proxies.TableMapping _tableMapping
+	)
+	{
+		fINAL_DepartmentBuilder(
+				_replicationStatus,
+				_tableMapping
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fINAL_HandleDepartmentAndAssocaitedPersonChangesBuilder(
+		databasereplication.proxies.ReplicationStatus _replicationStatus,
+		databasereplication.proxies.TableMapping _tableMapping
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.FINAL_HandleDepartmentAndAssocaitedPersonChanges");
+		builder = builder.withParam("ReplicationStatus", _replicationStatus);
+		builder = builder.withParam("TableMapping", _tableMapping);
+		return builder;
+	}
+
+	public static void fINAL_HandleDepartmentAndAssocaitedPersonChanges(
+		IContext context,
+		databasereplication.proxies.ReplicationStatus _replicationStatus,
+		databasereplication.proxies.TableMapping _tableMapping
+	)
+	{
+		fINAL_HandleDepartmentAndAssocaitedPersonChangesBuilder(
+				_replicationStatus,
+				_tableMapping
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fORMAT_HolidayDateBuilder(
+		java.util.Date _date
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.FORMAT_HolidayDate");
+		builder = builder.withParam("Date", _date);
+		return builder;
+	}
+
+	public static java.util.Date fORMAT_HolidayDate(
+		IContext context,
+		java.util.Date _date
+	)
+	{
+		Object result = fORMAT_HolidayDateBuilder(
+				_date
+			)
+			.execute(context);
+		return (java.util.Date) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder fORMAT_LeaveStatusBuilder(
+		java.lang.String _status
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.FORMAT_LeaveStatus");
+		builder = builder.withParam("Status", _status);
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.ENUM_LeaveStatus fORMAT_LeaveStatus(
+		IContext context,
+		java.lang.String _status
+	)
+	{
+		Object result = fORMAT_LeaveStatusBuilder(
+				_status
+			)
+			.execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.ENUM_LeaveStatus.valueOf((java.lang.String) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCH_Authority_Helper_EndDateBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.OCH_Authority_Helper_EndDate");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		return builder;
+	}
+
+	public static boolean oCH_Authority_Helper_EndDate(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		Object result = oCH_Authority_Helper_EndDateBuilder(
+				_common_Authority_Helper
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCH_Authority_Helper_StartDateBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.OCH_Authority_Helper_StartDate");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		return builder;
+	}
+
+	public static boolean oCH_Authority_Helper_StartDate(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		Object result = oCH_Authority_Helper_StartDateBuilder(
+				_common_Authority_Helper
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCH_IsAdminBuilder(
+		halkbank_lowcodecommon.proxies.Common_Role _common_Role
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.OCH_IsAdmin");
+		builder = builder.withParam("Common_Role", _common_Role);
+		return builder;
+	}
+
+	public static void oCH_IsAdmin(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Role _common_Role
+	)
+	{
+		oCH_IsAdminBuilder(
+				_common_Role
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCH_ModuleNameBuilder(
+		halkbank_lowcodecommon.proxies.Common_Role _common_Role_Client
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.OCH_ModuleName");
+		builder = builder.withParam("Common_Role_Client", _common_Role_Client);
+		return builder;
+	}
+
+	public static void oCH_ModuleName(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Role _common_Role_Client
+	)
+	{
+		oCH_ModuleNameBuilder(
+				_common_Role_Client
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sCE_ActivateAuthorityBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SCE_ActivateAuthority");
+		return builder;
+	}
+
+	public static void sCE_ActivateAuthority(IContext context)
+	{
+		sCE_ActivateAuthorityBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sCE_DisableExpiredAuthorityBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SCE_DisableExpiredAuthority");
+		return builder;
+	}
+
+	public static void sCE_DisableExpiredAuthority(IContext context)
+	{
+		sCE_DisableExpiredAuthorityBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_ADControlBuilder(
+		java.util.List<halkbank_lowcodecommon.proxies.PorActiveDirectoryData> _porActiveDirectoryDataList,
+		halkbank_lowcodecommon.proxies.ENUM_ADType _eNUM_ADType
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_ADControl");
+		builder = builder.withParam("PorActiveDirectoryDataList", _porActiveDirectoryDataList);
+		builder = builder.withParam("ENUM_ADType", _eNUM_ADType == null ? null : _eNUM_ADType.name());
+		return builder;
+	}
+
+	public static void sUB_ADControl(
+		IContext context,
+		java.util.List<halkbank_lowcodecommon.proxies.PorActiveDirectoryData> _porActiveDirectoryDataList,
+		halkbank_lowcodecommon.proxies.ENUM_ADType _eNUM_ADType
+	)
+	{
+		sUB_ADControlBuilder(
+				_porActiveDirectoryDataList,
+				_eNUM_ADType
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_AssociateAgainstModuleNameBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority _common_Authority
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_AssociateAgainstModuleName");
+		builder = builder.withParam("Common_Authority", _common_Authority);
+		return builder;
+	}
+
+	public static void sUB_AssociateAgainstModuleName(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority _common_Authority
+	)
+	{
+		sUB_AssociateAgainstModuleNameBuilder(
+				_common_Authority
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_AssociateCommonRoleToAuthorityBuilder(
+		halkbank_lowcodecommon.proxies.Common_Role _common_Role,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Role> _common_RoleList_ToRetrieveAuthority
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_AssociateCommonRoleToAuthority");
+		builder = builder.withParam("Common_Role", _common_Role);
+		builder = builder.withParam("Common_RoleList_ToRetrieveAuthority", _common_RoleList_ToRetrieveAuthority);
+		return builder;
+	}
+
+	public static void sUB_AssociateCommonRoleToAuthority(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Role _common_Role,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Role> _common_RoleList_ToRetrieveAuthority
+	)
+	{
+		sUB_AssociateCommonRoleToAuthorityBuilder(
+				_common_Role,
+				_common_RoleList_ToRetrieveAuthority
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_AssociateWithAccount_PersonBuilder(
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_AssociateWithAccount_Person");
+		builder = builder.withParam("Common_Person", _common_Person);
+		return builder;
+	}
+
+	public static void sUB_AssociateWithAccount_Person(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person
+	)
+	{
+		sUB_AssociateWithAccount_PersonBuilder(
+				_common_Person
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_CheckAndCreateCommonRoleBuilder(
+		system.proxies.UserRole _userRole
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_CheckAndCreateCommonRole");
+		builder = builder.withParam("UserRole", _userRole);
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_Role sUB_CheckAndCreateCommonRole(
+		IContext context,
+		system.proxies.UserRole _userRole
+	)
+	{
+		Object result = sUB_CheckAndCreateCommonRoleBuilder(
+				_userRole
+			)
+			.execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_Role.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_CheckDuplicateAccordingToHierarchyBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper,
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _common_StaffTitle,
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person,
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _common_PositionTitle,
+		boolean _isEdited,
+		halkbank_lowcodecommon.proxies.Common_Authority _editedCommon_Authority,
+		halkbank_lowcodecommon.proxies.Common_Firm _common_Firm
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_CheckDuplicateAccordingToHierarchy");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		builder = builder.withParam("Common_StaffTitle", _common_StaffTitle);
+		builder = builder.withParam("Common_Department", _common_Department);
+		builder = builder.withParam("Common_Person", _common_Person);
+		builder = builder.withParam("Common_PositionTitle", _common_PositionTitle);
+		builder = builder.withParam("IsEdited", _isEdited);
+		builder = builder.withParam("EditedCommon_Authority", _editedCommon_Authority);
+		builder = builder.withParam("Common_Firm", _common_Firm);
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_Authority sUB_CheckDuplicateAccordingToHierarchy(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper,
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _common_StaffTitle,
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person,
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _common_PositionTitle,
+		boolean _isEdited,
+		halkbank_lowcodecommon.proxies.Common_Authority _editedCommon_Authority,
+		halkbank_lowcodecommon.proxies.Common_Firm _common_Firm
+	)
+	{
+		Object result = sUB_CheckDuplicateAccordingToHierarchyBuilder(
+				_common_Authority_Helper,
+				_common_StaffTitle,
+				_common_Department,
+				_common_Person,
+				_common_PositionTitle,
+				_isEdited,
+				_editedCommon_Authority,
+				_common_Firm
+			)
+			.execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_Authority.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_CheckForDuplicateAuthoritiesBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_CheckForDuplicateAuthorities");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		return builder;
+	}
+
+	public static boolean sUB_CheckForDuplicateAuthorities(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		Object result = sUB_CheckForDuplicateAuthoritiesBuilder(
+				_common_Authority_Helper
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_CreateFullNameBuilder(
+		java.lang.Long _amount,
+		java.lang.Long _offset
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_CreateFullName");
+		builder = builder.withParam("Amount", _amount);
+		builder = builder.withParam("Offset", _offset);
+		return builder;
+	}
+
+	public static void sUB_CreateFullName(
+		IContext context,
+		java.lang.Long _amount,
+		java.lang.Long _offset
+	)
+	{
+		sUB_CreateFullNameBuilder(
+				_amount,
+				_offset
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_CreateOrEditAuthorityBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_CreateOrEditAuthority");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_Authority sUB_CreateOrEditAuthority(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		Object result = sUB_CreateOrEditAuthorityBuilder(
+				_common_Authority_Helper
+			)
+			.execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_Authority.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Department_TraverseAndRetrieveParentDepartmentBuilder(
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		java.lang.Long _iterationCount,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Department> _common_DepartmentList
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_Department_TraverseAndRetrieveParentDepartment");
+		builder = builder.withParam("Common_Department", _common_Department);
+		builder = builder.withParam("IterationCount", _iterationCount);
+		builder = builder.withParam("Common_DepartmentList", _common_DepartmentList);
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_Department sUB_Department_TraverseAndRetrieveParentDepartment(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		java.lang.Long _iterationCount,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Department> _common_DepartmentList
+	)
+	{
+		Object result = sUB_Department_TraverseAndRetrieveParentDepartmentBuilder(
+				_common_Department,
+				_iterationCount,
+				_common_DepartmentList
+			)
+			.execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_Department.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Department_TraverseUpBuilder(
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		java.lang.Long _iterationCount,
+		java.lang.Long _lVI
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_Department_TraverseUp");
+		builder = builder.withParam("Common_Department", _common_Department);
+		builder = builder.withParam("IterationCount", _iterationCount);
+		builder = builder.withParam("LVI", _lVI);
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_Department sUB_Department_TraverseUp(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		java.lang.Long _iterationCount,
+		java.lang.Long _lVI
+	)
+	{
+		Object result = sUB_Department_TraverseUpBuilder(
+				_common_Department,
+				_iterationCount,
+				_lVI
+			)
+			.execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_Department.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_DisableMatchedRegionDepartmentAdministrationsOrBranchUnitsBuilder(
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Department> _regionDepartmentAdministrationAndBranchUnitListToDisable
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_DisableMatchedRegionDepartmentAdministrationsOrBranchUnits");
+		builder = builder.withParam("RegionDepartmentAdministrationAndBranchUnitListToDisable", _regionDepartmentAdministrationAndBranchUnitListToDisable);
+		return builder;
+	}
+
+	public static void sUB_DisableMatchedRegionDepartmentAdministrationsOrBranchUnits(
+		IContext context,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Department> _regionDepartmentAdministrationAndBranchUnitListToDisable
+	)
+	{
+		sUB_DisableMatchedRegionDepartmentAdministrationsOrBranchUnitsBuilder(
+				_regionDepartmentAdministrationAndBranchUnitListToDisable
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Excel_ExportBuilder(
+		java.lang.String _name,
+		halkbank_lowcodecommon.proxies.Common_LowCodeCommonFileDocument _common_LowCodeCommonFileDocument
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_Excel_Export");
+		builder = builder.withParam("Name", _name);
+		builder = builder.withParam("Common_LowCodeCommonFileDocument", _common_LowCodeCommonFileDocument);
+		return builder;
+	}
+
+	public static void sUB_Excel_Export(
+		IContext context,
+		java.lang.String _name,
+		halkbank_lowcodecommon.proxies.Common_LowCodeCommonFileDocument _common_LowCodeCommonFileDocument
+	)
+	{
+		sUB_Excel_ExportBuilder(
+				_name,
+				_common_LowCodeCommonFileDocument
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Excel_RetrieveAndShowBuilder(
+		java.lang.String _name
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_Excel_RetrieveAndShow");
+		builder = builder.withParam("Name", _name);
+		return builder;
+	}
+
+	public static void sUB_Excel_RetrieveAndShow(
+		IContext context,
+		java.lang.String _name
+	)
+	{
+		sUB_Excel_RetrieveAndShowBuilder(
+				_name
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Excel_ShowUploadBuilder(
+		excelimporter.proxies.Template _template
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_Excel_ShowUpload");
+		builder = builder.withParam("Template", _template);
+		return builder;
+	}
+
+	public static void sUB_Excel_ShowUpload(
+		IContext context,
+		excelimporter.proxies.Template _template
+	)
+	{
+		sUB_Excel_ShowUploadBuilder(
+				_template
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_FindOrCreateBranchUnitBuilder(
+		halkbank_lowcodecommon.proxies.Common_RegionDepartmentAdministration _parentRegionDepartmentAdministration,
+		halkbank_lowcodecommon.proxies.Common_Department _branchDepartment
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_FindOrCreateBranchUnit");
+		builder = builder.withParam("ParentRegionDepartmentAdministration", _parentRegionDepartmentAdministration);
+		builder = builder.withParam("BranchDepartment", _branchDepartment);
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_BranchUnit sUB_FindOrCreateBranchUnit(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_RegionDepartmentAdministration _parentRegionDepartmentAdministration,
+		halkbank_lowcodecommon.proxies.Common_Department _branchDepartment
+	)
+	{
+		Object result = sUB_FindOrCreateBranchUnitBuilder(
+				_parentRegionDepartmentAdministration,
+				_branchDepartment
+			)
+			.execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_BranchUnit.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_FindOrCreateRegionDepartmentAdministrationBuilder(
+		halkbank_lowcodecommon.proxies.Common_Department _regionDepartment
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_FindOrCreateRegionDepartmentAdministration");
+		builder = builder.withParam("RegionDepartment", _regionDepartment);
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_RegionDepartmentAdministration sUB_FindOrCreateRegionDepartmentAdministration(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Department _regionDepartment
+	)
+	{
+		Object result = sUB_FindOrCreateRegionDepartmentAdministrationBuilder(
+				_regionDepartment
+			)
+			.execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_RegionDepartmentAdministration.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_GetDuplicateAuthority_HierarchyDisabledBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper,
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _common_StaffTitle,
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person,
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _common_PositionTitle,
+		boolean _isEdited,
+		halkbank_lowcodecommon.proxies.Common_Authority _editedCommon_Authority,
+		halkbank_lowcodecommon.proxies.Common_Firm _common_Firm
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_GetDuplicateAuthority_HierarchyDisabled");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		builder = builder.withParam("Common_StaffTitle", _common_StaffTitle);
+		builder = builder.withParam("Common_Department", _common_Department);
+		builder = builder.withParam("Common_Person", _common_Person);
+		builder = builder.withParam("Common_PositionTitle", _common_PositionTitle);
+		builder = builder.withParam("IsEdited", _isEdited);
+		builder = builder.withParam("EditedCommon_Authority", _editedCommon_Authority);
+		builder = builder.withParam("Common_Firm", _common_Firm);
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_Authority sUB_GetDuplicateAuthority_HierarchyDisabled(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper,
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _common_StaffTitle,
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person,
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _common_PositionTitle,
+		boolean _isEdited,
+		halkbank_lowcodecommon.proxies.Common_Authority _editedCommon_Authority,
+		halkbank_lowcodecommon.proxies.Common_Firm _common_Firm
+	)
+	{
+		Object result = sUB_GetDuplicateAuthority_HierarchyDisabledBuilder(
+				_common_Authority_Helper,
+				_common_StaffTitle,
+				_common_Department,
+				_common_Person,
+				_common_PositionTitle,
+				_isEdited,
+				_editedCommon_Authority,
+				_common_Firm
+			)
+			.execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_Authority.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_GetDuplicateAuthority_HierarchyEnabledBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper,
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _common_StaffTitle,
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person,
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _common_PositionTitle,
+		boolean _isEdited,
+		halkbank_lowcodecommon.proxies.Common_Authority _editedCommon_Authority,
+		halkbank_lowcodecommon.proxies.Common_Firm _common_Firm
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_GetDuplicateAuthority_HierarchyEnabled");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		builder = builder.withParam("Common_StaffTitle", _common_StaffTitle);
+		builder = builder.withParam("Common_Department", _common_Department);
+		builder = builder.withParam("Common_Person", _common_Person);
+		builder = builder.withParam("Common_PositionTitle", _common_PositionTitle);
+		builder = builder.withParam("IsEdited", _isEdited);
+		builder = builder.withParam("EditedCommon_Authority", _editedCommon_Authority);
+		builder = builder.withParam("Common_Firm", _common_Firm);
+		return builder;
+	}
+
+	public static halkbank_lowcodecommon.proxies.Common_Authority sUB_GetDuplicateAuthority_HierarchyEnabled(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper,
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _common_StaffTitle,
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person,
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _common_PositionTitle,
+		boolean _isEdited,
+		halkbank_lowcodecommon.proxies.Common_Authority _editedCommon_Authority,
+		halkbank_lowcodecommon.proxies.Common_Firm _common_Firm
+	)
+	{
+		Object result = sUB_GetDuplicateAuthority_HierarchyEnabledBuilder(
+				_common_Authority_Helper,
+				_common_StaffTitle,
+				_common_Department,
+				_common_Person,
+				_common_PositionTitle,
+				_isEdited,
+				_editedCommon_Authority,
+				_common_Firm
+			)
+			.execute(context);
+		return result == null ? null : halkbank_lowcodecommon.proxies.Common_Authority.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_HandleDisabledPersonsAuthoritiesBuilder(
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person,
+		halkbank_lowcodecommon.proxies.Common_Authority _common_Authority
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_HandleDisabledPersonsAuthorities");
+		builder = builder.withParam("Common_Person", _common_Person);
+		builder = builder.withParam("Common_Authority", _common_Authority);
+		return builder;
+	}
+
+	public static void sUB_HandleDisabledPersonsAuthorities(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Person _common_Person,
+		halkbank_lowcodecommon.proxies.Common_Authority _common_Authority
+	)
+	{
+		sUB_HandleDisabledPersonsAuthoritiesBuilder(
+				_common_Person,
+				_common_Authority
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_HandleRoleAssignmentBuilder(
+		administration.proxies.Account _account,
+		halkbank_lowcodecommon.proxies.Common_Authority _common_Authority
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_HandleRoleAssignment");
+		builder = builder.withParam("Account", _account);
+		builder = builder.withParam("Common_Authority", _common_Authority);
+		return builder;
+	}
+
+	public static void sUB_HandleRoleAssignment(
+		IContext context,
+		administration.proxies.Account _account,
+		halkbank_lowcodecommon.proxies.Common_Authority _common_Authority
+	)
+	{
+		sUB_HandleRoleAssignmentBuilder(
+				_account,
+				_common_Authority
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_HolidayExcel_RetrieveAndShowBuilder(
+		java.lang.String _name
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_HolidayExcel_RetrieveAndShow");
+		builder = builder.withParam("Name", _name);
+		return builder;
+	}
+
+	public static void sUB_HolidayExcel_RetrieveAndShow(
+		IContext context,
+		java.lang.String _name
+	)
+	{
+		sUB_HolidayExcel_RetrieveAndShowBuilder(
+				_name
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_HolidayExcel_ShowUploadBuilder(
+		excelimporter.proxies.Template _template
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_HolidayExcel_ShowUpload");
+		builder = builder.withParam("Template", _template);
+		return builder;
+	}
+
+	public static void sUB_HolidayExcel_ShowUpload(
+		IContext context,
+		excelimporter.proxies.Template _template
+	)
+	{
+		sUB_HolidayExcel_ShowUploadBuilder(
+				_template
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_RemoveExistingModuleNameAssociationsBuilder(
+		halkbank_lowcodecommon.proxies.Common_Role _common_Role
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_RemoveExistingModuleNameAssociations");
+		builder = builder.withParam("Common_Role", _common_Role);
+		return builder;
+	}
+
+	public static void sUB_RemoveExistingModuleNameAssociations(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Role _common_Role
+	)
+	{
+		sUB_RemoveExistingModuleNameAssociationsBuilder(
+				_common_Role
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_RetrieveAllDepartmentBasedAuthorityListBuilder(
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_RetrieveAllDepartmentBasedAuthorityList");
+		builder = builder.withParam("Common_Department", _common_Department);
+		return builder;
+	}
+
+	public static java.util.List<halkbank_lowcodecommon.proxies.Common_Authority> sUB_RetrieveAllDepartmentBasedAuthorityList(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department
+	)
+	{
+		Object result = sUB_RetrieveAllDepartmentBasedAuthorityListBuilder(
+				_common_Department
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> halkbank_lowcodecommon.proxies.Common_Authority.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_TraverseDepartmentsForAuthorityBuilder(
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		java.lang.Long _iterationCount,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Authority> _common_AuthorityList
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_TraverseDepartmentsForAuthority");
+		builder = builder.withParam("Common_Department", _common_Department);
+		builder = builder.withParam("IterationCount", _iterationCount);
+		builder = builder.withParam("Common_AuthorityList", _common_AuthorityList);
+		return builder;
+	}
+
+	public static void sUB_TraverseDepartmentsForAuthority(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Department _common_Department,
+		java.lang.Long _iterationCount,
+		java.util.List<halkbank_lowcodecommon.proxies.Common_Authority> _common_AuthorityList
+	)
+	{
+		sUB_TraverseDepartmentsForAuthorityBuilder(
+				_common_Department,
+				_iterationCount,
+				_common_AuthorityList
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_ValidateEndDateBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_ValidateEndDate");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		return builder;
+	}
+
+	public static boolean sUB_ValidateEndDate(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		Object result = sUB_ValidateEndDateBuilder(
+				_common_Authority_Helper
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_ValidatePersonBasedAuthortiesBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper,
+		halkbank_lowcodecommon.proxies.Common_Authority _editedCommon_Authority
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_ValidatePersonBasedAuthorties");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		builder = builder.withParam("EditedCommon_Authority", _editedCommon_Authority);
+		return builder;
+	}
+
+	public static boolean sUB_ValidatePersonBasedAuthorties(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper,
+		halkbank_lowcodecommon.proxies.Common_Authority _editedCommon_Authority
+	)
+	{
+		Object result = sUB_ValidatePersonBasedAuthortiesBuilder(
+				_common_Authority_Helper,
+				_editedCommon_Authority
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_ValidateStartDateBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.SUB_ValidateStartDate");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		return builder;
+	}
+
+	public static boolean sUB_ValidateStartDate(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		Object result = sUB_ValidateStartDateBuilder(
+				_common_Authority_Helper
+			)
+			.execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder vAL_AuthorityBuilder(
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("Halkbank_LowCodeCommon.VAL_Authority");
+		builder = builder.withParam("Common_Authority_Helper", _common_Authority_Helper);
+		return builder;
+	}
+
+	public static boolean vAL_Authority(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Authority_Helper _common_Authority_Helper
+	)
+	{
+		Object result = vAL_AuthorityBuilder(
+				_common_Authority_Helper
+			)
+			.execute(context);
+		return (boolean) result;
 	}
 }

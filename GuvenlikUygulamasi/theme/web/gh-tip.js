@@ -3,7 +3,8 @@
 // Dilim yüzdeleri 5'in katına yuvarlı sınıflardan gelir: toplam 20'nin altındaysa adet kesin hesaplanır, değilse yüzde gösterilir.
 (function () {
     var AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
-    var HEDEF = ".gh-ring, .gh-tb-col, .gh-as-col, .gh-as-ay, .gh-top-row, .gh-bolge-row:not(.gh-thead), .gh-bar-cell, .gh-bar, .gh-atama-bar";
+    // P40 (test madde 7): .gh-atama-bar grafik değil, Şube–Belge Atamaları'nın işlem çubuğu; ipucu hedefi değil
+    var HEDEF = ".gh-ring, .gh-tb-col, .gh-as-col, .gh-as-ay, .gh-top-row, .gh-bolge-row:not(.gh-thead), .gh-bar-cell, .gh-bar";
 
     function yazi(e) { return e ? (e.textContent || "").replace(/\s+/g, " ").trim() : ""; }
     // Birden çok metin parçası (ör. "Ankara" + "4 şube") " · " ile ayrılır
@@ -152,8 +153,10 @@
     }
     // Etiketli çubuk (ör. Denetim türü: etiket + sayı + çubuk): çubuğun dışındaki en yakın metinler etiket ve değerdir
     function cubukGenel(bar) {
-        var kap = bar.parentElement;
-        while (kap && !kap.matches(".gh-card, .region-content")) {
+        // Çubuk bir kartın içinde değilse (ör. işlem çubuğu, sayfa geneli) ipucu gösterme
+        if (!bar.closest(".gh-card")) return null;
+        var kap = bar.parentElement, adim = 0;
+        while (kap && !kap.matches(".gh-card, .region-content") && adim++ < 4) {
             var metinler = [].slice.call(kap.querySelectorAll("*")).filter(function (x) {
                 return !x.childElementCount && yazi(x) && !bar.contains(x);
             }).map(yazi);
