@@ -2455,6 +2455,16 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Gecici_MenuAcBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Gecici_MenuAc");
+		return builder;
+	}
+
+	public static void aCT_Gecici_MenuAc(IContext context)
+	{
+		aCT_Gecici_MenuAcBuilder().execute(context);
+	}
 	/**
 	 * Kullanıcı eylemi: Gecici Neden
 	 * Girdi: Talep (GeciciTalep), Neden (Enumeration)
@@ -6743,6 +6753,17 @@ public final class Microflows
 		Object result = dS_DonemlerBuilder().execute(context);
 		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> guvenlikyonetimi.proxies.DagitimDonemi.initialize(context, obj));
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_Donemler_KartlarBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.DS_Donemler_Kartlar");
+		return builder;
+	}
+
+	public static java.util.List<guvenlikyonetimi.proxies.DagitimDonemi> dS_Donemler_Kartlar(IContext context)
+	{
+		Object result = dS_Donemler_KartlarBuilder().execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> guvenlikyonetimi.proxies.DagitimDonemi.initialize(context, obj));
+	}
 	/**
 	 * Veri kaynağı: Dosya Liste
 	 * Girdi: Dosya (FileDocument)
@@ -10128,6 +10149,17 @@ public final class Microflows
 	{
 		sUB_Gunluk_BildirimBuilder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Havuz_EsitleBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Havuz_Esitle");
+		return builder;
+	}
+
+	public static java.lang.Long sUB_Havuz_Esitle(IContext context)
+	{
+		Object result = sUB_Havuz_EsitleBuilder().execute(context);
+		return (java.lang.Long) result;
+	}
 	/**
 	 * Alt akış: Inv Say
 	 * Girdi: Oturum (MYOturum)
@@ -10706,6 +10738,26 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Plan_EksikBedenBuilder(
+		guvenlikyonetimi.proxies.MYOturum _oturum
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Plan_EksikBeden");
+		builder = builder.withParam("Oturum", _oturum);
+		return builder;
+	}
+
+	public static java.math.BigDecimal sUB_Plan_EksikBeden(
+		IContext context,
+		guvenlikyonetimi.proxies.MYOturum _oturum
+	)
+	{
+		Object result = sUB_Plan_EksikBedenBuilder(
+				_oturum
+			)
+			.execute(context);
+		return (java.math.BigDecimal) result;
+	}
 	/**
 	 * Alt akış: Dönem hesabı: hak kazanan = kapsamdaki görevlilerden son teslim + periyot ≤ dağıtım tarihi olanlar (hiç teslim almamışlar dahil) Oturum verilirse plan satırları ve beden kırılımı üretilir; Olustur = true ise her hak kazanana "Dönemsel plan" kanallı onaylı talep açılır
 	 * Girdi: Donem (DagitimDonemi), Oturum (MYOturum), Olustur (Boolean)
@@ -10999,6 +11051,33 @@ public final class Microflows
 		sUB_SubeOzet_HesaplaBuilder(
 				_birimler,
 				_belgeler
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Talep_BedenTamamlaBuilder(
+		halkbank_lowcodecommon.proxies.Common_Person _kisi,
+		guvenlikyonetimi.proxies.MalzemeTuru _tur,
+		java.lang.String _bedenAdi
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Talep_BedenTamamla");
+		builder = builder.withParam("Kisi", _kisi);
+		builder = builder.withParam("Tur", _tur);
+		builder = builder.withParam("BedenAdi", _bedenAdi);
+		return builder;
+	}
+
+	public static void sUB_Talep_BedenTamamla(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Person _kisi,
+		guvenlikyonetimi.proxies.MalzemeTuru _tur,
+		java.lang.String _bedenAdi
+	)
+	{
+		sUB_Talep_BedenTamamlaBuilder(
+				_kisi,
+				_tur,
+				_bedenAdi
 			)
 			.execute(context);
 	}

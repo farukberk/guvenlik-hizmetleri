@@ -23,6 +23,7 @@ window.HalkbankShellConfig = {
         // Ortak Veriler
         "Personeller": "users-three",
         "Departmanlar": "tree-structure",
+        "Birimler": "buildings",
         "Unvanlar": "identification-badge",
         // Yönetim / Parametreler
         "Belge Türü ve Alarm Tanımları": "sliders-horizontal",

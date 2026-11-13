@@ -7662,10 +7662,8 @@ body {
         order: 5;
     }
 }
-// GO için "Geçici Görevli Talepleri" Talep Yönetimi içinde bir sekme (prototipte ayrı menü öğesi yok)
-html.gh-rol-GuvenlikOfisi .region-sidebar li:has(> a.mx-name-navigationTree3-8) {
-    display: none;
-}
+// "Geçici Görevli Talepleri" yalnız Birim kullanıcısının menüsünde: P68'den beri menü öğesi ACT_Gecici_MenuAc'ye bağlı
+// (yalnız SubeKullanicisi modül rolü) → Mendix öğeyi diğer rollerde kendisi gizler; CSS ile gizleme yok.
 
 // ----- Anasayfa -----
 .gh-as {

@@ -55,8 +55,11 @@
             // Gerçek Halkbank verisi (Disiplin Etik): şube 9, uydu şube 11; IsBranch, Halkbank (FirmID 1), temsilcilik (FİNANS) hariç
             var subeMi = function (d) {
                 var c = sayi(d, "CategoryLVI");
-                if (c !== 9 && c !== 11) return false;
-                if (d.has("IsBranch") && d.get("IsBranch") === false) return false;
+                // P67: Nakit Operasyon Merkezi (NOM) = CategoryLVI 10 ve TypeLVI 2 de birim sayılır
+                // P70: Kambiyo Operasyon Merkezi (KOM) = CategoryLVI 8, TypeLVI 2 ve adında KOM; şube işaretli değil
+                var kom = c === 8 && sayi(d, "TypeLVI") === 2 && /KOM/.test(String((d.has("Name") && d.get("Name")) || ""));
+                if (!kom && c !== 9 && c !== 11 && !(c === 10 && sayi(d, "TypeLVI") === 2)) return false;
+                if (!kom && d.has("IsBranch") && d.get("IsBranch") === false) return false;
                 if (d.has("FirmID") && sayi(d, "FirmID") !== 1) return false;
                 return !/^F[İI]NANS$/.test(String((d.has("Kind") && d.get("Kind")) || ""));
             };
