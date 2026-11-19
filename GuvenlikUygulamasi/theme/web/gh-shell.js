@@ -138,6 +138,12 @@
 
     // ----- Veri tabloları: boş değerli hücreler "—" gösterir (Mendix boş metni &nbsp; olarak çizer; CSS ayırt edemez) -----
     function bosHucreler() {
+        // Ortak Veriler: simge olarak gösterilen satır düğmelerine ipucu (yazısı görünmüyor)
+        document.querySelectorAll(".gh-ortak-kart .gh-row-actions .btn").forEach(function (b) {
+            if (b.title) return;
+            var yazi = (b.textContent || "").trim();
+            if (yazi) { b.title = yazi; b.setAttribute("aria-label", yazi); }
+        });
         document.querySelectorAll(".widget-datagrid .td").forEach(function (td) {
             var bos = !(td.textContent || "").replace(/ /g, " ").trim() &&
                 !td.querySelector("button, a, input, select, img, svg, .gh-toggle, [class*='icon'], [class*='chevron'], [class*='knob'], [class*='bar']");
@@ -196,7 +202,11 @@
         secenekSoruldu = true;
         mx.data.action({
             params: { actionname: "GuvenlikYonetimi.DS_CalisilanBirim_Secenekler" },
-            callback: function (liste) { secenekler = liste || []; calisilanBirim(); },
+            callback: function (liste) {
+                // NPE nesneleri istemci önbelleğinden atılabildiği için düz veri olarak saklanır
+                secenekler = (liste || []).map(function (o) { return { etiket: o.get("Etiket") || "", kod: String(o.get("Kod")), secili: !!o.get("Secili") }; });
+                calisilanBirim();
+            },
             error: function () { secenekler = []; }
         });
     }
@@ -207,36 +217,135 @@
         var kutu = wrap.querySelector(":scope > .gh-calisilan");
         if (secenekler.length < 2) { if (kutu) kutu.remove(); return; }
         if (kutu) return;
+        // Prototipteki "Secim" bileşeninin karşılığı (fx-actbox): etiket + düğme + açılır liste
         kutu = el("div", "gh-calisilan");
-        var etiket = el("label", "gh-calisilan-etiket");
-        etiket.textContent = "ÇALIŞILAN BİRİM";
-        var sec = el("select", "gh-calisilan-sec");
-        sec.id = etiket.htmlFor = "gh-calisilan-sec";
-        secenekler.forEach(function (o, i) {
-            var op = el("option");
-            op.value = String(i);
-            op.textContent = o.get("Etiket");
-            if (o.get("Secili")) op.selected = true;
-            sec.appendChild(op);
-        });
-        sec.addEventListener("change", function () {
-            var o = secenekler[Number(sec.value)];
+        var etiket = el("span", "gh-calisilan-etiket");
+        etiket.lang = "tr";
+        etiket.textContent = "Çalışılan birim";
+        var dugme = el("button", "gh-sec-dugme");
+        dugme.type = "button";
+        dugme.setAttribute("aria-haspopup", "listbox");
+        dugme.setAttribute("aria-expanded", "false");
+        var ikon = el("i", "ph ph-user-switch gh-sec-ikon");
+        var yazi = el("span", "gh-sec-yazi");
+        var ok = el("i", "ph ph-caret-down gh-sec-ok");
+        dugme.appendChild(ikon); dugme.appendChild(yazi); dugme.appendChild(ok);
+        var seciliIndeks = Math.max(0, secenekler.findIndex(function (o) { return o.secili; }));
+        var secilenAyarla = function (i) {
+            var o = secenekler[i];
+            yazi.textContent = o ? o.etiket : "Seçin";
+            dugme.title = yazi.textContent;
+            yazi.classList.toggle("is-bos", !o);
+        };
+        secilenAyarla(seciliIndeks);
+
+        var acik = null; // { pop, q, hi, liste }
+        var kapat = function () {
+            if (!acik) return;
+            acik.pop.remove();
+            acik = null;
+            dugme.classList.remove("is-open");
+            dugme.setAttribute("aria-expanded", "false");
+            document.removeEventListener("mousedown", disTik, true);
+            window.removeEventListener("scroll", kaydir, true);
+            window.removeEventListener("resize", kapat);
+        };
+        var disTik = function (e) { if (acik && !dugme.contains(e.target) && !acik.pop.contains(e.target)) kapat(); };
+        var kaydir = function (e) { if (acik && !acik.pop.contains(e.target)) kapat(); };
+        var sec = function (i) {
+            kapat();
+            if (i === seciliIndeks) return;
+            var o = secenekler[i];
             if (!o) return;
-            sec.disabled = true;
+            seciliIndeks = i;
+            secilenAyarla(i);
+            dugme.disabled = true;
             kutu.classList.add("is-busy");
+            var hata = function (e) {
+                dugme.disabled = false;
+                kutu.classList.remove("is-busy");
+                if (window.mx && mx.ui && mx.ui.error) mx.ui.error("Çalışılan birim değiştirilemedi: " + (e && e.message ? e.message : ""));
+            };
+            // seçenekler tazelenir, seçilen koddaki nesneyle işlem yapılır
+            mx.data.action({ params: { actionname: "GuvenlikYonetimi.DS_CalisilanBirim_Secenekler" }, error: hata, callback: function (taze) {
+            var hedef = (taze || []).filter(function (x) { return String(x.get("Kod")) === o.kod; })[0];
+            if (!hedef) { hata({ message: "seçenek bulunamadı" }); return; }
             mx.data.action({
-                params: { actionname: "GuvenlikYonetimi.ACT_CalisilanBirim_Sec", applyto: "selection", guids: [o.getGuid()] },
+                params: { actionname: "GuvenlikYonetimi.ACT_CalisilanBirim_Sec", applyto: "selection", guids: [hedef.getGuid()] },
                 // Mendix kullanıcı rolleri oturum açılırken yüklenir: yeni rolün geçmesi için oturum yenilenir (SSO'da otomatik yeniden giriş).
                 callback: function () { oturumuYenile(); },
-                error: function (e) {
-                    sec.disabled = false;
-                    kutu.classList.remove("is-busy");
-                    if (window.mx && mx.ui && mx.ui.error) mx.ui.error("Çalışılan birim değiştirilemedi: " + (e && e.message ? e.message : ""));
-                }
+                error: hata
             });
-        });
+            } });
+        };
+        var listeyiCiz = function () {
+            var q = (acik.q || "").toLocaleLowerCase("tr");
+            acik.liste = secenekler.map(function (o, i) { return { i: i, l: o.etiket }; })
+                .filter(function (x) { return !q || x.l.toLocaleLowerCase("tr").indexOf(q) >= 0; });
+            var kap = acik.pop.querySelector(".gh-sec-liste");
+            kap.textContent = "";
+            acik.liste.forEach(function (x, k) {
+                var b = el("button", "gh-sec-oge");
+                b.type = "button";
+                b.setAttribute("role", "option");
+                if (k === acik.hi) b.classList.add("is-hi");
+                if (x.i === seciliIndeks) { b.classList.add("is-on"); b.setAttribute("aria-selected", "true"); }
+                var s = el("span"); s.textContent = x.l;
+                var c = el("i", "ph ph-check");
+                b.appendChild(s); b.appendChild(c);
+                b.addEventListener("click", function () { sec(x.i); });
+                b.addEventListener("mouseenter", function () { if (acik.hi !== k) { acik.hi = k; listeyiCiz(); } });
+                kap.appendChild(b);
+            });
+            if (!acik.liste.length) { var y = el("div", "gh-sec-yok"); y.textContent = "Sonuç yok"; kap.appendChild(y); }
+        };
+        var tus = function (e) {
+            if (e.key === "Escape") { kapat(); dugme.focus(); return; }
+            if (!acik && (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ")) { e.preventDefault(); ac(); return; }
+            if (!acik) return;
+            if (e.key === "ArrowDown") { e.preventDefault(); acik.hi = Math.min(acik.liste.length - 1, acik.hi + 1); listeyiCiz(); }
+            else if (e.key === "ArrowUp") { e.preventDefault(); acik.hi = Math.max(0, acik.hi - 1); listeyiCiz(); }
+            else if (e.key === "Enter") { e.preventDefault(); if (acik.liste[acik.hi]) sec(acik.liste[acik.hi].i); }
+        };
+        var ac = function () {
+            if (dugme.disabled) return;
+            var r = dugme.getBoundingClientRect();
+            var alt = window.innerHeight - r.bottom, yukari = alt < 300 && r.top > alt;
+            var yer = Math.max(120, (yukari ? r.top : alt) - 12);
+            var pop = el("div", "gh-sec-pop");
+            pop.setAttribute("role", "listbox");
+            pop.style.left = Math.min(r.left, window.innerWidth - Math.max(r.width, 180) - 8) + "px";
+            pop.style.minWidth = r.width + "px";
+            pop.style.maxHeight = yer + "px";
+            if (yukari) pop.style.bottom = (window.innerHeight - r.top + 4) + "px"; else pop.style.top = (r.bottom + 4) + "px";
+            var aranabilir = secenekler.length > 8;
+            if (aranabilir) {
+                var ara = el("div", "gh-sec-ara");
+                ara.appendChild(el("i", "ph ph-magnifying-glass"));
+                var inp = el("input", "gh-sec-ara-input");
+                inp.placeholder = "Ara";
+                inp.addEventListener("input", function () { acik.q = inp.value; acik.hi = 0; listeyiCiz(); });
+                inp.addEventListener("keydown", tus);
+                ara.appendChild(inp);
+                pop.appendChild(ara);
+            }
+            var liste = el("div", "gh-sec-liste");
+            liste.style.maxHeight = Math.max(60, Math.min(280, yer - 56)) + "px";
+            pop.appendChild(liste);
+            document.body.appendChild(pop);
+            acik = { pop: pop, q: "", hi: Math.max(0, seciliIndeks), liste: [] };
+            dugme.classList.add("is-open");
+            dugme.setAttribute("aria-expanded", "true");
+            listeyiCiz();
+            if (aranabilir) pop.querySelector("input").focus();
+            document.addEventListener("mousedown", disTik, true);
+            window.addEventListener("scroll", kaydir, true);
+            window.addEventListener("resize", kapat);
+        };
+        dugme.addEventListener("click", function () { if (acik) kapat(); else ac(); });
+        dugme.addEventListener("keydown", tus);
         kutu.appendChild(etiket);
-        kutu.appendChild(sec);
+        kutu.appendChild(dugme);
         var me = wrap.querySelector(":scope > .hs-me");
         wrap.insertBefore(kutu, me ? me.nextSibling : wrap.firstChild);
     }

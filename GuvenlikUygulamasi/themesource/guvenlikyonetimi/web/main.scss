@@ -11782,86 +11782,108 @@ html body .gh-page.gh-bedenlerim {
     }
 }
 
-// --- P72 Ortak Veriler tabloları (salt okunur, Türkçe): kolonlar kapsayıcıya sığar, daraldıkça önemsizler gizlenir ---
-// Personeller: Sicil no · Ad soyad · Unvan · Departman · Görev · E-posta · Cep telefonu · İşe giriş · Hesap aktif
+// --- P72 / P94 Ortak Veriler tabloları: kolon sayısı tablodaki kolonlarla birebir; kart daraldıkça önemsiz kolonlar gizlenir ---
+// Personeller (13): Sicil no · Ad soyad · Kadro unvanı · Pozisyon · Departman ID · Departman adı · Bina · Hesap adı · E-posta · Cep telefonu · İşe giriş · Hesap aktif · İşlemler
 html body .gh-dg-ov-person .widget-datagrid-grid {
-    grid-template-columns: 96px minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(0, 1fr) minmax(210px, 1.5fr) 124px 104px 96px !important;
+    grid-template-columns: 88px minmax(0, 1.3fr) minmax(0, 1.1fr) minmax(0, 1.1fr) 96px minmax(0, 1.3fr) minmax(0, 1fr) 96px minmax(180px, 1.4fr) 120px 96px 88px max-content !important;
 }
-@container (max-width: 1150px) {
-    html body .gh-dg-ov-person .widget-datagrid-grid {
-        grid-template-columns: 96px minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(210px, 1.5fr) 104px 96px !important;
+html body .gh-dg-ov-person .tr > :nth-child(9) {
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    * {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
-    @include gh-hide-cols(".gh-dg-ov-person", 5, 7);
+}
+@container (max-width: 1400px) {
+    html body .gh-dg-ov-person .widget-datagrid-grid {
+        grid-template-columns: 88px minmax(0, 1.3fr) minmax(0, 1.1fr) minmax(0, 1.1fr) 96px minmax(0, 1.3fr) minmax(0, 1fr) 96px minmax(170px, 1.3fr) max-content !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-person", 10, 11, 12);
 }
 @container (max-width: 1000px) {
     html body .gh-dg-ov-person .widget-datagrid-grid {
-        grid-template-columns: 96px minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(210px, 1.5fr) !important;
+        grid-template-columns: 88px minmax(0, 1.3fr) minmax(0, 1.1fr) minmax(0, 1.1fr) minmax(0, 1.3fr) minmax(0, 1fr) minmax(160px, 1.3fr) max-content !important;
     }
-    @include gh-hide-cols(".gh-dg-ov-person", 8, 9);
+    @include gh-hide-cols(".gh-dg-ov-person", 5, 8);
 }
 @container (max-width: 760px) {
     html body .gh-dg-ov-person .widget-datagrid-grid {
-        grid-template-columns: 96px minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr) !important;
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr) minmax(0, 1.3fr) minmax(150px, 1.3fr) max-content !important;
     }
-    @include gh-hide-cols(".gh-dg-ov-person", 6);
+    @include gh-hide-cols(".gh-dg-ov-person", 1, 4, 7);
 }
-@container (max-width: 600px) {
+@container (max-width: 520px) {
     html body .gh-dg-ov-person .widget-datagrid-grid {
-        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr) !important;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) max-content !important;
     }
-    @include gh-hide-cols(".gh-dg-ov-person", 1);
-}
-@container (max-width: 420px) {
-    html body .gh-dg-ov-person .widget-datagrid-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-    }
-    @include gh-hide-cols(".gh-dg-ov-person", 3);
+    @include gh-hide-cols(".gh-dg-ov-person", 3, 9);
 }
 
-// Departmanlar: MIS kodu · Departman adı · Üst departman · Tür · İl · Yönetici · Telefon · Adres · Aktif
+// Departmanlar (14): Departman ID · MIS kodu · Departman adı · Üst departman ID · Üst departman adı · Kategori kodu · Tür kodu · Tür · İl · Yönetici · Telefon · Adres · Aktif · İşlemler
 html body .gh-dg-ov-dept .widget-datagrid-grid {
-    grid-template-columns: 96px minmax(0, 1.6fr) minmax(0, 1.4fr) minmax(0, 1fr) 110px minmax(0, 1.2fr) 124px minmax(0, 1.6fr) 76px !important;
+    grid-template-columns: 96px 84px minmax(0, 1.6fr) 104px minmax(0, 1.4fr) 92px 80px 92px 104px minmax(0, 1fr) 120px minmax(0, 1.4fr) 76px max-content !important;
 }
-@container (max-width: 1150px) {
+@container (max-width: 1400px) {
     html body .gh-dg-ov-dept .widget-datagrid-grid {
-        grid-template-columns: 96px minmax(0, 1.6fr) minmax(0, 1.4fr) minmax(0, 1fr) 110px minmax(0, 1.2fr) 124px 76px !important;
+        grid-template-columns: 96px 84px minmax(0, 1.6fr) 104px minmax(0, 1.4fr) 92px 80px 92px 104px 76px max-content !important;
     }
-    @include gh-hide-cols(".gh-dg-ov-dept", 8);
+    @include gh-hide-cols(".gh-dg-ov-dept", 10, 11, 12);
 }
 @container (max-width: 1000px) {
     html body .gh-dg-ov-dept .widget-datagrid-grid {
-        grid-template-columns: 96px minmax(0, 1.6fr) minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.2fr) 76px !important;
+        grid-template-columns: 96px 84px minmax(0, 1.6fr) 104px minmax(0, 1.4fr) 92px 80px 76px max-content !important;
     }
-    @include gh-hide-cols(".gh-dg-ov-dept", 5, 7);
+    @include gh-hide-cols(".gh-dg-ov-dept", 8, 9);
 }
 @container (max-width: 760px) {
     html body .gh-dg-ov-dept .widget-datagrid-grid {
-        grid-template-columns: 96px minmax(0, 1.6fr) minmax(0, 1.4fr) 76px !important;
+        grid-template-columns: 84px minmax(0, 1.6fr) minmax(0, 1.4fr) 92px 76px max-content !important;
     }
-    @include gh-hide-cols(".gh-dg-ov-dept", 4, 6);
+    @include gh-hide-cols(".gh-dg-ov-dept", 1, 4, 7);
 }
-@container (max-width: 600px) {
+@container (max-width: 520px) {
     html body .gh-dg-ov-dept .widget-datagrid-grid {
-        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr) !important;
+        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr) max-content !important;
     }
-    @include gh-hide-cols(".gh-dg-ov-dept", 1, 9);
+    @include gh-hide-cols(".gh-dg-ov-dept", 2, 6, 13);
 }
 
-// Unvanlar: Kod · Unvan adı · Aktif · Son eşitleme
+// Unvanlar (6): Unvan ID · Kod · Unvan adı · Aktif · Son eşitleme · İşlemler
 html body .gh-dg-ov-title .widget-datagrid-grid {
-    grid-template-columns: 104px minmax(0, 2fr) 84px 160px !important;
+    grid-template-columns: 96px 104px minmax(0, 2fr) 84px 150px max-content !important;
 }
 @container (max-width: 520px) {
     html body .gh-dg-ov-title .widget-datagrid-grid {
-        grid-template-columns: 88px minmax(0, 1fr) 76px !important;
+        grid-template-columns: 88px minmax(0, 1fr) 76px max-content !important;
     }
-    @include gh-hide-cols(".gh-dg-ov-title", 4);
+    @include gh-hide-cols(".gh-dg-ov-title", 1, 5);
 }
 @container (max-width: 360px) {
     html body .gh-dg-ov-title .widget-datagrid-grid {
-        grid-template-columns: minmax(0, 1fr) 76px !important;
+        grid-template-columns: minmax(0, 1fr) 76px max-content !important;
     }
-    @include gh-hide-cols(".gh-dg-ov-title", 1);
+    @include gh-hide-cols(".gh-dg-ov-title", 2);
+}
+
+// Pozisyon Unvanları (7): Pozisyon ID · Kod · Pozisyon adı · Grup kodu · Aktif · Son eşitleme · İşlemler
+html body .gh-dg-ov-position .widget-datagrid-grid {
+    grid-template-columns: 104px 104px minmax(0, 2fr) 110px 84px 150px max-content !important;
+}
+@container (max-width: 640px) {
+    html body .gh-dg-ov-position .widget-datagrid-grid {
+        grid-template-columns: 96px minmax(0, 1fr) 76px max-content !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-position", 1, 4, 6);
+}
+@container (max-width: 360px) {
+    html body .gh-dg-ov-position .widget-datagrid-grid {
+        grid-template-columns: minmax(0, 1fr) 76px max-content !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-position", 2);
 }
 
 // Yönetim kartlarının dar ekrandaki 720px en az genişliği (yatay kaydırma) Ortak Veriler tablolarında yok: kolonlar gizlenerek sığar
@@ -11869,21 +11891,38 @@ html body .gh-ortak-kart .widget-datagrid-grid {
     min-width: 0 !important;
 }
 
-// Birimler (P66 tablosu): Kod · Birim adı · Birim türü · Kategori · Telefon · Aktif
+// Birimler (7): Kod · Birim adı · Birim türü · Kategori · Telefon · Aktif · İşlemler
 html body .gh-dg-ov-unit .widget-datagrid-grid {
-    grid-template-columns: 96px minmax(0, 2fr) minmax(0, 1fr) 96px 130px 76px !important;
+    grid-template-columns: 96px minmax(0, 2fr) minmax(0, 1fr) 96px 130px 76px max-content !important;
 }
 @container (max-width: 760px) {
     html body .gh-dg-ov-unit .widget-datagrid-grid {
-        grid-template-columns: 96px minmax(0, 2fr) minmax(0, 1fr) 76px !important;
+        grid-template-columns: 96px minmax(0, 2fr) minmax(0, 1fr) 76px max-content !important;
     }
     @include gh-hide-cols(".gh-dg-ov-unit", 4, 5);
 }
 @container (max-width: 480px) {
     html body .gh-dg-ov-unit .widget-datagrid-grid {
-        grid-template-columns: minmax(0, 1fr) 76px !important;
+        grid-template-columns: minmax(0, 1fr) 76px max-content !important;
     }
     @include gh-hide-cols(".gh-dg-ov-unit", 1, 3);
+}
+
+// Binalar (10): Bina ID · Kod · Bina adı · İl · İlçe · Adres · Enlem · Boylam · Aktif · İşlemler
+html body .gh-dg-ov-building .widget-datagrid-grid {
+    grid-template-columns: 88px 88px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.8fr) 96px 96px 76px max-content !important;
+}
+@container (max-width: 1000px) {
+    html body .gh-dg-ov-building .widget-datagrid-grid {
+        grid-template-columns: 88px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.8fr) 76px max-content !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-building", 1, 7, 8);
+}
+@container (max-width: 640px) {
+    html body .gh-dg-ov-building .widget-datagrid-grid {
+        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) 76px max-content !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-building", 2, 5, 6);
 }
 
 
@@ -11989,45 +12028,197 @@ html body .gh-dg-ov-unit .widget-datagrid-grid {
     justify-content: flex-end;
     flex-wrap: wrap;
 }
-// Sol menü: Çalışılan birim
+// Sol menü: Çalışılan birim — prototip (fx-actbox + Secim bileşeni, size="sm", icon="ph-user-switch") ile birebir
 html.hs-on .gh-calisilan {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin: 12px 12px 4px;
-    padding: 10px;
-    border: 1px solid var(--hs-line);
-    border-radius: var(--hs-radius);
+    margin: -6px 14px 0;
     flex: none;
-    .gh-calisilan-etiket {
-        margin: 0;
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.06em;
-        color: var(--hs-dim);
+    font-family: var(--hs-font);
+    &.is-busy {
+        opacity: 0.55;
     }
-    .gh-calisilan-sec {
-        width: 100%;
-        height: 34px;
-        padding: 0 8px;
-        border: 1px solid var(--hs-divider);
-        border-radius: 6px;
-        background: var(--hs-active-bg);
-        color: var(--hs-text);
-        font: inherit;
-        font-size: 13px;
-        option {
-            color: #0f1d33;
-            background: #fff;
+}
+html.hs-on .gh-calisilan-etiket {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.58);
+    padding: 0 2px;
+    line-height: normal;
+}
+html.hs-on .gh-sec-dugme {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 30px;
+    margin: 0;
+    padding: 0 10px 0 12px;
+    font: inherit;
+    font-size: 12.5px;
+    text-align: left;
+    color: #ffffff;
+    caret-color: #ffffff;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 8px;
+    box-shadow: none;
+    &:hover {
+        border-color: color-mix(in srgb, #ffffff 45%, transparent);
+    }
+    &:focus-visible {
+        border-color: #ffffff;
+        outline-offset: 0;
+    }
+    &.is-open {
+        border-color: #ffffff;
+    }
+    &:disabled {
+        cursor: default;
+    }
+    .gh-sec-ikon {
+        color: #fbb040;
+        font-size: 15px;
+    }
+    .gh-sec-yazi {
+        flex: 1;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #ffffff;
+        &.is-bos {
+            color: rgba(255, 255, 255, 0.72);
         }
     }
-    &.is-busy {
-        opacity: 0.6;
+    .gh-sec-ok {
+        flex: none;
+        color: #fbb040;
+        font-size: 13px;
+        transition: transform 0.15s;
+    }
+    &.is-open .gh-sec-ok {
+        transform: rotate(180deg);
     }
 }
 html.hs-on.hs-mini .gh-calisilan {
     display: none;
 }
+// Açılır liste: sayfa temasında (açık / koyu)
+.gh-sec-pop {
+    --sec-surface: #fdfeff;
+    --sec-bg: #f1f4f9;
+    --sec-text: #0f1d33;
+    --sec-accent: #00529b;
+    --sec-muted: #626e84;
+    --sec-divider: color-mix(in srgb, #0f1d33 12%, transparent);
+    position: fixed;
+    z-index: 1200;
+    max-width: min(420px, calc(100vw - 16px));
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    border-radius: 10px;
+    background: var(--sec-surface);
+    color: var(--sec-text);
+    box-shadow: 0 0 0 1px #cbd3df, 0 18px 44px rgba(16, 40, 80, 0.16);
+    font-family: "HS Inter", "Inter", system-ui, sans-serif;
+    box-sizing: border-box;
+}
+html[data-theme="dark"] .gh-sec-pop {
+    --sec-surface: #16223a;
+    --sec-bg: #0e1626;
+    --sec-text: #e8edf5;
+    --sec-accent: #3d8ae0;
+    --sec-muted: #7a879e;
+    --sec-divider: color-mix(in srgb, #e8edf5 12%, transparent);
+    box-shadow: 0 0 0 1px #9397ab, 0 16px 40px rgba(0, 0, 0, 0.65);
+}
+.gh-sec-pop .gh-sec-ara {
+    position: relative;
+    margin-bottom: 4px;
+    .ph {
+        position: absolute;
+        left: 9px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--sec-muted);
+        font-size: 14px;
+    }
+}
+.gh-sec-pop .gh-sec-ara-input {
+    width: 100%;
+    min-height: 32px;
+    padding: 4px 8px 4px 28px;
+    font: inherit;
+    font-size: 13px;
+    color: var(--sec-text);
+    caret-color: var(--sec-accent);
+    background: var(--sec-bg);
+    border: 1px solid var(--sec-divider);
+    border-radius: 8px;
+    box-sizing: border-box;
+    &:hover {
+        border-color: color-mix(in srgb, var(--sec-text) 45%, transparent);
+    }
+    &:focus-visible {
+        border-color: var(--sec-accent);
+        outline-offset: 0;
+    }
+}
+.gh-sec-pop .gh-sec-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-height: 0;
+    overflow-y: auto;
+}
+.gh-sec-pop .gh-sec-oge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin: 0;
+    padding: 7px 10px;
+    border: 0;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    color: var(--sec-text);
+    background: transparent;
+    span {
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .ph-check {
+        font-size: 14px;
+        color: var(--sec-accent);
+        opacity: 0;
+    }
+    &.is-on {
+        background: color-mix(in srgb, var(--sec-accent) 6%, transparent);
+        .ph-check {
+            opacity: 1;
+        }
+    }
+    &.is-hi {
+        background: color-mix(in srgb, var(--sec-accent) 12%, transparent);
+    }
+}
+.gh-sec-pop .gh-sec-yok {
+    padding: 10px;
+    font-size: 12.5px;
+    color: var(--sec-muted);
+}
+
 .gh-mb-form {
     .gh-mb-row1 {
         margin-bottom: 14px;
@@ -12161,4 +12352,162 @@ html body .btn.gh-mb-toggle {
 }
 .gh-alarm-mail .gh-hint {
     text-align: left;
+}
+// Ortak Veriler: hücre metni kelime ortasından değil kelime arasından kırılır
+html body .gh-ortak-kart .widget-datagrid .td {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+}
+html body .gh-ortak-kart .widget-datagrid .td * {
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+}
+html body .gh-dg-ov-person .tr > .td:nth-child(9),
+html body .gh-dg-ov-person .tr > .td:nth-child(9) * {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+// Ortak Veriler satır düğmeleri: Düzenle / Sil yan yana, dar ekranda alt alta
+html body .gh-ortak-kart .gh-row-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    .btn {
+        margin: 0;
+        white-space: nowrap;
+    }
+}
+@container (max-width: 520px) {
+    html body .gh-ortak-kart .gh-row-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+.btn.gh-btn-delete::before {
+    @include ph("\e4a6");
+    margin-right: 6px;
+}
+// Ortak Veriler satır düğmeleri simge olarak (kolonlara yer kalsın); yazı ekran okuyucu için durur
+html body .gh-ortak-kart .gh-row-actions {
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    gap: 4px;
+    .btn {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        padding: 0;
+        font-size: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        &::before {
+            margin: 0 !important;
+            font-size: 16px;
+        }
+    }
+    .btn.gh-btn-delete::before {
+        color: var(--color-danger, #c0392b);
+    }
+}
+// P94c Ortak Veriler: Halkbank_LowCodeCommon Overview sayfaları — soldaki modül menüsü gizli, tablo tam genişlik
+html body .gh-lcc-liste > .row > div:first-child {
+    display: none !important;
+}
+html body .gh-lcc-liste > .row > div:last-child {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+}
+html body .gh-lcc-liste .widget-datagrid {
+    max-width: 100%;
+}
+// LowCodeCommon tabloları: Data grid 2'nin kendi kolon şablonu (tema standart datagrid stilini içermediği için)
+html body .gh-lcc-liste .widget-datagrid-grid {
+    grid-template-columns: var(--widgets-grid-template-columns) !important;
+    overflow-x: auto;
+}
+// LowCodeCommon tabloları: hücreler tek satır, kolonlar içeriğe göre genişler, tablo yatay kayar
+html body .gh-lcc-liste .widget-datagrid-content,
+html body .gh-lcc-liste .widget-datagrid .table-content {
+    overflow-x: auto;
+}
+html body .gh-lcc-liste .widget-datagrid .th,
+html body .gh-lcc-liste .widget-datagrid .td {
+    white-space: nowrap !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+}
+html body .gh-lcc-liste .widget-datagrid .th .column-header span {
+    white-space: nowrap !important;
+}
+html body .gh-lcc-liste .widget-datagrid .td .btn {
+    margin: 0 4px 0 0;
+}
+html body .gh-lcc-liste .widget-datagrid .th,
+html body .gh-lcc-liste .widget-datagrid .td {
+    min-width: max-content !important;
+}
+html body .gh-lcc-liste .widget-datagrid .td .td-text,
+html body .gh-lcc-liste .widget-datagrid .td * {
+    white-space: nowrap !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+}
+// LowCodeCommon tabloları: başlıklar yazıldığı gibi (büyük harf dönüşümü İngilizce metni bozuyor), iki satıra kırılabilir; kolon genişliğini başlık değil veri belirler
+html body .gh-lcc-liste .widget-datagrid .th {
+    min-width: 0 !important;
+    white-space: normal !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    vertical-align: top;
+}
+html body .gh-lcc-liste .widget-datagrid .th .column-header,
+html body .gh-lcc-liste .widget-datagrid .th .column-header span {
+    white-space: normal !important;
+    text-transform: none !important;
+    line-height: 1.3;
+}
+html body .gh-lcc-liste .widget-datagrid .th .filter,
+html body .gh-lcc-liste .widget-datagrid .th input {
+    min-width: 0 !important;
+}
+// LowCodeCommon tabloları: hücreler kelime aralarından kırılır (harf ortasından değil); kolon en az en uzun kelime kadar
+html body .gh-lcc-liste .widget-datagrid .td {
+    min-width: min-content !important;
+    white-space: normal !important;
+}
+html body .gh-lcc-liste .widget-datagrid .td .td-text,
+html body .gh-lcc-liste .widget-datagrid .td * {
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+}
+html body .gh-lcc-liste .widget-datagrid .td .btn {
+    white-space: nowrap !important;
+}
+html body .gh-lcc-liste .widget-datagrid .th {
+    min-width: min-content !important;
+}
+html body .gh-lcc-liste .widget-datagrid .th .filter-container,
+html body .gh-lcc-liste .widget-datagrid .th .filter-input,
+html body .gh-lcc-liste .widget-datagrid .th .dropdown-container {
+    min-width: 72px !important;
+}
+// LowCodeCommon tabloları: ekran yüksekliğinde kaydırma kutusu (yatay kaydırma çubuğu hep görünür), başlık satırı sabit
+html body .gh-lcc-liste .widget-datagrid-grid {
+    max-height: calc(100vh - 260px);
+    min-height: 240px;
+    overflow: auto !important;
+    align-content: start;
+}
+html body .gh-lcc-liste .widget-datagrid .th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--bg-color-secondary, #f6f8fb);
+}
+html[data-theme="dark"] body .gh-lcc-liste .widget-datagrid .th {
+    background: #16223a;
 }

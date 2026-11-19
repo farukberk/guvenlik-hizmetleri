@@ -1580,6 +1580,25 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Bina_SilBuilder(
+		halkbank_lowcodecommon.proxies.Common_Building _bina
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Bina_Sil");
+		builder = builder.withParam("Bina", _bina);
+		return builder;
+	}
+
+	public static void aCT_Bina_Sil(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Building _bina
+	)
+	{
+		aCT_Bina_SilBuilder(
+				_bina
+			)
+			.execute(context);
+	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Bina_YeniBuilder()
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Bina_Yeni");
@@ -3829,6 +3848,234 @@ public final class Microflows
 	{
 		aCT_OrtakBirim_SilBuilder(
 				_birim
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakDepartman_DuzenleBuilder(
+		halkbank_lowcodecommon.proxies.Common_Department _departman
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakDepartman_Duzenle");
+		builder = builder.withParam("Departman", _departman);
+		return builder;
+	}
+
+	public static void aCT_OrtakDepartman_Duzenle(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Department _departman
+	)
+	{
+		aCT_OrtakDepartman_DuzenleBuilder(
+				_departman
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakDepartman_KaydetBuilder(
+		halkbank_lowcodecommon.proxies.Common_Department _departman
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakDepartman_Kaydet");
+		builder = builder.withParam("Departman", _departman);
+		return builder;
+	}
+
+	public static void aCT_OrtakDepartman_Kaydet(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Department _departman
+	)
+	{
+		aCT_OrtakDepartman_KaydetBuilder(
+				_departman
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakDepartman_SilBuilder(
+		halkbank_lowcodecommon.proxies.Common_Department _departman
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakDepartman_Sil");
+		builder = builder.withParam("Departman", _departman);
+		return builder;
+	}
+
+	public static void aCT_OrtakDepartman_Sil(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Department _departman
+	)
+	{
+		aCT_OrtakDepartman_SilBuilder(
+				_departman
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakPersonel_DuzenleBuilder(
+		halkbank_lowcodecommon.proxies.Common_Person _kisi
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakPersonel_Duzenle");
+		builder = builder.withParam("Kisi", _kisi);
+		return builder;
+	}
+
+	public static void aCT_OrtakPersonel_Duzenle(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Person _kisi
+	)
+	{
+		aCT_OrtakPersonel_DuzenleBuilder(
+				_kisi
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakPersonel_KaydetBuilder(
+		halkbank_lowcodecommon.proxies.Common_Person _kisi
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakPersonel_Kaydet");
+		builder = builder.withParam("Kisi", _kisi);
+		return builder;
+	}
+
+	public static void aCT_OrtakPersonel_Kaydet(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Person _kisi
+	)
+	{
+		aCT_OrtakPersonel_KaydetBuilder(
+				_kisi
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakPersonel_SilBuilder(
+		halkbank_lowcodecommon.proxies.Common_Person _kisi
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakPersonel_Sil");
+		builder = builder.withParam("Kisi", _kisi);
+		return builder;
+	}
+
+	public static void aCT_OrtakPersonel_Sil(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Person _kisi
+	)
+	{
+		aCT_OrtakPersonel_SilBuilder(
+				_kisi
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakPozisyon_DuzenleBuilder(
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _pozisyon
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakPozisyon_Duzenle");
+		builder = builder.withParam("Pozisyon", _pozisyon);
+		return builder;
+	}
+
+	public static void aCT_OrtakPozisyon_Duzenle(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _pozisyon
+	)
+	{
+		aCT_OrtakPozisyon_DuzenleBuilder(
+				_pozisyon
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakPozisyon_KaydetBuilder(
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _pozisyon
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakPozisyon_Kaydet");
+		builder = builder.withParam("Pozisyon", _pozisyon);
+		return builder;
+	}
+
+	public static void aCT_OrtakPozisyon_Kaydet(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _pozisyon
+	)
+	{
+		aCT_OrtakPozisyon_KaydetBuilder(
+				_pozisyon
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakPozisyon_SilBuilder(
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _pozisyon
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakPozisyon_Sil");
+		builder = builder.withParam("Pozisyon", _pozisyon);
+		return builder;
+	}
+
+	public static void aCT_OrtakPozisyon_Sil(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_PositionTitle _pozisyon
+	)
+	{
+		aCT_OrtakPozisyon_SilBuilder(
+				_pozisyon
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakUnvan_DuzenleBuilder(
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _unvan
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakUnvan_Duzenle");
+		builder = builder.withParam("Unvan", _unvan);
+		return builder;
+	}
+
+	public static void aCT_OrtakUnvan_Duzenle(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _unvan
+	)
+	{
+		aCT_OrtakUnvan_DuzenleBuilder(
+				_unvan
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakUnvan_KaydetBuilder(
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _unvan
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakUnvan_Kaydet");
+		builder = builder.withParam("Unvan", _unvan);
+		return builder;
+	}
+
+	public static void aCT_OrtakUnvan_Kaydet(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _unvan
+	)
+	{
+		aCT_OrtakUnvan_KaydetBuilder(
+				_unvan
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakUnvan_SilBuilder(
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _unvan
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakUnvan_Sil");
+		builder = builder.withParam("Unvan", _unvan);
+		return builder;
+	}
+
+	public static void aCT_OrtakUnvan_Sil(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_StaffTitle _unvan
+	)
+	{
+		aCT_OrtakUnvan_SilBuilder(
+				_unvan
 			)
 			.execute(context);
 	}
