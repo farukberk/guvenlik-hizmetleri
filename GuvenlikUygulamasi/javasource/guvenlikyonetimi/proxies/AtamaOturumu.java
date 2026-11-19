@@ -30,6 +30,7 @@ public class AtamaOturumu implements com.mendix.systemwideinterfaces.core.IEntit
 		Mesaj("Mesaj"),
 		TumSubelerSecili("TumSubelerSecili"),
 		TumTurlerSecili("TumTurlerSecili"),
+		AtamaOturumu_BolgeLD("GuvenlikYonetimi.AtamaOturumu_BolgeLD"),
 		AtamaOturumu_Bolge("GuvenlikYonetimi.AtamaOturumu_Bolge");
 
 		private final java.lang.String metaName;
@@ -440,6 +441,53 @@ public class AtamaOturumu implements com.mendix.systemwideinterfaces.core.IEntit
 	public final void setTumTurlerSecili(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean tumturlersecili)
 	{
 		getMendixObject().setValue(context, MemberNames.TumTurlerSecili.toString(), tumturlersecili);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of AtamaOturumu_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getAtamaOturumu_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getAtamaOturumu_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of AtamaOturumu_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getAtamaOturumu_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.AtamaOturumu_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of AtamaOturumu_BolgeLD
+	 * @param atamaoturumu_bolgeld
+	 */
+	public final void setAtamaOturumu_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment atamaoturumu_bolgeld)
+	{
+		setAtamaOturumu_BolgeLD(getContext(), atamaoturumu_bolgeld);
+	}
+
+	/**
+	 * Set value of AtamaOturumu_BolgeLD
+	 * @param context
+	 * @param atamaoturumu_bolgeld
+	 */
+	public final void setAtamaOturumu_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment atamaoturumu_bolgeld)
+	{
+		if (atamaoturumu_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.AtamaOturumu_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.AtamaOturumu_BolgeLD.toString(), atamaoturumu_bolgeld.getMendixObject().getId());
+		}
 	}
 
 	/**

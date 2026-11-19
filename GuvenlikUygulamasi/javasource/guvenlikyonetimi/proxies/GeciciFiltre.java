@@ -33,6 +33,7 @@ public class GeciciFiltre implements com.mendix.systemwideinterfaces.core.IEntit
 		HavuzMusait("HavuzMusait"),
 		HavuzToplam("HavuzToplam"),
 		SubeKodu("SubeKodu"),
+		GeciciFiltre_SubeLD("GuvenlikYonetimi.GeciciFiltre_SubeLD"),
 		GeciciFiltre_Sube("GuvenlikYonetimi.GeciciFiltre_Sube");
 
 		private final java.lang.String metaName;
@@ -551,6 +552,53 @@ public class GeciciFiltre implements com.mendix.systemwideinterfaces.core.IEntit
 	public final void setSubeKodu(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String subekodu)
 	{
 		getMendixObject().setValue(context, MemberNames.SubeKodu.toString(), subekodu);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of GeciciFiltre_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getGeciciFiltre_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getGeciciFiltre_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of GeciciFiltre_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getGeciciFiltre_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.GeciciFiltre_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of GeciciFiltre_SubeLD
+	 * @param gecicifiltre_subeld
+	 */
+	public final void setGeciciFiltre_SubeLD(guvenlikyonetimi.proxies.LocalDepartment gecicifiltre_subeld)
+	{
+		setGeciciFiltre_SubeLD(getContext(), gecicifiltre_subeld);
+	}
+
+	/**
+	 * Set value of GeciciFiltre_SubeLD
+	 * @param context
+	 * @param gecicifiltre_subeld
+	 */
+	public final void setGeciciFiltre_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment gecicifiltre_subeld)
+	{
+		if (gecicifiltre_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.GeciciFiltre_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.GeciciFiltre_SubeLD.toString(), gecicifiltre_subeld.getMendixObject().getId());
+		}
 	}
 
 	/**

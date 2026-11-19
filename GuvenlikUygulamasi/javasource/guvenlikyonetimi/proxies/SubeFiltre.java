@@ -40,6 +40,7 @@ public class SubeFiltre implements com.mendix.systemwideinterfaces.core.IEntityP
 		TamUyumluYuzde("TamUyumluYuzde"),
 		Siralama("Siralama"),
 		SubeFiltre_GitSube("GuvenlikYonetimi.SubeFiltre_GitSube"),
+		SubeFiltre_BolgeLD("GuvenlikYonetimi.SubeFiltre_BolgeLD"),
 		SubeFiltre_Bolge("GuvenlikYonetimi.SubeFiltre_Bolge");
 
 		private final java.lang.String metaName;
@@ -838,6 +839,53 @@ public class SubeFiltre implements com.mendix.systemwideinterfaces.core.IEntityP
 			getMendixObject().setValue(context, MemberNames.SubeFiltre_GitSube.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.SubeFiltre_GitSube.toString(), subefiltre_gitsube.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of SubeFiltre_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeFiltre_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getSubeFiltre_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubeFiltre_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeFiltre_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeFiltre_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of SubeFiltre_BolgeLD
+	 * @param subefiltre_bolgeld
+	 */
+	public final void setSubeFiltre_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment subefiltre_bolgeld)
+	{
+		setSubeFiltre_BolgeLD(getContext(), subefiltre_bolgeld);
+	}
+
+	/**
+	 * Set value of SubeFiltre_BolgeLD
+	 * @param context
+	 * @param subefiltre_bolgeld
+	 */
+	public final void setSubeFiltre_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment subefiltre_bolgeld)
+	{
+		if (subefiltre_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.SubeFiltre_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.SubeFiltre_BolgeLD.toString(), subefiltre_bolgeld.getMendixObject().getId());
 		}
 	}
 

@@ -41,6 +41,8 @@ public class MYOturum implements com.mendix.systemwideinterfaces.core.IEntityPro
 		MYOturum_RecTur("GuvenlikYonetimi.MYOturum_RecTur"),
 		MYOturum_InvTur("GuvenlikYonetimi.MYOturum_InvTur"),
 		MYOturum_Donem("GuvenlikYonetimi.MYOturum_Donem"),
+		MYOturum_InvSubeLD("GuvenlikYonetimi.MYOturum_InvSubeLD"),
+		MYOturum_RecSubeLD("GuvenlikYonetimi.MYOturum_RecSubeLD"),
 		MYOturum_RecSube("GuvenlikYonetimi.MYOturum_RecSube"),
 		MYOturum_InvSube("GuvenlikYonetimi.MYOturum_InvSube");
 
@@ -880,6 +882,100 @@ public class MYOturum implements com.mendix.systemwideinterfaces.core.IEntityPro
 			getMendixObject().setValue(context, MemberNames.MYOturum_Donem.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.MYOturum_Donem.toString(), myoturum_donem.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of MYOturum_InvSubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getMYOturum_InvSubeLD() throws com.mendix.core.CoreException
+	{
+		return getMYOturum_InvSubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of MYOturum_InvSubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getMYOturum_InvSubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.MYOturum_InvSubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of MYOturum_InvSubeLD
+	 * @param myoturum_invsubeld
+	 */
+	public final void setMYOturum_InvSubeLD(guvenlikyonetimi.proxies.LocalDepartment myoturum_invsubeld)
+	{
+		setMYOturum_InvSubeLD(getContext(), myoturum_invsubeld);
+	}
+
+	/**
+	 * Set value of MYOturum_InvSubeLD
+	 * @param context
+	 * @param myoturum_invsubeld
+	 */
+	public final void setMYOturum_InvSubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment myoturum_invsubeld)
+	{
+		if (myoturum_invsubeld == null) {
+			getMendixObject().setValue(context, MemberNames.MYOturum_InvSubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.MYOturum_InvSubeLD.toString(), myoturum_invsubeld.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of MYOturum_RecSubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getMYOturum_RecSubeLD() throws com.mendix.core.CoreException
+	{
+		return getMYOturum_RecSubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of MYOturum_RecSubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getMYOturum_RecSubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.MYOturum_RecSubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of MYOturum_RecSubeLD
+	 * @param myoturum_recsubeld
+	 */
+	public final void setMYOturum_RecSubeLD(guvenlikyonetimi.proxies.LocalDepartment myoturum_recsubeld)
+	{
+		setMYOturum_RecSubeLD(getContext(), myoturum_recsubeld);
+	}
+
+	/**
+	 * Set value of MYOturum_RecSubeLD
+	 * @param context
+	 * @param myoturum_recsubeld
+	 */
+	public final void setMYOturum_RecSubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment myoturum_recsubeld)
+	{
+		if (myoturum_recsubeld == null) {
+			getMendixObject().setValue(context, MemberNames.MYOturum_RecSubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.MYOturum_RecSubeLD.toString(), myoturum_recsubeld.getMendixObject().getId());
 		}
 	}
 

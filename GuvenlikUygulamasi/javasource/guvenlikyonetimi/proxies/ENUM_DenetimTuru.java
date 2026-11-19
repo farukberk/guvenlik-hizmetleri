@@ -8,7 +8,8 @@ public enum ENUM_DenetimTuru
 {
 	Rutin("76706168-f4e0-4867-8b6b-3e9d63a6f9ec"),
 	Ani("f02c2a98-8fde-4426-8b46-4b78431a99dc"),
-	SikayetUzerine("7394ebe4-e89f-4d8b-b315-fb7d779a3b74");
+	SikayetUzerine("7394ebe4-e89f-4d8b-b315-fb7d779a3b74"),
+	IcDenetim("a3ff0cd5-f9de-4eeb-ba16-ebc65b489bbb");
 
 	private final java.lang.String i18nCaptionKey;
 	

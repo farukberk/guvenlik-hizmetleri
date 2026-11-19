@@ -42,6 +42,8 @@ public class DenetimKaydi implements com.mendix.systemwideinterfaces.core.IEntit
 		GuncelleyenKullanici("GuncelleyenKullanici"),
 		GuncellemeTarihi("GuncellemeTarihi"),
 		DenetimKaydi_BelgeTuru("GuvenlikYonetimi.DenetimKaydi_BelgeTuru"),
+		DenetimKaydi_SubeLD("GuvenlikYonetimi.DenetimKaydi_SubeLD"),
+		DenetimKaydi_BolgeLD("GuvenlikYonetimi.DenetimKaydi_BolgeLD"),
 		DenetimKaydi_Bolge("GuvenlikYonetimi.DenetimKaydi_Bolge"),
 		DenetimKaydi_Sube("GuvenlikYonetimi.DenetimKaydi_Sube");
 
@@ -820,6 +822,100 @@ public class DenetimKaydi implements com.mendix.systemwideinterfaces.core.IEntit
 			.collect(java.util.stream.Collectors.toList());
 		
 		getMendixObject().setValue(context, MemberNames.DenetimKaydi_BelgeTuru.toString(), identifiers);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of DenetimKaydi_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getDenetimKaydi_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getDenetimKaydi_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of DenetimKaydi_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getDenetimKaydi_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.DenetimKaydi_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of DenetimKaydi_SubeLD
+	 * @param denetimkaydi_subeld
+	 */
+	public final void setDenetimKaydi_SubeLD(guvenlikyonetimi.proxies.LocalDepartment denetimkaydi_subeld)
+	{
+		setDenetimKaydi_SubeLD(getContext(), denetimkaydi_subeld);
+	}
+
+	/**
+	 * Set value of DenetimKaydi_SubeLD
+	 * @param context
+	 * @param denetimkaydi_subeld
+	 */
+	public final void setDenetimKaydi_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment denetimkaydi_subeld)
+	{
+		if (denetimkaydi_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.DenetimKaydi_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.DenetimKaydi_SubeLD.toString(), denetimkaydi_subeld.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of DenetimKaydi_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getDenetimKaydi_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getDenetimKaydi_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of DenetimKaydi_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getDenetimKaydi_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.DenetimKaydi_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of DenetimKaydi_BolgeLD
+	 * @param denetimkaydi_bolgeld
+	 */
+	public final void setDenetimKaydi_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment denetimkaydi_bolgeld)
+	{
+		setDenetimKaydi_BolgeLD(getContext(), denetimkaydi_bolgeld);
+	}
+
+	/**
+	 * Set value of DenetimKaydi_BolgeLD
+	 * @param context
+	 * @param denetimkaydi_bolgeld
+	 */
+	public final void setDenetimKaydi_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment denetimkaydi_bolgeld)
+	{
+		if (denetimkaydi_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.DenetimKaydi_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.DenetimKaydi_BolgeLD.toString(), denetimkaydi_bolgeld.getMendixObject().getId());
+		}
 	}
 
 	/**

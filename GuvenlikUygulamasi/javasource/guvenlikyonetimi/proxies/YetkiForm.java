@@ -33,6 +33,7 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 		KisiMetni("KisiMetni"),
 		YetkiForm_YetkiKurali("GuvenlikYonetimi.YetkiForm_YetkiKurali"),
 		YetkiForm_Oturum("GuvenlikYonetimi.YetkiForm_Oturum"),
+		YetkiForm_EkleBirimLD("GuvenlikYonetimi.YetkiForm_EkleBirimLD"),
 		YetkiForm_EkleBirim("GuvenlikYonetimi.YetkiForm_EkleBirim"),
 		YetkiForm_EkleUnvan("GuvenlikYonetimi.YetkiForm_EkleUnvan"),
 		YetkiForm_Person("GuvenlikYonetimi.YetkiForm_Person");
@@ -610,6 +611,53 @@ public class YetkiForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 			getMendixObject().setValue(context, MemberNames.YetkiForm_Oturum.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.YetkiForm_Oturum.toString(), yetkiform_oturum.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of YetkiForm_EkleBirimLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiForm_EkleBirimLD() throws com.mendix.core.CoreException
+	{
+		return getYetkiForm_EkleBirimLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of YetkiForm_EkleBirimLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiForm_EkleBirimLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiForm_EkleBirimLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of YetkiForm_EkleBirimLD
+	 * @param yetkiform_eklebirimld
+	 */
+	public final void setYetkiForm_EkleBirimLD(guvenlikyonetimi.proxies.LocalDepartment yetkiform_eklebirimld)
+	{
+		setYetkiForm_EkleBirimLD(getContext(), yetkiform_eklebirimld);
+	}
+
+	/**
+	 * Set value of YetkiForm_EkleBirimLD
+	 * @param context
+	 * @param yetkiform_eklebirimld
+	 */
+	public final void setYetkiForm_EkleBirimLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment yetkiform_eklebirimld)
+	{
+		if (yetkiform_eklebirimld == null) {
+			getMendixObject().setValue(context, MemberNames.YetkiForm_EkleBirimLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.YetkiForm_EkleBirimLD.toString(), yetkiform_eklebirimld.getMendixObject().getId());
 		}
 	}
 

@@ -4,6 +4,9 @@
 
 package halkbank_lowcodecommon.proxies;
 
+/**
+ *  
+ */
 public class Common_Person implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject common_PersonMendixObject;
@@ -60,6 +63,7 @@ public class Common_Person implements com.mendix.systemwideinterfaces.core.IEnti
 		Common_Person_Common_Authority("Halkbank_LowCodeCommon.Common_Person_Common_Authority"),
 		Common_Person_Common_Firm("Halkbank_LowCodeCommon.Common_Person_Common_Firm"),
 		Common_PersonDetail_Common_Person("Halkbank_LowCodeCommon.Common_PersonDetail_Common_Person"),
+		Person_LocalDept("GuvenlikYonetimi.Person_LocalDept"),
 		Common_Person_Account("Halkbank_LowCodeCommon.Common_Person_Account");
 
 		private final java.lang.String metaName;
@@ -1669,6 +1673,58 @@ public class Common_Person implements com.mendix.systemwideinterfaces.core.IEnti
 		} else {
 			getMendixObject().setValue(context, MemberNames.Common_PersonDetail_Common_Person.toString(), common_persondetail_common_person.getMendixObject().getId());
 		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of Person_LocalDept
+	 */
+	public final java.util.List<guvenlikyonetimi.proxies.LocalDepartment> getPerson_LocalDept() throws com.mendix.core.CoreException
+	{
+		return getPerson_LocalDept(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Person_LocalDept
+	 * @throws com.mendix.core.CoreException
+	 */
+	@SuppressWarnings("unchecked")
+	public final java.util.List<guvenlikyonetimi.proxies.LocalDepartment> getPerson_LocalDept(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		java.util.List<guvenlikyonetimi.proxies.LocalDepartment> result = new java.util.ArrayList<>();
+		Object valueObject = getMendixObject().getValue(context, MemberNames.Person_LocalDept.toString());
+		if (valueObject == null) {
+			return result;
+		}
+		for (com.mendix.systemwideinterfaces.core.IMendixObject mendixObject : com.mendix.core.Core.retrieveIdList(context, (java.util.List<com.mendix.systemwideinterfaces.core.IMendixIdentifier>) valueObject)) {
+			result.add(guvenlikyonetimi.proxies.LocalDepartment.initialize(context, mendixObject));
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of Person_LocalDept
+	 * @param person_localdept
+	 */
+	public final void setPerson_LocalDept(java.util.List<guvenlikyonetimi.proxies.LocalDepartment> person_localdept)
+	{
+		setPerson_LocalDept(getContext(), person_localdept);
+	}
+
+	/**
+	 * Set value of Person_LocalDept
+	 * @param context
+	 * @param person_localdept
+	 */
+	public final void setPerson_LocalDept(com.mendix.systemwideinterfaces.core.IContext context, java.util.List<guvenlikyonetimi.proxies.LocalDepartment> person_localdept)
+	{
+		var identifiers = person_localdept
+			.stream()
+			.map(proxyObject -> proxyObject.getMendixObject().getId())
+			.collect(java.util.stream.Collectors.toList());
+		
+		getMendixObject().setValue(context, MemberNames.Person_LocalDept.toString(), identifiers);
 	}
 
 	/**

@@ -9,7 +9,8 @@ public enum ENUM_DenetimTurFiltresi
 	Tumu("565e6819-6110-4794-981a-93e1141f7624"),
 	Rutin("8b98966f-f221-4029-8438-09ed6567d109"),
 	Ani("abc53e2b-3e89-4514-aca6-6051a7c8f6e8"),
-	SikayetUzerine("b0b5bc42-6715-4129-aee1-98af0d064665");
+	SikayetUzerine("b0b5bc42-6715-4129-aee1-98af0d064665"),
+	IcDenetim("b40f54a7-cbcc-433d-a54d-a4e12a6a9bad");
 
 	private final java.lang.String i18nCaptionKey;
 	

@@ -33,6 +33,7 @@ public class TalepForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 		Neden("Neden"),
 		Aciklama("Aciklama"),
 		PersonelSecili("PersonelSecili"),
+		SubeDepartmanID("SubeDepartmanID"),
 		TalepForm_Personel("GuvenlikYonetimi.TalepForm_Personel");
 
 		private final java.lang.String metaName;
@@ -569,6 +570,42 @@ public class TalepForm implements com.mendix.systemwideinterfaces.core.IEntityPr
 	public final void setPersonelSecili(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean personelsecili)
 	{
 		getMendixObject().setValue(context, MemberNames.PersonelSecili.toString(), personelsecili);
+	}
+
+	/**
+	 * @return value of SubeDepartmanID
+	 */
+	public final java.lang.Integer getSubeDepartmanID()
+	{
+		return getSubeDepartmanID(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubeDepartmanID
+	 */
+	public final java.lang.Integer getSubeDepartmanID(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.SubeDepartmanID.toString());
+	}
+
+	/**
+	 * Set value of SubeDepartmanID
+	 * @param subedepartmanid
+	 */
+	public final void setSubeDepartmanID(java.lang.Integer subedepartmanid)
+	{
+		setSubeDepartmanID(getContext(), subedepartmanid);
+	}
+
+	/**
+	 * Set value of SubeDepartmanID
+	 * @param context
+	 * @param subedepartmanid
+	 */
+	public final void setSubeDepartmanID(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer subedepartmanid)
+	{
+		getMendixObject().setValue(context, MemberNames.SubeDepartmanID.toString(), subedepartmanid);
 	}
 
 	/**

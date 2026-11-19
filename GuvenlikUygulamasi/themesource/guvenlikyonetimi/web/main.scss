@@ -11781,3 +11781,384 @@ html body .gh-page.gh-bedenlerim {
         grid-template-columns: repeat(auto-fill, minmax(min(100%, 168px), 1fr));
     }
 }
+
+// --- P72 Ortak Veriler tabloları (salt okunur, Türkçe): kolonlar kapsayıcıya sığar, daraldıkça önemsizler gizlenir ---
+// Personeller: Sicil no · Ad soyad · Unvan · Departman · Görev · E-posta · Cep telefonu · İşe giriş · Hesap aktif
+html body .gh-dg-ov-person .widget-datagrid-grid {
+    grid-template-columns: 96px minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(0, 1fr) minmax(210px, 1.5fr) 124px 104px 96px !important;
+}
+@container (max-width: 1150px) {
+    html body .gh-dg-ov-person .widget-datagrid-grid {
+        grid-template-columns: 96px minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(210px, 1.5fr) 104px 96px !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-person", 5, 7);
+}
+@container (max-width: 1000px) {
+    html body .gh-dg-ov-person .widget-datagrid-grid {
+        grid-template-columns: 96px minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(210px, 1.5fr) !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-person", 8, 9);
+}
+@container (max-width: 760px) {
+    html body .gh-dg-ov-person .widget-datagrid-grid {
+        grid-template-columns: 96px minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr) !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-person", 6);
+}
+@container (max-width: 600px) {
+    html body .gh-dg-ov-person .widget-datagrid-grid {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, 1.4fr) !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-person", 1);
+}
+@container (max-width: 420px) {
+    html body .gh-dg-ov-person .widget-datagrid-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-person", 3);
+}
+
+// Departmanlar: MIS kodu · Departman adı · Üst departman · Tür · İl · Yönetici · Telefon · Adres · Aktif
+html body .gh-dg-ov-dept .widget-datagrid-grid {
+    grid-template-columns: 96px minmax(0, 1.6fr) minmax(0, 1.4fr) minmax(0, 1fr) 110px minmax(0, 1.2fr) 124px minmax(0, 1.6fr) 76px !important;
+}
+@container (max-width: 1150px) {
+    html body .gh-dg-ov-dept .widget-datagrid-grid {
+        grid-template-columns: 96px minmax(0, 1.6fr) minmax(0, 1.4fr) minmax(0, 1fr) 110px minmax(0, 1.2fr) 124px 76px !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-dept", 8);
+}
+@container (max-width: 1000px) {
+    html body .gh-dg-ov-dept .widget-datagrid-grid {
+        grid-template-columns: 96px minmax(0, 1.6fr) minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.2fr) 76px !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-dept", 5, 7);
+}
+@container (max-width: 760px) {
+    html body .gh-dg-ov-dept .widget-datagrid-grid {
+        grid-template-columns: 96px minmax(0, 1.6fr) minmax(0, 1.4fr) 76px !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-dept", 4, 6);
+}
+@container (max-width: 600px) {
+    html body .gh-dg-ov-dept .widget-datagrid-grid {
+        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr) !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-dept", 1, 9);
+}
+
+// Unvanlar: Kod · Unvan adı · Aktif · Son eşitleme
+html body .gh-dg-ov-title .widget-datagrid-grid {
+    grid-template-columns: 104px minmax(0, 2fr) 84px 160px !important;
+}
+@container (max-width: 520px) {
+    html body .gh-dg-ov-title .widget-datagrid-grid {
+        grid-template-columns: 88px minmax(0, 1fr) 76px !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-title", 4);
+}
+@container (max-width: 360px) {
+    html body .gh-dg-ov-title .widget-datagrid-grid {
+        grid-template-columns: minmax(0, 1fr) 76px !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-title", 1);
+}
+
+// Yönetim kartlarının dar ekrandaki 720px en az genişliği (yatay kaydırma) Ortak Veriler tablolarında yok: kolonlar gizlenerek sığar
+html body .gh-ortak-kart .widget-datagrid-grid {
+    min-width: 0 !important;
+}
+
+// Birimler (P66 tablosu): Kod · Birim adı · Birim türü · Kategori · Telefon · Aktif
+html body .gh-dg-ov-unit .widget-datagrid-grid {
+    grid-template-columns: 96px minmax(0, 2fr) minmax(0, 1fr) 96px 130px 76px !important;
+}
+@container (max-width: 760px) {
+    html body .gh-dg-ov-unit .widget-datagrid-grid {
+        grid-template-columns: 96px minmax(0, 2fr) minmax(0, 1fr) 76px !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-unit", 4, 5);
+}
+@container (max-width: 480px) {
+    html body .gh-dg-ov-unit .widget-datagrid-grid {
+        grid-template-columns: minmax(0, 1fr) 76px !important;
+    }
+    @include gh-hide-cols(".gh-dg-ov-unit", 1, 3);
+}
+
+
+// ============================================================================
+// P93 · Manuel Birim Tanımları ve sol menüde Çalışılan Birim seçimi
+// ============================================================================
+.gh-kpis.gh-kpis-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    @media (max-width: 859px) {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+}
+.gh-head-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    .btn {
+        margin: 0;
+    }
+}
+.btn.gh-btn-sync::before {
+    @include ph("\e094");
+    margin-right: 6px;
+}
+.btn.gh-btn-edit::before {
+    @include ph("\e3b4");
+    margin-right: 6px;
+}
+.btn.gh-btn-signin::before {
+    @include ph("\e428");
+    margin-right: 6px;
+}
+.gh-mb-bilgi {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    border: 1px solid rgba(0, 82, 155, 0.28);
+    border-radius: 8px;
+    background: rgba(0, 82, 155, 0.06);
+    color: var(--color-neutral-200, #1d2a3d);
+    font-size: 13px;
+    line-height: 1.5;
+    &::before {
+        @include ph("\e2ce");
+        font-size: 18px;
+        color: #00529b;
+        flex: none;
+        line-height: 1.2;
+    }
+}
+// Satırdaki aktif / pasif anahtarı (buton → gh-toggle görünümü)
+.btn.gh-mb-toggle {
+    position: relative;
+    width: 36px;
+    min-width: 36px;
+    height: 20px;
+    padding: 0;
+    border-radius: 999px;
+    border: 1px solid var(--color-neutral-600);
+    background: var(--color-neutral-800);
+    font-size: 0;
+    box-shadow: none;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--color-neutral-500);
+        transition: left 0.15s ease;
+    }
+    &.is-on {
+        border-color: var(--color-accent);
+        background: var(--color-accent);
+        &::after {
+            left: 18px;
+            background: #fff;
+        }
+    }
+}
+.gh-mb-aktif {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 14px;
+    border: 1px solid var(--color-neutral-700, #d9dee6);
+    border-radius: 8px;
+    .gh-mb-aktif-l {
+        font-weight: 600;
+    }
+    .form-group {
+        margin: 0;
+    }
+}
+.gh-row-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+// Sol menü: Çalışılan birim
+html.hs-on .gh-calisilan {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 12px 12px 4px;
+    padding: 10px;
+    border: 1px solid var(--hs-line);
+    border-radius: var(--hs-radius);
+    flex: none;
+    .gh-calisilan-etiket {
+        margin: 0;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: var(--hs-dim);
+    }
+    .gh-calisilan-sec {
+        width: 100%;
+        height: 34px;
+        padding: 0 8px;
+        border: 1px solid var(--hs-divider);
+        border-radius: 6px;
+        background: var(--hs-active-bg);
+        color: var(--hs-text);
+        font: inherit;
+        font-size: 13px;
+        option {
+            color: #0f1d33;
+            background: #fff;
+        }
+    }
+    &.is-busy {
+        opacity: 0.6;
+    }
+}
+html.hs-on.hs-mini .gh-calisilan {
+    display: none;
+}
+.gh-mb-form {
+    .gh-mb-row1 {
+        margin-bottom: 14px;
+    }
+    .gh-hint {
+        display: block;
+        margin-top: 4px;
+        font-size: 12px;
+        line-height: 1.4;
+        color: var(--color-neutral-400, #6b7787);
+    }
+    .gh-mb-aktif-metin {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+        .gh-hint {
+            margin-top: 0;
+        }
+    }
+}
+html body .btn.gh-mb-toggle {
+    height: 20px;
+    min-height: 20px;
+    max-height: 20px;
+    line-height: 0;
+    padding: 0;
+    flex: none;
+}
+
+// P93 Faz 3 · Alarm Mail Ayarları
+.gh-alarm-mail {
+    .gh-am-kart {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 18px;
+    }
+    .gh-am-baslik {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .gh-am-baslik-satir {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        .btn {
+            margin: 0;
+        }
+    }
+    .gh-am-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        .gh-hint {
+            display: block;
+            margin-top: -6px;
+            font-size: 12px;
+            line-height: 1.4;
+            color: var(--color-neutral-400, #6b7787);
+        }
+    }
+    .gh-am-satir {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 14px;
+        border: 1px solid var(--color-neutral-700, #d9dee6);
+        border-radius: 8px;
+        .form-group {
+            margin: 0;
+        }
+        .gh-hint {
+            margin-top: 0;
+        }
+    }
+    .gh-am-metin {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+    }
+    .gh-am-l {
+        font-weight: 600;
+    }
+    .gh-am-butonlar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        flex-wrap: wrap;
+        .btn {
+            margin: 0;
+        }
+    }
+    .gh-am-kurallar {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        @media (max-width: 859px) {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+    .gh-am-kural {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 12px 14px;
+        border: 1px solid var(--color-neutral-700, #d9dee6);
+        border-radius: 8px;
+        font-size: 13px;
+        line-height: 1.45;
+    }
+    .gh-am-kural-b {
+        font-weight: 600;
+        margin-bottom: 2px;
+    }
+    .gh-am-kural-s {
+        color: var(--color-neutral-300, #4a5668);
+    }
+}
+.btn.gh-btn-send::before {
+    @include ph("\e398");
+    margin-right: 6px;
+}
+.gh-am-form .form-group {
+    margin-bottom: 0;
+}
+.gh-alarm-mail .gh-hint {
+    text-align: left;
+}

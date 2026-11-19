@@ -177,6 +177,121 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_AlarmMail_AcBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_AlarmMail_Ac");
+		return builder;
+	}
+
+	public static void aCT_AlarmMail_Ac(IContext context)
+	{
+		aCT_AlarmMail_AcBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_AlarmMail_AcikAlarmlarBuilder(
+		guvenlikyonetimi.proxies.AlarmMailAyari _ayar
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_AlarmMail_AcikAlarmlar");
+		builder = builder.withParam("Ayar", _ayar);
+		return builder;
+	}
+
+	public static void aCT_AlarmMail_AcikAlarmlar(
+		IContext context,
+		guvenlikyonetimi.proxies.AlarmMailAyari _ayar
+	)
+	{
+		aCT_AlarmMail_AcikAlarmlarBuilder(
+				_ayar
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_AlarmMail_KaydetBuilder(
+		guvenlikyonetimi.proxies.AlarmMailAyari _ayar
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_AlarmMail_Kaydet");
+		builder = builder.withParam("Ayar", _ayar);
+		return builder;
+	}
+
+	public static void aCT_AlarmMail_Kaydet(
+		IContext context,
+		guvenlikyonetimi.proxies.AlarmMailAyari _ayar
+	)
+	{
+		aCT_AlarmMail_KaydetBuilder(
+				_ayar
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_AlarmMail_UnvanDuzenleBuilder(
+		guvenlikyonetimi.proxies.MailAliciUnvani _esleme
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_AlarmMail_UnvanDuzenle");
+		builder = builder.withParam("Esleme", _esleme);
+		return builder;
+	}
+
+	public static void aCT_AlarmMail_UnvanDuzenle(
+		IContext context,
+		guvenlikyonetimi.proxies.MailAliciUnvani _esleme
+	)
+	{
+		aCT_AlarmMail_UnvanDuzenleBuilder(
+				_esleme
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_AlarmMail_UnvanKaydetBuilder(
+		guvenlikyonetimi.proxies.MailAliciUnvani _esleme
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_AlarmMail_UnvanKaydet");
+		builder = builder.withParam("Esleme", _esleme);
+		return builder;
+	}
+
+	public static void aCT_AlarmMail_UnvanKaydet(
+		IContext context,
+		guvenlikyonetimi.proxies.MailAliciUnvani _esleme
+	)
+	{
+		aCT_AlarmMail_UnvanKaydetBuilder(
+				_esleme
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_AlarmMail_UnvanSilBuilder(
+		guvenlikyonetimi.proxies.MailAliciUnvani _esleme
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_AlarmMail_UnvanSil");
+		builder = builder.withParam("Esleme", _esleme);
+		return builder;
+	}
+
+	public static void aCT_AlarmMail_UnvanSil(
+		IContext context,
+		guvenlikyonetimi.proxies.MailAliciUnvani _esleme
+	)
+	{
+		aCT_AlarmMail_UnvanSilBuilder(
+				_esleme
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_AlarmMail_UnvanYeniBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_AlarmMail_UnvanYeni");
+		return builder;
+	}
+
+	public static void aCT_AlarmMail_UnvanYeni(IContext context)
+	{
+		aCT_AlarmMail_UnvanYeniBuilder().execute(context);
+	}
 	/**
 	 * Kullanıcı eylemi: Anasayfa Ac
 	 * Adımlar:
@@ -591,6 +706,16 @@ public final class Microflows
 	public static void aCT_Beden_OrnekVeri(IContext context)
 	{
 		aCT_Beden_OrnekVeriBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Beden_TestTumunuDoldurBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Beden_TestTumunuDoldur");
+		return builder;
+	}
+
+	public static void aCT_Beden_TestTumunuDoldur(IContext context)
+	{
+		aCT_Beden_TestTumunuDoldurBuilder().execute(context);
 	}
 	/**
 	 * Kullanıcı eylemi: Bedenlerim Ac
@@ -1416,6 +1541,92 @@ public final class Microflows
 	public static void aCT_Bildirimler_Ac(IContext context)
 	{
 		aCT_Bildirimler_AcBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Bina_DuzenleBuilder(
+		halkbank_lowcodecommon.proxies.Common_Building _bina
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Bina_Duzenle");
+		builder = builder.withParam("Bina", _bina);
+		return builder;
+	}
+
+	public static void aCT_Bina_Duzenle(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Building _bina
+	)
+	{
+		aCT_Bina_DuzenleBuilder(
+				_bina
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Bina_KaydetBuilder(
+		halkbank_lowcodecommon.proxies.Common_Building _bina
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Bina_Kaydet");
+		builder = builder.withParam("Bina", _bina);
+		return builder;
+	}
+
+	public static void aCT_Bina_Kaydet(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Building _bina
+	)
+	{
+		aCT_Bina_KaydetBuilder(
+				_bina
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_Bina_YeniBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_Bina_Yeni");
+		return builder;
+	}
+
+	public static void aCT_Bina_Yeni(IContext context)
+	{
+		aCT_Bina_YeniBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_CalisilanBirim_ManuelBuilder(
+		guvenlikyonetimi.proxies.LocalDepartment _birim
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_CalisilanBirim_Manuel");
+		builder = builder.withParam("Birim", _birim);
+		return builder;
+	}
+
+	public static void aCT_CalisilanBirim_Manuel(
+		IContext context,
+		guvenlikyonetimi.proxies.LocalDepartment _birim
+	)
+	{
+		aCT_CalisilanBirim_ManuelBuilder(
+				_birim
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_CalisilanBirim_SecBuilder(
+		guvenlikyonetimi.proxies.CalisilanSecenek _secenek
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_CalisilanBirim_Sec");
+		builder = builder.withParam("Secenek", _secenek);
+		return builder;
+	}
+
+	public static void aCT_CalisilanBirim_Sec(
+		IContext context,
+		guvenlikyonetimi.proxies.CalisilanSecenek _secenek
+	)
+	{
+		aCT_CalisilanBirim_SecBuilder(
+				_secenek
+			)
+			.execute(context);
 	}
 	/**
 	 * Kullanıcı eylemi: Denetim Ac
@@ -3064,6 +3275,25 @@ public final class Microflows
 	{
 		aCT_KiyafetTurleri_AcBuilder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_MailAyar_KaydetBuilder(
+		halkbank_messageservice.proxies.Configuration _ayar
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_MailAyar_Kaydet");
+		builder = builder.withParam("Ayar", _ayar);
+		return builder;
+	}
+
+	public static void aCT_MailAyar_Kaydet(
+		IContext context,
+		halkbank_messageservice.proxies.Configuration _ayar
+	)
+	{
+		aCT_MailAyar_KaydetBuilder(
+				_ayar
+			)
+			.execute(context);
+	}
 	/**
 	 * Kullanıcı eylemi: Malzeme Ornek Veri
 	 * Adımlar:
@@ -3303,6 +3533,103 @@ public final class Microflows
 			)
 			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ManuelBirim_AcBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_ManuelBirim_Ac");
+		return builder;
+	}
+
+	public static void aCT_ManuelBirim_Ac(IContext context)
+	{
+		aCT_ManuelBirim_AcBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ManuelBirim_AktifDegistirBuilder(
+		guvenlikyonetimi.proxies.LocalDepartment _birim
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_ManuelBirim_AktifDegistir");
+		builder = builder.withParam("Birim", _birim);
+		return builder;
+	}
+
+	public static void aCT_ManuelBirim_AktifDegistir(
+		IContext context,
+		guvenlikyonetimi.proxies.LocalDepartment _birim
+	)
+	{
+		aCT_ManuelBirim_AktifDegistirBuilder(
+				_birim
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ManuelBirim_DuzenleBuilder(
+		guvenlikyonetimi.proxies.LocalDepartment _birim
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_ManuelBirim_Duzenle");
+		builder = builder.withParam("Birim", _birim);
+		return builder;
+	}
+
+	public static void aCT_ManuelBirim_Duzenle(
+		IContext context,
+		guvenlikyonetimi.proxies.LocalDepartment _birim
+	)
+	{
+		aCT_ManuelBirim_DuzenleBuilder(
+				_birim
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ManuelBirim_EsitleBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_ManuelBirim_Esitle");
+		return builder;
+	}
+
+	public static void aCT_ManuelBirim_Esitle(IContext context)
+	{
+		aCT_ManuelBirim_EsitleBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ManuelBirim_KaydetBuilder(
+		guvenlikyonetimi.proxies.LocalDepartment _birim
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_ManuelBirim_Kaydet");
+		builder = builder.withParam("Birim", _birim);
+		return builder;
+	}
+
+	public static void aCT_ManuelBirim_Kaydet(
+		IContext context,
+		guvenlikyonetimi.proxies.LocalDepartment _birim
+	)
+	{
+		aCT_ManuelBirim_KaydetBuilder(
+				_birim
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ManuelBirim_YeniBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_ManuelBirim_Yeni");
+		return builder;
+	}
+
+	public static void aCT_ManuelBirim_Yeni(IContext context)
+	{
+		aCT_ManuelBirim_YeniBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_ModelYansitma_TumunuSecBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_ModelYansitma_TumunuSec");
+		return builder;
+	}
+
+	public static void aCT_ModelYansitma_TumunuSec(IContext context)
+	{
+		aCT_ModelYansitma_TumunuSecBuilder().execute(context);
+	}
 	/**
 	 * Kullanıcı eylemi: MY Ac
 	 * Adımlar:
@@ -3466,6 +3793,44 @@ public final class Microflows
 	public static void aCT_OrnekVeri_BelgeTuru(IContext context)
 	{
 		aCT_OrnekVeri_BelgeTuruBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakBirim_DuzenleBuilder(
+		halkbank_lowcodecommon.proxies.Common_Unit _birim
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakBirim_Duzenle");
+		builder = builder.withParam("Birim", _birim);
+		return builder;
+	}
+
+	public static void aCT_OrtakBirim_Duzenle(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Unit _birim
+	)
+	{
+		aCT_OrtakBirim_DuzenleBuilder(
+				_birim
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OrtakBirim_SilBuilder(
+		halkbank_lowcodecommon.proxies.Common_Unit _birim
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ACT_OrtakBirim_Sil");
+		builder = builder.withParam("Birim", _birim);
+		return builder;
+	}
+
+	public static void aCT_OrtakBirim_Sil(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Unit _birim
+	)
+	{
+		aCT_OrtakBirim_SilBuilder(
+				_birim
+			)
+			.execute(context);
 	}
 	/**
 	 * Kullanıcı eylemi: Oturum Musait
@@ -6200,6 +6565,28 @@ public final class Microflows
 		Object result = aSU_BaslangicBuilder().execute(context);
 		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aSU_GuvenlikYonetimiBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.ASU_GuvenlikYonetimi");
+		return builder;
+	}
+
+	public static boolean aSU_GuvenlikYonetimi(IContext context)
+	{
+		Object result = aSU_GuvenlikYonetimiBuilder().execute(context);
+		return (boolean) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_AlarmMail_AyarBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.DS_AlarmMail_Ayar");
+		return builder;
+	}
+
+	public static guvenlikyonetimi.proxies.AlarmMailAyari dS_AlarmMail_Ayar(IContext context)
+	{
+		Object result = dS_AlarmMail_AyarBuilder().execute(context);
+		return result == null ? null : guvenlikyonetimi.proxies.AlarmMailAyari.initialize(context, (IMendixObject) result);
+	}
 	/**
 	 * Veri kaynağı: Anasayfa Kullanici Yetkisi
 	 * Adımlar:
@@ -6457,6 +6844,17 @@ public final class Microflows
 			)
 			.execute(context);
 		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> guvenlikyonetimi.proxies.Bildirim.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_CalisilanBirim_SeceneklerBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.DS_CalisilanBirim_Secenekler");
+		return builder;
+	}
+
+	public static java.util.List<guvenlikyonetimi.proxies.CalisilanSecenek> dS_CalisilanBirim_Secenekler(IContext context)
+	{
+		Object result = dS_CalisilanBirim_SeceneklerBuilder().execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> guvenlikyonetimi.proxies.CalisilanSecenek.initialize(context, obj));
 	}
 	/**
 	 * Veri kaynağı: ---- Denetim Modu (Analiz §6.3: oturum loglanır) ----
@@ -7027,6 +7425,17 @@ public final class Microflows
 			)
 			.execute(context);
 		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> guvenlikyonetimi.proxies.BedenSecim.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_ManuelBirim_OzetBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.DS_ManuelBirim_Ozet");
+		return builder;
+	}
+
+	public static guvenlikyonetimi.proxies.ManuelBirimOzet dS_ManuelBirim_Ozet(IContext context)
+	{
+		Object result = dS_ManuelBirim_OzetBuilder().execute(context);
+		return result == null ? null : guvenlikyonetimi.proxies.ManuelBirimOzet.initialize(context, (IMendixObject) result);
 	}
 	/**
 	 * Veri kaynağı: Onizleme Beden Rehberi
@@ -9220,6 +9629,29 @@ public final class Microflows
 	{
 		sUB_Alarm_GunlukIsBuilder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Alarm_MailGonderBuilder(
+		guvenlikyonetimi.proxies.Alarm _alarm,
+		guvenlikyonetimi.proxies.BelgeTuru _tur
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Alarm_MailGonder");
+		builder = builder.withParam("Alarm", _alarm);
+		builder = builder.withParam("Tur", _tur);
+		return builder;
+	}
+
+	public static void sUB_Alarm_MailGonder(
+		IContext context,
+		guvenlikyonetimi.proxies.Alarm _alarm,
+		guvenlikyonetimi.proxies.BelgeTuru _tur
+	)
+	{
+		sUB_Alarm_MailGonderBuilder(
+				_alarm,
+				_tur
+			)
+			.execute(context);
+	}
 	/**
 	 * Alt akış: Alarm Filtre Say
 	 * Girdi: Filtre (AlarmFiltre)
@@ -9256,6 +9688,55 @@ public final class Microflows
 				_filtre
 			)
 			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_AlarmMail_AlicilarBuilder(
+		guvenlikyonetimi.proxies.LocalDepartment _birim,
+		java.lang.String _aliciTuru,
+		java.lang.String _mevcut
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_AlarmMail_Alicilar");
+		builder = builder.withParam("Birim", _birim);
+		builder = builder.withParam("AliciTuru", _aliciTuru);
+		builder = builder.withParam("Mevcut", _mevcut);
+		return builder;
+	}
+
+	public static java.lang.String sUB_AlarmMail_Alicilar(
+		IContext context,
+		guvenlikyonetimi.proxies.LocalDepartment _birim,
+		java.lang.String _aliciTuru,
+		java.lang.String _mevcut
+	)
+	{
+		Object result = sUB_AlarmMail_AlicilarBuilder(
+				_birim,
+				_aliciTuru,
+				_mevcut
+			)
+			.execute(context);
+		return (java.lang.String) result;
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_AlarmMail_AyarBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_AlarmMail_Ayar");
+		return builder;
+	}
+
+	public static guvenlikyonetimi.proxies.AlarmMailAyari sUB_AlarmMail_Ayar(IContext context)
+	{
+		Object result = sUB_AlarmMail_AyarBuilder().execute(context);
+		return result == null ? null : guvenlikyonetimi.proxies.AlarmMailAyari.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_AlarmMail_UnvanTohumBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_AlarmMail_UnvanTohum");
+		return builder;
+	}
+
+	public static void sUB_AlarmMail_UnvanTohum(IContext context)
+	{
+		sUB_AlarmMail_UnvanTohumBuilder().execute(context);
 	}
 	/**
 	 * Alt akış: Atama Filtrele
@@ -9491,7 +9972,7 @@ public final class Microflows
 	 * • Liste işlemleri
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Belge_SubeGuncelleBuilder(
-		halkbank_lowcodecommon.proxies.Common_Department _birim
+		guvenlikyonetimi.proxies.LocalDepartment _birim
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Belge_SubeGuncelle");
@@ -9509,7 +9990,7 @@ public final class Microflows
 	 */
 	public static void sUB_Belge_SubeGuncelle(
 		IContext context,
-		halkbank_lowcodecommon.proxies.Common_Department _birim
+		guvenlikyonetimi.proxies.LocalDepartment _birim
 	)
 	{
 		sUB_Belge_SubeGuncelleBuilder(
@@ -9809,6 +10290,16 @@ public final class Microflows
 				_filtre
 			)
 			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_DeptUnitGeneralizedForSecurityBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_DeptUnitGeneralizedForSecurity");
+		return builder;
+	}
+
+	public static void sUB_DeptUnitGeneralizedForSecurity(IContext context)
+	{
+		sUB_DeptUnitGeneralizedForSecurityBuilder().execute(context);
 	}
 	/**
 	 * Alt akış: Donem Hazirla
@@ -10257,7 +10748,7 @@ public final class Microflows
 		java.lang.String _islem,
 		java.lang.String _kayitTuru,
 		java.lang.String _kayitReferansi,
-		halkbank_lowcodecommon.proxies.Common_Department _sube
+		guvenlikyonetimi.proxies.LocalDepartment _sube
 	)
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_IslemKaydi_Create");
@@ -10290,7 +10781,7 @@ public final class Microflows
 		java.lang.String _islem,
 		java.lang.String _kayitTuru,
 		java.lang.String _kayitReferansi,
-		halkbank_lowcodecommon.proxies.Common_Department _sube
+		guvenlikyonetimi.proxies.LocalDepartment _sube
 	)
 	{
 		sUB_IslemKaydi_CreateBuilder(
@@ -10360,6 +10851,49 @@ public final class Microflows
 		Object result = sUB_Kabuk_BilgiBuilder().execute(context);
 		return (java.lang.String) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Kisi_BirimBaglaBuilder(
+		halkbank_lowcodecommon.proxies.Common_Person _kisi,
+		guvenlikyonetimi.proxies.LocalDepartment _guvenlikDept
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Kisi_BirimBagla");
+		builder = builder.withParam("Kisi", _kisi);
+		builder = builder.withParam("GuvenlikDept", _guvenlikDept);
+		return builder;
+	}
+
+	public static void sUB_Kisi_BirimBagla(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Person _kisi,
+		guvenlikyonetimi.proxies.LocalDepartment _guvenlikDept
+	)
+	{
+		sUB_Kisi_BirimBaglaBuilder(
+				_kisi,
+				_guvenlikDept
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Kullanici_BirimBuilder(
+		halkbank_lowcodecommon.proxies.Common_Person _ben
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_Kullanici_Birim");
+		builder = builder.withParam("Ben", _ben);
+		return builder;
+	}
+
+	public static guvenlikyonetimi.proxies.LocalDepartment sUB_Kullanici_Birim(
+		IContext context,
+		halkbank_lowcodecommon.proxies.Common_Person _ben
+	)
+	{
+		Object result = sUB_Kullanici_BirimBuilder(
+				_ben
+			)
+			.execute(context);
+		return result == null ? null : guvenlikyonetimi.proxies.LocalDepartment.initialize(context, (IMendixObject) result);
+	}
 	/**
 	 * Alt akış: Kullanici Dil Ayarla
 	 * Adımlar:
@@ -10420,6 +10954,36 @@ public final class Microflows
 	{
 		Object result = sUB_KullaniciYetkisi_HesaplaBuilder().execute(context);
 		return result == null ? null : guvenlikyonetimi.proxies.KullaniciYetkisi.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_LocalDepartment_AynalaBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_LocalDepartment_Aynala");
+		return builder;
+	}
+
+	public static void sUB_LocalDepartment_Aynala(IContext context)
+	{
+		sUB_LocalDepartment_AynalaBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_LocalDepartment_GecisBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_LocalDepartment_Gecis");
+		return builder;
+	}
+
+	public static void sUB_LocalDepartment_Gecis(IContext context)
+	{
+		sUB_LocalDepartment_GecisBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_LocalDepartment_UstBaglaBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_LocalDepartment_UstBagla");
+		return builder;
+	}
+
+	public static void sUB_LocalDepartment_UstBagla(IContext context)
+	{
+		sUB_LocalDepartment_UstBaglaBuilder().execute(context);
 	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_Mail_OlusturBuilder(
 		java.lang.String _alici,
@@ -10698,6 +11262,25 @@ public final class Microflows
 	{
 		sUB_MalzemeTuru_MetinlerBuilder(
 				_tur
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_ManuelBirim_EsitleBuilder(
+		guvenlikyonetimi.proxies.LocalDepartment _birim
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("GuvenlikYonetimi.SUB_ManuelBirim_Esitle");
+		builder = builder.withParam("Birim", _birim);
+		return builder;
+	}
+
+	public static void sUB_ManuelBirim_Esitle(
+		IContext context,
+		guvenlikyonetimi.proxies.LocalDepartment _birim
+	)
+	{
+		sUB_ManuelBirim_EsitleBuilder(
+				_birim
 			)
 			.execute(context);
 	}
@@ -11023,7 +11606,7 @@ public final class Microflows
 	 * • Kaydeder: Degisenler
 	 */
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder sUB_SubeOzet_HesaplaBuilder(
-		java.util.List<halkbank_lowcodecommon.proxies.Common_Department> _birimler,
+		java.util.List<guvenlikyonetimi.proxies.LocalDepartment> _birimler,
 		java.util.List<guvenlikyonetimi.proxies.SubeBelgesi> _belgeler
 	)
 	{
@@ -11044,7 +11627,7 @@ public final class Microflows
 	 */
 	public static void sUB_SubeOzet_Hesapla(
 		IContext context,
-		java.util.List<halkbank_lowcodecommon.proxies.Common_Department> _birimler,
+		java.util.List<guvenlikyonetimi.proxies.LocalDepartment> _birimler,
 		java.util.List<guvenlikyonetimi.proxies.SubeBelgesi> _belgeler
 	)
 	{

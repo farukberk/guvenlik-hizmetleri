@@ -38,6 +38,8 @@ public class Alarm implements com.mendix.systemwideinterfaces.core.IEntityProxy
 		SonrakiBildirimTarihi("SonrakiBildirimTarihi"),
 		Alarm_BelgeTuru("GuvenlikYonetimi.Alarm_BelgeTuru"),
 		Alarm_SubeBelgesi("GuvenlikYonetimi.Alarm_SubeBelgesi"),
+		Alarm_SubeLD("GuvenlikYonetimi.Alarm_SubeLD"),
+		Alarm_BolgeLD("GuvenlikYonetimi.Alarm_BolgeLD"),
 		Alarm_Bolge("GuvenlikYonetimi.Alarm_Bolge"),
 		Alarm_Sube("GuvenlikYonetimi.Alarm_Sube");
 
@@ -776,6 +778,100 @@ public class Alarm implements com.mendix.systemwideinterfaces.core.IEntityProxy
 			getMendixObject().setValue(context, MemberNames.Alarm_SubeBelgesi.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.Alarm_SubeBelgesi.toString(), alarm_subebelgesi.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of Alarm_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getAlarm_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getAlarm_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Alarm_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getAlarm_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Alarm_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of Alarm_SubeLD
+	 * @param alarm_subeld
+	 */
+	public final void setAlarm_SubeLD(guvenlikyonetimi.proxies.LocalDepartment alarm_subeld)
+	{
+		setAlarm_SubeLD(getContext(), alarm_subeld);
+	}
+
+	/**
+	 * Set value of Alarm_SubeLD
+	 * @param context
+	 * @param alarm_subeld
+	 */
+	public final void setAlarm_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment alarm_subeld)
+	{
+		if (alarm_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.Alarm_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.Alarm_SubeLD.toString(), alarm_subeld.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of Alarm_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getAlarm_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getAlarm_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Alarm_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getAlarm_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Alarm_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of Alarm_BolgeLD
+	 * @param alarm_bolgeld
+	 */
+	public final void setAlarm_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment alarm_bolgeld)
+	{
+		setAlarm_BolgeLD(getContext(), alarm_bolgeld);
+	}
+
+	/**
+	 * Set value of Alarm_BolgeLD
+	 * @param context
+	 * @param alarm_bolgeld
+	 */
+	public final void setAlarm_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment alarm_bolgeld)
+	{
+		if (alarm_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.Alarm_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.Alarm_BolgeLD.toString(), alarm_bolgeld.getMendixObject().getId());
 		}
 	}
 

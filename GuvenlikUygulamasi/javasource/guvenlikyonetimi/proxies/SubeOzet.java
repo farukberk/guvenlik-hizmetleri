@@ -5,7 +5,7 @@
 package guvenlikyonetimi.proxies;
 
 /**
- * Şube uyum özeti (Analiz §6.1): sayılar, uyum oranı ve risk puanı. SUB_SubeOzet_Hesapla ile güncellenir.
+ * Birim Belgeleri özet satırı (birim başına). P93: UstBirimAdi denetim kaydında üst birim olarak kullanılır.
  */
 public class SubeOzet implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
@@ -34,6 +34,9 @@ public class SubeOzet implements com.mendix.systemwideinterfaces.core.IEntityPro
 		Uyum("Uyum"),
 		Risk("Risk"),
 		SonGuncelleme("SonGuncelleme"),
+		UstBirimAdi("UstBirimAdi"),
+		SubeOzet_SubeLD("GuvenlikYonetimi.SubeOzet_SubeLD"),
+		SubeOzet_BolgeLD("GuvenlikYonetimi.SubeOzet_BolgeLD"),
 		SubeOzet_Bolge("GuvenlikYonetimi.SubeOzet_Bolge"),
 		SubeOzet_Sube("GuvenlikYonetimi.SubeOzet_Sube");
 
@@ -490,6 +493,136 @@ public class SubeOzet implements com.mendix.systemwideinterfaces.core.IEntityPro
 	public final void setSonGuncelleme(com.mendix.systemwideinterfaces.core.IContext context, java.util.Date songuncelleme)
 	{
 		getMendixObject().setValue(context, MemberNames.SonGuncelleme.toString(), songuncelleme);
+	}
+
+	/**
+	 * @return value of UstBirimAdi
+	 */
+	public final java.lang.String getUstBirimAdi()
+	{
+		return getUstBirimAdi(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of UstBirimAdi
+	 */
+	public final java.lang.String getUstBirimAdi(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.UstBirimAdi.toString());
+	}
+
+	/**
+	 * Set value of UstBirimAdi
+	 * @param ustbirimadi
+	 */
+	public final void setUstBirimAdi(java.lang.String ustbirimadi)
+	{
+		setUstBirimAdi(getContext(), ustbirimadi);
+	}
+
+	/**
+	 * Set value of UstBirimAdi
+	 * @param context
+	 * @param ustbirimadi
+	 */
+	public final void setUstBirimAdi(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String ustbirimadi)
+	{
+		getMendixObject().setValue(context, MemberNames.UstBirimAdi.toString(), ustbirimadi);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of SubeOzet_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeOzet_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getSubeOzet_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubeOzet_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeOzet_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeOzet_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of SubeOzet_SubeLD
+	 * @param subeozet_subeld
+	 */
+	public final void setSubeOzet_SubeLD(guvenlikyonetimi.proxies.LocalDepartment subeozet_subeld)
+	{
+		setSubeOzet_SubeLD(getContext(), subeozet_subeld);
+	}
+
+	/**
+	 * Set value of SubeOzet_SubeLD
+	 * @param context
+	 * @param subeozet_subeld
+	 */
+	public final void setSubeOzet_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment subeozet_subeld)
+	{
+		if (subeozet_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.SubeOzet_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.SubeOzet_SubeLD.toString(), subeozet_subeld.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of SubeOzet_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeOzet_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getSubeOzet_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubeOzet_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeOzet_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeOzet_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of SubeOzet_BolgeLD
+	 * @param subeozet_bolgeld
+	 */
+	public final void setSubeOzet_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment subeozet_bolgeld)
+	{
+		setSubeOzet_BolgeLD(getContext(), subeozet_bolgeld);
+	}
+
+	/**
+	 * Set value of SubeOzet_BolgeLD
+	 * @param context
+	 * @param subeozet_bolgeld
+	 */
+	public final void setSubeOzet_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment subeozet_bolgeld)
+	{
+		if (subeozet_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.SubeOzet_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.SubeOzet_BolgeLD.toString(), subeozet_bolgeld.getMendixObject().getId());
+		}
 	}
 
 	/**

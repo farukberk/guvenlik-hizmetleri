@@ -45,6 +45,8 @@ public class GeciciTalep implements com.mendix.systemwideinterfaces.core.IEntity
 		AtananSayisi("AtananSayisi"),
 		AtananMetni("AtananMetni"),
 		UyariGonderildi("UyariGonderildi"),
+		GeciciTalep_SubeLD("GuvenlikYonetimi.GeciciTalep_SubeLD"),
+		GeciciTalep_BolgeLD("GuvenlikYonetimi.GeciciTalep_BolgeLD"),
 		GeciciTalep_Bolge("GuvenlikYonetimi.GeciciTalep_Bolge"),
 		GeciciTalep_Sube("GuvenlikYonetimi.GeciciTalep_Sube");
 
@@ -942,6 +944,100 @@ public class GeciciTalep implements com.mendix.systemwideinterfaces.core.IEntity
 	public final void setUyariGonderildi(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean uyarigonderildi)
 	{
 		getMendixObject().setValue(context, MemberNames.UyariGonderildi.toString(), uyarigonderildi);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of GeciciTalep_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getGeciciTalep_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getGeciciTalep_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of GeciciTalep_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getGeciciTalep_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.GeciciTalep_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of GeciciTalep_SubeLD
+	 * @param gecicitalep_subeld
+	 */
+	public final void setGeciciTalep_SubeLD(guvenlikyonetimi.proxies.LocalDepartment gecicitalep_subeld)
+	{
+		setGeciciTalep_SubeLD(getContext(), gecicitalep_subeld);
+	}
+
+	/**
+	 * Set value of GeciciTalep_SubeLD
+	 * @param context
+	 * @param gecicitalep_subeld
+	 */
+	public final void setGeciciTalep_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment gecicitalep_subeld)
+	{
+		if (gecicitalep_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.GeciciTalep_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.GeciciTalep_SubeLD.toString(), gecicitalep_subeld.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of GeciciTalep_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getGeciciTalep_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getGeciciTalep_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of GeciciTalep_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getGeciciTalep_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.GeciciTalep_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of GeciciTalep_BolgeLD
+	 * @param gecicitalep_bolgeld
+	 */
+	public final void setGeciciTalep_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment gecicitalep_bolgeld)
+	{
+		setGeciciTalep_BolgeLD(getContext(), gecicitalep_bolgeld);
+	}
+
+	/**
+	 * Set value of GeciciTalep_BolgeLD
+	 * @param context
+	 * @param gecicitalep_bolgeld
+	 */
+	public final void setGeciciTalep_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment gecicitalep_bolgeld)
+	{
+		if (gecicitalep_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.GeciciTalep_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.GeciciTalep_BolgeLD.toString(), gecicitalep_bolgeld.getMendixObject().getId());
+		}
 	}
 
 	/**

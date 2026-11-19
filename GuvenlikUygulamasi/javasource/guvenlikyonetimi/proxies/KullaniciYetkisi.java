@@ -24,7 +24,9 @@ public class KullaniciYetkisi implements com.mendix.systemwideinterfaces.core.IE
 		Kapsam("Kapsam"),
 		Kaynak("Kaynak"),
 		SonHesaplama("SonHesaplama"),
+		TemelRol("TemelRol"),
 		KullaniciYetkisi_YetkiKurali("GuvenlikYonetimi.KullaniciYetkisi_YetkiKurali"),
+		KullaniciYetkisi_CalisilanBirim("GuvenlikYonetimi.KullaniciYetkisi_CalisilanBirim"),
 		KullaniciYetkisi_User("GuvenlikYonetimi.KullaniciYetkisi_User"),
 		KullaniciYetkisi_Person("GuvenlikYonetimi.KullaniciYetkisi_Person");
 
@@ -259,6 +261,51 @@ public class KullaniciYetkisi implements com.mendix.systemwideinterfaces.core.IE
 	}
 
 	/**
+	 * Get value of TemelRol
+	 * @param temelrol
+	 */
+	public final guvenlikyonetimi.proxies.ENUM_Rol getTemelRol()
+	{
+		return getTemelRol(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of TemelRol
+	 */
+	public final guvenlikyonetimi.proxies.ENUM_Rol getTemelRol(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		Object obj = getMendixObject().getValue(context, MemberNames.TemelRol.toString());
+		if (obj == null) {
+			return null;
+		}
+		return guvenlikyonetimi.proxies.ENUM_Rol.valueOf((java.lang.String) obj);
+	}
+
+	/**
+	 * Set value of TemelRol
+	 * @param temelrol
+	 */
+	public final void setTemelRol(guvenlikyonetimi.proxies.ENUM_Rol temelrol)
+	{
+		setTemelRol(getContext(), temelrol);
+	}
+
+	/**
+	 * Set value of TemelRol
+	 * @param context
+	 * @param temelrol
+	 */
+	public final void setTemelRol(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.ENUM_Rol temelrol)
+	{
+		if (temelrol != null) {
+			getMendixObject().setValue(context, MemberNames.TemelRol.toString(), temelrol.toString());
+		} else {
+			getMendixObject().setValue(context, MemberNames.TemelRol.toString(), null);
+		}
+	}
+
+	/**
 	 * @throws com.mendix.core.CoreException
 	 * @return value of KullaniciYetkisi_YetkiKurali
 	 */
@@ -302,6 +349,53 @@ public class KullaniciYetkisi implements com.mendix.systemwideinterfaces.core.IE
 			getMendixObject().setValue(context, MemberNames.KullaniciYetkisi_YetkiKurali.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.KullaniciYetkisi_YetkiKurali.toString(), kullaniciyetkisi_yetkikurali.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of KullaniciYetkisi_CalisilanBirim
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getKullaniciYetkisi_CalisilanBirim() throws com.mendix.core.CoreException
+	{
+		return getKullaniciYetkisi_CalisilanBirim(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of KullaniciYetkisi_CalisilanBirim
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getKullaniciYetkisi_CalisilanBirim(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.KullaniciYetkisi_CalisilanBirim.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of KullaniciYetkisi_CalisilanBirim
+	 * @param kullaniciyetkisi_calisilanbirim
+	 */
+	public final void setKullaniciYetkisi_CalisilanBirim(guvenlikyonetimi.proxies.LocalDepartment kullaniciyetkisi_calisilanbirim)
+	{
+		setKullaniciYetkisi_CalisilanBirim(getContext(), kullaniciyetkisi_calisilanbirim);
+	}
+
+	/**
+	 * Set value of KullaniciYetkisi_CalisilanBirim
+	 * @param context
+	 * @param kullaniciyetkisi_calisilanbirim
+	 */
+	public final void setKullaniciYetkisi_CalisilanBirim(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment kullaniciyetkisi_calisilanbirim)
+	{
+		if (kullaniciyetkisi_calisilanbirim == null) {
+			getMendixObject().setValue(context, MemberNames.KullaniciYetkisi_CalisilanBirim.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.KullaniciYetkisi_CalisilanBirim.toString(), kullaniciyetkisi_calisilanbirim.getMendixObject().getId());
 		}
 	}
 

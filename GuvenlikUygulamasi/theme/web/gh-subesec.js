@@ -1,7 +1,7 @@
 // P30 Şube seçici (prototip): şube açılır kutularının listesine arama kutusu, bölge çipleri, "Tüm şubeler" satırı,
 // satırda şube kodu ve bölge, altta kısayol bilgisi eklenir. Seçim ve süzme Combo box'ın kendisinde kalır:
 // arama kutusuna yazılan metin kutunun kendi girişine aktarılır, ok / Enter / Esc tuşları da oraya iletilir.
-// Şube kodu ve bölge adı, istemcideki şube (Common_Unit) ve departman (Common_Department) kayıtlarından okunur.
+// Şube kodu ve bölge adı, istemcideki uygulama birimi (GuvenlikYonetimi.LocalDepartment) kayıtlarından okunur.
 (function () {
     var KUTULAR = ".gh-sube-git, .gh-al-sube, .gh-ty-sube, .gh-gc-sube, .gh-rp-sube, .gh-sube-degis";
     var bilgi = null; // şube adı → { kod, bolge }
@@ -40,35 +40,41 @@
     function yukle() {
         if (bilgi || yukleniyor) return;
         yukleniyor = true;
-        // Var olmayan varlık sorgusu da boş liste döndüğü için kayıt dönen modül seçilir
-        var mod = "Halkbank_LowCodeCommon";
-        al("//" + mod + ".Common_Department").then(function (k) {
-            if (!k.length) mod = "LowCodeCommon";
-        }).then(function () {
-            return al("//" + mod + ".Common_Department");
-        }).then(function (deptler) {
-            // P40: şube = departman (CategoryLVI 7/8/9), bölge = üst departmanlardan ilki CategoryLVI 6 ve TypeLVI 1 (Disiplin Etik ile aynı)
-            var ustAd = adlar(mod, [], deptler).ust;
-            var dep = {};
-            deptler.forEach(function (d) { dep[d.getGuid()] = d; });
+        // P93: uygulama birimleri GuvenlikYonetimi.LocalDepartment'tan okunur (kurum departmanlarının aynası + manuel birimler)
+        al("//GuvenlikYonetimi.LocalDepartment").then(function (deptler) {
+            // P89: şube/NOM/KOM = CategoryLVI 9/10/15, bölge = üst departmanlardan ilki CategoryLVI 6 (hepsi Status = 1)
+            var ustAd = deptler.some(function (o) { return o.has("GuvenlikYonetimi.LocalDepartment_Parent"); }) ? "GuvenlikYonetimi.LocalDepartment_Parent" : null;
+            var dep = {}, depNo = {};
             var sayi = function (o, a) { return o && o.has(a) ? Number(o.get(a)) : NaN; };
-            // Gerçek Halkbank verisi (Disiplin Etik): şube 9, uydu şube 11; IsBranch, Halkbank (FirmID 1), temsilcilik (FİNANS) hariç
+            deptler.forEach(function (d) {
+                dep[d.getGuid()] = d;
+                var no = sayi(d, "DepartmentID");
+                if (!isNaN(no)) depNo[no] = d;
+            });
+            // Üst departman: önce Parent ilişkisi, boşsa ParentID → DepartmentID (ilişkisi doldurulmamış veritabanları için)
+            var ustu = function (d) {
+                var g = ustAd && d.has(ustAd) ? d.get(ustAd) : "";
+                if (g && dep[g]) return dep[g];
+                var p = sayi(d, "ParentID");
+                return !isNaN(p) && depNo[p] !== d ? depNo[p] : null;
+            };
+            // P89: birim = Şube (CategoryLVI 9), NOM (10), KOM (15) + P91 Bölge Koordinatörlüğü (6); hepsi Status = 1, Halkbank (FirmID 1), temsilcilik (FİNANS) hariç
+            var aktif = function (d) { return !(d.has("Status") && d.get("Status") === false); };
             var subeMi = function (d) {
                 var c = sayi(d, "CategoryLVI");
-                // P67: Nakit Operasyon Merkezi (NOM) = CategoryLVI 10 ve TypeLVI 2 de birim sayılır
-                // P70: Kambiyo Operasyon Merkezi (KOM) = CategoryLVI 8, TypeLVI 2 ve adında KOM; şube işaretli değil
-                var kom = c === 8 && sayi(d, "TypeLVI") === 2 && /KOM/.test(String((d.has("Name") && d.get("Name")) || ""));
-                if (!kom && c !== 9 && c !== 11 && !(c === 10 && sayi(d, "TypeLVI") === 2)) return false;
-                if (!kom && d.has("IsBranch") && d.get("IsBranch") === false) return false;
+                // P91: bölge koordinatörlükleri (6) de belge takibinde birim sayılır
+                if (c !== 6 && c !== 9 && c !== 10 && c !== 15) return false;
+                if (!aktif(d)) return false;
                 if (d.has("FirmID") && sayi(d, "FirmID") !== 1) return false;
                 return !/^F[İI]NANS$/.test(String((d.has("Kind") && d.get("Kind")) || ""));
             };
-            var bolgeMi = function (d) { return sayi(d, "CategoryLVI") === 6 && sayi(d, "TypeLVI") === 1; };
+            // P89: bölge = CategoryLVI 6, Status = 1
+            var bolgeMi = function (d) { return sayi(d, "CategoryLVI") === 6 && aktif(d); };
             var harita = {}, bolgeKod = {};
             deptler.forEach(function (d) {
                 if (!subeMi(d) || (d.has("Status") && d.get("Status") === false)) return;
-                var ust = ustAd && dep[d.get(ustAd)], adim = 0;
-                while (ust && !bolgeMi(ust) && adim++ < 5) ust = dep[ust.get(ustAd)];
+                var ust = bolgeMi(d) ? d : ustu(d), adim = 0;
+                while (ust && !bolgeMi(ust) && adim++ < 5) ust = ustu(ust);
                 var bolge = ust && bolgeMi(ust) ? kisaBolge(ust.get("Name")) : "";
                 if (bolge) bolgeKod[bolge] = ust.get("MisCode") || "";
                 harita[d.get("Name")] = { kod: d.get("MisCode") || "", bolge: bolge };

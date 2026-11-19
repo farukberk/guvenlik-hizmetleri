@@ -31,6 +31,8 @@ public class AlarmFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 		GuvenliSayi("GuvenliSayi"),
 		SubeKodu("SubeKodu"),
 		AlarmFiltre_BelgeTuru("GuvenlikYonetimi.AlarmFiltre_BelgeTuru"),
+		AlarmFiltre_SubeLD("GuvenlikYonetimi.AlarmFiltre_SubeLD"),
+		AlarmFiltre_BolgeLD("GuvenlikYonetimi.AlarmFiltre_BolgeLD"),
 		AlarmFiltre_Bolge("GuvenlikYonetimi.AlarmFiltre_Bolge"),
 		AlarmFiltre_Sube("GuvenlikYonetimi.AlarmFiltre_Sube");
 
@@ -497,6 +499,100 @@ public class AlarmFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 			getMendixObject().setValue(context, MemberNames.AlarmFiltre_BelgeTuru.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.AlarmFiltre_BelgeTuru.toString(), alarmfiltre_belgeturu.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of AlarmFiltre_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getAlarmFiltre_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getAlarmFiltre_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of AlarmFiltre_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getAlarmFiltre_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.AlarmFiltre_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of AlarmFiltre_SubeLD
+	 * @param alarmfiltre_subeld
+	 */
+	public final void setAlarmFiltre_SubeLD(guvenlikyonetimi.proxies.LocalDepartment alarmfiltre_subeld)
+	{
+		setAlarmFiltre_SubeLD(getContext(), alarmfiltre_subeld);
+	}
+
+	/**
+	 * Set value of AlarmFiltre_SubeLD
+	 * @param context
+	 * @param alarmfiltre_subeld
+	 */
+	public final void setAlarmFiltre_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment alarmfiltre_subeld)
+	{
+		if (alarmfiltre_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.AlarmFiltre_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.AlarmFiltre_SubeLD.toString(), alarmfiltre_subeld.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of AlarmFiltre_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getAlarmFiltre_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getAlarmFiltre_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of AlarmFiltre_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getAlarmFiltre_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.AlarmFiltre_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of AlarmFiltre_BolgeLD
+	 * @param alarmfiltre_bolgeld
+	 */
+	public final void setAlarmFiltre_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment alarmfiltre_bolgeld)
+	{
+		setAlarmFiltre_BolgeLD(getContext(), alarmfiltre_bolgeld);
+	}
+
+	/**
+	 * Set value of AlarmFiltre_BolgeLD
+	 * @param context
+	 * @param alarmfiltre_bolgeld
+	 */
+	public final void setAlarmFiltre_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment alarmfiltre_bolgeld)
+	{
+		if (alarmfiltre_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.AlarmFiltre_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.AlarmFiltre_BolgeLD.toString(), alarmfiltre_bolgeld.getMendixObject().getId());
 		}
 	}
 

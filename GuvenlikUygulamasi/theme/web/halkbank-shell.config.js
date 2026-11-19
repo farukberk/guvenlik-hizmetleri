@@ -25,15 +25,21 @@ window.HalkbankShellConfig = {
         "Departmanlar": "tree-structure",
         "Birimler": "buildings",
         "Unvanlar": "identification-badge",
+        "Binalar": "building-office",
+        "Pozisyon Unvanları": "briefcase",
         // Yönetim / Parametreler
         "Belge Türü ve Alarm Tanımları": "sliders-horizontal",
         "Birim–Belge Atamaları": "link-simple",
+        "Manuel Birim Tanımları": "building-apartment",
         "Kıyafet Türü Tanımları": "coat-hanger",
         "Teçhizat Türü Tanımları": "toolbox",
         "Yetkilendirme": "shield-check",
         "Kullanıcı Hesapları": "user-gear",
         "Model Yansıtma": "cube",
-        "Veritabanı Eşleme": "database"
+        "Veritabanı Eşleme": "database",
+        "Mail Ayarları": "envelope-simple",
+        "Alarm Mail Ayarları": "envelope-open",
+        "Gönderilen Mailler": "paper-plane-tilt"
     },
     // listede olmayan öğeler
     defaultIcon: "circle"

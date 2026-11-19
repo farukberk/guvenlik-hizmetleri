@@ -32,6 +32,7 @@ public class TechizatBirimi implements com.mendix.systemwideinterfaces.core.IEnt
 		SubeAdi("SubeAdi"),
 		SubeKodu("SubeKodu"),
 		TechizatBirimi_MalzemeTuru("GuvenlikYonetimi.TechizatBirimi_MalzemeTuru"),
+		TechizatBirimi_SubeLD("GuvenlikYonetimi.TechizatBirimi_SubeLD"),
 		TechizatBirimi_Sube("GuvenlikYonetimi.TechizatBirimi_Sube"),
 		TechizatBirimi_Person("GuvenlikYonetimi.TechizatBirimi_Person");
 
@@ -552,6 +553,53 @@ public class TechizatBirimi implements com.mendix.systemwideinterfaces.core.IEnt
 			getMendixObject().setValue(context, MemberNames.TechizatBirimi_MalzemeTuru.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.TechizatBirimi_MalzemeTuru.toString(), techizatbirimi_malzemeturu.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of TechizatBirimi_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getTechizatBirimi_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getTechizatBirimi_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of TechizatBirimi_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getTechizatBirimi_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.TechizatBirimi_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of TechizatBirimi_SubeLD
+	 * @param techizatbirimi_subeld
+	 */
+	public final void setTechizatBirimi_SubeLD(guvenlikyonetimi.proxies.LocalDepartment techizatbirimi_subeld)
+	{
+		setTechizatBirimi_SubeLD(getContext(), techizatbirimi_subeld);
+	}
+
+	/**
+	 * Set value of TechizatBirimi_SubeLD
+	 * @param context
+	 * @param techizatbirimi_subeld
+	 */
+	public final void setTechizatBirimi_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment techizatbirimi_subeld)
+	{
+		if (techizatbirimi_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.TechizatBirimi_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.TechizatBirimi_SubeLD.toString(), techizatbirimi_subeld.getMendixObject().getId());
 		}
 	}
 

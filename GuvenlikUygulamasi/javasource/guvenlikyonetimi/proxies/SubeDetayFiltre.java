@@ -40,6 +40,7 @@ public class SubeDetayFiltre implements com.mendix.systemwideinterfaces.core.IEn
 		OnizlemeSira("OnizlemeSira"),
 		SubeDetayFiltre_SubeOzet("GuvenlikYonetimi.SubeDetayFiltre_SubeOzet"),
 		SubeDetayFiltre_GitSube("GuvenlikYonetimi.SubeDetayFiltre_GitSube"),
+		SubeDetayFiltre_SubeLD("GuvenlikYonetimi.SubeDetayFiltre_SubeLD"),
 		SubeDetayFiltre_Sube("GuvenlikYonetimi.SubeDetayFiltre_Sube");
 
 		private final java.lang.String metaName;
@@ -732,6 +733,53 @@ public class SubeDetayFiltre implements com.mendix.systemwideinterfaces.core.IEn
 			getMendixObject().setValue(context, MemberNames.SubeDetayFiltre_GitSube.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.SubeDetayFiltre_GitSube.toString(), subedetayfiltre_gitsube.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of SubeDetayFiltre_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeDetayFiltre_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getSubeDetayFiltre_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubeDetayFiltre_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeDetayFiltre_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeDetayFiltre_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of SubeDetayFiltre_SubeLD
+	 * @param subedetayfiltre_subeld
+	 */
+	public final void setSubeDetayFiltre_SubeLD(guvenlikyonetimi.proxies.LocalDepartment subedetayfiltre_subeld)
+	{
+		setSubeDetayFiltre_SubeLD(getContext(), subedetayfiltre_subeld);
+	}
+
+	/**
+	 * Set value of SubeDetayFiltre_SubeLD
+	 * @param context
+	 * @param subedetayfiltre_subeld
+	 */
+	public final void setSubeDetayFiltre_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment subedetayfiltre_subeld)
+	{
+		if (subedetayfiltre_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.SubeDetayFiltre_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.SubeDetayFiltre_SubeLD.toString(), subedetayfiltre_subeld.getMendixObject().getId());
 		}
 	}
 

@@ -53,6 +53,8 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 		IptalEden("IptalEden"),
 		IptalTarihi("IptalTarihi"),
 		IptalNedeni("IptalNedeni"),
+		MalzemeTalebi_SubeLD("GuvenlikYonetimi.MalzemeTalebi_SubeLD"),
+		MalzemeTalebi_BolgeLD("GuvenlikYonetimi.MalzemeTalebi_BolgeLD"),
 		MalzemeTalebi_Bolge("GuvenlikYonetimi.MalzemeTalebi_Bolge"),
 		MalzemeTalebi_Sube("GuvenlikYonetimi.MalzemeTalebi_Sube"),
 		MalzemeTalebi_Person("GuvenlikYonetimi.MalzemeTalebi_Person");
@@ -1230,6 +1232,100 @@ public class MalzemeTalebi implements com.mendix.systemwideinterfaces.core.IEnti
 	public final void setIptalNedeni(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String iptalnedeni)
 	{
 		getMendixObject().setValue(context, MemberNames.IptalNedeni.toString(), iptalnedeni);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of MalzemeTalebi_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getMalzemeTalebi_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getMalzemeTalebi_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of MalzemeTalebi_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getMalzemeTalebi_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.MalzemeTalebi_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of MalzemeTalebi_SubeLD
+	 * @param malzemetalebi_subeld
+	 */
+	public final void setMalzemeTalebi_SubeLD(guvenlikyonetimi.proxies.LocalDepartment malzemetalebi_subeld)
+	{
+		setMalzemeTalebi_SubeLD(getContext(), malzemetalebi_subeld);
+	}
+
+	/**
+	 * Set value of MalzemeTalebi_SubeLD
+	 * @param context
+	 * @param malzemetalebi_subeld
+	 */
+	public final void setMalzemeTalebi_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment malzemetalebi_subeld)
+	{
+		if (malzemetalebi_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.MalzemeTalebi_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.MalzemeTalebi_SubeLD.toString(), malzemetalebi_subeld.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of MalzemeTalebi_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getMalzemeTalebi_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getMalzemeTalebi_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of MalzemeTalebi_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getMalzemeTalebi_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.MalzemeTalebi_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of MalzemeTalebi_BolgeLD
+	 * @param malzemetalebi_bolgeld
+	 */
+	public final void setMalzemeTalebi_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment malzemetalebi_bolgeld)
+	{
+		setMalzemeTalebi_BolgeLD(getContext(), malzemetalebi_bolgeld);
+	}
+
+	/**
+	 * Set value of MalzemeTalebi_BolgeLD
+	 * @param context
+	 * @param malzemetalebi_bolgeld
+	 */
+	public final void setMalzemeTalebi_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment malzemetalebi_bolgeld)
+	{
+		if (malzemetalebi_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.MalzemeTalebi_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.MalzemeTalebi_BolgeLD.toString(), malzemetalebi_bolgeld.getMendixObject().getId());
+		}
 	}
 
 	/**

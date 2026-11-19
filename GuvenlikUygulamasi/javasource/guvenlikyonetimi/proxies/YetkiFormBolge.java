@@ -24,6 +24,7 @@ public class YetkiFormBolge implements com.mendix.systemwideinterfaces.core.IEnt
 		Secili("Secili"),
 		Sira("Sira"),
 		YetkiFormBolge_YetkiForm("GuvenlikYonetimi.YetkiFormBolge_YetkiForm"),
+		YetkiFormBolge_BolgeLD("GuvenlikYonetimi.YetkiFormBolge_BolgeLD"),
 		YetkiFormBolge_Bolge("GuvenlikYonetimi.YetkiFormBolge_Bolge");
 
 		private final java.lang.String metaName;
@@ -228,6 +229,53 @@ public class YetkiFormBolge implements com.mendix.systemwideinterfaces.core.IEnt
 			getMendixObject().setValue(context, MemberNames.YetkiFormBolge_YetkiForm.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.YetkiFormBolge_YetkiForm.toString(), yetkiformbolge_yetkiform.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of YetkiFormBolge_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiFormBolge_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getYetkiFormBolge_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of YetkiFormBolge_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiFormBolge_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiFormBolge_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of YetkiFormBolge_BolgeLD
+	 * @param yetkiformbolge_bolgeld
+	 */
+	public final void setYetkiFormBolge_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment yetkiformbolge_bolgeld)
+	{
+		setYetkiFormBolge_BolgeLD(getContext(), yetkiformbolge_bolgeld);
+	}
+
+	/**
+	 * Set value of YetkiFormBolge_BolgeLD
+	 * @param context
+	 * @param yetkiformbolge_bolgeld
+	 */
+	public final void setYetkiFormBolge_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment yetkiformbolge_bolgeld)
+	{
+		if (yetkiformbolge_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.YetkiFormBolge_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.YetkiFormBolge_BolgeLD.toString(), yetkiformbolge_bolgeld.getMendixObject().getId());
 		}
 	}
 

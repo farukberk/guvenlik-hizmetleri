@@ -57,6 +57,7 @@ public class DenetimFiltre implements com.mendix.systemwideinterfaces.core.IEnti
 		TrendBaslik("TrendBaslik"),
 		HalkaSinifi("HalkaSinifi"),
 		EksiklikVar("EksiklikVar"),
+		DenetimFiltre_BolgeLD("GuvenlikYonetimi.DenetimFiltre_BolgeLD"),
 		DenetimFiltre_Bolge("GuvenlikYonetimi.DenetimFiltre_Bolge");
 
 		private final java.lang.String metaName;
@@ -1466,6 +1467,53 @@ public class DenetimFiltre implements com.mendix.systemwideinterfaces.core.IEnti
 	public final void setEksiklikVar(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean eksiklikvar)
 	{
 		getMendixObject().setValue(context, MemberNames.EksiklikVar.toString(), eksiklikvar);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of DenetimFiltre_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getDenetimFiltre_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getDenetimFiltre_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of DenetimFiltre_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getDenetimFiltre_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.DenetimFiltre_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of DenetimFiltre_BolgeLD
+	 * @param denetimfiltre_bolgeld
+	 */
+	public final void setDenetimFiltre_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment denetimfiltre_bolgeld)
+	{
+		setDenetimFiltre_BolgeLD(getContext(), denetimfiltre_bolgeld);
+	}
+
+	/**
+	 * Set value of DenetimFiltre_BolgeLD
+	 * @param context
+	 * @param denetimfiltre_bolgeld
+	 */
+	public final void setDenetimFiltre_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment denetimfiltre_bolgeld)
+	{
+		if (denetimfiltre_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.DenetimFiltre_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.DenetimFiltre_BolgeLD.toString(), denetimfiltre_bolgeld.getMendixObject().getId());
+		}
 	}
 
 	/**

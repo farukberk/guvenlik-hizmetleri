@@ -25,6 +25,7 @@ public class YetkiFormDeger implements com.mendix.systemwideinterfaces.core.IEnt
 		BirimTipi("BirimTipi"),
 		Sira("Sira"),
 		YetkiFormDeger_YetkiForm("GuvenlikYonetimi.YetkiFormDeger_YetkiForm"),
+		YetkiFormDeger_BirimLD("GuvenlikYonetimi.YetkiFormDeger_BirimLD"),
 		YetkiFormDeger_Birim("GuvenlikYonetimi.YetkiFormDeger_Birim"),
 		YetkiFormDeger_Unvan("GuvenlikYonetimi.YetkiFormDeger_Unvan");
 
@@ -275,6 +276,53 @@ public class YetkiFormDeger implements com.mendix.systemwideinterfaces.core.IEnt
 			getMendixObject().setValue(context, MemberNames.YetkiFormDeger_YetkiForm.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.YetkiFormDeger_YetkiForm.toString(), yetkiformdeger_yetkiform.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of YetkiFormDeger_BirimLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiFormDeger_BirimLD() throws com.mendix.core.CoreException
+	{
+		return getYetkiFormDeger_BirimLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of YetkiFormDeger_BirimLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiFormDeger_BirimLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiFormDeger_BirimLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of YetkiFormDeger_BirimLD
+	 * @param yetkiformdeger_birimld
+	 */
+	public final void setYetkiFormDeger_BirimLD(guvenlikyonetimi.proxies.LocalDepartment yetkiformdeger_birimld)
+	{
+		setYetkiFormDeger_BirimLD(getContext(), yetkiformdeger_birimld);
+	}
+
+	/**
+	 * Set value of YetkiFormDeger_BirimLD
+	 * @param context
+	 * @param yetkiformdeger_birimld
+	 */
+	public final void setYetkiFormDeger_BirimLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment yetkiformdeger_birimld)
+	{
+		if (yetkiformdeger_birimld == null) {
+			getMendixObject().setValue(context, MemberNames.YetkiFormDeger_BirimLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.YetkiFormDeger_BirimLD.toString(), yetkiformdeger_birimld.getMendixObject().getId());
 		}
 	}
 

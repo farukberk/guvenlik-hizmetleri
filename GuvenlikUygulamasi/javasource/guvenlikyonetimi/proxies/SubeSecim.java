@@ -30,6 +30,8 @@ public class SubeSecim implements com.mendix.systemwideinterfaces.core.IEntityPr
 		AramaMetni("AramaMetni"),
 		AtanmisSayi("AtanmisSayi"),
 		SubeSecim_AtamaOturumu("GuvenlikYonetimi.SubeSecim_AtamaOturumu"),
+		SubeSecim_SubeLD("GuvenlikYonetimi.SubeSecim_SubeLD"),
+		SubeSecim_BolgeLD("GuvenlikYonetimi.SubeSecim_BolgeLD"),
 		SubeSecim_Bolge("GuvenlikYonetimi.SubeSecim_Bolge"),
 		SubeSecim_Sube("GuvenlikYonetimi.SubeSecim_Sube");
 
@@ -451,6 +453,100 @@ public class SubeSecim implements com.mendix.systemwideinterfaces.core.IEntityPr
 			getMendixObject().setValue(context, MemberNames.SubeSecim_AtamaOturumu.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.SubeSecim_AtamaOturumu.toString(), subesecim_atamaoturumu.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of SubeSecim_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeSecim_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getSubeSecim_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubeSecim_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeSecim_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeSecim_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of SubeSecim_SubeLD
+	 * @param subesecim_subeld
+	 */
+	public final void setSubeSecim_SubeLD(guvenlikyonetimi.proxies.LocalDepartment subesecim_subeld)
+	{
+		setSubeSecim_SubeLD(getContext(), subesecim_subeld);
+	}
+
+	/**
+	 * Set value of SubeSecim_SubeLD
+	 * @param context
+	 * @param subesecim_subeld
+	 */
+	public final void setSubeSecim_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment subesecim_subeld)
+	{
+		if (subesecim_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.SubeSecim_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.SubeSecim_SubeLD.toString(), subesecim_subeld.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of SubeSecim_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeSecim_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getSubeSecim_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubeSecim_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeSecim_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeSecim_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of SubeSecim_BolgeLD
+	 * @param subesecim_bolgeld
+	 */
+	public final void setSubeSecim_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment subesecim_bolgeld)
+	{
+		setSubeSecim_BolgeLD(getContext(), subesecim_bolgeld);
+	}
+
+	/**
+	 * Set value of SubeSecim_BolgeLD
+	 * @param context
+	 * @param subesecim_bolgeld
+	 */
+	public final void setSubeSecim_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment subesecim_bolgeld)
+	{
+		if (subesecim_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.SubeSecim_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.SubeSecim_BolgeLD.toString(), subesecim_bolgeld.getMendixObject().getId());
 		}
 	}
 

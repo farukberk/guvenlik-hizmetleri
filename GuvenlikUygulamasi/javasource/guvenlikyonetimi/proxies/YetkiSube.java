@@ -21,6 +21,7 @@ public class YetkiSube implements com.mendix.systemwideinterfaces.core.IEntityPr
 	public enum MemberNames
 	{
 		YetkiSube_KullaniciYetkisi("GuvenlikYonetimi.YetkiSube_KullaniciYetkisi"),
+		YetkiSube_SubeLD("GuvenlikYonetimi.YetkiSube_SubeLD"),
 		YetkiSube_Sube("GuvenlikYonetimi.YetkiSube_Sube");
 
 		private final java.lang.String metaName;
@@ -126,6 +127,53 @@ public class YetkiSube implements com.mendix.systemwideinterfaces.core.IEntityPr
 			getMendixObject().setValue(context, MemberNames.YetkiSube_KullaniciYetkisi.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.YetkiSube_KullaniciYetkisi.toString(), yetkisube_kullaniciyetkisi.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of YetkiSube_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiSube_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getYetkiSube_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of YetkiSube_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiSube_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiSube_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of YetkiSube_SubeLD
+	 * @param yetkisube_subeld
+	 */
+	public final void setYetkiSube_SubeLD(guvenlikyonetimi.proxies.LocalDepartment yetkisube_subeld)
+	{
+		setYetkiSube_SubeLD(getContext(), yetkisube_subeld);
+	}
+
+	/**
+	 * Set value of YetkiSube_SubeLD
+	 * @param context
+	 * @param yetkisube_subeld
+	 */
+	public final void setYetkiSube_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment yetkisube_subeld)
+	{
+		if (yetkisube_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.YetkiSube_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.YetkiSube_SubeLD.toString(), yetkisube_subeld.getMendixObject().getId());
 		}
 	}
 

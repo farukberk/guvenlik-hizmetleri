@@ -25,6 +25,7 @@ public class YetkiKuraliDeger implements com.mendix.systemwideinterfaces.core.IE
 		BirimTipi("BirimTipi"),
 		Sira("Sira"),
 		YetkiKuraliDeger_YetkiKurali("GuvenlikYonetimi.YetkiKuraliDeger_YetkiKurali"),
+		YetkiKuraliDeger_BirimLD("GuvenlikYonetimi.YetkiKuraliDeger_BirimLD"),
 		YetkiKuraliDeger_Birim("GuvenlikYonetimi.YetkiKuraliDeger_Birim"),
 		YetkiKuraliDeger_Unvan("GuvenlikYonetimi.YetkiKuraliDeger_Unvan");
 
@@ -284,6 +285,53 @@ public class YetkiKuraliDeger implements com.mendix.systemwideinterfaces.core.IE
 			getMendixObject().setValue(context, MemberNames.YetkiKuraliDeger_YetkiKurali.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.YetkiKuraliDeger_YetkiKurali.toString(), yetkikuralideger_yetkikurali.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of YetkiKuraliDeger_BirimLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiKuraliDeger_BirimLD() throws com.mendix.core.CoreException
+	{
+		return getYetkiKuraliDeger_BirimLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of YetkiKuraliDeger_BirimLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiKuraliDeger_BirimLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiKuraliDeger_BirimLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of YetkiKuraliDeger_BirimLD
+	 * @param yetkikuralideger_birimld
+	 */
+	public final void setYetkiKuraliDeger_BirimLD(guvenlikyonetimi.proxies.LocalDepartment yetkikuralideger_birimld)
+	{
+		setYetkiKuraliDeger_BirimLD(getContext(), yetkikuralideger_birimld);
+	}
+
+	/**
+	 * Set value of YetkiKuraliDeger_BirimLD
+	 * @param context
+	 * @param yetkikuralideger_birimld
+	 */
+	public final void setYetkiKuraliDeger_BirimLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment yetkikuralideger_birimld)
+	{
+		if (yetkikuralideger_birimld == null) {
+			getMendixObject().setValue(context, MemberNames.YetkiKuraliDeger_BirimLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.YetkiKuraliDeger_BirimLD.toString(), yetkikuralideger_birimld.getMendixObject().getId());
 		}
 	}
 

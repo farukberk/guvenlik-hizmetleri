@@ -40,6 +40,7 @@ public class SubeBelgesi implements com.mendix.systemwideinterfaces.core.IEntity
 		Durum("Durum"),
 		GecenGun("GecenGun"),
 		SubeBelgesi_BelgeTuru("GuvenlikYonetimi.SubeBelgesi_BelgeTuru"),
+		SubeBelgesi_SubeLD("GuvenlikYonetimi.SubeBelgesi_SubeLD"),
 		SubeBelgesi_Sube("GuvenlikYonetimi.SubeBelgesi_Sube");
 
 		private final java.lang.String metaName;
@@ -739,6 +740,53 @@ public class SubeBelgesi implements com.mendix.systemwideinterfaces.core.IEntity
 			getMendixObject().setValue(context, MemberNames.SubeBelgesi_BelgeTuru.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.SubeBelgesi_BelgeTuru.toString(), subebelgesi_belgeturu.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of SubeBelgesi_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeBelgesi_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getSubeBelgesi_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubeBelgesi_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getSubeBelgesi_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.SubeBelgesi_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of SubeBelgesi_SubeLD
+	 * @param subebelgesi_subeld
+	 */
+	public final void setSubeBelgesi_SubeLD(guvenlikyonetimi.proxies.LocalDepartment subebelgesi_subeld)
+	{
+		setSubeBelgesi_SubeLD(getContext(), subebelgesi_subeld);
+	}
+
+	/**
+	 * Set value of SubeBelgesi_SubeLD
+	 * @param context
+	 * @param subebelgesi_subeld
+	 */
+	public final void setSubeBelgesi_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment subebelgesi_subeld)
+	{
+		if (subebelgesi_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.SubeBelgesi_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.SubeBelgesi_SubeLD.toString(), subebelgesi_subeld.getMendixObject().getId());
 		}
 	}
 

@@ -88,6 +88,7 @@
                 var h = document.documentElement;
                 h.className = h.className.replace(/\bgh-rol-\S+/g, "").trim();
                 if (bilgi.rol) h.classList.add("gh-rol-" + bilgi.rol);
+                if (oturumUyumsuzMu(bilgi.rol)) { oturumuYenile(); return; }
                 uygula();
                 personelYonlendir();
             },
@@ -162,10 +163,89 @@
         bosZamanlayici = setTimeout(function () { bosZamanlayici = null; bosHucreler(); }, 250);
     }).observe(document.documentElement, { childList: true, subtree: true, characterData: true });
 
+    // ----- Sol menü: ÇALIŞILAN BİRİM seçimi (P93) -----
+    // Seçenekler GuvenlikYonetimi.DS_CalisilanBirim_Secenekler'den gelir (Güvenlik Ofisi: manuel birimler; Bölge: üst birim / birim kullanıcısı).
+    // Seçim ACT_CalisilanBirim_Sec ile kaydedilir, yetki yeniden hesaplanır ve sayfa yenilenir.
+    var secenekler = null, secenekSoruldu = false;
+    var YENILE_ANAHTAR = "gh-calisilan-yenile";
+    function oturumuYenile() {
+        try { sessionStorage.removeItem(YENILE_ANAHTAR); } catch (e) { }
+        if (window.mx && typeof mx.logout === "function") mx.logout();
+        else window.location.reload();
+    }
+    // Manuel Birim Tanımları'ndaki "Birim olarak çalış" düğmesi: işlem bitince oturum rolü yetkiyle uyuşmuyorsa oturum yenilenir.
+    document.addEventListener("click", function (e) {
+        if (e.target instanceof Element && e.target.closest(".gh-btn-signin")) {
+            try { sessionStorage.setItem(YENILE_ANAHTAR, String(Date.now())); } catch (er) { }
+            setTimeout(function () { yenile(true); }, 2500);
+        }
+    }, true);
+    function oturumUyumsuzMu(rol) {
+        var zaman = 0;
+        try { zaman = Number(sessionStorage.getItem(YENILE_ANAHTAR)) || 0; } catch (e) { }
+        if (!zaman) return false;
+        if (Date.now() - zaman > 30000) {
+            try { sessionStorage.removeItem(YENILE_ANAHTAR); } catch (e) { }
+            return false;
+        }
+        if (!rol || !mx.session.getUserRoleNames) return false;
+        return mx.session.getUserRoleNames().indexOf(rol) < 0;
+    }
+    function calisilanSecenekleriAl() {
+        if (secenekSoruldu) return;
+        secenekSoruldu = true;
+        mx.data.action({
+            params: { actionname: "GuvenlikYonetimi.DS_CalisilanBirim_Secenekler" },
+            callback: function (liste) { secenekler = liste || []; calisilanBirim(); },
+            error: function () { secenekler = []; }
+        });
+    }
+    function calisilanBirim() {
+        var wrap = document.querySelector(".layout-atlas .region-sidebar > .mx-scrollcontainer-wrapper");
+        if (!wrap) return;
+        if (secenekler === null) { calisilanSecenekleriAl(); return; }
+        var kutu = wrap.querySelector(":scope > .gh-calisilan");
+        if (secenekler.length < 2) { if (kutu) kutu.remove(); return; }
+        if (kutu) return;
+        kutu = el("div", "gh-calisilan");
+        var etiket = el("label", "gh-calisilan-etiket");
+        etiket.textContent = "ÇALIŞILAN BİRİM";
+        var sec = el("select", "gh-calisilan-sec");
+        sec.id = etiket.htmlFor = "gh-calisilan-sec";
+        secenekler.forEach(function (o, i) {
+            var op = el("option");
+            op.value = String(i);
+            op.textContent = o.get("Etiket");
+            if (o.get("Secili")) op.selected = true;
+            sec.appendChild(op);
+        });
+        sec.addEventListener("change", function () {
+            var o = secenekler[Number(sec.value)];
+            if (!o) return;
+            sec.disabled = true;
+            kutu.classList.add("is-busy");
+            mx.data.action({
+                params: { actionname: "GuvenlikYonetimi.ACT_CalisilanBirim_Sec", applyto: "selection", guids: [o.getGuid()] },
+                // Mendix kullanıcı rolleri oturum açılırken yüklenir: yeni rolün geçmesi için oturum yenilenir (SSO'da otomatik yeniden giriş).
+                callback: function () { oturumuYenile(); },
+                error: function (e) {
+                    sec.disabled = false;
+                    kutu.classList.remove("is-busy");
+                    if (window.mx && mx.ui && mx.ui.error) mx.ui.error("Çalışılan birim değiştirilemedi: " + (e && e.message ? e.message : ""));
+                }
+            });
+        });
+        kutu.appendChild(etiket);
+        kutu.appendChild(sec);
+        var me = wrap.querySelector(":scope > .hs-me");
+        wrap.insertBefore(kutu, me ? me.nextSibling : wrap.firstChild);
+    }
+
     setInterval(function () {
         if (!hazir()) return;
         if (!bilgi) yenile(true);
         else arama();
+        calisilanBirim();
     }, 1500);
     setInterval(function () { yenile(true); }, 60000);
     document.addEventListener("click", function () { setTimeout(function () { yenile(false); }, 1500); }, true);

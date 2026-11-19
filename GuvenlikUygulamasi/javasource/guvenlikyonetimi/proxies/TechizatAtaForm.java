@@ -30,10 +30,12 @@ public class TechizatAtaForm implements com.mendix.systemwideinterfaces.core.IEn
 		Bedenli("Bedenli"),
 		YenidenAtama("YenidenAtama"),
 		TurAdi("TurAdi"),
+		SubeDepartmanID("SubeDepartmanID"),
 		TechizatAtaForm_Oturum("GuvenlikYonetimi.TechizatAtaForm_Oturum"),
 		TechizatAtaForm_Birim("GuvenlikYonetimi.TechizatAtaForm_Birim"),
 		TechizatAtaForm_Beden("GuvenlikYonetimi.TechizatAtaForm_Beden"),
 		TechizatAtaForm_Tur("GuvenlikYonetimi.TechizatAtaForm_Tur"),
+		TechizatAtaForm_SubeLD("GuvenlikYonetimi.TechizatAtaForm_SubeLD"),
 		TechizatAtaForm_Person("GuvenlikYonetimi.TechizatAtaForm_Person"),
 		TechizatAtaForm_Sube("GuvenlikYonetimi.TechizatAtaForm_Sube");
 
@@ -349,6 +351,42 @@ public class TechizatAtaForm implements com.mendix.systemwideinterfaces.core.IEn
 	}
 
 	/**
+	 * @return value of SubeDepartmanID
+	 */
+	public final java.lang.Integer getSubeDepartmanID()
+	{
+		return getSubeDepartmanID(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubeDepartmanID
+	 */
+	public final java.lang.Integer getSubeDepartmanID(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.SubeDepartmanID.toString());
+	}
+
+	/**
+	 * Set value of SubeDepartmanID
+	 * @param subedepartmanid
+	 */
+	public final void setSubeDepartmanID(java.lang.Integer subedepartmanid)
+	{
+		setSubeDepartmanID(getContext(), subedepartmanid);
+	}
+
+	/**
+	 * Set value of SubeDepartmanID
+	 * @param context
+	 * @param subedepartmanid
+	 */
+	public final void setSubeDepartmanID(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer subedepartmanid)
+	{
+		getMendixObject().setValue(context, MemberNames.SubeDepartmanID.toString(), subedepartmanid);
+	}
+
+	/**
 	 * @throws com.mendix.core.CoreException
 	 * @return value of TechizatAtaForm_Oturum
 	 */
@@ -533,6 +571,53 @@ public class TechizatAtaForm implements com.mendix.systemwideinterfaces.core.IEn
 			getMendixObject().setValue(context, MemberNames.TechizatAtaForm_Tur.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.TechizatAtaForm_Tur.toString(), techizatataform_tur.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of TechizatAtaForm_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getTechizatAtaForm_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getTechizatAtaForm_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of TechizatAtaForm_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getTechizatAtaForm_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.TechizatAtaForm_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of TechizatAtaForm_SubeLD
+	 * @param techizatataform_subeld
+	 */
+	public final void setTechizatAtaForm_SubeLD(guvenlikyonetimi.proxies.LocalDepartment techizatataform_subeld)
+	{
+		setTechizatAtaForm_SubeLD(getContext(), techizatataform_subeld);
+	}
+
+	/**
+	 * Set value of TechizatAtaForm_SubeLD
+	 * @param context
+	 * @param techizatataform_subeld
+	 */
+	public final void setTechizatAtaForm_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment techizatataform_subeld)
+	{
+		if (techizatataform_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.TechizatAtaForm_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.TechizatAtaForm_SubeLD.toString(), techizatataform_subeld.getMendixObject().getId());
 		}
 	}
 

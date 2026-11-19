@@ -51,6 +51,8 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 		RolSecim("RolSecim"),
 		ModulSecim("ModulSecim"),
 		RaporFiltre_BelgeTuru("GuvenlikYonetimi.RaporFiltre_BelgeTuru"),
+		RaporFiltre_BolgeLD("GuvenlikYonetimi.RaporFiltre_BolgeLD"),
+		RaporFiltre_SubeLD("GuvenlikYonetimi.RaporFiltre_SubeLD"),
 		RaporFiltre_Sube("GuvenlikYonetimi.RaporFiltre_Sube"),
 		RaporFiltre_Bolge("GuvenlikYonetimi.RaporFiltre_Bolge");
 
@@ -1165,6 +1167,100 @@ public class RaporFiltre implements com.mendix.systemwideinterfaces.core.IEntity
 			getMendixObject().setValue(context, MemberNames.RaporFiltre_BelgeTuru.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.RaporFiltre_BelgeTuru.toString(), raporfiltre_belgeturu.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of RaporFiltre_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getRaporFiltre_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getRaporFiltre_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of RaporFiltre_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getRaporFiltre_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.RaporFiltre_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of RaporFiltre_BolgeLD
+	 * @param raporfiltre_bolgeld
+	 */
+	public final void setRaporFiltre_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment raporfiltre_bolgeld)
+	{
+		setRaporFiltre_BolgeLD(getContext(), raporfiltre_bolgeld);
+	}
+
+	/**
+	 * Set value of RaporFiltre_BolgeLD
+	 * @param context
+	 * @param raporfiltre_bolgeld
+	 */
+	public final void setRaporFiltre_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment raporfiltre_bolgeld)
+	{
+		if (raporfiltre_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.RaporFiltre_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.RaporFiltre_BolgeLD.toString(), raporfiltre_bolgeld.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of RaporFiltre_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getRaporFiltre_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getRaporFiltre_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of RaporFiltre_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getRaporFiltre_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.RaporFiltre_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of RaporFiltre_SubeLD
+	 * @param raporfiltre_subeld
+	 */
+	public final void setRaporFiltre_SubeLD(guvenlikyonetimi.proxies.LocalDepartment raporfiltre_subeld)
+	{
+		setRaporFiltre_SubeLD(getContext(), raporfiltre_subeld);
+	}
+
+	/**
+	 * Set value of RaporFiltre_SubeLD
+	 * @param context
+	 * @param raporfiltre_subeld
+	 */
+	public final void setRaporFiltre_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment raporfiltre_subeld)
+	{
+		if (raporfiltre_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.RaporFiltre_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.RaporFiltre_SubeLD.toString(), raporfiltre_subeld.getMendixObject().getId());
 		}
 	}
 

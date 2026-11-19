@@ -21,6 +21,7 @@ public class YetkiBolge implements com.mendix.systemwideinterfaces.core.IEntityP
 	public enum MemberNames
 	{
 		YetkiBolge_KullaniciYetkisi("GuvenlikYonetimi.YetkiBolge_KullaniciYetkisi"),
+		YetkiBolge_BolgeLD("GuvenlikYonetimi.YetkiBolge_BolgeLD"),
 		YetkiBolge_Bolge("GuvenlikYonetimi.YetkiBolge_Bolge");
 
 		private final java.lang.String metaName;
@@ -126,6 +127,53 @@ public class YetkiBolge implements com.mendix.systemwideinterfaces.core.IEntityP
 			getMendixObject().setValue(context, MemberNames.YetkiBolge_KullaniciYetkisi.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.YetkiBolge_KullaniciYetkisi.toString(), yetkibolge_kullaniciyetkisi.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of YetkiBolge_BolgeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiBolge_BolgeLD() throws com.mendix.core.CoreException
+	{
+		return getYetkiBolge_BolgeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of YetkiBolge_BolgeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getYetkiBolge_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.YetkiBolge_BolgeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of YetkiBolge_BolgeLD
+	 * @param yetkibolge_bolgeld
+	 */
+	public final void setYetkiBolge_BolgeLD(guvenlikyonetimi.proxies.LocalDepartment yetkibolge_bolgeld)
+	{
+		setYetkiBolge_BolgeLD(getContext(), yetkibolge_bolgeld);
+	}
+
+	/**
+	 * Set value of YetkiBolge_BolgeLD
+	 * @param context
+	 * @param yetkibolge_bolgeld
+	 */
+	public final void setYetkiBolge_BolgeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment yetkibolge_bolgeld)
+	{
+		if (yetkibolge_bolgeld == null) {
+			getMendixObject().setValue(context, MemberNames.YetkiBolge_BolgeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.YetkiBolge_BolgeLD.toString(), yetkibolge_bolgeld.getMendixObject().getId());
 		}
 	}
 

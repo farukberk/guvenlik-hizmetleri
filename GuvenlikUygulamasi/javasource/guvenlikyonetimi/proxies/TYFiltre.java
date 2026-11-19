@@ -39,6 +39,7 @@ public class TYFiltre implements com.mendix.systemwideinterfaces.core.IEntityPro
 		GorunenN("GorunenN"),
 		TopluIptalNedeni("TopluIptalNedeni"),
 		IptalN("IptalN"),
+		TYFiltre_SubeLD("GuvenlikYonetimi.TYFiltre_SubeLD"),
 		TYFiltre_Sube("GuvenlikYonetimi.TYFiltre_Sube");
 
 		private final java.lang.String metaName;
@@ -791,6 +792,53 @@ public class TYFiltre implements com.mendix.systemwideinterfaces.core.IEntityPro
 	public final void setIptalN(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer iptaln)
 	{
 		getMendixObject().setValue(context, MemberNames.IptalN.toString(), iptaln);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of TYFiltre_SubeLD
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getTYFiltre_SubeLD() throws com.mendix.core.CoreException
+	{
+		return getTYFiltre_SubeLD(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of TYFiltre_SubeLD
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final guvenlikyonetimi.proxies.LocalDepartment getTYFiltre_SubeLD(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		guvenlikyonetimi.proxies.LocalDepartment result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.TYFiltre_SubeLD.toString());
+		if (identifier != null) {
+			result = guvenlikyonetimi.proxies.LocalDepartment.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of TYFiltre_SubeLD
+	 * @param tyfiltre_subeld
+	 */
+	public final void setTYFiltre_SubeLD(guvenlikyonetimi.proxies.LocalDepartment tyfiltre_subeld)
+	{
+		setTYFiltre_SubeLD(getContext(), tyfiltre_subeld);
+	}
+
+	/**
+	 * Set value of TYFiltre_SubeLD
+	 * @param context
+	 * @param tyfiltre_subeld
+	 */
+	public final void setTYFiltre_SubeLD(com.mendix.systemwideinterfaces.core.IContext context, guvenlikyonetimi.proxies.LocalDepartment tyfiltre_subeld)
+	{
+		if (tyfiltre_subeld == null) {
+			getMendixObject().setValue(context, MemberNames.TYFiltre_SubeLD.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.TYFiltre_SubeLD.toString(), tyfiltre_subeld.getMendixObject().getId());
+		}
 	}
 
 	/**
