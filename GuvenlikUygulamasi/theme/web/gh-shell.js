@@ -173,11 +173,16 @@
     // Seçenekler GuvenlikYonetimi.DS_CalisilanBirim_Secenekler'den gelir (Güvenlik Ofisi: manuel birimler; Bölge: üst birim / birim kullanıcısı).
     // Seçim ACT_CalisilanBirim_Sec ile kaydedilir, yetki yeniden hesaplanır ve sayfa yenilenir.
     var secenekler = null, secenekSoruldu = false;
+    var calisilanSec = null, seritSeciliIndeks = 0, seritBilgi = {};
     var YENILE_ANAHTAR = "gh-calisilan-yenile";
+    // Mendix kullanıcı rolleri oturum açılırken yüklenir. /calisilan-birim/ istek işleyicisi (JA_OturumYenileKaydet ile kaydedilir)
+    // aynı kullanıcıya yeni oturum açıp çerezleri yazar: çıkış yapılmadan yeni rollerle devam edilir. İşleyici yoksa eski yöntem (çıkış).
     function oturumuYenile() {
         try { sessionStorage.removeItem(YENILE_ANAHTAR); } catch (e) { }
-        if (window.mx && typeof mx.logout === "function") mx.logout();
-        else window.location.reload();
+        var cikis = function () { if (window.mx && typeof mx.logout === "function") mx.logout(); else window.location.reload(); };
+        fetch("/calisilan-birim/", { method: "GET", credentials: "same-origin", redirect: "manual", cache: "no-store" })
+            .then(function (r) { if (r.type === "opaqueredirect" || r.status === 303 || r.status === 302) window.location.replace("/"); else cikis(); })
+            .catch(cikis);
     }
     // Manuel Birim Tanımları'ndaki "Birim olarak çalış" düğmesi: işlem bitince oturum rolü yetkiyle uyuşmuyorsa oturum yenilenir.
     document.addEventListener("click", function (e) {
@@ -255,6 +260,7 @@
         var sec = function (i) {
             kapat();
             if (i === seciliIndeks) return;
+            seritSeciliIndeks = i;
             var o = secenekler[i];
             if (!o) return;
             seciliIndeks = i;
@@ -342,6 +348,8 @@
             window.addEventListener("scroll", kaydir, true);
             window.addEventListener("resize", kapat);
         };
+        calisilanSec = sec;
+        seritSeciliIndeks = seciliIndeks;
         dugme.addEventListener("click", function () { if (acik) kapat(); else ac(); });
         dugme.addEventListener("keydown", tus);
         kutu.appendChild(etiket);
@@ -350,11 +358,70 @@
         wrap.insertBefore(kutu, me ? me.nextSibling : wrap.firstChild);
     }
 
+    // ----- Birim modunda her sayfanın üstünde turuncu bilgilendirme şeridi (prototip: acting / bolgeBirim) -----
+    function birimSeridi() {
+        var kap = document.querySelector(".region-content > .mx-scrollcontainer-wrapper");
+        var mevcut = document.querySelector(".gh-act-serit");
+        var o = secenekler && secenekler.length > 1 ? secenekler[seritSeciliIndeks] : null;
+        if (!kap || !o || seritSeciliIndeks === 0) { if (mevcut) mevcut.remove(); return; }
+        var goMu = secenekler[0].etiket === "Güvenlik Ofisi";
+        var anahtar = (goMu ? "go:" : "bolge:") + o.kod;
+        if (mevcut && mevcut.getAttribute("data-k") === anahtar && mevcut.parentElement === kap && kap.firstElementChild === mevcut) return;
+        if (goMu && !seritBilgi[o.kod]) {
+            seritBilgi[o.kod] = { yukleniyor: true };
+            mx.data.get({
+                xpath: "//GuvenlikYonetimi.LocalDepartment[DepartmentID = " + o.kod + "]",
+                filter: { amount: 1 },
+                callback: function (l) {
+                    var d = l && l[0];
+                    seritBilgi[o.kod] = { kod: d ? (d.get("MisCode") || "") : "", yer: d ? [d.get("Il"), d.get("Ilce")].filter(Boolean).join(" / ") : "" };
+                    var eski = document.querySelector(".gh-act-serit");
+                    if (eski) eski.remove();
+                    birimSeridi();
+                },
+                error: function () { seritBilgi[o.kod] = { kod: "", yer: "" }; var eski = document.querySelector(".gh-act-serit"); if (eski) eski.remove(); birimSeridi(); }
+            });
+        }
+        if (mevcut) mevcut.remove();
+        var s = el("div", "gh-act-serit");
+        s.setAttribute("role", "status");
+        s.setAttribute("data-k", anahtar);
+        s.appendChild(el("i", "ph ph-user-switch gh-act-ikon"));
+        var metin = el("span", "gh-act-metin");
+        var g = function (t) { var b = el("strong"); b.textContent = t; return b; };
+        var dugme = el("button", "btn gh-act-don");
+        dugme.type = "button";
+        dugme.appendChild(el("i", "ph ph-arrow-u-up-left"));
+        if (goMu) {
+            var bi = seritBilgi[o.kod] || {};
+            metin.appendChild(g(o.etiket));
+            metin.appendChild(document.createTextNode(" adına "));
+            metin.appendChild(g("Birim rolüyle"));
+            metin.appendChild(document.createTextNode(" çalışıyorsunuz. Bu birim manuel tanımlıdır; birim kullanıcısı işlemlerini Güvenlik Ofisi yapar. "));
+            var ek = el("span", "gh-act-ek");
+            ek.textContent = [bi.kod || "", bi.yer || "Manuel birim"].filter(Boolean).join(" · ");
+            metin.appendChild(ek);
+            dugme.appendChild(document.createTextNode("Güvenlik Ofisi görünümüne dön"));
+        } else {
+            metin.appendChild(g(o.etiket.replace(/ - Birim Kullanıcısı$/, "")));
+            metin.appendChild(document.createTextNode(" adına "));
+            metin.appendChild(g("Birim Kullanıcısı"));
+            metin.appendChild(document.createTextNode(" olarak çalışıyorsunuz. Belge yükleme, güncelleme ve denetim kaydı gibi birim işlemlerini yapabilirsiniz."));
+            dugme.appendChild(document.createTextNode("Üst Birim Kullanıcısına dön"));
+        }
+        dugme.addEventListener("click", function () { if (calisilanSec) calisilanSec(0); });
+        s.appendChild(metin);
+        s.appendChild(dugme);
+        kap.insertBefore(s, kap.firstChild);
+    }
+    new MutationObserver(function () { if (secenekler && seritSeciliIndeks) birimSeridi(); }).observe(document.body, { childList: true, subtree: false });
+
     setInterval(function () {
         if (!hazir()) return;
         if (!bilgi) yenile(true);
         else arama();
         calisilanBirim();
+        birimSeridi();
     }, 1500);
     setInterval(function () { yenile(true); }, 60000);
     document.addEventListener("click", function () { setTimeout(function () { yenile(false); }, 1500); }, true);

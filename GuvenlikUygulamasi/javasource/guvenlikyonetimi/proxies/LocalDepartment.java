@@ -38,7 +38,10 @@ public class LocalDepartment implements com.mendix.systemwideinterfaces.core.IEn
 		Address("Address"),
 		Aciklama("Aciklama"),
 		SonEsitleme("SonEsitleme"),
+		PersonelAdlari("PersonelAdlari"),
+		PersonelSayisi("PersonelSayisi"),
 		LocalDepartment_Parent("GuvenlikYonetimi.LocalDepartment_Parent"),
+		LocalDepartment_Atamalar("GuvenlikYonetimi.LocalDepartment_Atamalar"),
 		LocalDepartment_Department("GuvenlikYonetimi.LocalDepartment_Department"),
 		Person_LocalDept("GuvenlikYonetimi.Person_LocalDept"),
 		LocalDepartment_City("GuvenlikYonetimi.LocalDepartment_City"),
@@ -752,6 +755,78 @@ public class LocalDepartment implements com.mendix.systemwideinterfaces.core.IEn
 	}
 
 	/**
+	 * @return value of PersonelAdlari
+	 */
+	public final java.lang.String getPersonelAdlari()
+	{
+		return getPersonelAdlari(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of PersonelAdlari
+	 */
+	public final java.lang.String getPersonelAdlari(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.PersonelAdlari.toString());
+	}
+
+	/**
+	 * Set value of PersonelAdlari
+	 * @param personeladlari
+	 */
+	public final void setPersonelAdlari(java.lang.String personeladlari)
+	{
+		setPersonelAdlari(getContext(), personeladlari);
+	}
+
+	/**
+	 * Set value of PersonelAdlari
+	 * @param context
+	 * @param personeladlari
+	 */
+	public final void setPersonelAdlari(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String personeladlari)
+	{
+		getMendixObject().setValue(context, MemberNames.PersonelAdlari.toString(), personeladlari);
+	}
+
+	/**
+	 * @return value of PersonelSayisi
+	 */
+	public final java.lang.Integer getPersonelSayisi()
+	{
+		return getPersonelSayisi(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of PersonelSayisi
+	 */
+	public final java.lang.Integer getPersonelSayisi(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.PersonelSayisi.toString());
+	}
+
+	/**
+	 * Set value of PersonelSayisi
+	 * @param personelsayisi
+	 */
+	public final void setPersonelSayisi(java.lang.Integer personelsayisi)
+	{
+		setPersonelSayisi(getContext(), personelsayisi);
+	}
+
+	/**
+	 * Set value of PersonelSayisi
+	 * @param context
+	 * @param personelsayisi
+	 */
+	public final void setPersonelSayisi(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer personelsayisi)
+	{
+		getMendixObject().setValue(context, MemberNames.PersonelSayisi.toString(), personelsayisi);
+	}
+
+	/**
 	 * @throws com.mendix.core.CoreException
 	 * @return value of LocalDepartment_Parent
 	 */
@@ -796,6 +871,58 @@ public class LocalDepartment implements com.mendix.systemwideinterfaces.core.IEn
 		} else {
 			getMendixObject().setValue(context, MemberNames.LocalDepartment_Parent.toString(), localdepartment_parent.getMendixObject().getId());
 		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of LocalDepartment_Atamalar
+	 */
+	public final java.util.List<guvenlikyonetimi.proxies.BirimPersonelAtama> getLocalDepartment_Atamalar() throws com.mendix.core.CoreException
+	{
+		return getLocalDepartment_Atamalar(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of LocalDepartment_Atamalar
+	 * @throws com.mendix.core.CoreException
+	 */
+	@SuppressWarnings("unchecked")
+	public final java.util.List<guvenlikyonetimi.proxies.BirimPersonelAtama> getLocalDepartment_Atamalar(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		java.util.List<guvenlikyonetimi.proxies.BirimPersonelAtama> result = new java.util.ArrayList<>();
+		Object valueObject = getMendixObject().getValue(context, MemberNames.LocalDepartment_Atamalar.toString());
+		if (valueObject == null) {
+			return result;
+		}
+		for (com.mendix.systemwideinterfaces.core.IMendixObject mendixObject : com.mendix.core.Core.retrieveIdList(context, (java.util.List<com.mendix.systemwideinterfaces.core.IMendixIdentifier>) valueObject)) {
+			result.add(guvenlikyonetimi.proxies.BirimPersonelAtama.initialize(context, mendixObject));
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of LocalDepartment_Atamalar
+	 * @param localdepartment_atamalar
+	 */
+	public final void setLocalDepartment_Atamalar(java.util.List<guvenlikyonetimi.proxies.BirimPersonelAtama> localdepartment_atamalar)
+	{
+		setLocalDepartment_Atamalar(getContext(), localdepartment_atamalar);
+	}
+
+	/**
+	 * Set value of LocalDepartment_Atamalar
+	 * @param context
+	 * @param localdepartment_atamalar
+	 */
+	public final void setLocalDepartment_Atamalar(com.mendix.systemwideinterfaces.core.IContext context, java.util.List<guvenlikyonetimi.proxies.BirimPersonelAtama> localdepartment_atamalar)
+	{
+		var identifiers = localdepartment_atamalar
+			.stream()
+			.map(proxyObject -> proxyObject.getMendixObject().getId())
+			.collect(java.util.stream.Collectors.toList());
+		
+		getMendixObject().setValue(context, MemberNames.LocalDepartment_Atamalar.toString(), identifiers);
 	}
 
 	/**

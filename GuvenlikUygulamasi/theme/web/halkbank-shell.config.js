@@ -30,7 +30,7 @@ window.HalkbankShellConfig = {
         // Yönetim / Parametreler
         "Belge Türü ve Alarm Tanımları": "sliders-horizontal",
         "Birim–Belge Atamaları": "link-simple",
-        "Manuel Birim Tanımları": "building-apartment",
+        "Manuel Birim-Personel Tanımlama": "building-apartment",
         "Kıyafet Türü Tanımları": "coat-hanger",
         "Teçhizat Türü Tanımları": "toolbox",
         "Yetkilendirme": "shield-check",

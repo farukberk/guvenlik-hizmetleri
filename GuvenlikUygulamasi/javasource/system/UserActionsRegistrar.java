@@ -128,6 +128,7 @@ public class UserActionsRegistrar
     registrator.registerUserAction(excelimporter.actions.StartImportByTemplate.class);
     registrator.registerUserAction(feedbackmodule.actions.ValidateEmail.class);
     registrator.registerUserAction(feedbackmodule.actions.XSS_Sanitizer.class);
+    registrator.registerUserAction(guvenlikyonetimi.actions.JA_OturumYenileKaydet.class);
     registrator.registerUserAction(halkbank_mail.actions.ConvertTokens.class);
     registrator.registerUserAction(halkbank_mail.actions.CountObjectsOfType.class);
     registrator.registerUserAction(halkbank_messageservice.actions.GetRequest.class);

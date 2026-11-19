@@ -12511,3 +12511,396 @@ html body .gh-lcc-liste .widget-datagrid .th {
 html[data-theme="dark"] body .gh-lcc-liste .widget-datagrid .th {
     background: #16223a;
 }
+
+// Birim modunda sayfa üstü bilgilendirme şeridi — prototip (role="status", --ku-orange #ff9c4f) ile birebir
+.gh-act-serit {
+    --act-turuncu: #ff9c4f;
+    --act-turuncu-yazi: #b4570f;
+    --act-yuzey: #fdfeff;
+    --act-yazi: #0f1d33;
+    --act-soluk: #626e84;
+    --act-ayrac: color-mix(in srgb, #0f1d33 12%, transparent);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 0 16px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--act-turuncu) 14%, var(--act-yuzey));
+    box-shadow: inset 3px 0 0 var(--act-turuncu);
+    color: var(--act-yazi);
+    font-family: "HS Inter", "Inter", system-ui, sans-serif;
+    box-sizing: border-box;
+    .gh-act-ikon {
+        font-size: 20px;
+        color: var(--act-turuncu-yazi);
+    }
+    .gh-act-metin {
+        flex: 1;
+        min-width: 240px;
+        font-size: 13px;
+        line-height: 1.45;
+        strong {
+            font-weight: 600;
+        }
+    }
+    .gh-act-ek {
+        color: var(--act-soluk);
+    }
+    .btn.gh-act-don {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin: 0;
+        padding: 5.6px 10.08px;
+        font-family: inherit;
+        font-size: 12.5px;
+        line-height: 1.2;
+        color: var(--act-yazi);
+        background: transparent;
+        border: 1px solid var(--act-ayrac);
+        border-radius: 8px;
+        box-shadow: none;
+        cursor: pointer;
+        &:hover {
+            background: color-mix(in srgb, var(--act-yazi) 7%, transparent);
+        }
+        &:active {
+            background: color-mix(in srgb, var(--act-yazi) 14%, transparent);
+        }
+    }
+}
+html[data-theme="dark"] .gh-act-serit {
+    --act-turuncu-yazi: #ff9c4f;
+    --act-yuzey: #16223a;
+    --act-yazi: #e8edf5;
+    --act-soluk: #7a879e;
+    --act-ayrac: color-mix(in srgb, #e8edf5 12%, transparent);
+}
+// şerit sayfa içeriğiyle aynı kenar boşluklarında
+html.hs-on .region-content > .mx-scrollcontainer-wrapper > .gh-act-serit {
+    margin: 16px var(--gh-sayfa-pad, 24px) 0;
+    width: auto;
+}
+
+// ============================================================================
+// P95 · Manuel Birim-Personel Tanımlama (prototip: İK senkronu, personel eşleşmeleri)
+// ============================================================================
+.gh-kpis.gh-kpis-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    @media (max-width: 1199px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+.gh-mb-ozet {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    > .mx-dataview-content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+.btn.gh-btn-test {
+    border: 1px dashed var(--color-neutral-600, #b8c1cc) !important;
+}
+.gh-mb-senkron {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #b7dcc4;
+    background: #e9f6ee;
+    color: #1f5a35;
+    font-size: 13px;
+    line-height: 1.5;
+    &::before {
+        @include ph("\e40c");
+        font-size: 18px;
+        line-height: 1.2;
+        flex: none;
+    }
+    .gh-mb-senkron-metin {
+        flex: 1;
+        min-width: 0;
+    }
+    .btn.gh-mb-senkron-kapat {
+        margin: 0;
+        padding: 2px 6px;
+        min-height: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        box-shadow: none;
+        &::before {
+            @include ph("\e4f6");
+            font-size: 14px;
+        }
+    }
+}
+html[data-theme="dark"] .gh-mb-senkron {
+    border-color: #2f6b47;
+    background: #17382a;
+    color: #bfe8cf;
+}
+// Birim listesi: Güvenlik personeli kolonu
+.gh-mb-personel {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    &::before {
+        @include ph("\e4d6");
+        color: var(--ho-icon, var(--color-accent));
+    }
+}
+.is-korunur .gh-mb-personel::after {
+    @include ph("\e308");
+    font-size: 12px;
+    color: var(--color-neutral-500);
+}
+.gh-mb-personel-adlar {
+    max-width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+// Güvenlik personeli – manuel birim eşleşmeleri kartı
+.gh-mb-eslesme-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 14px 0;
+    flex-direction: column;
+    position: relative;
+    padding-left: 42px;
+    &::before {
+        @include ph("\e2e2");
+        position: absolute;
+        left: 14px;
+        top: 16px;
+        font-size: 18px;
+        color: var(--ho-icon, var(--color-accent));
+    }
+    .gh-mb-eslesme-baslik {
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .gh-mb-eslesme-alt {
+        font-size: 12px;
+        color: var(--color-neutral-500);
+        margin-top: -8px;
+    }
+}
+.gh-mb-kaynak {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    background: rgba(0, 82, 155, 0.08);
+    color: #00529b;
+    &::before {
+        @include ph("\e308");
+    }
+}
+html[data-theme="dark"] .gh-mb-kaynak {
+    background: rgba(120, 170, 230, 0.16);
+    color: #9cc3ef;
+}
+.gh-mono {
+    font-family: ui-monospace, monospace;
+    font-size: 12.5px;
+}
+.gh-nowrap {
+    white-space: nowrap;
+}
+// Form: Güvenlik personeli bölümü
+.gh-mb-personel-kutu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--color-neutral-700, #d9dee6);
+    margin-bottom: 14px;
+}
+.gh-mb-personel-baslik {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+    &::before {
+        @include ph("\e4d6");
+        font-size: 18px;
+        color: var(--ho-icon, var(--color-accent));
+    }
+}
+.gh-mb-personel-sec {
+    .mx-dataview-content {
+        padding: 0;
+    }
+    > .mx-dataview-controls {
+        display: none !important;
+    }
+}
+.gh-mb-personel-satir {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    .gh-mb-personel-cb {
+        flex: 1;
+        min-width: 0;
+        margin: 0;
+        .control-label {
+            display: none;
+        }
+    }
+    .btn {
+        margin: 0;
+        flex: none;
+    }
+}
+.btn.gh-btn-plus::before {
+    @include ph("\e3d4");
+    margin-right: 6px;
+}
+.gh-mb-atama-liste {
+    .mx-listview-list,
+    > ul {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+    }
+    .mx-listview-item,
+    li {
+        border: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+    }
+    .mx-listview-empty {
+        display: none;
+    }
+}
+.gh-mb-atama {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: var(--color-bg, #f4f6f9);
+}
+.gh-mb-atama-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 11.5px;
+    font-weight: 500;
+    background: rgba(0, 82, 155, 0.12);
+    color: #00529b;
+}
+.gh-mb-atama-bilgi {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+.gh-mb-atama-ad {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 13.5px;
+    .gh-mb-atama-sicil {
+        font-size: 11.5px;
+        color: var(--color-neutral-500);
+    }
+}
+.gh-mb-atama-alt {
+    font-size: 11.5px;
+    color: var(--color-neutral-500);
+}
+.gh-mb-atama-kaynak {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--color-accent, #00529b);
+    &::before {
+        @include ph("\e308");
+    }
+}
+.btn.gh-mb-atama-sil {
+    margin: 0;
+    padding: 6px 8px;
+    &::before {
+        @include ph("\e4a6");
+        font-size: 15px;
+    }
+}
+.gh-mb-personel-bos {
+    font-size: 12.5px;
+    color: var(--color-neutral-500);
+    padding: 4px 2px;
+}
+.gh-mb-personel-not {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--color-neutral-400);
+    &::before {
+        @include ph("\e40c");
+        font-size: 14px;
+        margin-top: 1px;
+        color: var(--ho-icon, var(--color-accent));
+    }
+}
+// Form açılır pencerelerinde alt çubuğun negatif kenar boşluğu yatay kaydırma yaratmasın
+.modal-dialog.mx-window .mx-scrollcontainer-wrapper:has(.gh-form) {
+    overflow-x: hidden;
+}
+// Manuel birim listesi (6): Kod · Birim adı · İl / İlçe · Güvenlik personeli · Aktif · İşlemler
+html body .gh-dg-manuel .widget-datagrid-grid {
+    grid-template-columns: 76px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1.3fr) 76px max-content !important;
+}
+@container (max-width: 760px) {
+    html body .gh-dg-manuel .widget-datagrid-grid {
+        grid-template-columns: 64px minmax(0, 1.4fr) minmax(0, 1fr) 64px max-content !important;
+    }
+    @include gh-hide-cols(".gh-dg-manuel", 3);
+}
+@container (max-width: 480px) {
+    html body .gh-dg-manuel .widget-datagrid-grid {
+        grid-template-columns: minmax(0, 1fr) 60px max-content !important;
+    }
+    @include gh-hide-cols(".gh-dg-manuel", 1, 3, 4);
+}
+// Personel eşleşmeleri (7): Sicil · Ad soyad · İK birimi · Manuel birim · Atama tarihi · Atayan · Kaynak
+html body .gh-dg-eslesme .widget-datagrid-grid {
+    grid-template-columns: 90px minmax(0, 1.2fr) minmax(0, 1.3fr) minmax(0, 1.3fr) 104px minmax(0, 1fr) max-content !important;
+}
+@container (max-width: 900px) {
+    html body .gh-dg-eslesme .widget-datagrid-grid {
+        grid-template-columns: 84px minmax(0, 1.2fr) minmax(0, 1.3fr) 100px max-content !important;
+    }
+    @include gh-hide-cols(".gh-dg-eslesme", 3, 6);
+}
+@container (max-width: 560px) {
+    html body .gh-dg-eslesme .widget-datagrid-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) max-content !important;
+    }
+    @include gh-hide-cols(".gh-dg-eslesme", 1, 3, 5, 6);
+}

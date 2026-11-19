@@ -23,7 +23,9 @@ public class ManuelBirimOzet implements com.mendix.systemwideinterfaces.core.IEn
 		Toplam("Toplam"),
 		Aktif("Aktif"),
 		Pasif("Pasif"),
-		Konumlu("Konumlu");
+		Konumlu("Konumlu"),
+		SenkronMesaj("SenkronMesaj"),
+		Personel("Personel");
 
 		private final java.lang.String metaName;
 
@@ -217,6 +219,78 @@ public class ManuelBirimOzet implements com.mendix.systemwideinterfaces.core.IEn
 	public final void setKonumlu(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer konumlu)
 	{
 		getMendixObject().setValue(context, MemberNames.Konumlu.toString(), konumlu);
+	}
+
+	/**
+	 * @return value of SenkronMesaj
+	 */
+	public final java.lang.String getSenkronMesaj()
+	{
+		return getSenkronMesaj(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SenkronMesaj
+	 */
+	public final java.lang.String getSenkronMesaj(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.SenkronMesaj.toString());
+	}
+
+	/**
+	 * Set value of SenkronMesaj
+	 * @param senkronmesaj
+	 */
+	public final void setSenkronMesaj(java.lang.String senkronmesaj)
+	{
+		setSenkronMesaj(getContext(), senkronmesaj);
+	}
+
+	/**
+	 * Set value of SenkronMesaj
+	 * @param context
+	 * @param senkronmesaj
+	 */
+	public final void setSenkronMesaj(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String senkronmesaj)
+	{
+		getMendixObject().setValue(context, MemberNames.SenkronMesaj.toString(), senkronmesaj);
+	}
+
+	/**
+	 * @return value of Personel
+	 */
+	public final java.lang.Integer getPersonel()
+	{
+		return getPersonel(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Personel
+	 */
+	public final java.lang.Integer getPersonel(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.Personel.toString());
+	}
+
+	/**
+	 * Set value of Personel
+	 * @param personel
+	 */
+	public final void setPersonel(java.lang.Integer personel)
+	{
+		setPersonel(getContext(), personel);
+	}
+
+	/**
+	 * Set value of Personel
+	 * @param context
+	 * @param personel
+	 */
+	public final void setPersonel(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer personel)
+	{
+		getMendixObject().setValue(context, MemberNames.Personel.toString(), personel);
 	}
 
 	@java.lang.Override
